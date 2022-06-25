@@ -33,7 +33,7 @@ class Assert
      * @param  string  $description The message to include in the exception if the condition fails.
      *
      * @throws PreconditionException if $condition is not true.
-     * @psalm-assert-true-condition $condition
+     * @psalm-assert bool $condition
      */
     public static function precondition($condition, $description): void
     {
