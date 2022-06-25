@@ -33,7 +33,7 @@ class Assert
      * @param  string  $description The message to include in the exception if the condition fails.
      *
      * @throws PreconditionException if $condition is not true.
-     * @phan-assert-true-condition $condition
+     * @psalm-assert-true-condition $condition
      */
     public static function precondition($condition, $description): void
     {
@@ -55,7 +55,7 @@ class Assert
      * @param  string  $description The message to include in the exception if the condition fails.
      *
      * @throws ParameterAssertionException if $condition is not true.
-     * @phan-assert-true-condition $condition
+     * @psalm-assert-true-condition $condition
      */
     public static function parameter($condition, $name, $description): void
     {
@@ -157,7 +157,7 @@ class Assert
      * @param  string  $name
      *
      * @throws ParameterTypeException if $value is not a non-empty string.
-     * @phan-assert non-empty-string $value
+     * @psalm-assert non-empty-string $value
      */
     public static function nonEmptyString($value, $name): void
     {
@@ -179,7 +179,7 @@ class Assert
      * @param  string  $description The message to include in the exception if the condition fails.
      *
      * @throws PostconditionException
-     * @phan-assert-true-condition $condition
+     * @psalm-assert-true-condition $condition
      */
     public static function postcondition($condition, $description): void
     {
@@ -206,7 +206,7 @@ class Assert
      * @param  string  $description The message to include in the exception if the condition fails.
      *
      * @throws InvariantException
-     * @phan-assert-true-condition $condition
+     * @psalm-assert-true-condition $condition
      */
     public static function invariant($condition, $description): void
     {
