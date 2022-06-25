@@ -30,17 +30,13 @@ class Assert
      * Checks an parameter's type, that is, throws a InvalidArgumentException if $value is
      * not of $type. This is really a special case of Assert::precondition().
      *
-     * @note This is intended for checking parameters in constructors and setters.
-     * Checking parameters in every function call is not recommended, since it may have a
-     * negative impact on performance.
-     *
      * @note If possible, type hints should be used instead of calling this function.
      * It is intended for cases where type hints to not work, e.g. for checking union types.
      *
      * @param  string|string[]  $types The parameter's expected type. Can be the name of a native type
-     *        or a class or interface, or a list of such names.
-     *        For compatibility with versions before 0.4.0, multiple types can also be given separated
-     *        by pipe characters ("|").
+     *                          or a class or interface, or a list of such names. For compatibility with
+     *                          versions before 0.4.0, multiple types can also be given separated by
+     *                          pipe characters ("|").
      * @param  mixed  $value The parameter's actual value.
      * @param  string  $name The name of the parameter that was checked.
      *
@@ -59,14 +55,14 @@ class Assert
 
     /**
      * @param  string  $type Either "integer" or "string". Mixing "integer|string" is not supported
-     *  because this is PHP's default anyway. It is of no value to check this.
+     *                       because this is PHP's default anyway. It is of no value to check this.
      * @param  array  $value The parameter's actual value. If this is not an array, a
-     *  ParameterTypeException is raised.
+     *                       ParameterTypeException is raised.
      * @param  string  $name The name of the parameter that was checked.
      *
      * @throws ParameterTypeException if one of the keys in the array $value is not of type $type.
      */
-    public static function parameterKeyType($type, $value, $name): void
+    public static function parameterKeyType(string $type, array $value, $name): void
     {
         self::parameterType('array', $value, $name);
 
@@ -85,22 +81,19 @@ class Assert
      * Checks the type of all elements of an parameter, assuming the parameter is an array,
      * that is, throws a ParameterElementTypeException if any elements in $value are not of $type.
      *
-     * @note This is intended for checking parameters in constructors and setters.
-     * Checking parameters in every function call is not recommended, since it may have a
-     * negative impact on performance.
-     *
      * @param  string|string[]  $types The elements' expected type. Can be the name of a native type
-     *        or a class or interface. Multiple types can be given in an array (or a string separated
-     *        by a pipe character ("|"), for compatibility with versions before 0.5.0).
-     * @param  array  $value The parameter's actual value. If this is not an array,
-     *        a ParameterTypeException is raised.
+     *                                 or a class or interface. Multiple types can be given in an array
+     *                                 (or a string separated by a pipe character ("|"), for compatibility
+     *                                 with versions before 0.5.0).
+     * @param  array  $value The parameter's actual value. If this is not an array, a ParameterTypeException
+     *                       is raised.
      * @param  string  $name The name of the parameter that was checked.
      *
      * @throws ParameterTypeException        If $value is not an array.
      * @throws ParameterElementTypeException If an element of $value  is not of type
      *                                       (or, for objects, is not an instance of) $type.
      */
-    public static function parameterElementType($types, $value, $name): void
+    public static function parameterElementType($types, array $value, string $name): void
     {
         self::parameterType('array', $value, $name);
         if (is_string($types)) {
