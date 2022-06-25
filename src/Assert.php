@@ -96,8 +96,6 @@ class Assert
     }
 
     /**
-     * @since 0.3.0
-     *
      * @param  string  $type Either "integer" or "string". Mixing "integer|string" is not supported
      *  because this is PHP's default anyway. It is of no value to check this.
      * @param  array  $value The parameter's actual value. If this is not an array, a
@@ -155,8 +153,6 @@ class Assert
     }
 
     /**
-     * @since 0.3.0
-     *
      * @param  string  $value
      * @param  string  $name
      *
