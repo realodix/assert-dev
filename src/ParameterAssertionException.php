@@ -7,12 +7,6 @@ use InvalidArgumentException;
 /**
  * Exception indicating that an parameter assertion failed.
  * This generally means a disagreement between the caller and the implementation of a function.
- *
- * @since 0.1.0
- *
- * @license MIT
- * @author Daniel Kinzler
- * @copyright Wikimedia Deutschland e.V.
  */
 class ParameterAssertionException extends InvalidArgumentException implements AssertionException
 {

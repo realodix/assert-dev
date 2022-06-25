@@ -12,13 +12,6 @@ namespace Realodix\Assert;
  * It is not recommended to place assertions all over the code indiscriminately.
  *
  * For more information, see the README file.
- *
- * @since 0.1.0
- *
- * @license MIT
- * @author Daniel Kinzler
- * @author Thiemo Kreuz
- * @copyright Wikimedia Deutschland e.V.
  */
 class Assert
 {
@@ -35,8 +28,6 @@ class Assert
      * or before using parameters in complex computations.
      * Checking preconditions in every function call is not recommended, since it may have a
      * negative impact on performance.
-     *
-     * @since 0.1.0
      *
      * @param  bool  $condition
      * @param  string  $description The message to include in the exception if the condition fails.
@@ -58,8 +49,6 @@ class Assert
      * @note This is intended for checking parameters in constructors and setters.
      * Checking parameters in every function call is not recommended, since it may have a
      * negative impact on performance.
-     *
-     * @since 0.1.0
      *
      * @param  bool  $condition
      * @param  string  $name The name of the parameter that was checked.
@@ -85,8 +74,6 @@ class Assert
      *
      * @note If possible, type hints should be used instead of calling this function.
      * It is intended for cases where type hints to not work, e.g. for checking union types.
-     *
-     * @since 0.1.0
      *
      * @param  string|string[]  $types The parameter's expected type. Can be the name of a native type
      *        or a class or interface, or a list of such names.
@@ -142,8 +129,6 @@ class Assert
      * Checking parameters in every function call is not recommended, since it may have a
      * negative impact on performance.
      *
-     * @since 0.1.0
-     *
      * @param  string|string[]  $types The elements' expected type. Can be the name of a native type
      *        or a class or interface. Multiple types can be given in an array (or a string separated
      *        by a pipe character ("|"), for compatibility with versions before 0.5.0).
@@ -194,8 +179,6 @@ class Assert
      * Note however that it should not be used in performance hotspots, since evaluating
      * $condition and calling postcondition() costs time.
      *
-     * @since 0.1.0
-     *
      * @param  bool  $condition
      * @param  string  $description The message to include in the exception if the condition fails.
      *
@@ -222,8 +205,6 @@ class Assert
      * @note This is intended for double checking in the implementation of complex algorithms.
      * Note however that it should not be used in performance hotspots, since evaluating
      * $condition and calling invariant() costs time.
-     *
-     * @since 0.1.0
      *
      * @param  bool  $condition
      * @param  string  $description The message to include in the exception if the condition fails.

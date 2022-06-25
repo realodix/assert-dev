@@ -18,11 +18,6 @@ use stdClass;
 
 /**
  * @covers \Realodix\Assert\Assert
- *
- * @license MIT
- * @author Daniel Kinzler
- * @author Thiemo Kreuz
- * @copyright Wikimedia Deutschland e.V.
  */
 class AssertTest extends \PHPUnit\Framework\TestCase
 {
