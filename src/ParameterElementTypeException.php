@@ -19,12 +19,8 @@ class ParameterElementTypeException extends ParameterAssertionException
      *
      * @throws ParameterTypeException
      */
-    public function __construct($parameterName, $elementType)
+    public function __construct(string $parameterName, string $elementType)
     {
-        if (! is_string($elementType)) {
-            throw new ParameterTypeException('elementType', 'string');
-        }
-
         parent::__construct($parameterName, "all elements must be $elementType");
 
         $this->elementType = $elementType;

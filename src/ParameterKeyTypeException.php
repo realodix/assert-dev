@@ -19,12 +19,8 @@ class ParameterKeyTypeException extends ParameterAssertionException
      *
      * @throws ParameterTypeException
      */
-    public function __construct($parameterName, $type)
+    public function __construct(string $parameterName, string $type)
     {
-        if (! is_string($type)) {
-            throw new ParameterTypeException('type', 'string');
-        }
-
         parent::__construct($parameterName, "all elements must have $type keys");
 
         $this->type = $type;

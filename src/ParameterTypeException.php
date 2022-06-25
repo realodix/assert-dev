@@ -19,12 +19,8 @@ class ParameterTypeException extends ParameterAssertionException
      *
      * @throws self
      */
-    public function __construct($parameterName, $parameterType)
+    public function __construct(string $parameterName, string $parameterType)
     {
-        if (! is_string($parameterType)) {
-            throw new ParameterTypeException('parameterType', 'string');
-        }
-
         parent::__construct($parameterName, "must be a $parameterType");
 
         $this->parameterType = $parameterType;

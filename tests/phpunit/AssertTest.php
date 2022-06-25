@@ -19,7 +19,7 @@ class AssertTest extends \PHPUnit\Framework\TestCase
 {
     public function testParameterPass()
     {
-        Assert::parameter(1 == 0, 'foo', 'must be greater than 0');
+        Assert::parameter(1 >= 0, 'foo', 'must be greater than 0');
         $this->addToAssertionCount(1);
     }
 
@@ -251,92 +251,5 @@ class AssertTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(ParameterTypeException::class);
         Assert::parameterElementType('string', 'foo', 'test');
-    }
-
-    public function validNonEmptyStringProvider()
-    {
-        return [
-            ['0'],
-            ['0.0'],
-            [' '],
-            ["\n"],
-            ['test'],
-        ];
-    }
-
-    /**
-     * @dataProvider validNonEmptyStringProvider
-     */
-    public function testNonEmptyStringPass($value)
-    {
-        Assert::nonEmptyString($value, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    public function invalidNonEmptyStringProvider()
-    {
-        return [
-            [null],
-            [false],
-            [0],
-            [0.0],
-            [''],
-        ];
-    }
-
-    /**
-     * @dataProvider invalidNonEmptyStringProvider
-     * @covers \Realodix\Assert\ParameterTypeException
-     */
-    public function testNonEmptyStringFail($value)
-    {
-        $this->expectException(ParameterTypeException::class);
-        $this->expectExceptionMessage('Bad value for parameter test: must be a non-empty string');
-        Assert::nonEmptyString($value, 'test');
-    }
-
-    public function provideInvalidExceptionArguments()
-    {
-        yield 'ParameterTypeException' => [
-            ParameterTypeException::class,
-            ['string', null],
-            'Bad value for parameter parameterType: must be a string',
-        ];
-        yield 'ParameterAssertionException (parameterName)' => [
-            ParameterAssertionException::class,
-            [null, 'string'],
-            'Bad value for parameter parameterName: must be a string',
-        ];
-        yield 'ParameterAssertionException (description)' => [
-            ParameterAssertionException::class,
-            ['string', null],
-            'Bad value for parameter description: must be a string',
-        ];
-        yield 'ParameterElementTypeException' => [
-            ParameterElementTypeException::class,
-            ['string', null],
-            'Bad value for parameter elementType: must be a string',
-        ];
-        yield 'ParameterKeyTypeException' => [
-            ParameterKeyTypeException::class,
-            ['string', null],
-            'Bad value for parameter type: must be a string',
-        ];
-    }
-
-    /**
-     * @covers \Realodix\Assert\ParameterTypeException
-     * @covers \Realodix\Assert\ParameterAssertionException
-     * @covers \Realodix\Assert\ParameterElementTypeException
-     * @covers \Realodix\Assert\ParameterKeyTypeException
-     * @dataProvider provideInvalidExceptionArguments
-     */
-    public function testInvalidExceptionArguments($clazz, $args, $exceptionMsg)
-    {
-        // Testing that ParameterTypeException is thrown in the constructors
-        // of the exceptions if not given strings
-        $this->expectException(ParameterTypeException::class);
-        $this->expectExceptionMessage($exceptionMsg);
-        new $clazz(...$args);
     }
 }

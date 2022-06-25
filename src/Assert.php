@@ -19,7 +19,7 @@ class Assert
      * @throws ParameterAssertionException if $condition is not true.
      * @psalm-assert bool $condition
      */
-    public static function parameter($condition, $name, $description): void
+    public static function parameter(bool $condition, string $name, string $description): void
     {
         if (! $condition) {
             throw new ParameterAssertionException($name, $description);
@@ -111,20 +111,6 @@ class Assert
             if (! self::hasType($element, $types)) {
                 throw new ParameterElementTypeException($name, implode('|', $types));
             }
-        }
-    }
-
-    /**
-     * @param  string  $value
-     * @param  string  $name
-     *
-     * @throws ParameterTypeException if $value is not a non-empty string.
-     * @psalm-assert string $value
-     */
-    public static function nonEmptyString($value, $name): void
-    {
-        if (! is_string($value) || $value === '') {
-            throw new ParameterTypeException($name, 'non-empty string');
         }
     }
 

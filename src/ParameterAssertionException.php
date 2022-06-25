@@ -21,16 +21,8 @@ class ParameterAssertionException extends InvalidArgumentException implements As
      *
      * @throws ParameterTypeException
      */
-    public function __construct($parameterName, $description)
+    public function __construct(string $parameterName, string $description)
     {
-        if (! is_string($parameterName)) {
-            throw new ParameterTypeException('parameterName', 'string');
-        }
-
-        if (! is_string($description)) {
-            throw new ParameterTypeException('description', 'string');
-        }
-
         parent::__construct("Bad value for parameter $parameterName: $description");
 
         $this->parameterName = $parameterName;
