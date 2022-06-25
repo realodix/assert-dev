@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+  <file src="src/Fixers/Laravel/LaravelPhpdocAlignmentFixer.php">
+    <InternalClass occurrences="1">
+      <code>TypeExpression::REGEX_TYPES</code>
+    </InternalClass>
+  </file>
+  <file src="src/Fixers/Laravel/LaravelPhpdocOrderFixer.php">
+    <PossiblyNullReference occurrences="4">
+      <code>getContent</code>
+      <code>getContent</code>
+      <code>setContent</code>
+      <code>setContent</code>
+    </PossiblyNullReference>
+  </file>
+  <file src="src/Fixers/Laravel/LaravelPhpdocSeparationFixer.php">
+    <InvalidOperand occurrences="2">
+      <code>$index</code>
+      <code>$index</code>
+    </InvalidOperand>
+    <InvalidScalarArgument occurrences="2">
+      <code>$index + 1</code>
+      <code>$index + 1</code>
+    </InvalidScalarArgument>
+    <PossiblyNullReference occurrences="3">
+      <code>addBlank</code>
+      <code>remove</code>
+      <code>remove</code>
+    </PossiblyNullReference>
+  </file>
+</files>

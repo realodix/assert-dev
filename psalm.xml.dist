@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<psalm
+  errorBaseline="psalm-baseline.xml">
+  <projectFiles>
+    <directory name="src" />
+  </projectFiles>
+
+  <issueHandlers>
+    <PropertyNotSetInConstructor errorLevel="info" />
+  </issueHandlers>
+</psalm>

@@ -1,0 +1,34 @@
+{
+	"name": "realodix/assert",
+	"description": "Provides runtime assertions",
+	"keywords": ["assert", "check", "validate"],
+    "license": "MIT",
+	"homepage": "https://github.com/realodix/assert",
+    "support": {
+        "issues": "https://github.com/realodix/assert/issues",
+        "source": "https://github.com/realodix/assert"
+    },
+	"authors": [
+		{
+			"name": "Budi Hermawan",
+            "role": "Developer"
+		}
+	],
+    "require": {
+		"php": ">=7.2.9"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^8.5|^9.5",
+        "realodix/cs-config": "^1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Realodix\\Assert\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Realodix\\Assert\\Test\\": "tests/phpunit/"
+		}
+	}
+}
