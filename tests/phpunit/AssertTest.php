@@ -9,7 +9,6 @@ use Realodix\Assert\ParameterAssertionException;
 use Realodix\Assert\ParameterElementTypeException;
 use Realodix\Assert\ParameterKeyTypeException;
 use Realodix\Assert\ParameterTypeException;
-use Realodix\Assert\UnreachableException;
 use RuntimeException;
 use stdClass;
 
@@ -294,15 +293,6 @@ class AssertTest extends \PHPUnit\Framework\TestCase
         $this->expectException(ParameterTypeException::class);
         $this->expectExceptionMessage('Bad value for parameter test: must be a non-empty string');
         Assert::nonEmptyString($value, 'test');
-    }
-
-    /**
-     * @covers \Realodix\Assert\UnreachableException
-     */
-    public function testUnreachableFail()
-    {
-        $this->expectException(UnreachableException::class);
-        throw new UnreachableException('should always fail');
     }
 
     public function provideInvalidExceptionArguments()
