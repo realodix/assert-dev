@@ -5,13 +5,10 @@ namespace Realodix\Assert\Test;
 use ArrayObject;
 use LogicException;
 use Realodix\Assert\Assert;
-use Realodix\Assert\InvariantException;
 use Realodix\Assert\ParameterAssertionException;
 use Realodix\Assert\ParameterElementTypeException;
 use Realodix\Assert\ParameterKeyTypeException;
 use Realodix\Assert\ParameterTypeException;
-use Realodix\Assert\PostconditionException;
-use Realodix\Assert\PreconditionException;
 use Realodix\Assert\UnreachableException;
 use RuntimeException;
 use stdClass;
@@ -21,24 +18,9 @@ use stdClass;
  */
 class AssertTest extends \PHPUnit\Framework\TestCase
 {
-    public function testPreconditionPass()
-    {
-        Assert::precondition(true, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    /**
-     * @covers \Realodix\Assert\PreconditionException
-     */
-    public function testPreconditionFail()
-    {
-        $this->expectException(PreconditionException::class);
-        Assert::precondition(false, 'test');
-    }
-
     public function testParameterPass()
     {
-        Assert::parameter(true, 'foo', 'test');
+        Assert::parameter(1 == 0, 'foo', 'must be greater than 0');
         $this->addToAssertionCount(1);
     }
 
@@ -314,21 +296,6 @@ class AssertTest extends \PHPUnit\Framework\TestCase
         Assert::nonEmptyString($value, 'test');
     }
 
-    public function testInvariantPass()
-    {
-        Assert::invariant(true, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    /**
-     * @covers \Realodix\Assert\InvariantException
-     */
-    public function testInvariantFail()
-    {
-        $this->expectException(InvariantException::class);
-        Assert::invariant(false, 'test');
-    }
-
     /**
      * @covers \Realodix\Assert\UnreachableException
      */
@@ -336,21 +303,6 @@ class AssertTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(UnreachableException::class);
         throw new UnreachableException('should always fail');
-    }
-
-    public function testPostconditionPass()
-    {
-        Assert::postcondition(true, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    /**
-     * @covers \Realodix\Assert\PostconditionException
-     */
-    public function testPostconditionFail()
-    {
-        $this->expectException(PostconditionException::class);
-        Assert::postcondition(false, 'test');
     }
 
     public function provideInvalidExceptionArguments()

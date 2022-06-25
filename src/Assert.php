@@ -2,46 +2,8 @@
 
 namespace Realodix\Assert;
 
-/**
- * Assert provides functions for assorting preconditions (such as parameter types) and
- * postconditions. It is intended as a safer alternative to PHP's assert() function.
- *
- * Note that assertions evaluate expressions and add function calls, so using assertions
- * may have a negative impact on performance when used in performance hotspots. The idea
- * if this class is to have a neat tool for assertions if and when they are needed.
- * It is not recommended to place assertions all over the code indiscriminately.
- *
- * For more information, see the README file.
- */
 class Assert
 {
-    /**
-     * Checks a precondition, that is, throws a PreconditionException if $condition is false.
-     * For checking call parameters, use Assert::parameter() instead.
-     *
-     * This is provided for completeness, most preconditions should be covered by
-     * Assert::parameter() and related assertions.
-     *
-     * @see parameter()
-     *
-     * @note This is intended mostly for checking preconditions in constructors and setters,
-     * or before using parameters in complex computations.
-     * Checking preconditions in every function call is not recommended, since it may have a
-     * negative impact on performance.
-     *
-     * @param  bool  $condition
-     * @param  string  $description The message to include in the exception if the condition fails.
-     *
-     * @throws PreconditionException if $condition is not true.
-     * @psalm-assert bool $condition
-     */
-    public static function precondition($condition, $description): void
-    {
-        if (! $condition) {
-            throw new PreconditionException("Precondition failed: $description");
-        }
-    }
-
     /**
      * Checks a parameter, that is, throws a ParameterAssertionException if $condition is false.
      * This is similar to Assert::precondition().
@@ -163,55 +125,6 @@ class Assert
     {
         if (! is_string($value) || $value === '') {
             throw new ParameterTypeException($name, 'non-empty string');
-        }
-    }
-
-    /**
-     * Checks a postcondition, that is, throws a PostconditionException if $condition is false.
-     * This is very similar Assert::invariant() but is intended for use only after a computation
-     * is complete.
-     *
-     * @note This is intended for double checking in the implementation of complex algorithms.
-     * Note however that it should not be used in performance hotspots, since evaluating
-     * $condition and calling postcondition() costs time.
-     *
-     * @param  bool  $condition
-     * @param  string  $description The message to include in the exception if the condition fails.
-     *
-     * @throws PostconditionException
-     * @psalm-assert bool $condition
-     */
-    public static function postcondition($condition, $description): void
-    {
-        if (! $condition) {
-            throw new PostconditionException("Postcondition failed: $description");
-        }
-    }
-
-    /**
-     * Checks an invariant, that is, throws a InvariantException if $condition is false.
-     * This is very similar Assert::postcondition() but is intended for use throughout the code.
-     *
-     * @note The $condition is expected to be falsifiable.  If you are trying
-     * to indicate that a code path is unreachable, use
-     * `throw new UnreachableException( 'why this code is unreachable' )`
-     * instead of `Assert::invariant( false, '…' )`.  Code checking tools
-     * will complain about the latter.
-     *
-     * @note This is intended for double checking in the implementation of complex algorithms.
-     * Note however that it should not be used in performance hotspots, since evaluating
-     * $condition and calling invariant() costs time.
-     *
-     * @param  bool  $condition
-     * @param  string  $description The message to include in the exception if the condition fails.
-     *
-     * @throws InvariantException
-     * @psalm-assert bool $condition
-     */
-    public static function invariant($condition, $description): void
-    {
-        if (! $condition) {
-            throw new InvariantException("Invariant failed: $description");
         }
     }
 
