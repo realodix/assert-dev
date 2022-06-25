@@ -93,7 +93,7 @@ class Assert
      * @throws ParameterElementTypeException If an element of $value  is not of type
      *                                       (or, for objects, is not an instance of) $type.
      */
-    public static function parameterElementType($types, array $value, string $name): void
+    public static function parameterElementType($types, $value, string $name): void
     {
         self::parameterType('array', $value, $name);
         if (is_string($types)) {
