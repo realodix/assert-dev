@@ -6,8 +6,6 @@ use ArrayObject;
 use LogicException;
 use Realodix\Assert\Assert;
 use Realodix\Assert\ParameterAssertionException;
-use Realodix\Assert\ParameterElementTypeException;
-use Realodix\Assert\ParameterKeyTypeException;
 use Realodix\Assert\ParameterTypeException;
 use RuntimeException;
 use stdClass;
@@ -38,6 +36,9 @@ class AssertTest extends \PHPUnit\Framework\TestCase
 
     public function validParameterTypeProvider()
     {
+        $staticFunction = static function () {
+        };
+
         return [
             'simple'          => ['string', 'hello'],
             'boolean (true)'  => ['boolean', true],
@@ -50,21 +51,18 @@ class AssertTest extends \PHPUnit\Framework\TestCase
             'class'           => ['RuntimeException', new RuntimeException],
             'subclass'        => ['Exception', new RuntimeException],
             'stdClass'        => ['stdClass', new stdClass],
-            'multi'           => [['string', 'array', 'Closure'], static function () {
-            }],
-            'multi (old)' => ['string|array|Closure', static function () {
-            }],
-            'null' => [['integer', 'null'], null],
+            'multi'           => [['string', 'array', 'Closure'], $staticFunction],
+            'multi (old)'     => ['string|array|Closure', $staticFunction],
+            'null'            => [['integer', 'null'], null],
 
             'callable'            => [['null', 'callable'], 'time'],
             'static callable'     => ['callable', 'Realodix\Assert\Assert::parameterType'],
             'callable array'      => ['callable', ['Realodix\Assert\Assert', 'parameterType']],
             'callable $this'      => ['callable', [$this, 'validParameterTypeProvider']],
-            'Closure is callable' => ['callable', static function () {
-            }],
+            'Closure is callable' => ['callable', $staticFunction],
 
-            'Traversable'       => ['Traversable', new ArrayObject],
-            'Traversable array' => ['Traversable', []],
+            'Traversable'       => ['traversable', new ArrayObject],
+            'Traversable array' => ['traversable', []],
         ];
     }
 
@@ -130,126 +128,5 @@ class AssertTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(ParameterAssertionException::class);
         Assert::parameterType('string', 17, 'test');
-    }
-
-    public function validParameterKeyTypeProvider()
-    {
-        return [
-            ['integer', []],
-            ['integer', [1]],
-            ['integer', [1 => 1]],
-            ['integer', [1.0 => 1]],
-            ['integer', ['0' => 1]],
-            ['integer', [false => 1]],
-            ['string', []],
-            ['string', ['' => 1]],
-            ['string', ['0.0' => 1]],
-            ['string', ['string' => 1]],
-            ['string', [null => 1]],
-        ];
-    }
-
-    /**
-     * @dataProvider validParameterKeyTypeProvider
-     */
-    public function testParameterKeyTypePass($type, $value)
-    {
-        Assert::parameterKeyType($type, $value, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    public function invalidParameterKeyTypeProvider()
-    {
-        return [
-            ['integer', [0, 'string' => 1]],
-            ['integer', ['string' => 0, 1]],
-            ['string', [0, 'string' => 1]],
-            ['string', ['string' => 0, 1]],
-        ];
-    }
-
-    /**
-     * @dataProvider invalidParameterKeyTypeProvider
-     * @covers \Realodix\Assert\ParameterKeyTypeException
-     */
-    public function testParameterKeyTypeFail($type, $value)
-    {
-        try {
-            Assert::parameterKeyType($type, $value, 'test');
-            $this->fail('Expected ParameterKeyTypeException');
-        } catch (ParameterKeyTypeException $ex) {
-            $this->assertSame($type, $ex->getType());
-            $this->assertSame('test', $ex->getParameterName());
-        }
-    }
-
-    /**
-     * @covers \Realodix\Assert\ParameterAssertionException
-     */
-    public function testGivenUnsupportedTypeParameterKeyTypeFails()
-    {
-        $this->expectException(ParameterAssertionException::class);
-        $this->expectExceptionMessage('Bad value for parameter type: must be "integer" or "string"');
-        Assert::parameterKeyType('integer|string', [], 'test');
-    }
-
-    public function validParameterElementTypeProvider()
-    {
-        return [
-            'empty'  => ['string', []],
-            'simple' => ['string', ['hello', 'world']],
-            'class'  => ['RuntimeException', [new RuntimeException]],
-            'multi'  => ['string|array|Closure', [[], 'x', static function () {
-            }]],
-            'multiArray' => [['string', 'array', 'Closure'], [[], 'x', static function () {
-            }]],
-            'null' => ['integer|null', [null, 3, null]],
-        ];
-    }
-
-    /**
-     * @dataProvider validParameterElementTypeProvider
-     */
-    public function testParameterElementTypePass($type, $value)
-    {
-        Assert::parameterElementType($type, $value, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    public function invalidParameterElementTypeProvider()
-    {
-        return [
-            'simple' => ['string', ['hello', 5]],
-            'class'  => ['RuntimeException', [new LogicException]],
-            'multi'  => ['string|array|Closure', [[], static function () {
-            }, 5]],
-            'multiArray' => [['string', 'array', 'Closure'], [[], static function () {
-            }, 5], 'string|array|Closure'],
-            'null' => ['integer|string', [null, 3, null]],
-        ];
-    }
-
-    /**
-     * @dataProvider invalidParameterElementTypeProvider
-     * @covers \Realodix\Assert\ParameterElementTypeException
-     */
-    public function testParameterElementTypeFail($type, $value, $typeInException = null)
-    {
-        try {
-            Assert::parameterElementType($type, $value, 'test');
-            $this->fail('Expected ParameterElementTypeException');
-        } catch (ParameterElementTypeException $ex) {
-            $this->assertSame($typeInException ?: $type, $ex->getElementType());
-            $this->assertSame('test', $ex->getParameterName());
-        }
-    }
-
-    /**
-     * @covers \Realodix\Assert\ParameterTypeException
-     */
-    public function testParameterElementTypeBad()
-    {
-        $this->expectException(ParameterTypeException::class);
-        Assert::parameterElementType('string', 'foo', 'test');
     }
 }

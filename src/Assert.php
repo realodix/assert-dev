@@ -54,60 +54,6 @@ class Assert
     }
 
     /**
-     * @param  string  $type Either "integer" or "string". Mixing "integer|string" is not supported
-     *                       because this is PHP's default anyway. It is of no value to check this.
-     * @param  array  $value The parameter's actual value. If this is not an array, a
-     *                       ParameterTypeException is raised.
-     * @param  string  $name The name of the parameter that was checked.
-     *
-     * @throws ParameterTypeException if one of the keys in the array $value is not of type $type.
-     */
-    public static function parameterKeyType(string $type, array $value, $name): void
-    {
-        self::parameterType('array', $value, $name);
-
-        if ($type !== 'integer' && $type !== 'string') {
-            throw new ParameterAssertionException('type', 'must be "integer" or "string"');
-        }
-
-        foreach ($value as $key => $element) {
-            if (gettype($key) !== $type) {
-                throw new ParameterKeyTypeException($name, $type);
-            }
-        }
-    }
-
-    /**
-     * Checks the type of all elements of an parameter, assuming the parameter is an array,
-     * that is, throws a ParameterElementTypeException if any elements in $value are not of $type.
-     *
-     * @param  string|string[]  $types The elements' expected type. Can be the name of a native type
-     *                                 or a class or interface. Multiple types can be given in an array
-     *                                 (or a string separated by a pipe character ("|"), for compatibility
-     *                                 with versions before 0.5.0).
-     * @param  array  $value The parameter's actual value. If this is not an array, a ParameterTypeException
-     *                       is raised.
-     * @param  string  $name The name of the parameter that was checked.
-     *
-     * @throws ParameterTypeException        If $value is not an array.
-     * @throws ParameterElementTypeException If an element of $value  is not of type
-     *                                       (or, for objects, is not an instance of) $type.
-     */
-    public static function parameterElementType($types, $value, string $name): void
-    {
-        self::parameterType('array', $value, $name);
-        if (is_string($types)) {
-            $types = explode('|', $types);
-        }
-
-        foreach ($value as $element) {
-            if (! self::hasType($element, $types)) {
-                throw new ParameterElementTypeException($name, implode('|', $types));
-            }
-        }
-    }
-
-    /**
      * @param  mixed  $value
      * @param  string[]  $allowedTypes
      * @return bool
@@ -121,22 +67,22 @@ class Assert
             return true;
         }
 
-        if (in_array('callable', $allowedTypes) && is_callable($value)) {
-            return true;
-        }
-
         if (is_object($value) && self::isInstanceOf($value, $allowedTypes)) {
             return true;
         }
 
-        if (is_array($value) && in_array('Traversable', $allowedTypes)) {
+        if (in_array('callable', $allowedTypes) && is_callable($value)) {
             return true;
         }
 
-        if ($value === false && in_array('false', $allowedTypes)) {
+        if (in_array('traversable', $allowedTypes) && is_array($value)) {
             return true;
         }
-        if ($value === true && in_array('true', $allowedTypes)) {
+
+        if (in_array('false', $allowedTypes) && $value === false) {
+            return true;
+        }
+        if (in_array('true', $allowedTypes) && $value === true) {
             return true;
         }
 
