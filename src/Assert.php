@@ -75,6 +75,10 @@ class Assert
             return true;
         }
 
+        if (in_array('bool', $allowedTypes) && is_bool($value)) {
+            return true;
+        }
+
         if (in_array('traversable', $allowedTypes) && is_array($value)) {
             return true;
         }

@@ -43,6 +43,8 @@ class AssertTest extends \PHPUnit\Framework\TestCase
             'simple'          => ['string', 'hello'],
             'boolean (true)'  => ['boolean', true],
             'boolean (false)' => ['boolean', false],
+            'boolean (true)'  => ['bool', true],
+            'boolean (false)' => ['bool', false],
             'true'            => ['true', true],
             'false'           => ['false', false],
             'integer'         => ['integer', 1],
@@ -78,7 +80,7 @@ class AssertTest extends \PHPUnit\Framework\TestCase
     public function invalidParameterTypeProvider()
     {
         return [
-            'bool shortcut is not accepted'  => ['bool', true],
+            // 'bool shortcut is not accepted'  => ['bool', true],
             'int shortcut is not accepted'   => ['int', 1],
             'float alias is not accepted'    => ['float', 1.0],
             'callback alias is not accepted' => ['callback', 'time'],
