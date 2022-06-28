@@ -4,6 +4,7 @@ namespace Realodix\Assert\Test;
 
 use ArrayObject;
 use LogicException;
+use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
 use Realodix\Assert\ParameterAssertionException;
 use Realodix\Assert\ParameterTypeException;
@@ -13,7 +14,7 @@ use stdClass;
 /**
  * @covers \Realodix\Assert\Assert
  */
-class AssertTest extends \PHPUnit\Framework\TestCase
+class AssertTest extends TestCase
 {
     public function testParameterPass()
     {
