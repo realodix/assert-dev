@@ -47,7 +47,7 @@ jobs:
           max_attempts: 5
           command: |
               composer -V
-              if ${{ matrix.php-version <= 7.2 }}; then
+              if ${{ matrix.php-version < 7.2 }}; then
                 composer update --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
               elif ${{ matrix.stability == 'lowest' && matrix.php-version >= 7.2 }}; then
                 composer require phpunit/phpunit >=8 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
