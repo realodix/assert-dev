@@ -49,7 +49,7 @@ jobs:
               composer -V
               if ${{ matrix.php-version <= 8.0 }}; then
                 composer update --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
-              elseif ${{ matrix.stability == 'lowest' && matrix.php-version >= 7.2 }}; then
+              elif ${{ matrix.stability == 'lowest' && matrix.php-version >= 7.2 }}; then
                 composer require phpunit/phpunit >=8 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
               else
                 composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
