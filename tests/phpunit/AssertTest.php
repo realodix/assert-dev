@@ -59,8 +59,8 @@ class AssertTest extends \PHPUnit\Framework\TestCase
             'null'        => [['integer', 'null'], null],
 
             'callable'            => [['null', 'callable'], 'time'],
-            'static callable'     => ['callable', 'Realodix\Assert\Assert::parameterType'],
-            'callable array'      => ['callable', ['Realodix\Assert\Assert', 'parameterType']],
+            'static callable'     => ['callable', 'Realodix\Assert\Assert::isType'],
+            'callable array'      => ['callable', ['Realodix\Assert\Assert', 'isType']],
             'callable $this'      => ['callable', [$this, 'validParameterTypeProvider']],
             'Closure is callable' => ['callable', $staticFunction],
 
@@ -73,7 +73,7 @@ class AssertTest extends \PHPUnit\Framework\TestCase
      */
     public function testParameterTypePass($type, $value)
     {
-        Assert::parameterType($type, $value, 'test');
+        Assert::isType($type, $value, 'test');
         $this->addToAssertionCount(1);
     }
 
@@ -115,7 +115,7 @@ class AssertTest extends \PHPUnit\Framework\TestCase
     public function testParameterTypeFail($type, $value)
     {
         try {
-            Assert::parameterType($type, $value, 'test');
+            Assert::isType($type, $value, 'test');
             $this->fail('Expected ParameterTypeException');
         } catch (ParameterTypeException $ex) {
             $this->assertSame($type, $ex->getParameterType());
@@ -129,6 +129,6 @@ class AssertTest extends \PHPUnit\Framework\TestCase
     public function testParameterTypeCatch()
     {
         $this->expectException(ParameterAssertionException::class);
-        Assert::parameterType('string', 17, 'test');
+        Assert::isType('string', 17, 'test');
     }
 }

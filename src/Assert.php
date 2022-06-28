@@ -43,7 +43,7 @@ class Assert
      * @throws ParameterTypeException if $value is not of type (or, for objects, is not an
      *                                instance of) $type.
      */
-    public static function parameterType($types, $value, $name): void
+    public static function isType($types, $value, $name): void
     {
         if (is_string($types)) {
             $types = explode('|', $types);

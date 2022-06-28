@@ -14,12 +14,12 @@ setter method:
 
 ```php
 function setFoo( $foo ) {
-    Assert::parameterType( 'integer', $foo, 'foo' );
+    Assert::isType( 'integer', $foo, 'foo' );
     Assert::parameter( $foo > 0, 'foo', 'must be greater than 0' );
 }
 
 function __construct( $bar, array $bazz ) {
-    Assert::parameterType( 'Me\MyApp\SomeClass', $bar );
+    Assert::isType( 'Me\MyApp\SomeClass', $bar );
     Assert::parameterElementType( 'int', $bazz );
 }
 ```

@@ -11,19 +11,19 @@ class ParameterTypeException extends ParameterAssertionException
     /**
      * @var string
      */
-    private $parameterType;
+    private $isType;
 
     /**
      * @param  string  $parameterName
-     * @param  string  $parameterType
+     * @param  string  $isType
      *
      * @throws self
      */
-    public function __construct(string $parameterName, string $parameterType)
+    public function __construct(string $parameterName, string $isType)
     {
-        parent::__construct($parameterName, "must be a $parameterType");
+        parent::__construct($parameterName, "must be a $isType");
 
-        $this->parameterType = $parameterType;
+        $this->isType = $isType;
     }
 
     /**
@@ -31,6 +31,6 @@ class ParameterTypeException extends ParameterAssertionException
      */
     public function getParameterType(): string
     {
-        return $this->parameterType;
+        return $this->isType;
     }
 }
