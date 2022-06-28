@@ -50,7 +50,7 @@ jobs:
               composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
       - name: Execute tests
         run: |
-          if ${{ matrix.stability == 'stable' && matrix.php-version >= 7.3 }}; then
+          if ${{ matrix.php-version >= 7.3 }}; then
             ./vendor/bin/phpunit --migrate-configuration
             ./vendor/bin/phpunit
           else
