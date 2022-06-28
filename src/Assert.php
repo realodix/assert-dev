@@ -79,7 +79,15 @@ class Assert
             return true;
         }
 
-        if (in_array('traversable', $allowedTypes) && is_array($value)) {
+        if (in_array('int', $allowedTypes) && is_integer($value)) {
+            return true;
+        }
+
+        if (in_array('float', $allowedTypes) && is_float($value)) {
+            return true;
+        }
+
+        if (in_array('traversable', $allowedTypes) && is_array($value) && ($value instanceof \Traversable)) {
             return true;
         }
 

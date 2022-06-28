@@ -40,22 +40,23 @@ class AssertTest extends \PHPUnit\Framework\TestCase
         };
 
         return [
-            'simple'          => ['string', 'hello'],
-            'boolean (true)'  => ['boolean', true],
-            'boolean (false)' => ['boolean', false],
+            'simple' => ['string', 'hello'],
+
             'boolean (true)'  => ['bool', true],
             'boolean (false)' => ['bool', false],
             'true'            => ['true', true],
             'false'           => ['false', false],
-            'integer'         => ['integer', 1],
-            'double'          => ['double', 1.0],
-            'object'          => ['object', new stdClass],
-            'class'           => ['RuntimeException', new RuntimeException],
-            'subclass'        => ['Exception', new RuntimeException],
-            'stdClass'        => ['stdClass', new stdClass],
-            'multi'           => [['string', 'array', 'Closure'], $staticFunction],
-            'multi (old)'     => ['string|array|Closure', $staticFunction],
-            'null'            => [['integer', 'null'], null],
+
+            'integer' => ['int', 1],
+            'double'  => ['float', 1.0],
+
+            'object'      => ['object', new stdClass],
+            'class'       => ['RuntimeException', new RuntimeException],
+            'subclass'    => ['Exception', new RuntimeException],
+            'stdClass'    => ['stdClass', new stdClass],
+            'multi'       => [['string', 'array', 'Closure'], $staticFunction],
+            'multi (old)' => ['string|array|Closure', $staticFunction],
+            'null'        => [['integer', 'null'], null],
 
             'callable'            => [['null', 'callable'], 'time'],
             'static callable'     => ['callable', 'Realodix\Assert\Assert::parameterType'],
@@ -63,8 +64,7 @@ class AssertTest extends \PHPUnit\Framework\TestCase
             'callable $this'      => ['callable', [$this, 'validParameterTypeProvider']],
             'Closure is callable' => ['callable', $staticFunction],
 
-            'Traversable'       => ['traversable', new ArrayObject],
-            'Traversable array' => ['traversable', []],
+            'Traversable' => ['traversable', new ArrayObject],
         ];
     }
 
@@ -81,8 +81,8 @@ class AssertTest extends \PHPUnit\Framework\TestCase
     {
         return [
             // 'bool shortcut is not accepted'  => ['bool', true],
-            'int shortcut is not accepted'   => ['int', 1],
-            'float alias is not accepted'    => ['float', 1.0],
+            // 'int shortcut is not accepted'   => ['int', 1],
+            // 'float alias is not accepted'    => ['float', 1.0],
             'callback alias is not accepted' => ['callback', 'time'],
 
             'simple'                    => ['string', 5],
@@ -103,7 +103,7 @@ class AssertTest extends \PHPUnit\Framework\TestCase
             'callable is no Closure' => ['Closure', 'time'],
             'object is not callable' => ['callable', new stdClass],
 
-            'object is not Traversable'   => ['Traversable', new stdClass],
+            'object is not Traversable'   => ['traversable', new stdClass],
             'Traversable is not Iterator' => ['Iterator', new ArrayObject],
         ];
     }
