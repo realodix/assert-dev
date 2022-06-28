@@ -47,7 +47,7 @@ jobs:
           max_attempts: 5
           command: |
               composer -V
-              composer require phpunit/phpunit >=9 --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
+              composer update --prefer-${{ matrix.stability }} --no-interaction --no-progress ${{ matrix.flags }}
       - name: Execute tests
         run: |
           if ${{ matrix.php-version >= 7.3 }}; then
