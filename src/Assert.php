@@ -60,20 +60,23 @@ class Assert
             return true;
         }
 
-        if (is_object($value) && self::isInstanceOf($value, $allowedTypes)
-            || in_array('callable', $allowedTypes) && is_callable($value)
-            || in_array('traversable', $allowedTypes) && is_array($value) && ($value instanceof \Traversable)) {
+        if ((is_object($value) && self::isInstanceOf($value, $allowedTypes))
+            || (in_array('callable', $allowedTypes) && is_callable($value))) {
             return true;
         }
 
-        if (in_array('int', $allowedTypes) && is_integer($value)
-            || in_array('float', $allowedTypes) && is_float($value)) {
+        if ((in_array('int', $allowedTypes) && is_integer($value))
+            || (in_array('float', $allowedTypes) && is_float($value))) {
             return true;
         }
 
-        if (in_array('bool', $allowedTypes) && is_bool($value)
-            || in_array('false', $allowedTypes) && $value === false
-            || in_array('true', $allowedTypes) && $value === true) {
+        if ((in_array('bool', $allowedTypes) && is_bool($value))
+            || (in_array('false', $allowedTypes) && $value === false)
+            || (in_array('true', $allowedTypes) && $value === true)) {
+            return true;
+        }
+
+        if (in_array('traversable', $allowedTypes) && is_array($value) && $value instanceof \Traversable) {
             return true;
         }
 
