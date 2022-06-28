@@ -16,9 +16,6 @@ class ParameterAssertionException extends InvalidArgumentException implements As
     private $parameterName;
 
     /**
-     * @param  string  $parameterName
-     * @param  string  $description
-     *
      * @throws ParameterTypeException
      */
     public function __construct(string $parameterName, string $description)
@@ -28,9 +25,6 @@ class ParameterAssertionException extends InvalidArgumentException implements As
         $this->parameterName = $parameterName;
     }
 
-    /**
-     * @return string
-     */
     public function getParameterName(): string
     {
         return $this->parameterName;

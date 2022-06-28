@@ -70,6 +70,9 @@ class AssertTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @dataProvider validParameterTypeProvider
+     *
+     * @param mixed $type
+     * @param mixed $value
      */
     public function testParameterTypePass($type, $value)
     {
@@ -111,6 +114,9 @@ class AssertTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider invalidParameterTypeProvider
      * @covers \Realodix\Assert\ParameterTypeException
+     *
+     * @param mixed $type
+     * @param mixed $value
      */
     public function testParameterTypeFail($type, $value)
     {

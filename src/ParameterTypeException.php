@@ -14,9 +14,6 @@ class ParameterTypeException extends ParameterAssertionException
     private $isType;
 
     /**
-     * @param  string  $parameterName
-     * @param  string  $isType
-     *
      * @throws self
      */
     public function __construct(string $parameterName, string $isType)
@@ -26,9 +23,6 @@ class ParameterTypeException extends ParameterAssertionException
         $this->isType = $isType;
     }
 
-    /**
-     * @return string
-     */
     public function getParameterType(): string
     {
         return $this->isType;
