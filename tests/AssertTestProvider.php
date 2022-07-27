@@ -2,11 +2,6 @@
 
 namespace Realodix\Assert\Tests;
 
-use ArrayObject;
-use LogicException;
-use RuntimeException;
-use stdClass;
-
 trait AssertTestProvider
 {
     public function validIsTypeProvider()
@@ -25,10 +20,10 @@ trait AssertTestProvider
             'integer' => ['int', 1],
             'double'  => ['float', 1.0],
 
-            'object'      => ['object', new stdClass],
-            'class'       => ['RuntimeException', new RuntimeException],
-            'subclass'    => ['Exception', new RuntimeException],
-            'stdClass'    => ['stdClass', new stdClass],
+            'object'      => ['object', new \stdClass],
+            'class'       => ['RuntimeException', new \RuntimeException],
+            'subclass'    => ['Exception', new \RuntimeException],
+            'stdClass'    => ['stdClass', new \stdClass],
             'multi'       => [['string', 'array', 'Closure'], $staticFunction],
             'multi (old)' => ['string|array|Closure', $staticFunction],
             'null'        => [['integer', 'null'], null],
@@ -44,7 +39,9 @@ trait AssertTestProvider
             'callable_callback $this'      => ['callback', [$this, 'validIsTypeProvider']],
             'Closure is callable_callback' => ['callback', $staticFunction],
 
-            'Traversable' => ['traversable', new ArrayObject],
+            'Traversable_1' => ['traversable', new \ArrayObject],
+            'Traversable_2' => ['array', [1, 2, 3]],
+            'Traversable_3' => ['traversable', new \ArrayIterator([])],
         ];
     }
 
@@ -65,17 +62,17 @@ trait AssertTestProvider
             'string is not integer'     => ['integer', '0'],
             'double is not integer'     => ['integer', 1.0],
             'integer is not double'     => ['double', 1],
-            'class'                     => ['RuntimeException', new LogicException],
-            'stdClass is no superclass' => ['stdClass', new LogicException],
+            'class'                     => ['RuntimeException', new \LogicException],
+            'stdClass is no superclass' => ['stdClass', new \LogicException],
             'multi'                     => ['string|integer|Closure', []],
             'null'                      => ['integer|string', null],
 
             'callable'               => ['null|callable', []],
             'callable is no Closure' => ['Closure', 'time'],
-            'object is not callable' => ['callable', new stdClass],
+            'object is not callable' => ['callable', new \stdClass],
 
-            'object is not Traversable'   => ['traversable', new stdClass],
-            'Traversable is not Iterator' => ['Iterator', new ArrayObject],
+            'object is not Traversable'   => ['traversable', new \stdClass],
+            'Traversable is not Iterator' => ['Iterator', new \ArrayObject],
         ];
     }
 }
