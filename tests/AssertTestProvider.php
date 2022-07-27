@@ -10,37 +10,39 @@ trait AssertTestProvider
         };
 
         return [
-            'simple' => ['string', 'hello'],
+            ['string', 'hello'],
 
-            'boolean (true)'  => ['bool', true],
-            'boolean (false)' => ['bool', false],
-            'true'            => ['true', true],
-            'false'           => ['false', false],
+            ['bool', true],
+            ['bool', false],
+            ['true', true],
+            ['false', false],
 
-            'integer' => ['int', 1],
-            'double'  => ['float', 1.0],
+            ['int', 1],
+            ['float', 1.0],
 
-            'object'      => ['object', new \stdClass],
-            'class'       => ['RuntimeException', new \RuntimeException],
-            'subclass'    => ['Exception', new \RuntimeException],
-            'stdClass'    => ['stdClass', new \stdClass],
-            'multi'       => [['string', 'array', 'Closure'], $staticFunction],
-            'multi (old)' => ['string|array|Closure', $staticFunction],
-            'null'        => [['integer', 'null'], null],
+            ['object', new \stdClass],
+            ['RuntimeException', new \RuntimeException],
+            ['Exception', new \RuntimeException],
+            ['stdClass', new \stdClass],
+            [['string', 'array', 'Closure'], $staticFunction],
+            ['string|array|Closure', $staticFunction],
+            [['integer', 'null'], null],
 
-            'callable'                     => [['null', 'callable'], 'time'],
-            'static callable'              => ['callable', 'Realodix\Assert\Assert::isType'],
-            'callable array'               => ['callable', ['Realodix\Assert\Assert', 'isType']],
-            'callable $this'               => ['callable', [$this, 'validIsTypeProvider']],
-            'Closure is callable'          => ['callable', $staticFunction],
-            'callable_callback'            => [['null', 'callback'], 'time'],
-            'static callable_callback'     => ['callback', 'Realodix\Assert\Assert::isType'],
-            'callable_callback array'      => ['callback', ['Realodix\Assert\Assert', 'isType']],
-            'callable_callback $this'      => ['callback', [$this, 'validIsTypeProvider']],
-            'Closure is callable_callback' => ['callback', $staticFunction],
+            [['null', 'callable'], 'time'],
+            ['callable', 'Realodix\Assert\Assert::isType'],
+            ['callable', ['Realodix\Assert\Assert', 'isType']],
+            ['callable', [$this, 'validIsTypeProvider']],
+            ['callable', $staticFunction],
+            [['null', 'callback'], 'time'],
+            ['callback', 'Realodix\Assert\Assert::isType'],
+            ['callback', ['Realodix\Assert\Assert', 'isType']],
+            ['callback', [$this, 'validIsTypeProvider']],
+            ['callback', $staticFunction],
 
-            'Traversable_1' => ['Traversable', new \ArrayObject],
-            'Traversable_2' => ['Traversable', new \ArrayIterator([])],
+            ['Traversable', new \ArrayObject],
+            ['Traversable', new \ArrayIterator([])],
+
+            ['ArrayAccess', new \ArrayObject],
         ];
     }
 

@@ -77,7 +77,10 @@ class Assert
             return true;
         }
 
-        if (in_array('traversable', $allowedTypes) && is_array($value) && $value instanceof \Traversable) {
+        if (
+            in_array('traversable', $allowedTypes) && is_array($value) && $value instanceof \Traversable
+            || in_array('arrayaccess', $allowedTypes) && is_array($value) && $value instanceof \ArrayAccess
+        ) {
             return true;
         }
 
