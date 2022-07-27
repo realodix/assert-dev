@@ -39,9 +39,8 @@ trait AssertTestProvider
             'callable_callback $this'      => ['callback', [$this, 'validIsTypeProvider']],
             'Closure is callable_callback' => ['callback', $staticFunction],
 
-            'Traversable_1' => ['traversable', new \ArrayObject],
-            'Traversable_2' => ['array', [1, 2, 3]],
-            'Traversable_3' => ['traversable', new \ArrayIterator([])],
+            'Traversable_1' => ['Traversable', new \ArrayObject],
+            'Traversable_2' => ['Traversable', new \ArrayIterator([])],
         ];
     }
 
