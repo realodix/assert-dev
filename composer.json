@@ -3,17 +3,8 @@
 	"description": "Provides runtime assertions",
 	"keywords": ["assert", "check", "validate"],
     "license": "MIT",
+    "authors": [{"name": "Budi Hermawan", "role": "Developer"}],
 	"homepage": "https://github.com/realodix/assert",
-    "support": {
-        "issues": "https://github.com/realodix/assert/issues",
-        "source": "https://github.com/realodix/assert"
-    },
-	"authors": [
-		{
-			"name": "Budi Hermawan",
-            "role": "Developer"
-		}
-	],
     "require": {
 		"php": ">=7.1"
 	},
