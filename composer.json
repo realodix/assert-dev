@@ -12,7 +12,6 @@
 		"phpunit/phpunit": "^9.5",
 		"realodix/relax": "dev-main"
 	},
-	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
 			"Realodix\\Assert\\": "src"
