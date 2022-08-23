@@ -5,27 +5,6 @@ namespace Realodix\Assert;
 class Assert
 {
     /**
-     * Checks a parameter, that is, throws a ParameterAssertionException if $condition is false.
-     * This is similar to Assert::precondition().
-     *
-     * @note This is intended for checking parameters in constructors and setters.
-     * Checking parameters in every function call is not recommended, since it may have a
-     * negative impact on performance.
-     *
-     * @param string $name        The name of the parameter that was checked.
-     * @param string $description The message to include in the exception if the condition fails.
-     *
-     * @throws ParameterAssertionException if $condition is not true.
-     * @psalm-assert bool $condition
-     */
-    public static function parameter(bool $condition, string $name, string $description): void
-    {
-        if (! $condition) {
-            throw new ParameterAssertionException($name, $description);
-        }
-    }
-
-    /**
      * Checks an parameter's type, that is, throws a InvalidArgumentException if $value is
      * not of $type. This is really a special case of Assert::precondition().
      *
