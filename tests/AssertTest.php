@@ -59,8 +59,10 @@ class AssertTest extends TestCase
         }
     }
 
-    /** @test */
-    public function is_array()
+    /**
+     * @dataProvider arrayProvider
+     */
+    public function testArray()
     {
         Assert::isType('array', [], 'test');
         $this->addToAssertionCount(1);
@@ -90,26 +92,6 @@ class AssertTest extends TestCase
      * @dataProvider isCallableProvider
      */
     public function is_callable($type, $value)
-    {
-        Assert::isType($type, $value, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    /**
-     * @test
-     * @dataProvider isCountableProvider
-     */
-    public function is_countable($type, $value)
-    {
-        Assert::isType($type, $value, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    /**
-     * @test
-     * @dataProvider isIterableProvider
-     */
-    public function is_iterable($type, $value)
     {
         Assert::isType($type, $value, 'test');
         $this->addToAssertionCount(1);

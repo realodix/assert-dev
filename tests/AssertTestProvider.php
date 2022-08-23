@@ -4,6 +4,26 @@ namespace Realodix\Assert\Tests;
 
 trait AssertTestProvider
 {
+    public function arrayProvider()
+    {
+        return [
+            ['array', []],
+            ['array', ['this', 'is', 'an array']],
+            ['array', [0 => 1]],
+            ['array', [0 => null]],
+            ['array', ['a', 'b' => [1, 2]]],
+
+            ['countable', []],
+            ['countable', [1, 2]],
+            ['countable', new \ArrayIterator([])],
+            ['countable', new \SimpleXMLElement('<foo>bar</foo>')],
+
+            ['iterable', [1, 2, 3]],
+            ['iterable', new \ArrayIterator([1, 2, 3])],
+            ['iterable', (function () { yield 1; })()],
+        ];
+    }
+
     public function numberProvider()
     {
         return [
@@ -47,25 +67,6 @@ trait AssertTestProvider
             ['callable', ['Realodix\Assert\Assert', 'isType']],
             ['callable', function () {}],
             ['callable', static function () {}],
-        ];
-    }
-
-    public function isCountableProvider()
-    {
-        return [
-            ['countable', []],
-            ['countable', [1, 2]],
-            ['countable', new \ArrayIterator([])],
-            ['countable', new \SimpleXMLElement('<foo>bar</foo>')],
-        ];
-    }
-
-    public function isIterableProvider()
-    {
-        return [
-            ['iterable', [1, 2, 3]],
-            ['iterable', new \ArrayIterator([1, 2, 3])],
-            ['iterable', (function () { yield 1; })()],
         ];
     }
 

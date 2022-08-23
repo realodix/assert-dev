@@ -75,11 +75,8 @@ class Assert
             return true;
         }
 
-        if (in_array('countable', $allowedTypes) && is_countable($value)) {
-            return true;
-        }
-
-        if (in_array('iterable', $allowedTypes) && is_iterable($value)) {
+        if (in_array('countable', $allowedTypes) && is_countable($value)
+            || in_array('iterable', $allowedTypes) && is_iterable($value)) {
             return true;
         }
 
