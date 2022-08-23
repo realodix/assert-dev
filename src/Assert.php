@@ -27,8 +27,7 @@ class Assert
     }
 
     /**
-     * @param mixed    $value
-     * @param string[] $allowedTypes
+     * @param mixed $value
      */
     private static function hasType($value, array $allowedTypes): bool
     {
