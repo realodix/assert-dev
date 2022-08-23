@@ -75,6 +75,10 @@ class Assert
             return true;
         }
 
+        if (in_array('countable', $allowedTypes) && is_countable($value)) {
+            return true;
+        }
+
         return false;
     }
 

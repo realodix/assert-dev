@@ -85,8 +85,21 @@ class AssertTest extends TestCase
         Assert::isType($type, $value, 'test');
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @test
+     * @dataProvider isCountableProvider
+     */
+    public function is_countable($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
     public function testAssert()
     {
-        $this->assertSame('array', get_debug_type(array()));
+        // $this->assertSame('array', get_debug_type(array()));
+        // $this->assertTrue([] instanceof \Countable);
+        $this->assertCount(0, array());
     }
 }

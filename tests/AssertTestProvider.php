@@ -25,6 +25,16 @@ trait AssertTestProvider
         ];
     }
 
+    public function isCountableProvider()
+    {
+        return [
+            ['countable', array()],
+            ['countable', array(1,2)],
+            ['countable', new \ArrayIterator(array())],
+            ['countable', new \SimpleXMLElement('<foo>bar</foo>')],
+        ];
+    }
+
     public function validIsTypeProvider()
     {
         $staticFunction = static function () {
