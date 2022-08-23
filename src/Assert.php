@@ -8,8 +8,8 @@ class Assert
      * Checks an parameter's type, that is, throws a InvalidArgumentException if $value is
      * not of $type. This is really a special case of Assert::precondition().
      *
-     * @param string|array $types The parameter's expected type. Can be the name of a native type
-     *                            or a class or interface, or a list of such names.
+     * @param string|array $types The parameter's expected type. Can be the name of a native
+     *                            type or a class or interface, or a list of such names.
      * @param mixed        $value The parameter's actual value.
      * @param string       $name  The name of the parameter that was checked.
      *
