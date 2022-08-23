@@ -78,7 +78,6 @@ trait AssertTestProvider
         };
 
         return [
-            ['object', new \stdClass],
             ['RuntimeException', new \RuntimeException],
             ['Exception', new \RuntimeException],
             ['stdClass', new \stdClass],

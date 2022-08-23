@@ -116,6 +116,13 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    /** @test */
+    public function is_object()
+    {
+        Assert::isType('object', new \stdClass, 'test');
+        $this->addToAssertionCount(1);
+    }
+
     public function testAssert()
     {
         // $this->assertSame('array', get_debug_type(array()));
