@@ -4,6 +4,16 @@ namespace Realodix\Assert\Tests;
 
 trait AssertTestProvider
 {
+    public function isBoolProvider()
+    {
+        return [
+            ['bool', true],
+            ['bool', false],
+            ['true', true],
+            ['false', false],
+        ];
+    }
+
     public function validIsTypeProvider()
     {
         $staticFunction = static function () {
@@ -11,11 +21,6 @@ trait AssertTestProvider
 
         return [
             ['string', 'hello'],
-
-            ['bool', true],
-            ['bool', false],
-            ['true', true],
-            ['false', false],
 
             ['int', 1],
             ['float', 1.0],

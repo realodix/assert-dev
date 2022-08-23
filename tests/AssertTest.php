@@ -47,9 +47,6 @@ class AssertTest extends TestCase
 
     /**
      * @dataProvider invalidIsTypeProvider
-     *
-     * @param mixed $type
-     * @param mixed $value
      */
     public function testIsTypeFail($type, $value)
     {
@@ -66,6 +63,16 @@ class AssertTest extends TestCase
     public function is_array()
     {
         Assert::isType('array', [], 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider isBoolProvider
+     */
+    public function is_bool($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
         $this->addToAssertionCount(1);
     }
 }
