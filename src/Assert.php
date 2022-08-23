@@ -21,6 +21,7 @@ class Assert
         if (is_string($types)) {
             $types = explode('|', $types);
         }
+
         if (! self::hasType($value, $types)) {
             throw new ParameterTypeException($name, implode('|', $types));
         }
