@@ -118,7 +118,6 @@ trait AssertTestProvider
             [['integer', 'null'], null],
 
             [['null', 'callable'], 'time'],
-            [['null', 'callback'], 'time'],
 
             ['Traversable', new \ArrayObject],
             ['Traversable', new \ArrayIterator([])],
