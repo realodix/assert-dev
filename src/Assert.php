@@ -63,8 +63,7 @@ class Assert
     }
 
     /**
-     * @param object   $value
-     * @param string[] $allowedTypes
+     * @param object $value
      */
     private static function isInstanceOf($value, array $allowedTypes): bool
     {
