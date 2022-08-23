@@ -35,6 +35,15 @@ trait AssertTestProvider
         ];
     }
 
+    public function isIterableProvider()
+    {
+        return [
+            ['iterable', [1, 2, 3]],
+            ['iterable', new \ArrayIterator([1, 2, 3])],
+            ['iterable', (function () { yield 1; })()],
+        ];
+    }
+
     public function numberProvider()
     {
         return [
