@@ -66,7 +66,7 @@ class Assert
         if (
             in_array('callable', $allowedTypes) && is_callable($value)
             || in_array('callback', $allowedTypes) && is_callable($value)
-            || in_array('int', $allowedTypes) && is_integer($value)
+            || in_array('int', $allowedTypes) && is_int($value)
             || in_array('float', $allowedTypes) && is_float($value)
             || in_array('bool', $allowedTypes) && is_bool($value)
             || in_array('false', $allowedTypes) && $value === false
