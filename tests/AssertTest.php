@@ -106,6 +106,13 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    /** @test */
+    public function is_object()
+    {
+        Assert::isType('object', new \stdClass, 'test');
+        $this->addToAssertionCount(1);
+    }
+
     /**
      * @test
      * @dataProvider isStringProvider
@@ -113,13 +120,6 @@ class AssertTest extends TestCase
     public function is_string($type, $value)
     {
         Assert::isType($type, $value, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    /** @test */
-    public function is_object()
-    {
-        Assert::isType('object', new \stdClass, 'test');
         $this->addToAssertionCount(1);
     }
 
