@@ -75,6 +75,15 @@ trait AssertTestProvider
         ];
     }
 
+    public function isScalarProvider()
+    {
+        return [
+            ['scalar', '1'],
+            ['scalar', 123],
+            ['scalar', true],
+        ];
+    }
+
     public function isStringProvider()
     {
         return [

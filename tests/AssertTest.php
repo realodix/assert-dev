@@ -98,6 +98,16 @@ class AssertTest extends TestCase
 
     /**
      * @test
+     * @dataProvider isScalarProvider
+     */
+    public function is_scalar($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
      * @dataProvider isStringProvider
      */
     public function is_string($type, $value)

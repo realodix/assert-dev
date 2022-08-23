@@ -84,6 +84,10 @@ class Assert
             return true;
         }
 
+        if (in_array('scalar', $allowedTypes) && is_scalar($value)) {
+            return true;
+        }
+
         return false;
     }
 
