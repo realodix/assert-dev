@@ -11,22 +11,6 @@ class AssertTest extends TestCase
 {
     use AssertTestProvider;
 
-    public function testParameterPass()
-    {
-        Assert::parameter(1 >= 0, 'foo', 'must be greater than 0');
-        $this->addToAssertionCount(1);
-    }
-
-    public function testParameterFail()
-    {
-        try {
-            Assert::parameter(false, 'test', 'testing');
-            $this->fail('Expected ParameterAssertionException');
-        } catch (ParameterAssertionException $ex) {
-            $this->assertSame('test', $ex->getParameterName());
-        }
-    }
-
     public function testParameterTypeCatch()
     {
         $this->expectException(ParameterAssertionException::class);
