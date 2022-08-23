@@ -75,4 +75,14 @@ class AssertTest extends TestCase
         Assert::isType($type, $value, 'test');
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @test
+     * @dataProvider isCallableProvider
+     */
+    public function is_callable($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
 }

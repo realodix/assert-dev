@@ -14,6 +14,17 @@ trait AssertTestProvider
         ];
     }
 
+    public function isCallableProvider()
+    {
+        return [
+            ['callable', 'strlen'],
+            ['callable', 'Realodix\Assert\Assert::isType'],
+            ['callable', ['Realodix\Assert\Assert', 'isType']],
+            ['callable', function () {}],
+            ['callable', static function () {}],
+        ];
+    }
+
     public function validIsTypeProvider()
     {
         $staticFunction = static function () {
@@ -34,15 +45,7 @@ trait AssertTestProvider
             [['integer', 'null'], null],
 
             [['null', 'callable'], 'time'],
-            ['callable', 'Realodix\Assert\Assert::isType'],
-            ['callable', ['Realodix\Assert\Assert', 'isType']],
-            ['callable', [$this, 'validIsTypeProvider']],
-            ['callable', $staticFunction],
             [['null', 'callback'], 'time'],
-            ['callback', 'Realodix\Assert\Assert::isType'],
-            ['callback', ['Realodix\Assert\Assert', 'isType']],
-            ['callback', [$this, 'validIsTypeProvider']],
-            ['callback', $staticFunction],
 
             ['Traversable', new \ArrayObject],
             ['Traversable', new \ArrayIterator([])],
