@@ -75,6 +75,14 @@ trait AssertTestProvider
         ];
     }
 
+    public function isNullProvider()
+    {
+        return [
+            ['null', null],
+            ['null', null],
+        ];
+    }
+
     public function isScalarProvider()
     {
         return [
