@@ -67,6 +67,15 @@ class AssertTest extends TestCase
     }
 
     /**
+     * @dataProvider numberProvider
+     */
+    public function testNumber($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
      * @test
      * @dataProvider isBoolProvider
      */
@@ -101,16 +110,6 @@ class AssertTest extends TestCase
      * @dataProvider isIterableProvider
      */
     public function is_iterable($type, $value)
-    {
-        Assert::isType($type, $value, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    /**
-     * @test
-     * @dataProvider numberProvider
-     */
-    public function number($type, $value)
     {
         Assert::isType($type, $value, 'test');
         $this->addToAssertionCount(1);

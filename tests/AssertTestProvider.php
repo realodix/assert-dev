@@ -4,6 +4,31 @@ namespace Realodix\Assert\Tests;
 
 trait AssertTestProvider
 {
+    public function numberProvider()
+    {
+        return [
+            ['int', 0],
+            ['int', 1],
+
+            ['float|double', 0.1],
+            ['float|double', 1.0],
+            ['float|double', 2.3],
+            ['float|double', 1 / 3],
+            ['float|double', 1 - 2 / 3],
+            ['float|double', log(0)],
+
+            ['numeric', '42'],
+            ['numeric', 1337],
+            ['numeric', 0x539],
+            ['numeric', 02471],
+            ['numeric', 0b10100111001],
+            ['numeric', 1337e0],
+            ['numeric', '02471'],
+            ['numeric', '1337e0'],
+            ['numeric', 9.1],
+        ];
+    }
+
     public function isBoolProvider()
     {
         return [
@@ -41,31 +66,6 @@ trait AssertTestProvider
             ['iterable', [1, 2, 3]],
             ['iterable', new \ArrayIterator([1, 2, 3])],
             ['iterable', (function () { yield 1; })()],
-        ];
-    }
-
-    public function numberProvider()
-    {
-        return [
-            ['int', 0],
-            ['int', 1],
-
-            ['float|double', 0.1],
-            ['float|double', 1.0],
-            ['float|double', 2.3],
-            ['float|double', 1 / 3],
-            ['float|double', 1 - 2 / 3],
-            ['float|double', log(0)],
-
-            ['numeric', '42'],
-            ['numeric', 1337],
-            ['numeric', 0x539],
-            ['numeric', 02471],
-            ['numeric', 0b10100111001],
-            ['numeric', 1337e0],
-            ['numeric', '02471'],
-            ['numeric', '1337e0'],
-            ['numeric', 9.1],
         ];
     }
 
