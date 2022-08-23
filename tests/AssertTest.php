@@ -27,6 +27,12 @@ class AssertTest extends TestCase
         }
     }
 
+    public function testParameterTypeCatch()
+    {
+        $this->expectException(ParameterAssertionException::class);
+        Assert::isType('string', 17, 'test');
+    }
+
     /**
      * @dataProvider validIsTypeProvider
      *
@@ -41,9 +47,6 @@ class AssertTest extends TestCase
 
     /**
      * @dataProvider invalidIsTypeProvider
-     *
-     * @param mixed $type
-     * @param mixed $value
      */
     public function testIsTypeFail($type, $value)
     {
@@ -56,9 +59,77 @@ class AssertTest extends TestCase
         }
     }
 
-    public function testParameterTypeCatch()
+    /**
+     * @dataProvider arrayProvider
+     */
+    public function testArray()
     {
-        $this->expectException(ParameterAssertionException::class);
-        Assert::isType('string', 17, 'test');
+        Assert::isType('array', [], 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @dataProvider numberProvider
+     */
+    public function testNumber($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @dataProvider objectProvider
+     */
+    public function testObject($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider isBoolProvider
+     */
+    public function is_bool($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider isNullProvider
+     */
+    public function is_null($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider isScalarProvider
+     */
+    public function is_scalar($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider isStringProvider
+     */
+    public function is_string($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
+    public function testAssert()
+    {
+        // $this->assertSame('array', get_debug_type(array()));
+        // $this->assertTrue([] instanceof \Countable);
+        $this->assertCount(0, []);
     }
 }

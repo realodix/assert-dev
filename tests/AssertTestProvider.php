@@ -4,23 +4,112 @@ namespace Realodix\Assert\Tests;
 
 trait AssertTestProvider
 {
+    public function arrayProvider()
+    {
+        return [
+            ['array', []],
+            ['array', ['this', 'is', 'an array']],
+            ['array', [0 => 1]],
+            ['array', [0 => null]],
+            ['array', ['a', 'b' => [1, 2]]],
+
+            ['countable', []],
+            ['countable', [1, 2]],
+            ['countable', new \ArrayIterator([])],
+            ['countable', new \SimpleXMLElement('<foo>bar</foo>')],
+
+            ['iterable', [1, 2, 3]],
+            ['iterable', new \ArrayIterator([1, 2, 3])],
+            ['iterable', (function () { yield 1; })()],
+        ];
+    }
+
+    public function numberProvider()
+    {
+        return [
+            ['int', 0],
+            ['int', 1],
+
+            ['float|double', 0.1],
+            ['float|double', 1.0],
+            ['float|double', 2.3],
+            ['float|double', 1 / 3],
+            ['float|double', 1 - 2 / 3],
+            ['float|double', log(0)],
+
+            ['numeric', '42'],
+            ['numeric', 1337],
+            ['numeric', 0x539],
+            ['numeric', 02471],
+            ['numeric', 0b10100111001],
+            ['numeric', 1337e0],
+            ['numeric', '02471'],
+            ['numeric', '1337e0'],
+            ['numeric', 9.1],
+        ];
+    }
+
+    public function objectProvider()
+    {
+        return [
+            ['object', new \stdClass],
+            ['object', new \RuntimeException],
+
+            ['callable', 'strlen'],
+            ['callable', 'Realodix\Assert\Assert::isType'],
+            ['callable', ['Realodix\Assert\Assert', 'isType']],
+            ['callable', function () {}],
+            ['callable', static function () {}],
+
+            ['resource', fopen(__FILE__, 'r')],
+        ];
+    }
+
+    public function isBoolProvider()
+    {
+        return [
+            ['bool', true],
+            ['bool', false],
+            ['true', true],
+            ['false', false],
+        ];
+    }
+
+    public function isNullProvider()
+    {
+        return [
+            ['null', null],
+            ['null', null],
+        ];
+    }
+
+    public function isScalarProvider()
+    {
+        return [
+            ['scalar', '1'],
+            ['scalar', 123],
+            ['scalar', true],
+        ];
+    }
+
+    public function isStringProvider()
+    {
+        return [
+            ['string', 'abc'],
+            ['string', '23'],
+            ['string', '23.5'],
+            ['string', ''],
+            ['string', ' '],
+            ['string', '0'],
+        ];
+    }
+
     public function validIsTypeProvider()
     {
         $staticFunction = static function () {
         };
 
         return [
-            ['string', 'hello'],
-
-            ['bool', true],
-            ['bool', false],
-            ['true', true],
-            ['false', false],
-
-            ['int', 1],
-            ['float', 1.0],
-
-            ['object', new \stdClass],
             ['RuntimeException', new \RuntimeException],
             ['Exception', new \RuntimeException],
             ['stdClass', new \stdClass],
@@ -29,15 +118,7 @@ trait AssertTestProvider
             [['integer', 'null'], null],
 
             [['null', 'callable'], 'time'],
-            ['callable', 'Realodix\Assert\Assert::isType'],
-            ['callable', ['Realodix\Assert\Assert', 'isType']],
-            ['callable', [$this, 'validIsTypeProvider']],
-            ['callable', $staticFunction],
             [['null', 'callback'], 'time'],
-            ['callback', 'Realodix\Assert\Assert::isType'],
-            ['callback', ['Realodix\Assert\Assert', 'isType']],
-            ['callback', [$this, 'validIsTypeProvider']],
-            ['callback', $staticFunction],
 
             ['Traversable', new \ArrayObject],
             ['Traversable', new \ArrayIterator([])],
