@@ -78,10 +78,9 @@ class AssertTest extends TestCase
     }
 
     /**
-     * @test
-     * @dataProvider isBoolProvider
+     * @dataProvider objectProvider
      */
-    public function is_bool($type, $value)
+    public function testObject($type, $value)
     {
         Assert::isType($type, $value, 'test');
         $this->addToAssertionCount(1);
@@ -89,18 +88,11 @@ class AssertTest extends TestCase
 
     /**
      * @test
-     * @dataProvider isCallableProvider
+     * @dataProvider isBoolProvider
      */
-    public function is_callable($type, $value)
+    public function is_bool($type, $value)
     {
         Assert::isType($type, $value, 'test');
-        $this->addToAssertionCount(1);
-    }
-
-    /** @test */
-    public function is_object()
-    {
-        Assert::isType('object', new \stdClass, 'test');
         $this->addToAssertionCount(1);
     }
 

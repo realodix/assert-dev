@@ -49,6 +49,20 @@ trait AssertTestProvider
         ];
     }
 
+    public function objectProvider()
+    {
+        return [
+            ['object', new \stdClass],
+            ['object', new \RuntimeException],
+
+            ['callable', 'strlen'],
+            ['callable', 'Realodix\Assert\Assert::isType'],
+            ['callable', ['Realodix\Assert\Assert', 'isType']],
+            ['callable', function () {}],
+            ['callable', static function () {}],
+        ];
+    }
+
     public function isBoolProvider()
     {
         return [
@@ -56,17 +70,6 @@ trait AssertTestProvider
             ['bool', false],
             ['true', true],
             ['false', false],
-        ];
-    }
-
-    public function isCallableProvider()
-    {
-        return [
-            ['callable', 'strlen'],
-            ['callable', 'Realodix\Assert\Assert::isType'],
-            ['callable', ['Realodix\Assert\Assert', 'isType']],
-            ['callable', function () {}],
-            ['callable', static function () {}],
         ];
     }
 
