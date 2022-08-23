@@ -28,10 +28,35 @@ trait AssertTestProvider
     public function isCountableProvider()
     {
         return [
-            ['countable', array()],
-            ['countable', array(1,2)],
-            ['countable', new \ArrayIterator(array())],
+            ['countable', []],
+            ['countable', [1, 2]],
+            ['countable', new \ArrayIterator([])],
             ['countable', new \SimpleXMLElement('<foo>bar</foo>')],
+        ];
+    }
+
+    public function numberProvider()
+    {
+        return [
+            ['int', 0],
+            ['int', 1],
+
+            ['float|double', 0.1],
+            ['float|double', 1.0],
+            ['float|double', 2.3],
+            ['float|double', 1 / 3],
+            ['float|double', 1 - 2 / 3],
+            ['float|double', log(0)],
+
+            ['numeric', '42'],
+            ['numeric', 1337],
+            ['numeric', 0x539],
+            ['numeric', 02471],
+            ['numeric', 0b10100111001],
+            ['numeric', 1337e0],
+            ['numeric', '02471'],
+            ['numeric', '1337e0'],
+            ['numeric', 9.1],
         ];
     }
 
@@ -42,9 +67,6 @@ trait AssertTestProvider
 
         return [
             ['string', 'hello'],
-
-            ['int', 1],
-            ['float', 1.0],
 
             ['object', new \stdClass],
             ['RuntimeException', new \RuntimeException],

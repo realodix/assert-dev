@@ -79,6 +79,10 @@ class Assert
             return true;
         }
 
+        if (in_array('numeric', $allowedTypes) && is_numeric($value)) {
+            return true;
+        }
+
         return false;
     }
 

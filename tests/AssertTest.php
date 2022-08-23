@@ -96,10 +96,20 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    /**
+     * @test
+     * @dataProvider numberProvider
+     */
+    public function number($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
     public function testAssert()
     {
         // $this->assertSame('array', get_debug_type(array()));
         // $this->assertTrue([] instanceof \Countable);
-        $this->assertCount(0, array());
+        $this->assertCount(0, []);
     }
 }
