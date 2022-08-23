@@ -56,21 +56,16 @@ class Assert
         // Apply strtolower because gettype returns "NULL" for null values.
         $type = strtolower(gettype($value));
 
-        if (
-            in_array($type, $allowedTypes)
+        if (in_array($type, $allowedTypes)
             || is_object($value) && self::isInstanceOf($value, $allowedTypes)
-        ) {
+            || in_array('callable', $allowedTypes) && is_callable($value)
+            || in_array('scalar', $allowedTypes) && is_scalar($value)) {
             return true;
         }
 
-        if (
-            in_array('callable', $allowedTypes) && is_callable($value)
-            || in_array('int', $allowedTypes) && is_int($value)
-            || in_array('float', $allowedTypes) && is_float($value)
-            || in_array('bool', $allowedTypes) && is_bool($value)
+        if (in_array('bool', $allowedTypes) && is_bool($value)
             || in_array('false', $allowedTypes) && $value === false
-            || in_array('true', $allowedTypes) && $value === true
-        ) {
+            || in_array('true', $allowedTypes) && $value === true) {
             return true;
         }
 
@@ -79,11 +74,9 @@ class Assert
             return true;
         }
 
-        if (in_array('numeric', $allowedTypes) && is_numeric($value)) {
-            return true;
-        }
-
-        if (in_array('scalar', $allowedTypes) && is_scalar($value)) {
+        if (in_array('numeric', $allowedTypes) && is_numeric($value)
+            || in_array('int', $allowedTypes) && is_int($value)
+            || in_array('float', $allowedTypes) && is_float($value)) {
             return true;
         }
 
