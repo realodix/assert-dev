@@ -106,6 +106,16 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    /**
+     * @test
+     * @dataProvider isStringProvider
+     */
+    public function is_string($type, $value)
+    {
+        Assert::isType($type, $value, 'test');
+        $this->addToAssertionCount(1);
+    }
+
     public function testAssert()
     {
         // $this->assertSame('array', get_debug_type(array()));

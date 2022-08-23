@@ -60,14 +60,24 @@ trait AssertTestProvider
         ];
     }
 
+    public function isStringProvider()
+    {
+        return [
+            ['string', 'abc'],
+            ['string', '23'],
+            ['string', '23.5'],
+            ['string', ''],
+            ['string', ' '],
+            ['string', '0'],
+        ];
+    }
+
     public function validIsTypeProvider()
     {
         $staticFunction = static function () {
         };
 
         return [
-            ['string', 'hello'],
-
             ['object', new \stdClass],
             ['RuntimeException', new \RuntimeException],
             ['Exception', new \RuntimeException],
