@@ -43,8 +43,8 @@ class Assert
         }
 
         if (in_array('bool', $allowedTypes) && is_bool($value)
-            || in_array('false', $allowedTypes) && $value === false
-            || in_array('true', $allowedTypes) && $value === true) {
+            || in_array('true', $allowedTypes) && $value === true
+            || in_array('false', $allowedTypes) && $value === false) {
             return true;
         }
 
