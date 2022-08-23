@@ -29,10 +29,10 @@ class Assert
      * Checks an parameter's type, that is, throws a InvalidArgumentException if $value is
      * not of $type. This is really a special case of Assert::precondition().
      *
-     * @param string|string[] $types The parameter's expected type. Can be the name of a native type
-     *                               or a class or interface, or a list of such names.
-     * @param mixed           $value The parameter's actual value.
-     * @param string          $name  The name of the parameter that was checked.
+     * @param string|array $types The parameter's expected type. Can be the name of a native
+     *                            type or a class or interface, or a list of such names.
+     * @param mixed        $value The parameter's actual value.
+     * @param string       $name  The name of the parameter that was checked.
      *
      * @throws ParameterTypeException if $value is not of type (or, for objects, is not an
      *                                instance of) $type.
@@ -42,14 +42,14 @@ class Assert
         if (is_string($types)) {
             $types = explode('|', $types);
         }
+
         if (! self::hasType($value, $types)) {
             throw new ParameterTypeException($name, implode('|', $types));
         }
     }
 
     /**
-     * @param mixed    $value
-     * @param string[] $allowedTypes
+     * @param mixed $value
      */
     private static function hasType($value, array $allowedTypes): bool
     {
@@ -64,8 +64,8 @@ class Assert
         }
 
         if (in_array('bool', $allowedTypes) && is_bool($value)
-            || in_array('false', $allowedTypes) && $value === false
-            || in_array('true', $allowedTypes) && $value === true) {
+            || in_array('true', $allowedTypes) && $value === true
+            || in_array('false', $allowedTypes) && $value === false) {
             return true;
         }
 
@@ -84,8 +84,7 @@ class Assert
     }
 
     /**
-     * @param object   $value
-     * @param string[] $allowedTypes
+     * @param object $value
      */
     private static function isInstanceOf($value, array $allowedTypes): bool
     {
