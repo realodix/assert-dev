@@ -96,13 +96,10 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @test
-     * @dataProvider isNullProvider
-     */
-    public function is_null($type, $value)
+    /** @test */
+    public function is_null()
     {
-        Assert::isType($type, $value, 'test');
+        Assert::isType('null', null, 'test');
         $this->addToAssertionCount(1);
     }
 
