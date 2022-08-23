@@ -61,4 +61,11 @@ class AssertTest extends TestCase
             $this->assertSame('test', $ex->getParameterName());
         }
     }
+
+    /** @test */
+    public function is_array()
+    {
+        Assert::isType('array', [], 'test');
+        $this->addToAssertionCount(1);
+    }
 }
