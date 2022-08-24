@@ -19,11 +19,18 @@ class Assert
     public static function isType($types, $value, string $name): void
     {
         if (is_string($types)) {
-            $types = explode('|', $types);
+            $message = sprintf(
+                'Expected %s %s, %s given',
+                \in_array(lcfirst($types)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
+                $types,
+                gettype($value)
+            );
         }
 
+        $types = explode('|', $types);
+
         if (! self::hasType($value, $types)) {
-            throw new ParameterTypeException($name, implode('|', $types));
+            throw new \InvalidArgumentException($message);
         }
     }
 

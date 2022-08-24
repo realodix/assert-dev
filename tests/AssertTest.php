@@ -11,12 +11,6 @@ class AssertTest extends TestCase
 {
     use AssertTestProvider;
 
-    public function testParameterTypeCatch()
-    {
-        $this->expectException(ParameterAssertionException::class);
-        Assert::isType('string', 17, 'test');
-    }
-
     /**
      * @dataProvider validIsTypeProvider
      *
@@ -34,13 +28,9 @@ class AssertTest extends TestCase
      */
     public function testIsTypeFail($type, $value)
     {
-        try {
-            Assert::isType($type, $value, 'test');
-            $this->fail('Expected ParameterTypeException');
-        } catch (ParameterTypeException $ex) {
-            $this->assertSame($type, $ex->getParameterType());
-            $this->assertSame('test', $ex->getParameterName());
-        }
+        $this->expectException(\InvalidArgumentException::class);
+
+        Assert::isType($type, $value, 'test');
     }
 
     /**
