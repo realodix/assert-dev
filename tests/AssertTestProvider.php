@@ -105,11 +105,7 @@ trait AssertTestProvider
             ['RuntimeException', new \RuntimeException],
             ['Exception', new \RuntimeException],
             ['stdClass', new \stdClass],
-            [['string', 'array', 'Closure'], $staticFunction],
             ['string|array|Closure', $staticFunction],
-            [['integer', 'null'], null],
-
-            [['null', 'callable'], 'time'],
 
             ['Traversable', new \ArrayObject],
             ['Traversable', new \ArrayIterator([])],
