@@ -11,16 +11,15 @@ class Assert
      * @param string $types The parameter's expected type. Can be the name of a native
      *                      type or a class or interface, or a list of such names.
      * @param mixed  $value The parameter's actual value.
-     * @param string $message
      *
-     * @throws ParameterTypeException if $value is not of type (or, for objects, is not an
-     *                                instance of) $type.
+     * @throws InvalidArgumentException if $value is not of type (or, for objects, is not an
+     *                                  instance of) $type.
      */
     public static function isType(string $types, $value, string $message = ''): void
     {
         if ($message === '') {
             $message = sprintf(
-                'Expected %s %s, %s given',
+                'Expected %s %s. Got: %s.',
                 \in_array(lcfirst($types)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
                 $types,
                 gettype($value)
