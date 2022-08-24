@@ -4,18 +4,10 @@ namespace Realodix\Assert\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
-use Realodix\Assert\ParameterAssertionException;
-use Realodix\Assert\ParameterTypeException;
 
 class AssertTest extends TestCase
 {
     use AssertTestProvider;
-
-    public function testParameterTypeCatch()
-    {
-        $this->expectException(ParameterAssertionException::class);
-        Assert::isType('string', 17, 'test');
-    }
 
     /**
      * @dataProvider validIsTypeProvider
@@ -25,7 +17,7 @@ class AssertTest extends TestCase
      */
     public function testIsTypePass($type, $value)
     {
-        Assert::isType($type, $value, 'test');
+        Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -34,13 +26,9 @@ class AssertTest extends TestCase
      */
     public function testIsTypeFail($type, $value)
     {
-        try {
-            Assert::isType($type, $value, 'test');
-            $this->fail('Expected ParameterTypeException');
-        } catch (ParameterTypeException $ex) {
-            $this->assertSame($type, $ex->getParameterType());
-            $this->assertSame('test', $ex->getParameterName());
-        }
+        $this->expectException(\InvalidArgumentException::class);
+
+        Assert::isType($type, $value);
     }
 
     /**
@@ -48,7 +36,7 @@ class AssertTest extends TestCase
      */
     public function testArray()
     {
-        Assert::isType('array', [], 'test');
+        Assert::isType('array', []);
         $this->addToAssertionCount(1);
     }
 
@@ -57,7 +45,7 @@ class AssertTest extends TestCase
      */
     public function testNumber($type, $value)
     {
-        Assert::isType($type, $value, 'test');
+        Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -66,7 +54,7 @@ class AssertTest extends TestCase
      */
     public function testObject($type, $value)
     {
-        Assert::isType($type, $value, 'test');
+        Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -76,14 +64,14 @@ class AssertTest extends TestCase
      */
     public function is_bool($type, $value)
     {
-        Assert::isType($type, $value, 'test');
+        Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
     /** @test */
     public function is_null()
     {
-        Assert::isType('null', null, 'test');
+        Assert::isType('null', null);
         $this->addToAssertionCount(1);
     }
 
@@ -93,7 +81,7 @@ class AssertTest extends TestCase
      */
     public function is_scalar($type, $value)
     {
-        Assert::isType($type, $value, 'test');
+        Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -103,7 +91,7 @@ class AssertTest extends TestCase
      */
     public function is_string($type, $value)
     {
-        Assert::isType($type, $value, 'test');
+        Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
