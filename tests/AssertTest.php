@@ -99,6 +99,14 @@ class AssertTest extends TestCase
         Assert::isType('int', '1');
     }
 
+    public function testCustomExceptionMessage()
+    {
+        $message = 'foobar';
+
+        $this->expectExceptionMessage($message);
+        Assert::isType('string', 1, $message);
+    }
+
     /**
      * @dataProvider invalidIsTypeProvider
      */
