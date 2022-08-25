@@ -9,6 +9,11 @@ class AssertTest extends TestCase
 {
     use AssertTestProvider;
 
+    protected function errorExpectation()
+    {
+        return \InvalidArgumentException::class;
+    }
+
     /**
      * @dataProvider validIsTypeProvider
      *
@@ -26,7 +31,7 @@ class AssertTest extends TestCase
      */
     public function testIsTypeFail($type, $value)
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException($this->errorExpectation());
 
         Assert::isType($type, $value);
     }
@@ -37,7 +42,7 @@ class AssertTest extends TestCase
     public function testArray($type, $value, $pass = true)
     {
         if (! $pass) {
-            $this->expectException(\InvalidArgumentException::class);
+            $this->expectException($this->errorExpectation());
 
             Assert::isType($type, $value);
         }

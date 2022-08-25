@@ -13,16 +13,16 @@ trait AssertTestProvider
             ['array', [0 => null]],
             ['array', ['a', 'b' => [1, 2]]],
             // Invalid array
-            ['array', new \ArrayIterator(array()), false],
+            ['array', new \ArrayIterator([]), false],
             ['array', 123, false],
-            ['array', new \stdClass(), false],
+            ['array', new \stdClass, false],
 
             ['countable', []],
             ['countable', [1, 2]],
             ['countable', new \ArrayIterator([])],
             ['countable', new \SimpleXMLElement('<foo>bar</foo>')],
             // Invalid countable
-            ['countable', new \stdClass(), false],
+            ['countable', new \stdClass, false],
             ['countable', 'abcd', false],
             ['countable', 123, false],
 
@@ -31,7 +31,7 @@ trait AssertTestProvider
             ['iterable', (function () { yield 1; })()],
             // Invalid iterable
             ['iterable', 123, false],
-            ['iterable', new \stdClass(), false],
+            ['iterable', new \stdClass, false],
         ];
     }
 
