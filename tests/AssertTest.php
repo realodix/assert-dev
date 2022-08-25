@@ -82,8 +82,14 @@ class AssertTest extends TestCase
      * @test
      * @dataProvider isBoolProvider
      */
-    public function is_bool($type, $value)
+    public function is_bool($type, $value, $pass = true)
     {
+        if (! $pass) {
+            $this->expectException($this->errorExpectation());
+
+            Assert::isType($type, $value);
+        }
+
         Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }

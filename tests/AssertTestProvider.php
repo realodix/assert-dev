@@ -110,6 +110,9 @@ trait AssertTestProvider
             ['boolean', false],
             ['true', true],
             ['false', false],
+            // Invalid boolean
+            ['bool', 1, false],
+            ['bool', '1', false],
         ];
     }
 
