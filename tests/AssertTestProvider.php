@@ -68,6 +68,13 @@ trait AssertTestProvider
             ['numeric', '02471'],
             ['numeric', '1337e0'],
             ['numeric', 9.1],
+            // Invalid numeric
+            ['numeric', '0x539', false],
+            ['numeric', '0b10100111001', false],
+            ['numeric', 'not numeric', false],
+            ['numeric', [], false],
+            ['numeric', null, false],
+            ['numeric', '', false],
         ];
     }
 
