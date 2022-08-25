@@ -17,14 +17,6 @@ class AssertTest extends TestCase
     }
 
     /**
-     * @dataProvider invalidIsTypeProvider
-     */
-    public function testIsTypeFail($type, $value)
-    {
-        $this->testFailed($type, $value);
-    }
-
-    /**
      * @dataProvider arrayProvider
      */
     public function testArray($type, $value, $pass = true)
@@ -98,10 +90,11 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    public function testAssert()
+    /**
+     * @dataProvider invalidIsTypeProvider
+     */
+    public function testIsTypeFail($type, $value)
     {
-        // $this->assertSame('array', get_debug_type(array()));
-        // $this->assertTrue([] instanceof \Countable);
-        $this->assertCount(0, []);
+        $this->testFailed($type, $value);
     }
 }

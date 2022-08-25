@@ -48,6 +48,7 @@ trait AssertTestProvider
             ['int', '123', false],
             ['int', 1.0, false],
             ['int', 1.23, false],
+            ['int', true, false],
 
             ['float|double', 0.1],
             ['float|double', 1.0],
@@ -104,6 +105,7 @@ trait AssertTestProvider
             ['callable', static function () {}],
             // Invalid callable
             ['callable', 'foobar', false],
+            ['callable', new \stdClass, false],
 
             ['resource', fopen(__FILE__, 'r')],
         ];
@@ -121,6 +123,8 @@ trait AssertTestProvider
             // Invalid boolean
             ['bool', 1, false],
             ['bool', '1', false],
+            ['true', false, false],
+            ['false', true, false],
         ];
     }
 
@@ -153,25 +157,6 @@ trait AssertTestProvider
     {
         return [
             // 'callback alias is not accepted' => ['callback', 'time'],
-
-            'simple'                    => ['string', 5],
-            'integer is not boolean'    => ['boolean', 1],
-            'string is not boolean'     => ['boolean', '0'],
-            'boolean is not integer'    => ['integer', true],
-            'false is not true'         => ['true', false],
-            'true is not false'         => ['false', true],
-            'string is not integer'     => ['integer', '0'],
-            'double is not integer'     => ['integer', 1.0],
-            'integer is not double'     => ['double', 1],
-            'class'                     => ['RuntimeException', new \LogicException],
-            'stdClass is no superclass' => ['stdClass', new \LogicException],
-            'multi'                     => ['string|integer|Closure', []],
-            'null'                      => ['integer|string', null],
-
-            'callable'               => ['null|callable', []],
-            'callable is no Closure' => ['Closure', 'time'],
-            'object is not callable' => ['callable', new \stdClass],
-
             'object is not Traversable'   => ['traversable', new \stdClass],
             'Traversable is not Iterator' => ['Iterator', new \ArrayObject],
         ];
