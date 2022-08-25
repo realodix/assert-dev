@@ -29,6 +29,9 @@ trait AssertTestProvider
             ['iterable', [1, 2, 3]],
             ['iterable', new \ArrayIterator([1, 2, 3])],
             ['iterable', (function () { yield 1; })()],
+            // Invalid iterable
+            ['iterable', 123, false],
+            ['iterable', new \stdClass(), false],
         ];
     }
 
