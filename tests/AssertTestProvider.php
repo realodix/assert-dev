@@ -70,6 +70,8 @@ trait AssertTestProvider
         return [
             ['bool', true],
             ['bool', false],
+            ['boolean', true],
+            ['boolean', false],
             ['true', true],
             ['false', false],
         ];
