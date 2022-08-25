@@ -40,6 +40,10 @@ trait AssertTestProvider
         return [
             ['int', 0],
             ['int', 1],
+            // Invalid int
+            ['int', '123', false],
+            ['int', 1.0, false],
+            ['int', 1.23, false],
 
             ['float|double', 0.1],
             ['float|double', 1.0],

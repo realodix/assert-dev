@@ -54,8 +54,14 @@ class AssertTest extends TestCase
     /**
      * @dataProvider numberProvider
      */
-    public function testNumber($type, $value)
+    public function testNumber($type, $value, $pass = true)
     {
+        if (! $pass) {
+            $this->expectException($this->errorExpectation());
+
+            Assert::isType($type, $value);
+        }
+
         Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
