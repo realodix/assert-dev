@@ -51,6 +51,13 @@ trait AssertTestProvider
             ['float|double', 1 / 3],
             ['float|double', 1 - 2 / 3],
             ['float|double', log(0)],
+            // Invalid float
+            ['float', 1, false],
+            ['float', false, false],
+            ['float', 'test', false],
+            ['float', null, false],
+            ['float', '1.23', false],
+            ['float', '10', false],
 
             ['numeric', '42'],
             ['numeric', 1337],
