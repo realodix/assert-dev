@@ -7,6 +7,10 @@ trait AssertTestProvider
     public function arrayProvider()
     {
         return [
+            ['ArrayAccess', new \ArrayObject],
+            ['Traversable', new \ArrayObject],
+            ['Traversable', new \ArrayIterator([])],
+
             ['array', []],
             ['array', ['this', 'is', 'an array']],
             ['array', [0 => 1]],
@@ -81,13 +85,17 @@ trait AssertTestProvider
     public function objectProvider()
     {
         return [
+            ['RuntimeException', new \RuntimeException],
+            ['Exception', new \RuntimeException],
+            ['stdClass', new \stdClass],
+
             ['object', new \stdClass],
             ['object', new \RuntimeException],
             // Invalid object
             ['object', null, false],
             ['object', true, false],
             ['object', 1, false],
-            ['object', array(), false],
+            ['object', [], false],
 
             ['callable', 'strlen'],
             ['callable', 'Realodix\Assert\Assert::isType'],
@@ -124,8 +132,8 @@ trait AssertTestProvider
             ['scalar', true],
             // Invalid scalar
             ['scalar', null, false],
-            ['scalar', array(), false],
-            ['scalar', new \stdClass(), false],
+            ['scalar', [], false],
+            ['scalar', new \stdClass, false],
         ];
     }
 
@@ -138,24 +146,6 @@ trait AssertTestProvider
             ['string', ''],
             ['string', ' '],
             ['string', '0'],
-        ];
-    }
-
-    public function validIsTypeProvider()
-    {
-        $staticFunction = static function () {
-        };
-
-        return [
-            ['RuntimeException', new \RuntimeException],
-            ['Exception', new \RuntimeException],
-            ['stdClass', new \stdClass],
-            ['string|array|Closure', $staticFunction],
-
-            ['Traversable', new \ArrayObject],
-            ['Traversable', new \ArrayIterator([])],
-
-            ['ArrayAccess', new \ArrayObject],
         ];
     }
 

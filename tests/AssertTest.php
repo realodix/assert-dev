@@ -15,15 +15,6 @@ class AssertTest extends TestCase
     }
 
     /**
-     * @dataProvider validIsTypeProvider
-     */
-    public function testIsTypePass($type, $value)
-    {
-        Assert::isType($type, $value);
-        $this->addToAssertionCount(1);
-    }
-
-    /**
      * @dataProvider invalidIsTypeProvider
      */
     public function testIsTypeFail($type, $value)
