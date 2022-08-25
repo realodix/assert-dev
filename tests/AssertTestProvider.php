@@ -162,9 +162,6 @@ trait AssertTestProvider
     public function invalidIsTypeProvider()
     {
         return [
-            // 'bool shortcut is not accepted'  => ['bool', true],
-            // 'int shortcut is not accepted'   => ['int', 1],
-            // 'float alias is not accepted'    => ['float', 1.0],
             // 'callback alias is not accepted' => ['callback', 'time'],
 
             'simple'                    => ['string', 5],
