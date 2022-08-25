@@ -11,9 +11,6 @@ class AssertTest extends TestCase
 
     /**
      * @dataProvider validIsTypeProvider
-     *
-     * @param mixed $type
-     * @param mixed $value
      */
     public function testIsTypePass($type, $value)
     {
