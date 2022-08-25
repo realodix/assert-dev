@@ -83,6 +83,11 @@ trait AssertTestProvider
         return [
             ['object', new \stdClass],
             ['object', new \RuntimeException],
+            // Invalid object
+            ['object', null, false],
+            ['object', true, false],
+            ['object', 1, false],
+            ['object', array(), false],
 
             ['callable', 'strlen'],
             ['callable', 'Realodix\Assert\Assert::isType'],
