@@ -94,6 +94,8 @@ trait AssertTestProvider
             ['callable', ['Realodix\Assert\Assert', 'isType']],
             ['callable', function () {}],
             ['callable', static function () {}],
+            // Invalid callable
+            ['callable', 'foobar', false],
 
             ['resource', fopen(__FILE__, 'r')],
         ];
