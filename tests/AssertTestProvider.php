@@ -98,6 +98,8 @@ trait AssertTestProvider
             ['callable', 'foobar', false],
 
             ['resource', fopen(__FILE__, 'r')],
+            // Invalid resource
+            ['resource', fopen(__FILE__, 'other'), false],
         ];
     }
 
