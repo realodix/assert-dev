@@ -61,6 +61,18 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    /**
+     * @test
+     * @dataProvider instanceofProvider
+     */
+    public function instanceof($type, $value, $pass = true)
+    {
+        (! $pass) && $this->testFailed($type, $value);
+
+        Assert::isType($type, $value);
+        $this->addToAssertionCount(1);
+    }
+
     /** @test */
     public function is_null()
     {

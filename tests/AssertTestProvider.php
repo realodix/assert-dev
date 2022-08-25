@@ -128,6 +128,18 @@ trait AssertTestProvider
         ];
     }
 
+    public function instanceofProvider()
+    {
+        return [
+            ['stdClass', new \stdClass],
+            // Invalid instanceof
+            ['stdClass', new \Exception, false],
+            ['stdClass', 123, false],
+            ['stdClass', [], false],
+            ['stdClass', null, false],
+        ];
+    }
+
     public function isScalarProvider()
     {
         return [
