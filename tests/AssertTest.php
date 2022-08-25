@@ -9,9 +9,11 @@ class AssertTest extends TestCase
 {
     use AssertTestProvider;
 
-    protected function errorExpectation()
+    protected function testFailed($type, $value)
     {
-        return \InvalidArgumentException::class;
+        $this->expectException(\InvalidArgumentException::class);
+
+        Assert::isType($type, $value);
     }
 
     /**
@@ -19,9 +21,7 @@ class AssertTest extends TestCase
      */
     public function testIsTypeFail($type, $value)
     {
-        $this->expectException($this->errorExpectation());
-
-        Assert::isType($type, $value);
+        $this->testFailed($type, $value);
     }
 
     /**
@@ -29,11 +29,7 @@ class AssertTest extends TestCase
      */
     public function testArray($type, $value, $pass = true)
     {
-        if (! $pass) {
-            $this->expectException($this->errorExpectation());
-
-            Assert::isType($type, $value);
-        }
+        (! $pass) && $this->testFailed($type, $value);
 
         Assert::isType($type, $value);
         $this->addToAssertionCount(1);
@@ -44,11 +40,7 @@ class AssertTest extends TestCase
      */
     public function testNumber($type, $value, $pass = true)
     {
-        if (! $pass) {
-            $this->expectException($this->errorExpectation());
-
-            Assert::isType($type, $value);
-        }
+        (! $pass) && $this->testFailed($type, $value);
 
         Assert::isType($type, $value);
         $this->addToAssertionCount(1);
@@ -59,11 +51,7 @@ class AssertTest extends TestCase
      */
     public function testObject($type, $value, $pass = true)
     {
-        if (! $pass) {
-            $this->expectException($this->errorExpectation());
-
-            Assert::isType($type, $value);
-        }
+        (! $pass) && $this->testFailed($type, $value);
 
         Assert::isType($type, $value);
         $this->addToAssertionCount(1);
@@ -75,11 +63,7 @@ class AssertTest extends TestCase
      */
     public function is_bool($type, $value, $pass = true)
     {
-        if (! $pass) {
-            $this->expectException($this->errorExpectation());
-
-            Assert::isType($type, $value);
-        }
+        (! $pass) && $this->testFailed($type, $value);
 
         Assert::isType($type, $value);
         $this->addToAssertionCount(1);
@@ -98,11 +82,7 @@ class AssertTest extends TestCase
      */
     public function is_scalar($type, $value, $pass = true)
     {
-        if (! $pass) {
-            $this->expectException($this->errorExpectation());
-
-            Assert::isType($type, $value);
-        }
+        (! $pass) && $this->testFailed($type, $value);
 
         Assert::isType($type, $value);
         $this->addToAssertionCount(1);
