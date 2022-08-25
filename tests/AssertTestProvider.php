@@ -12,6 +12,10 @@ trait AssertTestProvider
             ['array', [0 => 1]],
             ['array', [0 => null]],
             ['array', ['a', 'b' => [1, 2]]],
+            // Invalid array
+            ['array', new \ArrayIterator(array()), false],
+            ['array', 123, false],
+            ['array', new \stdClass(), false],
 
             ['countable', []],
             ['countable', [1, 2]],

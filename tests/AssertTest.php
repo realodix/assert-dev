@@ -34,9 +34,15 @@ class AssertTest extends TestCase
     /**
      * @dataProvider arrayProvider
      */
-    public function testArray()
+    public function testArray($type, $value, $pass = true)
     {
-        Assert::isType('array', []);
+        if (! $pass) {
+            $this->expectException(\InvalidArgumentException::class);
+
+            Assert::isType($type, $value);
+        }
+
+        Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
