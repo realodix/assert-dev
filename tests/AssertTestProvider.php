@@ -122,6 +122,10 @@ trait AssertTestProvider
             ['scalar', '1'],
             ['scalar', 123],
             ['scalar', true],
+            // Invalid scalar
+            ['scalar', null, false],
+            ['scalar', array(), false],
+            ['scalar', new \stdClass(), false],
         ];
     }
 

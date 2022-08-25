@@ -105,8 +105,14 @@ class AssertTest extends TestCase
      * @test
      * @dataProvider isScalarProvider
      */
-    public function is_scalar($type, $value)
+    public function is_scalar($type, $value, $pass = true)
     {
+        if (! $pass) {
+            $this->expectException($this->errorExpectation());
+
+            Assert::isType($type, $value);
+        }
+
         Assert::isType($type, $value);
         $this->addToAssertionCount(1);
     }
