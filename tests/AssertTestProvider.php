@@ -174,6 +174,7 @@ trait AssertTestProvider
         return [
             // Array
             ['array&countable', []],
+            ['array&iterable&countable', [1, 2, 3]],
             // Bool
             ['bool&true', true],
             ['bool&false', false],
