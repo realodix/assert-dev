@@ -34,6 +34,15 @@ class Assert
 
         // symfony/polyfill-php80
         if (str_contains($types, '&')) {
+            $actualTypesCount = count(array_count_values(explode('&', $types)));
+            $expectedTypesCount = count(explode('&', $types));
+
+            if ($expectedTypesCount != $actualTypesCount) {
+                throw new \InvalidArgumentException(
+                    'Redundant type names in the same declaration is not allowed.'
+                );
+            }
+
             if (! self::isIntersectionTypes($value, explode('&', $types))) {
                 throw new \InvalidArgumentException($message);
             }
