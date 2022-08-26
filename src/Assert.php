@@ -43,27 +43,12 @@ class Assert
     /**
      * @param mixed $value
      */
-    private static function hasType($value, array $allowedTypes): bool
+    private static function hasType($value, array $aTypes): bool
     {
-        // Apply strtolower because gettype returns "NULL" for null values.
-        $type = strtolower(gettype($value));
-
-        if (in_array($type, $allowedTypes)
-            || is_object($value) && self::isInstanceOf($value, $allowedTypes)
-            || in_array('callable', $allowedTypes) && is_callable($value)
-            || in_array('scalar', $allowedTypes) && is_scalar($value)
-            // Array
-            || in_array('countable', $allowedTypes) && is_countable($value)
-            || in_array('iterable', $allowedTypes) && is_iterable($value)
-            // Boolean
-            || in_array('bool', $allowedTypes) && is_bool($value)
-            || in_array('true', $allowedTypes) && $value === true
-            || in_array('false', $allowedTypes) && $value === false
-            // Number
-            || in_array('numeric', $allowedTypes) && is_numeric($value)
-            || in_array('int', $allowedTypes) && is_int($value)
-            || in_array('float', $allowedTypes) && is_float($value)) {
-            return true;
+        foreach ($aTypes as $allowedTypes) {
+            if (self::rules($value, $allowedTypes)) {
+                return true;
+            }
         }
 
         return false;
@@ -72,46 +57,39 @@ class Assert
     /**
      * @param mixed $value
      */
-    private static function isIntersectionTypes($value, array $allowedTypes)
+    private static function isIntersectionTypes($value, array $allowedTypes): bool
     {
-        $nValidTypes = count(array_filter($allowedTypes, function ($allowedTypes) use ($value) {
-            return
-                // Apply strtolower because gettype returns "NULL" for null values.
-                strtolower(gettype($value)) == $allowedTypes
-                || is_object($value) && self::isInstanceOf($value, (array) $allowedTypes)
-                || 'callable' == $allowedTypes && is_callable($value)
-                || 'scalar' == $allowedTypes && is_scalar($value)
-                // Array
-                || 'countable' == $allowedTypes && is_countable($value)
-                || 'iterable' == $allowedTypes && is_iterable($value)
-                // Boolean
-                || 'bool' == $allowedTypes && is_bool($value)
-                || 'true' == $allowedTypes && $value === true
-                || 'false' == $allowedTypes && $value === false
-                // Number
-                || 'numeric' == $allowedTypes && is_numeric($value)
-                || 'int' == $allowedTypes && is_int($value)
-                || 'float' == $allowedTypes && is_float($value);
-        }));
+        $validTypes = array_filter(
+            $allowedTypes,
+            fn ($allowedTypes) => self::rules($value, $allowedTypes)
+        );
 
-        if (count($allowedTypes) === $nValidTypes) {
+        if (count($allowedTypes) === count($validTypes)) {
             return true;
         }
 
         return false;
     }
 
-    /**
-     * @param object $value
-     */
-    private static function isInstanceOf($value, array $allowedTypes): bool
+    private static function rules($value, string $allowedTypes): bool
     {
-        foreach ($allowedTypes as $type) {
-            if ($value instanceof $type) {
-                return true;
-            }
-        }
+        // Apply strtolower because gettype returns "NULL" for null values.
+        $type = strtolower(gettype($value));
 
-        return false;
+        return ($type == $allowedTypes)
+            || is_object($value) && $value instanceof $allowedTypes
+            || ('callable' == $allowedTypes) && is_callable($value)
+            || ('scalar' == $allowedTypes) && is_scalar($value)
+            // Array
+            || ('countable' == $allowedTypes) && is_countable($value)
+            || ('iterable' == $allowedTypes) && is_iterable($value)
+            // Boolean
+            || ('bool' == $allowedTypes) && is_bool($value)
+            || ('true' == $allowedTypes) && $value === true
+            || ('false' == $allowedTypes) && $value === false
+            // Number
+            || ('numeric' == $allowedTypes) && is_numeric($value)
+            || ('int' == $allowedTypes) && is_int($value)
+            || ('float' == $allowedTypes) && is_float($value);
     }
 }

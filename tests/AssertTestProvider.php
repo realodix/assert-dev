@@ -181,6 +181,7 @@ trait AssertTestProvider
             ['bool&true', false, false],
             ['bool&false', true, false],
             // Object
+            ['Exception&object', new \RuntimeException],
             ['object&countable', new \ArrayIterator([])],
             ['object&stdClass', new \stdClass],
             ['object&SimpleXMLElement', new \SimpleXMLElement('<foo>bar</foo>')],
