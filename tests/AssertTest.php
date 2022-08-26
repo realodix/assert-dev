@@ -126,4 +126,10 @@ class AssertTest extends TestCase
     {
         $this->testFailed($type, $value);
     }
+
+    /** @test */
+    public function checkThat()
+    {
+        $this->assertTrue(Assert::checkThat('object&Exception', new \InvalidArgumentException));
+    }
 }
