@@ -141,10 +141,11 @@ class AssertTest extends TestCase
     }
 
     /**
+     * Redundant type names on pure intersection types
+     *
      * Each name-resolved type may only occur once. Types like A&B&A result in an error.
-     * Reject redundant types on IntersectionTypes
      */
-    public function testPureIntersectionTypesRedundant()
+    public function testRedundantTypeNamesOnPureIntersectionTypes()
     {
         $this->expectException(\InvalidArgumentException::class);
         Assert::isType('bool&true&bool', true);
