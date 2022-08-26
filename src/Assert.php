@@ -17,17 +17,15 @@ class Assert
 
         $types = explode('&', $types);
 
-        if (! self::hasTypeAbc($value, $types)) {
+        if (! self::isIntersectionTypes($value, $types)) {
             throw new \InvalidArgumentException($message);
         }
-
-        return self::hasTypeAbc($value, $types);
     }
 
     /**
      * @param mixed $value
      */
-    private static function hasTypeAbc($value, array $aTypes)
+    private static function isIntersectionTypes($value, array $aTypes)
     {
         // Apply strtolower because gettype returns "NULL" for null values.
         $type = strtolower(gettype($value));

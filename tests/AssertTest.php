@@ -130,6 +130,7 @@ class AssertTest extends TestCase
     /** @test */
     public function checkThat()
     {
-        $this->assertTrue(Assert::checkThat('object&Exception', new \InvalidArgumentException));
+        Assert::checkThat('object&Exception', new \InvalidArgumentException);
+        $this->addToAssertionCount(1);
     }
 }
