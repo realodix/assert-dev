@@ -4,57 +4,6 @@ namespace Realodix\Assert;
 
 class Assert
 {
-    public static function checkThat(string $types, $value, string $message = '')
-    {
-        if ($message === '') {
-            $message = sprintf(
-                'Expected %s %s. Got: %s.',
-                \in_array(lcfirst($types)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-                $types,
-                gettype($value)
-            );
-        }
-
-        $types = explode('&', $types);
-
-        if (! self::isIntersectionTypes($value, $types)) {
-            throw new \InvalidArgumentException($message);
-        }
-    }
-
-    /**
-     * @param mixed $value
-     */
-    private static function isIntersectionTypes($value, array $aTypes)
-    {
-        // Apply strtolower because gettype returns "NULL" for null values.
-        $type = strtolower(gettype($value));
-
-        $valid = count(array_filter($aTypes, function ($k) use ($type, $value) {
-            return $type == $k
-                || is_object($value) && self::isInstanceOf($value, (array) $k)
-                || 'callable' == $k && is_callable($value)
-                || 'scalar' == $k && is_scalar($value)
-                // Array
-                || 'countable' == $k && is_countable($value)
-                || 'iterable' == $k && is_iterable($value)
-                // Boolean
-                || 'bool' == $k && is_bool($value)
-                || 'true' == $k && $value === true
-                || 'false' == $k && $value === false
-                // Number
-                || 'numeric' == $k && is_numeric($value)
-                || 'int' == $k && is_int($value)
-                || 'float' == $k && is_float($value);
-        }));
-
-        if (count($aTypes) === $valid) {
-            return true;
-        }
-
-        return false;
-    }
-
     /**
      * Checks an parameter's type, that is, throws a InvalidArgumentException if $value is
      * not of $type. This is really a special case of Assert::precondition().
@@ -77,9 +26,16 @@ class Assert
             );
         }
 
-        $types = explode('|', $types);
+        // symfony/polyfill-php80
+        if (str_contains($types, '&')) {
+            if (! self::isIntersectionTypes($value, explode('&', $types))) {
+                throw new \InvalidArgumentException($message);
+            }
 
-        if (! self::hasType($value, $types)) {
+            return;
+        }
+
+        if (! self::hasType($value, explode('|', $types))) {
             throw new \InvalidArgumentException($message);
         }
     }
@@ -107,6 +63,38 @@ class Assert
             || in_array('numeric', $allowedTypes) && is_numeric($value)
             || in_array('int', $allowedTypes) && is_int($value)
             || in_array('float', $allowedTypes) && is_float($value)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    private static function isIntersectionTypes($value, array $allowedTypes)
+    {
+        $nValidTypes = count(array_filter($allowedTypes, function ($allowedTypes) use ($value) {
+            return
+                // Apply strtolower because gettype returns "NULL" for null values.
+                strtolower(gettype($value)) == $allowedTypes
+                || is_object($value) && self::isInstanceOf($value, (array) $allowedTypes)
+                || 'callable' == $allowedTypes && is_callable($value)
+                || 'scalar' == $allowedTypes && is_scalar($value)
+                // Array
+                || 'countable' == $allowedTypes && is_countable($value)
+                || 'iterable' == $allowedTypes && is_iterable($value)
+                // Boolean
+                || 'bool' == $allowedTypes && is_bool($value)
+                || 'true' == $allowedTypes && $value === true
+                || 'false' == $allowedTypes && $value === false
+                // Number
+                || 'numeric' == $allowedTypes && is_numeric($value)
+                || 'int' == $allowedTypes && is_int($value)
+                || 'float' == $allowedTypes && is_float($value);
+        }));
+
+        if (count($allowedTypes) === $nValidTypes) {
             return true;
         }
 
