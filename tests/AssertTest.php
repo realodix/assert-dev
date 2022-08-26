@@ -131,6 +131,16 @@ class AssertTest extends TestCase
     }
 
     /**
+     * Intersection Types is called "pure" Intersection Types because combining Union
+     * Types and Intersection Types in the same declaration is not allowed.
+     */
+    public function testPureIntersectionTypes()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Assert::isType('bool&true|boolean', true);
+    }
+
+    /**
      * @dataProvider invalidIsTypeProvider
      */
     public function testIsTypeFail($type, $value)

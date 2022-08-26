@@ -17,6 +17,12 @@ class Assert
      */
     public static function isType(string $types, $value, string $message = ''): void
     {
+        if (str_contains($types, '|') && str_contains($types, '&')) {
+            throw new \InvalidArgumentException(
+                'Combining "|" and "&" in the same declaration is not allowed.'
+            );
+        }
+
         if ($message === '') {
             $message = sprintf(
                 'Expected %s %s. Got: %s.',
