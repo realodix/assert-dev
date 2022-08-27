@@ -95,7 +95,7 @@ class Assert
             || ('float' == $allowedTypes) && is_float($value);
     }
 
-    private static function assertTypeFormatDeclaration(string $types)
+    private static function assertTypeFormatDeclaration(string $types): void
     {
         if (str_contains($types, '|') && str_contains($types, '&')) {
             throw new \InvalidArgumentException(
