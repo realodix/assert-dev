@@ -147,7 +147,9 @@ class AssertTest extends TestCase
      */
     public function testPureIntersectionTypes()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(
+            \Realodix\Assert\Exception\SymbolFormatException::class
+        );
         Assert::isType('numeric&int|string', 1);
     }
 

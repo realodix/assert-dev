@@ -98,9 +98,7 @@ class Assert
     private static function checkTypeFormatDeclaration(string $types)
     {
         if (str_contains($types, '|') && str_contains($types, '&')) {
-            throw new \InvalidArgumentException(
-                'Combining "|" and "&" in the same declaration is not allowed.'
-            );
+            throw new Exception\SymbolFormatException;
         }
 
         $typeInArrayForm = str_contains($types, '|') ? explode('|', $types) : explode('&', $types);
