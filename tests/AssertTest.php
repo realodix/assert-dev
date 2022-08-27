@@ -148,7 +148,7 @@ class AssertTest extends TestCase
     public function testPureIntersectionTypes()
     {
         $this->expectException(\InvalidArgumentException::class);
-        Assert::isType('bool&true|boolean', true);
+        Assert::isType('bool&int|boolean', true);
     }
 
     /**
