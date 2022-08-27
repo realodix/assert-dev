@@ -17,7 +17,7 @@ class Assert
      */
     public static function isType(string $types, $value, string $message = ''): void
     {
-        self::checkTypeFormatDeclaration($types);
+        self::assertTypeFormatDeclaration($types);
 
         if ($message === '') {
             $message = sprintf(
@@ -95,12 +95,21 @@ class Assert
             || ('float' == $allowedTypes) && is_float($value);
     }
 
-    private static function checkTypeFormatDeclaration(string $types)
+    /**
+     * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
+     * merukan format yang valid.
+     *
+     * @throws InvalidArgumentException
+     */
+    private static function assertTypeFormatDeclaration(string $types): void
     {
+        // Tidak boleh ada 2 symbol yang berbeda dalam satu deklarasi yang sama.
+        // symfony/polyfill-php80
         if (str_contains($types, '|') && str_contains($types, '&')) {
             throw new Exception\SymbolFormatException;
         }
 
+        // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
         $typeInArrayForm = str_contains($types, '|') ? explode('|', $types) : explode('&', $types);
         $actualTypesCount = count(array_count_values($typeInArrayForm));
         $expectedTypesCount = count($typeInArrayForm);
