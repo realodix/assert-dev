@@ -95,14 +95,22 @@ class Assert
             || ('float' == $allowedTypes) && is_float($value);
     }
 
+    /**
+     * Periksa deklarasi format tipe. Ini harus dapat memastika format yang diberikan
+     * merukan format yang valid.
+     *
+     * @throws InvalidArgumentException
+     */
     private static function assertTypeFormatDeclaration(string $types): void
     {
+        // Tidak boleh ada 2 symbol yang berbeda dalam satu deklarasi yang sama.
         if (str_contains($types, '|') && str_contains($types, '&')) {
             throw new \InvalidArgumentException(
                 'Combining "|" and "&" in the same declaration is not allowed.'
             );
         }
 
+        // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
         $typeInArrayForm = str_contains($types, '|') ? explode('|', $types) : explode('&', $types);
         $actualTypesCount = count(array_count_values($typeInArrayForm));
         $expectedTypesCount = count($typeInArrayForm);
