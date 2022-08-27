@@ -165,7 +165,9 @@ class AssertTest extends TestCase
     public function testDuplicateTypeNames($type, $value)
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage("Duplicate type names in the same declaration is not allowed.");
+        $this->expectExceptionMessage(
+            "Duplicate type names in the same declaration is not allowed."
+        );
         Assert::isType($type, $value);
     }
 
