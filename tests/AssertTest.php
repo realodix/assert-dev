@@ -177,9 +177,8 @@ class AssertTest extends TestCase
      */
     public function testPureIntersectionTypes()
     {
-        $this->expectException(
-            \Realodix\Assert\Exception\SymbolFormatException::class
-        );
+        $this->expectException(\Realodix\Assert\Exception\InvalidTypeFormatException::class);
+        $this->expectExceptionMessage("Combining '|' and '&' in the same declaration is not allowed.");
         Assert::isType('numeric&int|string', 1);
     }
 
@@ -193,9 +192,8 @@ class AssertTest extends TestCase
      */
     public function testDuplicateTypeNames($type, $value)
     {
-        $this->expectException(
-            \Realodix\Assert\Exception\DuplicateException::class
-        );
+        $this->expectException(\Realodix\Assert\Exception\DuplicateException::class);
+        $this->expectExceptionMessage('Duplicate type names in the same declaration is not allowed.');
         Assert::isType($type, $value);
     }
 

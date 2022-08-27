@@ -126,7 +126,9 @@ class Assert
         // Tidak boleh ada 2 simbol yang berbeda dalam satu deklarasi yang sama.
         // symfony/polyfill-php80
         if (str_contains($types, '|') && str_contains($types, '&')) {
-            throw new Exception\SymbolFormatException;
+            throw new Exception\InvalidTypeFormatException(
+                "Combining '|' and '&' in the same declaration is not allowed."
+            );
         }
 
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
