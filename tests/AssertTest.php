@@ -159,7 +159,6 @@ class AssertTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
         Assert::isType($type, $value);
-        $this->addToAssertionCount(1);
     }
 
     /**
