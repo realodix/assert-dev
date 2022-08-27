@@ -104,21 +104,21 @@ class Assert
     private static function assertTypeFormatDeclaration(string $types): void
     {
         if (preg_match('/^[a-z-A-Z|&]+$/', $types) === 0) {
-            throw new \InvalidArgumentException(
+            throw new Exception\InvalidTypeFormatException(
                 "Only '|' or  '&' symbol that allowed."
             );
         }
 
         // Simbol harus diletakkan diantara nama tipe
         if (preg_match('/^([\|\&])|([\|\&])$/', $types) > 0) {
-            throw new \InvalidArgumentException(
+            throw new Exception\InvalidTypeFormatException(
                 'Symbols must be between type names.'
             );
         }
 
         // Tidak boleh ada duplikat simbol
         if (preg_match('/(\|\|)|(&&)/', $types) > 0) {
-            throw new \InvalidArgumentException(
+            throw new Exception\InvalidTypeFormatException(
                 'Duplicate symbols are not allowed.'
             );
         }
