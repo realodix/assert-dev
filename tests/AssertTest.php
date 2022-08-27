@@ -162,6 +162,16 @@ class AssertTest extends TestCase
     }
 
     /**
+     * @dataProvider duplicateSymbolsProvider
+     */
+    public function testDuplicateSymbols($type, $value)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Duplicate symbols are not allowed.');
+        Assert::isType($type, $value);
+    }
+
+    /**
      * Intersection Types is called "pure" Intersection Types because combining Union
      * Types and Intersection Types in the same declaration is not allowed.
      */

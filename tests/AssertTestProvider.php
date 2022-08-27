@@ -243,6 +243,17 @@ trait AssertTestProvider
         ];
     }
 
+    public function duplicateSymbolsProvider()
+    {
+        return [
+            ['scalar||float', 1],
+            ['scalar|||float', 1],
+
+            ['scalar&&float', 1],
+            ['scalar&&&float', 1],
+        ];
+    }
+
     public function duplicateTypeNamesProvider()
     {
         return [
