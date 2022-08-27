@@ -213,14 +213,14 @@ trait AssertTestProvider
         ];
     }
 
-    public function duplicateTypeNamesProvider()
+    public function allowedSymbolProvider()
     {
         return [
-            ['bool|bool', true],
-            ['bool|string|bool', true],
-
-            ['int&int', 1],
-            ['int&numeric&int', 1],
+            ['int ', 1],
+            [' int', 1],
+            ['int |string', 1],
+            ['int string', 1],
+            ['int^string', 1],
         ];
     }
 
@@ -240,6 +240,17 @@ trait AssertTestProvider
             ['int&numeric&', 1],
             ['&int&', 1],
             ['&int&numeric&', 1],
+        ];
+    }
+
+    public function duplicateTypeNamesProvider()
+    {
+        return [
+            ['bool|bool', true],
+            ['bool|string|bool', true],
+
+            ['int&int', 1],
+            ['int&numeric&int', 1],
         ];
     }
 
