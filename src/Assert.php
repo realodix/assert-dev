@@ -118,7 +118,7 @@ class Assert
 
         // Tidak boleh ada duplikat simbol
         if (preg_match('/(\|\|)|(&&)/', $types) > 0) {
-            throw new Exception\InvalidTypeFormatException(
+            throw new Exception\DuplicateException(
                 'Duplicate symbols are not allowed.'
             );
         }
@@ -135,7 +135,9 @@ class Assert
         $expectedTypesCount = count($typeInArrayForm);
 
         if ($expectedTypesCount != $actualTypesCount) {
-            throw new Exception\DuplicateTypeNameException;
+            throw new Exception\DuplicateException(
+                'Duplicate type names in the same declaration is not allowed.'
+            );
         }
     }
 }
