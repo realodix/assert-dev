@@ -120,6 +120,17 @@ class AssertTest extends TestCase
     }
 
     /**
+     * @dataProvider unionTypesProvider
+     */
+    public function testUnionTypes($type, $value, $pass = true)
+    {
+        (! $pass) && $this->testFailed($type, $value);
+
+        Assert::isType($type, $value);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
      * @dataProvider intersectionTypesProvider
      */
     public function testIntersectionTypes($type, $value, $pass = true)
