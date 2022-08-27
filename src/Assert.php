@@ -103,7 +103,7 @@ class Assert
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
-        if (preg_match('/^[a-z-A-Z|&]+$/', $types, $matches) === 0) {
+        if (preg_match('/^[a-z-A-Z|&]+$/', $types) === 0) {
             throw new \InvalidArgumentException(
                 "Only '|' or  '&' symbol that allowed."
             );
