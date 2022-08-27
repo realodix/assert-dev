@@ -109,7 +109,7 @@ class Assert
 
         if ($expectedTypesCount != $actualTypesCount) {
             throw new \InvalidArgumentException(
-                'Redundant type names in the same declaration is not allowed.'
+                'Duplicate type names in the same declaration is not allowed.'
             );
         }
     }
