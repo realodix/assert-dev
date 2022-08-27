@@ -169,6 +169,20 @@ trait AssertTestProvider
         ];
     }
 
+    public function unionTypesProvider()
+    {
+        return [
+            ['string|array', 'abc'],
+            ['array|string', 'abc'],
+            ['array|string|object', new \stdClass],
+            ['int|float', 1],
+            ['int|float', 1.0],
+            // Invalid
+            ['int|float', 'abc', false],
+            ['array|string|int', new \stdClass, false],
+        ];
+    }
+
     public function intersectionTypesProvider()
     {
         return [
