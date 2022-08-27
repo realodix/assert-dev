@@ -17,7 +17,7 @@ class Assert
      */
     public static function isType(string $types, $value, string $message = ''): void
     {
-        self::checkTypeFormat($types);
+        self::checkTypeFormatDeclaration($types);
 
         if ($message === '') {
             $message = sprintf(
@@ -95,7 +95,7 @@ class Assert
             || ('float' == $allowedTypes) && is_float($value);
     }
 
-    private static function checkTypeFormat(string $types)
+    private static function checkTypeFormatDeclaration(string $types)
     {
         if (str_contains($types, '|') && str_contains($types, '&')) {
             throw new \InvalidArgumentException(
