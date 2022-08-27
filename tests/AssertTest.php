@@ -184,22 +184,7 @@ class AssertTest extends TestCase
         Assert::isType('numeric&int|string', 1);
     }
 
-    /**
-     * Reject duplicate type names
-     *
-     * Each name-resolved type may only occur once. Types like A|B|A or A&B&A
-     * result in an error.
-     *
-     * @dataProvider duplicateTypeNamesProvider
-     */
-    public function testDuplicateTypeNames($type, $value)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(
-            'Duplicate type names in the same declaration is not allowed.'
-        );
-        Assert::isType($type, $value);
-    }
+
 
     /**
      * @dataProvider invalidIsTypeProvider
