@@ -109,7 +109,7 @@ class Assert
             );
         }
 
-        // Tidak boleh ada 2 symbol yang berbeda dalam satu deklarasi yang sama.
+        // Tidak boleh ada 2 simbol yang berbeda dalam satu deklarasi yang sama.
         // symfony/polyfill-php80
         if (str_contains($types, '|') && str_contains($types, '&')) {
             throw new \InvalidArgumentException(
