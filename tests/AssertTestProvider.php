@@ -238,7 +238,8 @@ trait AssertTestProvider
             ['&int&numeric', 1],
             ['int&', 1],
             ['int&numeric&', 1],
-
+            ['&int&', 1],
+            ['&int&numeric&', 1],
         ];
     }
 
