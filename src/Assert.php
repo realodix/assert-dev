@@ -109,6 +109,7 @@ class Assert
             );
         }
 
+        // Simbol harus diletakkan diantara nama tipe
         if (preg_match('/^([\|\&])|([\|\&])$/', $types) > 0) {
             throw new \InvalidArgumentException(
                 "Symbols must be between type names."
