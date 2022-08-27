@@ -167,13 +167,11 @@ class AssertTest extends TestCase
         Assert::isType($type, $value);
     }
 
-    /**
-     */
     public function testAllowedSymbol()
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
-        Assert::isType('int^numeric', 1);
+        Assert::isType('int^string', 1);
     }
 
     /**
