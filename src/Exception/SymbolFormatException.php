@@ -9,6 +9,6 @@ class SymbolFormatException extends \Exception
      */
     public function __construct()
     {
-        parent::__construct('Combining "|" and "&" in the same declaration is not allowed.');
+        parent::__construct("Combining '|' and '&' in the same declaration is not allowed.");
     }
 }
