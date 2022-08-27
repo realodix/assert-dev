@@ -96,7 +96,7 @@ class Assert
     }
 
     /**
-     * Periksa deklarasi format tipe. Ini harus dapat memastika format yang diberikan
+     * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
      * merukan format yang valid.
      *
      * @throws InvalidArgumentException
