@@ -159,7 +159,7 @@ class AssertTest extends TestCase
     public function testRedundantTypeNamesOnPureIntersectionTypes()
     {
         $this->expectException(\InvalidArgumentException::class);
-        Assert::isType('bool&true&bool', true);
+        Assert::isType('bool&int&bool', true);
     }
 
     /**
