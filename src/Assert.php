@@ -104,6 +104,7 @@ class Assert
     private static function assertTypeFormatDeclaration(string $types): void
     {
         // Tidak boleh ada 2 symbol yang berbeda dalam satu deklarasi yang sama.
+        // symfony/polyfill-php80
         if (str_contains($types, '|') && str_contains($types, '&')) {
             throw new \InvalidArgumentException(
                 'Combining "|" and "&" in the same declaration is not allowed.'
