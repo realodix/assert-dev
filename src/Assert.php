@@ -45,10 +45,10 @@ class Assert
     /**
      * @param mixed $value
      */
-    private static function hasType($value, array $aTypes): bool
+    private static function hasType($value, array $allowedTypes): bool
     {
-        foreach ($aTypes as $allowedTypes) {
-            if (self::rules($value, $allowedTypes)) {
+        foreach ($allowedTypes as $aTypes) {
+            if (self::rules($value, $aTypes)) {
                 return true;
             }
         }
