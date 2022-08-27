@@ -172,6 +172,16 @@ class AssertTest extends TestCase
     }
 
     /**
+     * @dataProvider allowedSymbolProvider
+     */
+    public function testAllowedSymbol($type, $value)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
+        Assert::isType($type, $value);
+    }
+
+    /**
      * @dataProvider invalidIsTypeProvider
      */
     public function testIsTypeFail($type, $value)
