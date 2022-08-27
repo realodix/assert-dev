@@ -175,6 +175,17 @@ class AssertTest extends TestCase
     }
 
     /**
+     * @dataProvider symbolsMustBeBetweenTypeNamesProvider
+     */
+    public function testSymbolsMustBeBetweenTypeNames($type, $value)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Symbols must be between type names.");
+        Assert::isType($type, $value);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
      * @dataProvider invalidIsTypeProvider
      */
     public function testIsTypeFail($type, $value)

@@ -109,6 +109,12 @@ class Assert
             );
         }
 
+        if (preg_match('/^([\|\&])|([\|\&])$/', $types) > 0) {
+            throw new \InvalidArgumentException(
+                "Symbols must be between type names."
+            );
+        }
+
         // Tidak boleh ada 2 symbol yang berbeda dalam satu deklarasi yang sama.
         // symfony/polyfill-php80
         if (str_contains($types, '|') && str_contains($types, '&')) {

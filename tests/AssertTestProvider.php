@@ -224,6 +224,24 @@ trait AssertTestProvider
         ];
     }
 
+    public function symbolsMustBeBetweenTypeNamesProvider()
+    {
+        return [
+            ['|string', 'string'],
+            ['|int|string', 'string'],
+            ['string|', 'string'],
+            ['string|int|', 'string'],
+            ['|string|int|', 'string'],
+            ['|string|int|', 'string'],
+
+            ['&int', 1],
+            ['&int&numeric', 1],
+            ['int&', 1],
+            ['int&numeric&', 1],
+
+        ];
+    }
+
     public function invalidIsTypeProvider()
     {
         return [
