@@ -17,11 +17,7 @@ class Assert
      */
     public static function isType(string $types, $value, string $message = ''): void
     {
-        if (str_contains($types, '|') && str_contains($types, '&')) {
-            throw new \InvalidArgumentException(
-                'Combining "|" and "&" in the same declaration is not allowed.'
-            );
-        }
+        self::checkTypeFormat($types);
 
         if ($message === '') {
             $message = sprintf(
@@ -34,15 +30,6 @@ class Assert
 
         // symfony/polyfill-php80
         if (str_contains($types, '&')) {
-            $actualTypesCount = count(array_count_values(explode('&', $types)));
-            $expectedTypesCount = count(explode('&', $types));
-
-            if ($expectedTypesCount != $actualTypesCount) {
-                throw new \InvalidArgumentException(
-                    'Redundant type names in the same declaration is not allowed.'
-                );
-            }
-
             if (! self::isIntersectionTypes($value, explode('&', $types))) {
                 throw new \InvalidArgumentException($message);
             }
@@ -106,5 +93,24 @@ class Assert
             || ('numeric' == $allowedTypes) && is_numeric($value)
             || ('int' == $allowedTypes) && is_int($value)
             || ('float' == $allowedTypes) && is_float($value);
+    }
+
+    private static function checkTypeFormat(string $types)
+    {
+        if (str_contains($types, '|') && str_contains($types, '&')) {
+            throw new \InvalidArgumentException(
+                'Combining "|" and "&" in the same declaration is not allowed.'
+            );
+        }
+
+        $typeInArrayForm = str_contains($types, '|') ? explode('|', $types) : explode('&', $types);
+        $actualTypesCount = count(array_count_values($typeInArrayForm));
+        $expectedTypesCount = count($typeInArrayForm);
+
+        if ($expectedTypesCount != $actualTypesCount) {
+            throw new \InvalidArgumentException(
+                'Redundant type names in the same declaration is not allowed.'
+            );
+        }
     }
 }
