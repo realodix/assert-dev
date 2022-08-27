@@ -108,9 +108,7 @@ class Assert
         $expectedTypesCount = count($typeInArrayForm);
 
         if ($expectedTypesCount != $actualTypesCount) {
-            throw new \InvalidArgumentException(
-                'Duplicate type names in the same declaration is not allowed.'
-            );
+            throw new Exception\DuplicateTypeNameException;
         }
     }
 }

@@ -161,7 +161,9 @@ class AssertTest extends TestCase
      */
     public function testDuplicateTypeNames($type, $value)
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(
+            \Realodix\Assert\Exception\DuplicateTypeNameException::class
+        );
         Assert::isType($type, $value);
     }
 
