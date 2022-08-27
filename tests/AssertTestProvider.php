@@ -213,6 +213,17 @@ trait AssertTestProvider
         ];
     }
 
+    public function allowedSymbolProvider()
+    {
+        return [
+            ['int ', 1],
+            [' int', 1],
+            ['int |string', 1],
+            ['int string', 1],
+            ['int^string', 1],
+        ];
+    }
+
     public function duplicateTypeNamesProvider()
     {
         return [

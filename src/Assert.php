@@ -103,6 +103,12 @@ class Assert
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
+        if (preg_match('/^[a-z-A-Z|&]+$/', $types) === 0) {
+            throw new \InvalidArgumentException(
+                "Only '|' or  '&' symbol that allowed."
+            );
+        }
+
         // Tidak boleh ada 2 symbol yang berbeda dalam satu deklarasi yang sama.
         // symfony/polyfill-php80
         if (str_contains($types, '|') && str_contains($types, '&')) {

@@ -142,6 +142,16 @@ class AssertTest extends TestCase
     }
 
     /**
+     * @dataProvider allowedSymbolProvider
+     */
+    public function testAllowedSymbol($type, $value)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
+        Assert::isType($type, $value);
+    }
+
+    /**
      * Intersection Types is called "pure" Intersection Types because combining Union
      * Types and Intersection Types in the same declaration is not allowed.
      */
