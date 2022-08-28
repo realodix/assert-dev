@@ -99,7 +99,6 @@ class Assert
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
      * merukan format yang valid.
      *
-     * @throws \Realodix\Assert\Exception\DuplicateException
      * @throws \Realodix\Assert\InvalidTypeFormatException
      */
     private static function assertTypeFormatDeclaration(string $types): void
@@ -119,7 +118,7 @@ class Assert
 
         // Tidak boleh ada duplikat simbol
         if (preg_match('/(\|\|)|(&&)/', $types) > 0) {
-            throw new Exception\DuplicateException(
+            throw new InvalidTypeFormatException(
                 'Duplicate symbols are not allowed.'
             );
         }
@@ -138,7 +137,7 @@ class Assert
         $expectedTypesCount = count($typeInArrayForm);
 
         if ($expectedTypesCount != $actualTypesCount) {
-            throw new Exception\DuplicateException(
+            throw new InvalidTypeFormatException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }

@@ -166,7 +166,7 @@ class AssertTest extends TestCase
      */
     public function testDuplicateSymbols($type, $value)
     {
-        $this->expectException(\Realodix\Assert\Exception\DuplicateException::class);
+        $this->expectException(\Realodix\Assert\InvalidTypeFormatException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
         Assert::isType($type, $value);
     }
@@ -192,7 +192,7 @@ class AssertTest extends TestCase
      */
     public function testDuplicateTypeNames($type, $value)
     {
-        $this->expectException(\Realodix\Assert\Exception\DuplicateException::class);
+        $this->expectException(\Realodix\Assert\InvalidTypeFormatException::class);
         $this->expectExceptionMessage('Duplicate type names in the same declaration is not allowed.');
         Assert::isType($type, $value);
     }
