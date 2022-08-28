@@ -75,6 +75,7 @@ trait AssertTestProvider
             ['numeric', 9.1],
             // https://php.watch/versions/7.4/underscore_numeric_separator
             ['numeric', 1_000_000], // Decimal
+            ['numeric', 6.62_607_004e-34], // Scientific
             // Invalid numeric
             ['numeric', '0x539', false],
             ['numeric', '0b10100111001', false],
