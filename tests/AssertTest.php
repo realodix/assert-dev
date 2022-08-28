@@ -2,19 +2,11 @@
 
 namespace Realodix\Assert\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
 
 class AssertTest extends TestCase
 {
     use AssertTestProvider;
-
-    protected function testFailed($type, $value)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-
-        Assert::isType($type, $value);
-    }
 
     /**
      * @dataProvider arrayProvider
