@@ -115,6 +115,7 @@ trait AssertTestProvider
             ['callable', 'Realodix\Assert\Assert::isType'],
             ['callable', ['Realodix\Assert\Assert', 'isType']],
             ['callable', function () {}],
+            ['callable', function (int $input): bool {return $input + ($input / 2) == 15; }],
             ['callable', static function () {}],
             // Invalid callable
             ['callable', 'foobar', false],
