@@ -142,51 +142,6 @@ class AssertTest extends TestCase
     }
 
     /**
-     * @dataProvider allowedSymbolProvider
-     */
-    public function testAllowedSymbol($type, $value)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
-        Assert::isType($type, $value);
-    }
-
-    /**
-     * @dataProvider symbolsMustBeBetweenTypeNamesProvider
-     */
-    public function testSymbolsMustBeBetweenTypeNames($type, $value)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Symbols must be between type names.');
-        Assert::isType($type, $value);
-    }
-
-    /**
-     * @dataProvider duplicateSymbolsProvider
-     */
-    public function testDuplicateSymbols($type, $value)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Duplicate symbols are not allowed.');
-        Assert::isType($type, $value);
-    }
-
-    /**
-     * Intersection Types is called "pure" Intersection Types because combining Union
-     * Types and Intersection Types in the same declaration is not allowed.
-     */
-    public function testPureIntersectionTypes()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(
-            "Combining '|' and '&' in the same declaration is not allowed."
-        );
-        Assert::isType('numeric&int|string', 1);
-    }
-
-
-
-    /**
      * @dataProvider invalidIsTypeProvider
      */
     public function testIsTypeFail($type, $value)

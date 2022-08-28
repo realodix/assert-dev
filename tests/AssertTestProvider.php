@@ -220,58 +220,6 @@ trait AssertTestProvider
         ];
     }
 
-    public function allowedSymbolProvider()
-    {
-        return [
-            ['int ', 1],
-            [' int', 1],
-            ['int |string', 1],
-            ['int string', 1],
-            ['int^string', 1],
-        ];
-    }
-
-    public function symbolsMustBeBetweenTypeNamesProvider()
-    {
-        return [
-            ['|string', 'string'],
-            ['|int|string', 'string'],
-            ['string|', 'string'],
-            ['string|int|', 'string'],
-            ['|string|int|', 'string'],
-            ['|string|int|', 'string'],
-
-            ['&int', 1],
-            ['&int&numeric', 1],
-            ['int&', 1],
-            ['int&numeric&', 1],
-            ['&int&', 1],
-            ['&int&numeric&', 1],
-        ];
-    }
-
-    public function duplicateSymbolsProvider()
-    {
-        return [
-            ['scalar||float', 1],
-            ['scalar|||float', 1],
-
-            ['scalar&&float', 1],
-            ['scalar&&&float', 1],
-        ];
-    }
-
-    public function duplicateTypeNamesProvider()
-    {
-        return [
-            ['bool|bool', true],
-            ['bool|string|bool', true],
-
-            ['int&int', 1],
-            ['int&numeric&int', 1],
-        ];
-    }
-
     public function invalidIsTypeProvider()
     {
         return [

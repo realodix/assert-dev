@@ -9,7 +9,6 @@ class AssertionFormatTest extends TestCase
 {
     use AssertionFormatTestProvider;
 
-
     /**
      * @dataProvider allowedSymbolProvider
      */
