@@ -5,7 +5,7 @@ namespace Realodix\Assert\Tests;
 use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
 
-class TypeFormatTest extends TestCase
+class AssertionFormatTest extends TestCase
 {
     use AssertTestProvider;
 
