@@ -100,19 +100,19 @@ class Assert
      * merukan format yang valid.
      *
      * @throws \Realodix\Assert\Exception\DuplicateException
-     * @throws \Realodix\Assert\Exception\InvalidTypeFormatException
+     * @throws \Realodix\Assert\InvalidTypeFormatException
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
         if (preg_match('/^[a-z-A-Z|&]+$/', $types) === 0) {
-            throw new Exception\InvalidTypeFormatException(
+            throw new InvalidTypeFormatException(
                 "Only '|' or  '&' symbol that allowed."
             );
         }
 
         // Simbol harus diletakkan diantara nama tipe
         if (preg_match('/^([\|\&])|([\|\&])$/', $types) > 0) {
-            throw new Exception\InvalidTypeFormatException(
+            throw new InvalidTypeFormatException(
                 'Symbols must be between type names.'
             );
         }
@@ -127,7 +127,7 @@ class Assert
         // Tidak boleh ada 2 simbol yang berbeda dalam satu deklarasi yang sama.
         // symfony/polyfill-php80
         if (str_contains($types, '|') && str_contains($types, '&')) {
-            throw new Exception\InvalidTypeFormatException(
+            throw new InvalidTypeFormatException(
                 "Combining '|' and '&' in the same declaration is not allowed."
             );
         }
