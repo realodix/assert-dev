@@ -77,6 +77,7 @@ trait AssertTestProvider
             ['numeric', 1_000_000], // Decimal
             ['numeric', 0.300_000_000_000_000_04], // Float
             ['numeric', 6.62_607_004e-34], // Scientific
+            ['numeric', 0b1111_0000_1001_1111_1001_0010_1010_1001], // Binary
             // Invalid numeric
             ['numeric', '0x539', false],
             ['numeric', '0b10100111001', false],
