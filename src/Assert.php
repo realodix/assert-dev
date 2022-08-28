@@ -99,7 +99,8 @@ class Assert
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
      * merukan format yang valid.
      *
-     * @throws InvalidArgumentException
+     * @throws \Realodix\Assert\Exception\DuplicateException
+     * @throws \Realodix\Assert\Exception\InvalidTypeFormatException
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
