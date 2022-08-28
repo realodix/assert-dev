@@ -146,7 +146,7 @@ class AssertTest extends TestCase
      */
     public function testAllowedSymbol($type, $value)
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeFormatException::class);
+        $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
         Assert::isType($type, $value);
     }
@@ -156,7 +156,7 @@ class AssertTest extends TestCase
      */
     public function testSymbolsMustBeBetweenTypeNames($type, $value)
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeFormatException::class);
+        $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
         Assert::isType($type, $value);
     }
@@ -166,7 +166,7 @@ class AssertTest extends TestCase
      */
     public function testDuplicateSymbols($type, $value)
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeFormatException::class);
+        $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
         Assert::isType($type, $value);
     }
@@ -177,7 +177,7 @@ class AssertTest extends TestCase
      */
     public function testPureIntersectionTypes()
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeFormatException::class);
+        $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage("Combining '|' and '&' in the same declaration is not allowed.");
         Assert::isType('numeric&int|string', 1);
     }
@@ -192,7 +192,7 @@ class AssertTest extends TestCase
      */
     public function testDuplicateTypeNames($type, $value)
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeFormatException::class);
+        $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage('Duplicate type names in the same declaration is not allowed.');
         Assert::isType($type, $value);
     }
