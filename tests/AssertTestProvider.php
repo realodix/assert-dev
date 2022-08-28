@@ -97,6 +97,12 @@ trait AssertTestProvider
             ['Exception', new \RuntimeException],
             ['stdClass', new \stdClass],
 
+            ['class', \Exception::class],
+            ['class', \stdClass::class],
+            ['class', \Realodix\Assert\Assert::class],
+            // ['class', \PHPUnit\TestFixture\Book::class],
+            // ['class', new \ArrayObject],
+
             ['object', new \stdClass],
             ['object', new \RuntimeException],
             // Invalid object
