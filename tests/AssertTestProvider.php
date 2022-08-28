@@ -78,6 +78,7 @@ trait AssertTestProvider
             ['numeric', 0.300_000_000_000_000_04], // Float
             ['numeric', 6.62_607_004e-34], // Scientific
             ['numeric', 0b1111_0000_1001_1111_1001_0010_1010_1001], // Binary
+            ['numeric', 0xBEEF_BABE], // Hex
             ['numeric', 0123_7264], // Octal
             // Invalid numeric
             ['numeric', '0x539', false],
