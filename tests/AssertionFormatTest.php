@@ -7,7 +7,7 @@ use Realodix\Assert\Assert;
 
 class AssertionFormatTest extends TestCase
 {
-    use AssertTestProvider;
+    use AssertionFormatTestProvider;
 
 
     /**
