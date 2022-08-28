@@ -24,6 +24,7 @@ trait AssertTestProvider
             ['countable', []],
             ['countable', [1, 2]],
             ['countable', new \ArrayIterator([])],
+            ['countable', new \ArrayIterator([1, 2])],
             ['countable', new \SimpleXMLElement('<foo>bar</foo>')],
             // Invalid countable
             ['countable', new \stdClass, false],
