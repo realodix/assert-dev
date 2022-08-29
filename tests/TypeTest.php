@@ -95,9 +95,9 @@ class TypeTest extends TestCase
     }
 
     /**
-     * @dataProvider invalidTypeProvider
+     * @dataProvider typeFailProvider
      */
-    public function testisFail($type, $value)
+    public function testTypeFail($type, $value)
     {
         $this->testFailed($type, $value);
     }

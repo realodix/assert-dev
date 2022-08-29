@@ -178,7 +178,7 @@ trait TypeTestProvider
         ];
     }
 
-    public function invalidTypeProvider()
+    public function typeFailProvider()
     {
         return [
             // 'callback alias is not accepted' => ['callback', 'time'],
