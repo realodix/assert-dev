@@ -16,12 +16,12 @@ use Realodix\Assert\Assert;
 
 public function setFoo($foo)
 {
-    Type::is('integer', $foo, 'foo');
+    Assert::type('integer', $foo, 'foo');
 }
 
 public function __construct($bar, array $bazz)
 {
-    Type::is('Me\MyApp\SomeClass', $bar);
+    Assert::type('Me\MyApp\SomeClass', $bar);
 }
 ```
 

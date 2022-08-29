@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests;
 
-use Realodix\Assert\Type;
+use Realodix\Assert\Assert;
 
 class AssertionFormatTest extends TestCase
 {
@@ -15,7 +15,7 @@ class AssertionFormatTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::is($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -26,7 +26,7 @@ class AssertionFormatTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::is($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -37,7 +37,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
-        Type::is($type, $value);
+        Assert::type($type, $value);
     }
 
     /**
@@ -47,7 +47,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
-        Type::is($type, $value);
+        Assert::type($type, $value);
     }
 
     /**
@@ -57,7 +57,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
-        Type::is($type, $value);
+        Assert::type($type, $value);
     }
 
     /**
@@ -70,7 +70,7 @@ class AssertionFormatTest extends TestCase
         $this->expectExceptionMessage(
             "Combining '|' and '&' in the same declaration is not allowed."
         );
-        Type::is('numeric&int|string', 1);
+        Assert::type('numeric&int|string', 1);
     }
 
     /**
@@ -87,6 +87,6 @@ class AssertionFormatTest extends TestCase
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
-        Type::is($type, $value);
+        Assert::type($type, $value);
     }
 }
