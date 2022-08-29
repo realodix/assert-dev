@@ -9,10 +9,10 @@ class ExceptionMessageTest extends TestCase
     public function testExceptionMessage()
     {
         $this->expectExceptionMessage('Expected a string. Got: integer.');
-        Assert::isType('string', 1);
+        Assert::type('string', 1);
 
         $this->expectExceptionMessage('Expected an int. Got: string.');
-        Assert::isType('int', '1');
+        Assert::type('int', '1');
     }
 
     public function testCustomExceptionMessage()
@@ -20,6 +20,6 @@ class ExceptionMessageTest extends TestCase
         $message = 'foobar';
 
         $this->expectExceptionMessage($message);
-        Assert::isType('string', 1, $message);
+        Assert::type('string', 1, $message);
     }
 }

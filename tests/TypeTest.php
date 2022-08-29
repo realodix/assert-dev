@@ -4,9 +4,9 @@ namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
 
-class AssertTest extends TestCase
+class TypeTest extends TestCase
 {
-    use AssertTestProvider;
+    use TypeTestProvider;
 
     /**
      * @dataProvider arrayProvider
@@ -15,7 +15,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -26,7 +26,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -37,7 +37,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -49,7 +49,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -61,14 +61,14 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
     /** @test */
     public function is_null()
     {
-        Assert::isType('null', null);
+        Assert::type('null', null);
         $this->addToAssertionCount(1);
     }
 
@@ -80,7 +80,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -90,14 +90,14 @@ class AssertTest extends TestCase
      */
     public function is_string($type, $value)
     {
-        Assert::isType($type, $value);
+        Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
     /**
-     * @dataProvider invalidIsTypeProvider
+     * @dataProvider typeFailProvider
      */
-    public function testIsTypeFail($type, $value)
+    public function testTypeFail($type, $value)
     {
         $this->testFailed($type, $value);
     }
