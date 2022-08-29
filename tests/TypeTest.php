@@ -4,9 +4,9 @@ namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Type;
 
-class AssertTest extends TestCase
+class TypeTest extends TestCase
 {
-    use AssertTestProvider;
+    use TypeTestProvider;
 
     /**
      * @dataProvider arrayProvider

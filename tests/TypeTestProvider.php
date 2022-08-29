@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests;
 
-trait AssertTestProvider
+trait TypeTestProvider
 {
     public function arrayProvider()
     {
