@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests;
 
-trait AssertTestProvider
+trait TypeTestProvider
 {
     public function arrayProvider()
     {
@@ -113,8 +113,8 @@ trait AssertTestProvider
             ['object', [], false],
 
             ['callable', 'strlen'],
-            ['callable', 'Realodix\Assert\Assert::isType'],
-            ['callable', ['Realodix\Assert\Assert', 'isType']],
+            ['callable', 'Realodix\Assert\Assert::type'],
+            ['callable', ['Realodix\Assert\Type', 'is']],
             ['callable', function () {}],
             ['callable', function (int $input): bool {return $input + ($input / 2) == 15; }],
             ['callable', static function () {}],
@@ -184,7 +184,7 @@ trait AssertTestProvider
         ];
     }
 
-    public function invalidIsTypeProvider()
+    public function typeFailProvider()
     {
         return [
             // 'callback alias is not accepted' => ['callback', 'time'],

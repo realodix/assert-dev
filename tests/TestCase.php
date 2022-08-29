@@ -11,6 +11,6 @@ class TestCase extends PHPUnitTestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        Assert::isType($type, $value);
+        Assert::type($type, $value);
     }
 }
