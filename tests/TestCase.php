@@ -3,7 +3,7 @@
 namespace Realodix\Assert\Tests;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
-use Realodix\Assert\Assert;
+use Realodix\Assert\Type;
 
 class TestCase extends PHPUnitTestCase
 {
@@ -11,6 +11,6 @@ class TestCase extends PHPUnitTestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
     }
 }

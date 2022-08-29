@@ -107,8 +107,8 @@ trait AssertTestProvider
             ['object', [], false],
 
             ['callable', 'strlen'],
-            ['callable', 'Realodix\Assert\Assert::isType'],
-            ['callable', ['Realodix\Assert\Assert', 'isType']],
+            ['callable', 'Realodix\Assert\Type::isType'],
+            ['callable', ['Realodix\Assert\Type', 'isType']],
             ['callable', function () {}],
             ['callable', function (int $input): bool {return $input + ($input / 2) == 15; }],
             ['callable', static function () {}],

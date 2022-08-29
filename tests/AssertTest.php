@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests;
 
-use Realodix\Assert\Assert;
+use Realodix\Assert\Type;
 
 class AssertTest extends TestCase
 {
@@ -15,7 +15,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -26,7 +26,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -37,7 +37,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -49,7 +49,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -61,14 +61,14 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
     /** @test */
     public function is_null()
     {
-        Assert::isType('null', null);
+        Type::isType('null', null);
         $this->addToAssertionCount(1);
     }
 
@@ -80,7 +80,7 @@ class AssertTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -90,7 +90,7 @@ class AssertTest extends TestCase
      */
     public function is_string($type, $value)
     {
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 

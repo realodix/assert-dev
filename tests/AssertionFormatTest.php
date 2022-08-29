@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests;
 
-use Realodix\Assert\Assert;
+use Realodix\Assert\Type;
 
 class AssertionFormatTest extends TestCase
 {
@@ -15,7 +15,7 @@ class AssertionFormatTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -26,7 +26,7 @@ class AssertionFormatTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -37,7 +37,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
     }
 
     /**
@@ -47,7 +47,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
     }
 
     /**
@@ -57,7 +57,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
     }
 
     /**
@@ -70,7 +70,7 @@ class AssertionFormatTest extends TestCase
         $this->expectExceptionMessage(
             "Combining '|' and '&' in the same declaration is not allowed."
         );
-        Assert::isType('numeric&int|string', 1);
+        Type::isType('numeric&int|string', 1);
     }
 
     /**
@@ -87,6 +87,6 @@ class AssertionFormatTest extends TestCase
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
-        Assert::isType($type, $value);
+        Type::isType($type, $value);
     }
 }
