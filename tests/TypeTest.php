@@ -15,7 +15,7 @@ class TypeTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -26,7 +26,7 @@ class TypeTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -37,7 +37,7 @@ class TypeTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -49,7 +49,7 @@ class TypeTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -61,14 +61,14 @@ class TypeTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
     /** @test */
     public function is_null()
     {
-        Type::isType('null', null);
+        Type::is('null', null);
         $this->addToAssertionCount(1);
     }
 
@@ -80,7 +80,7 @@ class TypeTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -90,14 +90,14 @@ class TypeTest extends TestCase
      */
     public function is_string($type, $value)
     {
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
     /**
-     * @dataProvider invalidIsTypeProvider
+     * @dataProvider invalidTypeProvider
      */
-    public function testIsTypeFail($type, $value)
+    public function testisFail($type, $value)
     {
         $this->testFailed($type, $value);
     }

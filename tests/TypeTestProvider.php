@@ -107,8 +107,8 @@ trait TypeTestProvider
             ['object', [], false],
 
             ['callable', 'strlen'],
-            ['callable', 'Realodix\Assert\Type::isType'],
-            ['callable', ['Realodix\Assert\Type', 'isType']],
+            ['callable', 'Realodix\Assert\Type::is'],
+            ['callable', ['Realodix\Assert\Type', 'is']],
             ['callable', function () {}],
             ['callable', function (int $input): bool {return $input + ($input / 2) == 15; }],
             ['callable', static function () {}],
@@ -178,7 +178,7 @@ trait TypeTestProvider
         ];
     }
 
-    public function invalidIsTypeProvider()
+    public function invalidTypeProvider()
     {
         return [
             // 'callback alias is not accepted' => ['callback', 'time'],

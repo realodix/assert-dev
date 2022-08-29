@@ -15,7 +15,7 @@ class AssertionFormatTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -26,7 +26,7 @@ class AssertionFormatTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::isType($type, $value);
+        Type::is($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -37,7 +37,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
-        Type::isType($type, $value);
+        Type::is($type, $value);
     }
 
     /**
@@ -47,7 +47,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
-        Type::isType($type, $value);
+        Type::is($type, $value);
     }
 
     /**
@@ -57,7 +57,7 @@ class AssertionFormatTest extends TestCase
     {
         $this->expectException(\Realodix\Assert\InvalidAssertionFormatException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
-        Type::isType($type, $value);
+        Type::is($type, $value);
     }
 
     /**
@@ -70,7 +70,7 @@ class AssertionFormatTest extends TestCase
         $this->expectExceptionMessage(
             "Combining '|' and '&' in the same declaration is not allowed."
         );
-        Type::isType('numeric&int|string', 1);
+        Type::is('numeric&int|string', 1);
     }
 
     /**
@@ -87,6 +87,6 @@ class AssertionFormatTest extends TestCase
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
-        Type::isType($type, $value);
+        Type::is($type, $value);
     }
 }

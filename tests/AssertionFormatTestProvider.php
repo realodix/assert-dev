@@ -100,7 +100,7 @@ trait AssertionFormatTestProvider
         ];
     }
 
-    public function invalidIsTypeProvider()
+    public function invalidTypeProvider()
     {
         return [
             // 'callback alias is not accepted' => ['callback', 'time'],
