@@ -6,7 +6,7 @@ class Type
 {
     /**
      * Checks an parameter's type, that is, throws a InvalidArgumentException if $value is
-     * not of $type. This is really a special case of Type::precondition().
+     * not of $type.
      *
      * @param string $types The parameter's expected type. Can be the name of a native
      *                      type or a class or interface, or a list of such names.
