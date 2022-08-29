@@ -4,9 +4,9 @@ namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
 
-class AssertionFormatTest extends TestCase
+class TypeFormatTest extends TestCase
 {
-    use AssertionFormatTestProvider;
+    use TypeFormatTestProvider;
 
     /**
      * @dataProvider unionTypesProvider
