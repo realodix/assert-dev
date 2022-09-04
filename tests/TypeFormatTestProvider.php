@@ -4,6 +4,14 @@ namespace Realodix\Assert\Tests;
 
 trait TypeFormatTestProvider
 {
+    public function doNotUseLeadingBackslashProvider()
+    {
+        return [
+            ['\stdClass|object', new \stdClass],
+            ['object|\stdClass', new \stdClass],
+        ];
+    }
+
     public function unionTypesProvider()
     {
         return [
