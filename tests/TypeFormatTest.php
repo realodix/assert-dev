@@ -9,16 +9,6 @@ class TypeFormatTest extends TestCase
     use TypeFormatTestProvider;
 
     /**
-     * @dataProvider doNotUseLeadingBackslashProvider
-     */
-    public function testDoNotUseLeadingBackslash($type, $value)
-    {
-        $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
-        $this->expectExceptionMessage("Do not use leading '\\' (backslash).");
-        Assert::type($type, $value);
-    }
-
-    /**
      * @dataProvider unionTypesProvider
      */
     public function testUnionTypes($type, $value, $pass = true)

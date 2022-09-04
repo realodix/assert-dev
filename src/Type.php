@@ -73,6 +73,9 @@ class Type
         return false;
     }
 
+    /**
+     * @param mixed $value
+     */
     private static function rules($value, string $allowedTypes): bool
     {
         // Apply strtolower because gettype returns "NULL" for null values.
@@ -103,12 +106,6 @@ class Type
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
-        if (preg_match('/\\\/', $types)) {
-            throw new InvalidTypeDeclarationFormatException(
-                "Do not use leading '\\' (backslash)."
-            );
-        }
-
         if (preg_match('/^[a-z-A-Z|&]+$/', $types) === 0) {
             throw new InvalidTypeDeclarationFormatException(
                 "Only '|' or  '&' symbol that allowed."
