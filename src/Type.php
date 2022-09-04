@@ -13,7 +13,7 @@ class Type
      * @param mixed  $value The parameter's actual value.
      *
      * @throws \InvalidArgumentException if $value is not of type (or, for objects, is not an
-     *                                  instance of) $type.
+     *                                   instance of) $type.
      */
     public static function is(string $types, $value, string $message = ''): void
     {
