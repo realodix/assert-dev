@@ -100,7 +100,7 @@ trait TypeTestProvider
             [\Exception::class, new \RuntimeException],
             ['stdClass', new \stdClass],
             [\stdClass::class, new \stdClass],
-            [\DateTimeInterface::class, new \DateTimeImmutable()],
+            [\DateTimeInterface::class, new \DateTimeImmutable],
 
             ['object', new \stdClass],
             ['object', new \RuntimeException],
