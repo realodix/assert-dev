@@ -6,6 +6,7 @@ class Assert
 {
     /**
      * @param mixed $value
+     * @return null
      */
     public static function type(string $types, $value, string $message = '')
     {
