@@ -102,26 +102,26 @@ class Type
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
      * merukan format yang valid.
      *
-     * @throws \Realodix\Assert\InvalidTypeDeclarationFormatException
+     * @throws \Realodix\Assert\Exception\InvalidTypeDeclarationFormatException
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
         if (preg_match('/^[a-z-A-Z|&]+$/', $types) === 0) {
-            throw new InvalidTypeDeclarationFormatException(
+            throw new Exception\InvalidTypeDeclarationFormatException(
                 "Only '|' or  '&' symbol that allowed."
             );
         }
 
         // Simbol harus diletakkan diantara nama tipe
         if (preg_match('/^([\|\&])|([\|\&])$/', $types) > 0) {
-            throw new InvalidTypeDeclarationFormatException(
+            throw new Exception\InvalidTypeDeclarationFormatException(
                 'Symbols must be between type names.'
             );
         }
 
         // Tidak boleh ada duplikat simbol
         if (preg_match('/(\|\|)|(&&)/', $types) > 0) {
-            throw new InvalidTypeDeclarationFormatException(
+            throw new Exception\InvalidTypeDeclarationFormatException(
                 'Duplicate symbols are not allowed.'
             );
         }
@@ -129,7 +129,7 @@ class Type
         // Tidak boleh ada 2 simbol yang berbeda dalam satu deklarasi yang sama.
         // symfony/polyfill-php80
         if (str_contains($types, '|') && str_contains($types, '&')) {
-            throw new InvalidTypeDeclarationFormatException(
+            throw new Exception\InvalidTypeDeclarationFormatException(
                 "Combining '|' and '&' in the same declaration is not allowed."
             );
         }
@@ -140,7 +140,7 @@ class Type
         $expectedTypesCount = count($typeInArrayForm);
 
         if ($expectedTypesCount != $actualTypesCount) {
-            throw new InvalidTypeDeclarationFormatException(
+            throw new Exception\InvalidTypeDeclarationFormatException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }

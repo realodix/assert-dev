@@ -35,7 +35,7 @@ class TypeFormatTest extends TestCase
      */
     public function testAllowedSymbol($type, $value)
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
+        $this->expectException(\Realodix\Assert\Exception\InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
         Assert::type($type, $value);
     }
@@ -45,7 +45,7 @@ class TypeFormatTest extends TestCase
      */
     public function testSymbolsMustBeBetweenTypeNames($type, $value)
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
+        $this->expectException(\Realodix\Assert\Exception\InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
         Assert::type($type, $value);
     }
@@ -55,7 +55,7 @@ class TypeFormatTest extends TestCase
      */
     public function testDuplicateSymbols($type, $value)
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
+        $this->expectException(\Realodix\Assert\Exception\InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
         Assert::type($type, $value);
     }
@@ -66,7 +66,7 @@ class TypeFormatTest extends TestCase
      */
     public function testPureIntersectionTypes()
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
+        $this->expectException(\Realodix\Assert\Exception\InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage(
             "Combining '|' and '&' in the same declaration is not allowed."
         );
@@ -83,7 +83,7 @@ class TypeFormatTest extends TestCase
      */
     public function testDuplicateTypeNames($type, $value)
     {
-        $this->expectException(\Realodix\Assert\InvalidTypeDeclarationFormatException::class);
+        $this->expectException(\Realodix\Assert\Exception\InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );

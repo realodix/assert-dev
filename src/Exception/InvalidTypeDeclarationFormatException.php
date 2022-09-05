@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\Assert;
+namespace Realodix\Assert\Exception;
 
 class InvalidTypeDeclarationFormatException extends \Exception
 {
