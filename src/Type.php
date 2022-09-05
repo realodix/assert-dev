@@ -29,11 +29,7 @@ class Type
                 return;
             }
 
-            if (! self::hasType($value, explode('|', $types))) {
-                throw new Exception\InvalidArgumentTypeException($types, $value, $message);
-            }
-
-            return;
+            $types = explode('|', $types);
         }
 
         if (! self::hasType($value, $types)) {
