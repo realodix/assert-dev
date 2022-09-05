@@ -12,33 +12,24 @@ class Type
      *                      type or a class or interface, or a list of such names.
      * @param mixed  $value The parameter's actual value.
      *
-     * @throws \InvalidArgumentException If $value is not of type (or, for objects, is not
-     *                                   an instance of) $type.
+     * @throws \Realodix\Assert\Exception\InvalidArgumentTypeException If $value is not of type (or, for objects, is not
+     *                                                                 an instance of) $type.
      */
     public static function is(string $types, $value, string $message = ''): void
     {
         self::assertTypeFormatDeclaration($types);
 
-        if ($message === '') {
-            $message = sprintf(
-                'Expected %s %s. Got: %s.',
-                \in_array(lcfirst($types)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
-                $types,
-                gettype($value)
-            );
-        }
-
         // symfony/polyfill-php80
         if (str_contains($types, '&')) {
             if (! self::isIntersectionTypes($value, explode('&', $types))) {
-                throw new \InvalidArgumentException($message);
+                throw new Exception\InvalidArgumentTypeException($types, $value, $message);
             }
 
             return;
         }
 
         if (! self::hasType($value, explode('|', $types))) {
-            throw new \InvalidArgumentException($message);
+            throw new Exception\InvalidArgumentTypeException($types, $value, $message);
         }
     }
 

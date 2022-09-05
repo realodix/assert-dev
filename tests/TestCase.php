@@ -9,7 +9,7 @@ class TestCase extends PHPUnitTestCase
 {
     protected function testFailed($type, $value)
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(\Realodix\Assert\Exception\InvalidArgumentTypeException::class);
 
         Assert::type($type, $value);
     }
