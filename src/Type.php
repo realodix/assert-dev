@@ -80,8 +80,8 @@ class Type
         // Apply strtolower because gettype returns "NULL" for null values.
         $type = strtolower(gettype($value));
 
-        return
-            is_object($value) && $value instanceof $allowedTypes
+        return ($type === $allowedTypes)
+            || is_object($value) && $value instanceof $allowedTypes
             || ('callable' == $allowedTypes) && is_callable($value)
             || ('scalar' == $allowedTypes) && is_scalar($value)
             // Array
@@ -94,7 +94,6 @@ class Type
             // Number
             || ('numeric' == $allowedTypes) && is_numeric($value)
             || ('int' == $allowedTypes) && is_int($value)
-            || ($type === $allowedTypes)
             || ('float' == $allowedTypes) && is_float($value);
     }
 
