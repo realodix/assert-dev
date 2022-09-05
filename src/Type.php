@@ -12,7 +12,7 @@ class Type
      *                      type or a class or interface, or a list of such names.
      * @param mixed  $value The parameter's actual value.
      *
-     * @throws \InvalidArgumentException if $value is not of type (or, for objects, is not
+     * @throws \InvalidArgumentException If $value is not of type (or, for objects, is not
      *                                   an instance of) $type.
      */
     public static function is(string $types, $value, string $message = ''): void
@@ -81,7 +81,7 @@ class Type
         // Apply strtolower because gettype returns "NULL" for null values.
         $type = strtolower(gettype($value));
 
-        return ($type == $allowedTypes)
+        return ($type === $allowedTypes)
             || is_object($value) && $value instanceof $allowedTypes
             || ('callable' == $allowedTypes) && is_callable($value)
             || ('scalar' == $allowedTypes) && is_scalar($value)
@@ -100,7 +100,7 @@ class Type
 
     /**
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
-     * merukan format yang valid.
+     * merupakan format yang valid.
      *
      * @throws \Realodix\Assert\Exception\InvalidTypeDeclarationFormatException
      */
