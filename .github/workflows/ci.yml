@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: PHP ${{ matrix.php-version }} (${{ matrix.stability }})
+    name: PHP ${{ matrix.php-version }}_${{ matrix.stability }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
