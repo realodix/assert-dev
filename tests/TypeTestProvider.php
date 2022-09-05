@@ -2,11 +2,15 @@
 
 namespace Realodix\Assert\Tests;
 
+use Realodix\Relax\RuleSet\RuleSetInterface;
+use Realodix\Relax\RuleSet\Sets\Realodix;
+
 trait TypeTestProvider
 {
     public function arrayProvider()
     {
         return [
+            [[RuleSetInterface::class], new Realodix],
             ['ArrayAccess', new \ArrayObject],
             ['Traversable', new \ArrayObject],
             ['Traversable', new \ArrayIterator([])],
