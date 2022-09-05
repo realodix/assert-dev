@@ -5,10 +5,11 @@ namespace Realodix\Assert;
 class Assert
 {
     /**
-     * @param  mixed     $value
+     * @param  string|array $types
+     * @param  mixed        $value
      * @return void|null
      */
-    public static function type(string $types, $value, string $message = '')
+    public static function type($types, $value, string $message = '')
     {
         return Type::is($types, $value, $message);
     }
