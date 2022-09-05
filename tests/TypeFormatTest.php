@@ -25,7 +25,12 @@ class TypeFormatTest extends TestCase
      */
     public function testIntersectionTypes($type, $value, $pass = true)
     {
-        (! $pass) && $this->testFailed($type, $value);
+        if (! $pass) {
+            $this->expectException(InvalidTypeDeclarationFormatException::class);
+            $this->expectExceptionMessage(
+                "Intersection Types only support class and interface names as intersection members."
+            );
+        }
 
         Assert::type($type, $value);
         $this->addToAssertionCount(1);

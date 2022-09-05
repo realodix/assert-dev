@@ -22,10 +22,10 @@ trait TypeFormatTestProvider
     {
         return [
             // Object
-            ['Exception&object', new \RuntimeException],
-            ['object&countable', new \ArrayIterator([])],
-            ['object&stdClass', new \stdClass],
-            ['object&SimpleXMLElement', new \SimpleXMLElement('<foo>bar</foo>')],
+            ['Exception&object', new \RuntimeException, false],
+            ['object&countable', new \ArrayIterator([]), false],
+            ['object&stdClass', new \stdClass, false],
+            ['object&SimpleXMLElement', new \SimpleXMLElement('<foo>bar</foo>'), false],
             // // Array
             // ['array&countable', []],
             // ['array&iterable&countable', [1, 2, 3]],

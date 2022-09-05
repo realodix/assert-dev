@@ -52,6 +52,14 @@ class Type
      */
     private static function isIntersectionTypes($value, array $allowedTypes): bool
     {
+        $pattern = '/\b(array|bool(ean)?|int(eger)?|float|double|string|object|resource|null)\b/';
+
+        if (preg_match($pattern, implode($allowedTypes)) === 0) {
+            throw new Exception\InvalidTypeDeclarationFormatException(
+                "Intersection Types only support class and interface names as intersection members."
+            );
+        }
+
         $validTypes = array_filter(
             $allowedTypes,
             fn ($allowedTypes) => self::rules($value, $allowedTypes)
