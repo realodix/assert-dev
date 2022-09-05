@@ -28,7 +28,7 @@ class TypeFormatTest extends TestCase
         if (! $pass) {
             $this->expectException(InvalidTypeDeclarationFormatException::class);
             $this->expectExceptionMessage(
-                "Intersection Types only support class and interface names as intersection members."
+                'Intersection Types only support class and interface names as intersection members.'
             );
         }
 

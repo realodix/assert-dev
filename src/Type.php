@@ -56,13 +56,13 @@ class Type
 
         if (preg_match($pattern, implode($allowedTypes)) === 0) {
             throw new Exception\InvalidTypeDeclarationFormatException(
-                "Intersection Types only support class and interface names as intersection members."
+                'Intersection Types only support class and interface names as intersection members.'
             );
         }
 
         $validTypes = array_filter(
             $allowedTypes,
-            fn ($allowedTypes) => self::rules($value, $allowedTypes)
+            fn ($allowedTypes) => $value instanceof $allowedTypes
         );
 
         if (count($allowedTypes) === count($validTypes)) {
@@ -80,8 +80,8 @@ class Type
         // Apply strtolower because gettype returns "NULL" for null values.
         $type = strtolower(gettype($value));
 
-        return ($type === $allowedTypes)
-            || is_object($value) && $value instanceof $allowedTypes
+        return
+            is_object($value) && $value instanceof $allowedTypes
             || ('callable' == $allowedTypes) && is_callable($value)
             || ('scalar' == $allowedTypes) && is_scalar($value)
             // Array
@@ -94,6 +94,7 @@ class Type
             // Number
             || ('numeric' == $allowedTypes) && is_numeric($value)
             || ('int' == $allowedTypes) && is_int($value)
+            || ($type === $allowedTypes)
             || ('float' == $allowedTypes) && is_float($value);
     }
 

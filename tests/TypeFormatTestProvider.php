@@ -2,6 +2,9 @@
 
 namespace Realodix\Assert\Tests;
 
+use Realodix\Assert\Tests\Fixtures\Test;
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
+
 trait TypeFormatTestProvider
 {
     public function unionTypesProvider()
@@ -21,6 +24,7 @@ trait TypeFormatTestProvider
     public function intersectionTypesProvider()
     {
         return [
+            ['InterfaceA', new Test],
             // Object
             ['Exception&object', new \RuntimeException, false],
             ['object&countable', new \ArrayIterator([]), false],
