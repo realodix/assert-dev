@@ -21,30 +21,30 @@ trait TypeFormatTestProvider
     public function intersectionTypesProvider()
     {
         return [
-            // Array
-            ['array&countable', []],
-            ['array&iterable&countable', [1, 2, 3]],
-            // Bool
-            ['bool&true', true],
-            ['bool&false', false],
-            // Bool, but invalid
-            ['bool&true', false, false],
-            ['bool&false', true, false],
             // Object
             ['Exception&object', new \RuntimeException],
             ['object&countable', new \ArrayIterator([])],
             ['object&stdClass', new \stdClass],
             ['object&SimpleXMLElement', new \SimpleXMLElement('<foo>bar</foo>')],
-            // Scalar
-            ['scalar&bool&true', true],
-            ['scalar&numeric&int', 123],
-            ['scalar&float', 123.4],
-            ['scalar&string', 'string'],
-            // Scalar, but invalid
-            ['scalar&bool&false', true, false],
-            ['scalar&float', 123, false],
-            ['scalar&int', 123.4, false],
-            ['scalar&array', 'string', false],
+            // // Array
+            // ['array&countable', []],
+            // ['array&iterable&countable', [1, 2, 3]],
+            // // Bool
+            // ['bool&true', true],
+            // ['bool&false', false],
+            // // Bool, but invalid
+            // ['bool&true', false, false],
+            // ['bool&false', true, false],
+            // // Scalar
+            // ['scalar&bool&true', true],
+            // ['scalar&numeric&int', 123],
+            // ['scalar&float', 123.4],
+            // ['scalar&string', 'string'],
+            // // Scalar, but invalid
+            // ['scalar&bool&false', true, false],
+            // ['scalar&float', 123, false],
+            // ['scalar&int', 123.4, false],
+            // ['scalar&array', 'string', false],
         ];
     }
 
