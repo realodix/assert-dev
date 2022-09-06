@@ -101,7 +101,7 @@ class Type
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
-        if (preg_match('/^[a-z-A-Z|&]+$/', $types) === 0) {
+        if (preg_match('/^[a-z-A-Z|&\\\:]+$/', $types) === 0) {
             throw new Exception\InvalidTypeDeclarationFormatException(
                 "Only '|' or  '&' symbol that allowed."
             );
