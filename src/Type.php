@@ -5,15 +5,15 @@ namespace Realodix\Assert;
 class Type
 {
     /**
-     * Checks an parameter's type, that is, throws a InvalidArgumentException if $value is
-     * not of $type.
+     * Checks an parameter's type, that is, throws a InvalidArgumentException if
+     * $value is not of $type.
      *
      * @param string|array $types The parameter's expected type. Can be the name of a native
      *                            type or a class or interface, or a list of such names.
      * @param mixed        $value The parameter's actual value.
      *
-     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or, for objects, is
-     *                                                not an instance of) $type.
+     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
+     *                                                is not an instance of) $type.
      */
     public static function is($types, $value, string $message = ''): void
     {
@@ -94,10 +94,10 @@ class Type
     }
 
     /**
-     * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
-     * merupakan format yang valid.
+     * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
+     * diberikan merupakan format yang valid.
      *
-     * @throws \Realodix\Assert\Exception\InvalidTypeDeclarationFormatException
+     * @throws Exception\InvalidTypeDeclarationFormatException
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
