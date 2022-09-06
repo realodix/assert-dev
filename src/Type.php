@@ -22,15 +22,6 @@ class Type
         if (is_string($types)) {
             self::assertTypeFormatDeclaration($types);
 
-            // symfony/polyfill-php80
-            if (str_contains($types, '&')) {
-                if (! self::isIntersectionTypes($value, explode('&', $types))) {
-                    throw new Exception\InvalidArgumentTypeException($types, $value, $message);
-                }
-
-                return;
-            }
-
             $types = explode('|', $types);
         }
 
@@ -131,16 +122,8 @@ class Type
             );
         }
 
-        // Tidak boleh ada 2 simbol yang berbeda dalam satu deklarasi yang sama.
-        // symfony/polyfill-php80
-        if (str_contains($types, '|') && str_contains($types, '&')) {
-            throw new Exception\InvalidTypeDeclarationFormatException(
-                "Combining '|' and '&' in the same declaration is not allowed."
-            );
-        }
-
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
-        $typeInArrayForm = str_contains($types, '|') ? explode('|', $types) : explode('&', $types);
+        $typeInArrayForm = explode('|', $types);
         $actualTypesCount = count(array_count_values($typeInArrayForm));
         $expectedTypesCount = count($typeInArrayForm);
 
