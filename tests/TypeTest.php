@@ -99,7 +99,7 @@ class TypeTest extends TestCase
     /**
      * @dataProvider intersectionTypesProvider
      */
-    public function testIntersectionTypes($type, $value, $pass = true)
+    public function testIntersectionTypes($type, $value)
     {
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
