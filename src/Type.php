@@ -8,14 +8,15 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if $value is
      * not of $type.
      *
-     * @param string|array $types The parameter's expected type. Can be the name of a native
-     *                            type or a class or interface, or a list of such names.
-     * @param mixed        $value The parameter's actual value.
+     * @param string|array|object $types    The parameter's expected type. Can be the name of a native
+     *                                      type or a class or interface, or a list of such names.
+     * @param mixed               $value    The parameter's actual value.
+     * @param bool                $isection
      *
      * @throws Exception\InvalidArgumentTypeException If $value is not of type (or, for objects, is
      *                                                not an instance of) $type.
      */
-    public static function is($types, $value, string $message = ''): void
+    public static function is($types, $value, string $message = '', $isection = false): void
     {
         if (is_string($types)) {
             self::assertTypeFormatDeclaration($types);
