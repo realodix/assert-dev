@@ -112,19 +112,6 @@ class TypeTest extends TestCase
     }
 
     /**
-     * Intersection Types is called "pure" Intersection Types because combining Union
-     * Types and Intersection Types in the same declaration is not allowed.
-     */
-    public function testPureIntersectionTypes()
-    {
-        $this->expectException(InvalidTypeDeclarationFormatException::class);
-        $this->expectExceptionMessage(
-            "Combining '|' and '&' in the same declaration is not allowed."
-        );
-        Assert::type('numeric&int|string', 1);
-    }
-
-    /**
      * @dataProvider typeFailProvider
      */
     public function testTypeFail($type, $value)

@@ -38,13 +38,6 @@ trait TypeFormatTestProvider
             ['string|int|', 'string'],
             ['|string|int|', 'string'],
             ['|string|int|', 'string'],
-
-            ['&int', 1],
-            ['&int&numeric', 1],
-            ['int&', 1],
-            ['int&numeric&', 1],
-            ['&int&', 1],
-            ['&int&numeric&', 1],
         ];
     }
 
@@ -53,9 +46,6 @@ trait TypeFormatTestProvider
         return [
             ['scalar||float', 1],
             ['scalar|||float', 1],
-
-            ['scalar&&float', 1],
-            ['scalar&&&float', 1],
         ];
     }
 
@@ -64,9 +54,6 @@ trait TypeFormatTestProvider
         return [
             ['bool|bool', true],
             ['bool|string|bool', true],
-
-            ['int&int', 1],
-            ['int&numeric&int', 1],
         ];
     }
 
