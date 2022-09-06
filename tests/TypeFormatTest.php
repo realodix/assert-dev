@@ -21,22 +21,6 @@ class TypeFormatTest extends TestCase
     }
 
     /**
-     * @dataProvider intersectionTypesProvider
-     */
-    public function testIntersectionTypes($type, $value, $pass = true)
-    {
-        if (! $pass) {
-            $this->expectException(InvalidTypeDeclarationFormatException::class);
-            $this->expectExceptionMessage(
-                'Intersection Types only support class and interface names as intersection members.'
-            );
-        }
-
-        Assert::type($type, $value);
-        $this->addToAssertionCount(1);
-    }
-
-    /**
      * @dataProvider allowedSymbolProvider
      */
     public function testAllowedSymbol($type, $value)
@@ -64,19 +48,6 @@ class TypeFormatTest extends TestCase
         $this->expectException(InvalidTypeDeclarationFormatException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
         Assert::type($type, $value);
-    }
-
-    /**
-     * Intersection Types is called "pure" Intersection Types because combining Union
-     * Types and Intersection Types in the same declaration is not allowed.
-     */
-    public function testPureIntersectionTypes()
-    {
-        $this->expectException(InvalidTypeDeclarationFormatException::class);
-        $this->expectExceptionMessage(
-            "Combining '|' and '&' in the same declaration is not allowed."
-        );
-        Assert::type('numeric&int|string', 1);
     }
 
     /**
