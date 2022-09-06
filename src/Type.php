@@ -8,30 +8,33 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param string $types The parameter's expected type. Can be the name of a
-     *                      native type or a class or interface, or a list of such
-     *                      names.
-     * @param mixed  $value The parameter's actual value.
+     * @param string|array|object $types The parameter's expected type. Can be the name of
+     *                                   a native type or a class or interface, or a list
+     *                                   of such names.
+     * @param mixed               $value The parameter's actual value.
      *
-     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or, for
-     *                                                objects, is not an instance of)
-     *                                                $type.
+     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
+     *                                                is not an instance of) $type.
      */
-    public static function is(string $types, $value, string $message = ''): void
+    public static function is($types, $value, string $message = ''): void
     {
-        self::assertTypeFormatDeclaration($types);
+        if (is_string($types)) {
+            self::assertTypeFormatDeclaration($types);
 
-        // symfony/polyfill-php80
-        if (str_contains($types, '&')) {
-            if (! self::isIntersectionTypes($value, explode('&', $types))) {
-                throw new Exception\InvalidArgumentTypeException($types, $value, $message);
+            // symfony/polyfill-php80
+            if (str_contains($types, '&')) {
+                if (! self::isIntersectionTypes($value, explode('&', $types))) {
+                    throw new Exception\InvalidArgumentTypeException($types, $value, $message);
+                }
+
+                return;
             }
 
-            return;
+            $types = explode('|', $types);
         }
 
-        if (! self::hasType($value, explode('|', $types))) {
-            throw new Exception\InvalidArgumentTypeException($types, $value, $message);
+        if (! self::hasType($value, $types)) {
+            throw new Exception\InvalidArgumentTypeException(implode($types), $value, $message);
         }
     }
 
@@ -99,7 +102,7 @@ class Type
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
-        if (preg_match('/^[a-z-A-Z|&]+$/', $types) === 0) {
+        if (preg_match('/^[a-z-A-Z|&\\\:]+$/', $types) === 0) {
             throw new Exception\InvalidTypeDeclarationFormatException(
                 "Only '|' or  '&' symbol that allowed."
             );
