@@ -23,8 +23,6 @@ class Type
             if (! self::isIntersectionTypes($value, $types)) {
                 throw new Exception\InvalidArgumentTypeException(implode($types), $value, $message);
             }
-
-            return;
         }
 
         if (is_string($types)) {
