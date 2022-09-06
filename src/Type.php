@@ -105,7 +105,7 @@ class Type
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang diberikan
      * merupakan format yang valid.
      *
-     * @throws \Realodix\Assert\Exception\InvalidTypeDeclarationFormatException
+     * @throws Exception\InvalidTypeDeclarationFormatException
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
