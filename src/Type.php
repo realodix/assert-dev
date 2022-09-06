@@ -19,17 +19,16 @@ class Type
      */
     public static function is($types, $value, string $message = '', $isection = false): void
     {
-        if (is_string($types)) {
-            self::assertTypeFormatDeclaration($types);
-
-            if (is_array($types) && $isection === true) {
-                if (! self::isIntersectionTypes($value, $types)) {
-                    throw new Exception\InvalidArgumentTypeException($types, $value, $message);
-                }
-
-                return;
+        if (is_array($types) && $isection === true) {
+            if (! self::isIntersectionTypes($value, $types)) {
+                throw new Exception\InvalidArgumentTypeException(implode($types), $value, $message);
             }
 
+            return;
+        }
+
+        if (is_string($types)) {
+            self::assertTypeFormatDeclaration($types);
             $types = explode('|', $types);
         }
 

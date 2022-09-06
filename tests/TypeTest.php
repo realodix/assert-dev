@@ -4,6 +4,7 @@ namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\InvalidTypeDeclarationFormatException;
+use Realodix\Assert\Tests\Fixtures\ClassAB;
 
 class TypeTest extends TestCase
 {
@@ -100,26 +101,18 @@ class TypeTest extends TestCase
      */
     public function testIntersectionTypes($type, $value, $pass = true)
     {
-        if (! $pass) {
-            $this->expectException(InvalidTypeDeclarationFormatException::class);
-            $this->expectExceptionMessage(
-                'Intersection Types only support class and interface names as intersection members.'
-            );
-        }
-
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
     public function testIntersectionTypesWithUnsupportedMember()
     {
-        // $this->expectException(InvalidTypeDeclarationFormatException::class);
-        // $this->expectExceptionMessage(
-        //     'Intersection Types only support class and interface names as intersection members.'
-        // );
+        $this->expectException(InvalidTypeDeclarationFormatException::class);
+        $this->expectExceptionMessage(
+            'Intersection Types only support class and interface names as intersection members.'
+        );
 
-        Assert::type(['string', true], '', true);
-        $this->addToAssertionCount(1);
+        Assert::type(['string', true], new ClassAB, '', true);
     }
 
     /**
