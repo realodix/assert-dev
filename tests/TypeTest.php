@@ -101,7 +101,7 @@ class TypeTest extends TestCase
      */
     public function testIntersectionTypes($type, $value)
     {
-        Assert::type($type, $value);
+        Assert::type($type, $value, '', true);
         $this->addToAssertionCount(1);
     }
 

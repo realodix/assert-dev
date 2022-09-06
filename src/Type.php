@@ -54,10 +54,12 @@ class Type
      */
     private static function isIntersectionTypes($value, array $allowedTypes): bool
     {
-        if (! interface_exists(implode($allowedTypes))) {
-            throw new Exception\InvalidTypeDeclarationFormatException(
-                'Intersection Types only support class and interface names as intersection members.'
-            );
+        foreach ($allowedTypes as $aTypes) {
+            if (! interface_exists($aTypes)) {
+                throw new Exception\InvalidTypeDeclarationFormatException(
+                    'Intersection Types only support class and interface names as intersection members.'
+                );
+            }
         }
 
         $validTypes = array_filter(
