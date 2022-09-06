@@ -10,8 +10,8 @@ trait TypeTestProvider
     public function arrayProvider()
     {
         return [
-            [RuleSetInterface::class, new Realodix], // boleh
             // [[RuleSetInterface::class, RuleSetInterface::class], new Realodix], // duplikat
+            [RuleSetInterface::class, new Realodix], // boleh
             [[RuleSetInterface::class], new Realodix],
             ['ArrayAccess', new \ArrayObject],
             ['Traversable', new \ArrayObject],
