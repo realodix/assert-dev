@@ -113,7 +113,7 @@ class Type
     {
         if (preg_match('/^[a-z-A-Z|&\\\:]+$/', $types) === 0) {
             throw new Exception\InvalidTypeDeclarationFormatException(
-                "Only '|' or  '&' symbol that allowed."
+                "Only '|' symbol that allowed."
             );
         }
 

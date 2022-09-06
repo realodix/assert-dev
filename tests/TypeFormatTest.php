@@ -42,7 +42,7 @@ class TypeFormatTest extends TestCase
     public function testAllowedSymbol($type, $value)
     {
         $this->expectException(InvalidTypeDeclarationFormatException::class);
-        $this->expectExceptionMessage("Only '|' or  '&' symbol that allowed.");
+        $this->expectExceptionMessage("Only '|' symbol that allowed.");
         Assert::type($type, $value);
     }
 
