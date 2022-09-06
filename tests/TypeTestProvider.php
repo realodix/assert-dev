@@ -2,6 +2,8 @@
 
 namespace Realodix\Assert\Tests;
 
+use Realodix\Assert\Tests\Fixtures\ClassAB;
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
 use Realodix\Relax\RuleSet\RuleSetInterface;
 use Realodix\Relax\RuleSet\Sets\Realodix;
 
@@ -188,9 +190,11 @@ trait TypeTestProvider
     public function intersectionTypesProvider()
     {
         return [
-            // [[RuleSetInterface::class, RuleSetInterface::class], new Realodix], // duplikat
-            [RuleSetInterface::class, new Realodix], // boleh
+            [RuleSetInterface::class, new Realodix],
             [[RuleSetInterface::class], new Realodix],
+            [[InterfaceA::class, InterfaceB::class], new ClassAB],
+            // duplikat
+            [[InterfaceA::class, InterfaceA::class], new ClassAB],
         ];
     }
 

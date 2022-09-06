@@ -2,6 +2,6 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-interface InterfaceAB extends A, B
+interface InterfaceAB extends InterfaceA, InterfaceB
 {
 }

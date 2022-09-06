@@ -2,6 +2,6 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-class Test implements InterfaceA, InterfaceB
+class ClassAB implements InterfaceA, InterfaceB
 {
 }

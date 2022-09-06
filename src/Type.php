@@ -22,9 +22,8 @@ class Type
         if (is_string($types)) {
             self::assertTypeFormatDeclaration($types);
 
-            // symfony/polyfill-php80
-            if (str_contains($types, '&')) {
-                if (! self::isIntersectionTypes($value, explode('&', $types))) {
+            if (is_array($types) && $isection === true) {
+                if (! self::isIntersectionTypes($value, $types)) {
                     throw new Exception\InvalidArgumentTypeException($types, $value, $message);
                 }
 
@@ -58,9 +57,14 @@ class Type
      */
     private static function isIntersectionTypes($value, array $allowedTypes): bool
     {
-        $pattern = '/\b(array|bool(ean)?|int(eger)?|float|double|string|object|resource|null)\b/';
+        // $pattern = '/\b(array|bool(ean)?|int(eger)?|float|double|string|object|resource|null)\b/';
 
-        if (preg_match($pattern, implode($allowedTypes)) === 0) {
+        // if (preg_match($pattern, implode($allowedTypes)) === 0) {
+        //     throw new Exception\InvalidTypeDeclarationFormatException(
+        //         'Intersection Types only support class and interface names as intersection members.'
+        //     );
+        // }
+        if (! interface_exists(implode($allowedTypes))) {
             throw new Exception\InvalidTypeDeclarationFormatException(
                 'Intersection Types only support class and interface names as intersection members.'
             );
