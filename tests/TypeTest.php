@@ -3,7 +3,7 @@
 namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
-use Realodix\Assert\Exception\InvalidTypeDeclarationFormatException;
+use Realodix\Assert\Exception\FatalErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 
 class TypeTest extends TestCase
@@ -107,7 +107,7 @@ class TypeTest extends TestCase
 
     public function testIntersectionTypesWithObjectDoesNotExist()
     {
-        $this->expectException(InvalidTypeDeclarationFormatException::class);
+        $this->expectException(FatalErrorException::class);
         $this->expectExceptionMessage(
             'Class or interface does not exist.'
         );
@@ -117,7 +117,7 @@ class TypeTest extends TestCase
 
     public function testIntersectionTypesWithUnsupportedMember()
     {
-        $this->expectException(InvalidTypeDeclarationFormatException::class);
+        $this->expectException(FatalErrorException::class);
         $this->expectExceptionMessage(
             'Intersection Types only support class and interface names as intersection members.'
         );

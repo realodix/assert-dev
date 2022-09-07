@@ -66,13 +66,13 @@ class Type
             if (is_string($aTypes)
                 && preg_match('/\\\/', $aTypes) === 1
                 && ! interface_exists($aTypes)) {
-                throw new Exception\InvalidTypeDeclarationFormatException(
+                throw new Exception\FatalErrorException(
                     'Class or interface does not exist.'
                 );
             }
 
             if (! interface_exists($aTypes)) {
-                throw new Exception\InvalidTypeDeclarationFormatException(
+                throw new Exception\FatalErrorException(
                     'Intersection Types only support class and interface names as intersection members.'
                 );
             }
