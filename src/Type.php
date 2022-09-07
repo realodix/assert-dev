@@ -119,26 +119,26 @@ class Type
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
      * diberikan merupakan format yang valid.
      *
-     * @throws Exception\InvalidTypeDeclarationFormatException
+     * @throws Exception\FatalErrorException
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
         if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
-            throw new Exception\InvalidTypeDeclarationFormatException(
+            throw new Exception\FatalErrorException(
                 "Only '|' symbol that allowed."
             );
         }
 
         // Simbol harus diletakkan diantara nama tipe
         if (preg_match('/^([\|])|([\|])$/', $types) > 0) {
-            throw new Exception\InvalidTypeDeclarationFormatException(
+            throw new Exception\FatalErrorException(
                 'Symbols must be between type names.'
             );
         }
 
         // Tidak boleh ada duplikat simbol
         if (preg_match('/(\|\|)/', $types) > 0) {
-            throw new Exception\InvalidTypeDeclarationFormatException(
+            throw new Exception\FatalErrorException(
                 'Duplicate symbols are not allowed.'
             );
         }
@@ -149,7 +149,7 @@ class Type
         $expectedTypesCount = count($typeInArrayForm);
 
         if ($expectedTypesCount != $actualTypesCount) {
-            throw new Exception\InvalidTypeDeclarationFormatException(
+            throw new Exception\FatalErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }
