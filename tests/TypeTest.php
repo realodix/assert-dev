@@ -5,6 +5,7 @@ namespace Realodix\Assert\Tests;
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\FatalErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
 
 class TypeTest extends TestCase
 {
@@ -123,6 +124,16 @@ class TypeTest extends TestCase
         );
 
         Assert::type(['string', true], new ClassAB, '', true);
+    }
+
+    public function testIntersectionTypesWithDuplicateMember()
+    {
+        $this->expectException(FatalErrorException::class);
+        $this->expectExceptionMessage(
+            'Duplicate type names in the same declaration is not allowed.'
+        );
+
+        Assert::type([InterfaceA::class, InterfaceA::class], new ClassAB, '', true);
     }
 
     /**

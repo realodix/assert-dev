@@ -194,8 +194,6 @@ trait TypeTestProvider
             [RuleSetInterface::class, new Realodix],
             [[RuleSetInterface::class], new Realodix],
             [[InterfaceA::class, InterfaceB::class], new ClassAB],
-            // duplikat
-            [[InterfaceA::class, InterfaceA::class], new ClassAB],
         ];
     }
 

@@ -2,8 +2,6 @@
 
 namespace Realodix\Assert;
 
-use Realodix\Assert\Tests\Fixtures\InterfaceA;
-
 class Type
 {
     /**
@@ -60,8 +58,6 @@ class Type
      */
     private static function isIntersectionTypes($value, array $allowedTypes): bool
     {
-        // var_dump(interface_exists(InterfaceA::class));
-        // var_dump(fooBar::class);
         foreach ($allowedTypes as $aTypes) {
             if (is_string($aTypes)
                 && preg_match('/\\\/', $aTypes) === 1
@@ -74,6 +70,15 @@ class Type
             if (! interface_exists($aTypes)) {
                 throw new Exception\FatalErrorException(
                     'Intersection Types only support class and interface names as intersection members.'
+                );
+            }
+
+            $actualTypesCount = count(array_count_values($allowedTypes));
+            $expectedTypesCount = count($allowedTypes);
+
+            if ($expectedTypesCount != $actualTypesCount) {
+                throw new Exception\FatalErrorException(
+                    'Duplicate type names in the same declaration is not allowed.'
                 );
             }
         }
