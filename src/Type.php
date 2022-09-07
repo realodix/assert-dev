@@ -2,6 +2,8 @@
 
 namespace Realodix\Assert;
 
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
+
 class Type
 {
     /**
@@ -19,7 +21,11 @@ class Type
      */
     public static function is($types, $value, string $message = '', $isection = false): void
     {
-        if (is_array($types) && $isection === true) {
+        if ($isection === true) {
+            if (is_string($types)) {
+                $types = explode(' ', $types);
+            }
+
             if (! self::isIntersectionTypes($value, $types)) {
                 throw new Exception\InvalidArgumentTypeException(implode($types), $value, $message);
             }
@@ -54,7 +60,17 @@ class Type
      */
     private static function isIntersectionTypes($value, array $allowedTypes): bool
     {
+        // var_dump(interface_exists(InterfaceA::class));
+        // var_dump(fooBar::class);
         foreach ($allowedTypes as $aTypes) {
+            if (is_string($aTypes)
+                && preg_match('/\\\/', $aTypes) === 1
+                && ! interface_exists($aTypes)) {
+                throw new Exception\InvalidTypeDeclarationFormatException(
+                    'Class or interface does not exist.'
+                );
+            }
+
             if (! interface_exists($aTypes)) {
                 throw new Exception\InvalidTypeDeclarationFormatException(
                     'Intersection Types only support class and interface names as intersection members.'

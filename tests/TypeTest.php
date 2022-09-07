@@ -105,6 +105,16 @@ class TypeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    public function testIntersectionTypesWithObjectDoesNotExist()
+    {
+        $this->expectException(InvalidTypeDeclarationFormatException::class);
+        $this->expectExceptionMessage(
+            'Class or interface does not exist.'
+        );
+
+        Assert::type(fooBar::class, new ClassAB, '', true);
+    }
+
     public function testIntersectionTypesWithUnsupportedMember()
     {
         $this->expectException(InvalidTypeDeclarationFormatException::class);
