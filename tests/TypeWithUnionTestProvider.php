@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests;
 
-trait TypeFormatTestProvider
+trait TypeWithUnionTestProvider
 {
     public function unionTypesProvider()
     {

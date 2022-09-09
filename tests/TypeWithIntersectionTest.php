@@ -5,9 +5,9 @@ namespace Realodix\Assert\Tests;
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\FatalErrorException;
 
-class TypeIntersectionTest extends TestCase
+class TypeWithIntersectionTest extends TestCase
 {
-    use TypeFormatTestProvider;
+    use TypeWithUnionTestProvider;
 
     /**
      * @dataProvider unionTypesProvider
