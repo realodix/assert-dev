@@ -1,8 +1,8 @@
 <?php
 
-namespace Realodix\Assert\Tests;
+namespace Realodix\Assert\Tests\Multiple;
 
-trait TypeFormatTestProvider
+trait UnionTypesTestProvider
 {
     public function unionTypesProvider()
     {

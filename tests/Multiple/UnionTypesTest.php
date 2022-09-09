@@ -1,13 +1,14 @@
 <?php
 
-namespace Realodix\Assert\Tests;
+namespace Realodix\Assert\Tests\Multiple;
 
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\FatalErrorException;
+use Realodix\Assert\Tests\TestCase;
 
-class TypeFormatTest extends TestCase
+class UnionTypesTest extends TestCase
 {
-    use TypeFormatTestProvider;
+    use UnionTypesTestProvider;
 
     /**
      * @dataProvider unionTypesProvider
