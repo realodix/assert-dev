@@ -8,28 +8,29 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param string|array|object $types The parameter's expected type. Can be the name of
-     *                                   a native type or a class or interface, or a list
-     *                                   of such names.
-     * @param mixed               $value The parameter's actual value.
+     * @param string|array|object $types    The parameter's expected type. Can be the name
+     *                                      of a native type or a class or interface, or a
+     *                                      list of such names.
+     * @param mixed               $value    The parameter's actual value.
+     * @param bool                $isection
      *
      * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
      *                                                is not an instance of) $type.
      */
-    public static function is($types, $value, string $message = ''): void
+    public static function is($types, $value, string $message = '', $isection = false): void
     {
-        if (is_string($types)) {
-            self::assertTypeFormatDeclaration($types);
-
-            // symfony/polyfill-php80
-            if (str_contains($types, '&')) {
-                if (! self::isIntersectionTypes($value, explode('&', $types))) {
-                    throw new Exception\InvalidArgumentTypeException($types, $value, $message);
-                }
-
-                return;
+        if ($isection === true) {
+            if (is_string($types)) {
+                $types = explode(' ', $types);
             }
 
+            if (! self::isIntersectionTypes($value, $types)) {
+                throw new Exception\InvalidArgumentTypeException(implode($types), $value, $message);
+            }
+        }
+
+        if (is_string($types)) {
+            self::assertTypeFormatDeclaration($types);
             $types = explode('|', $types);
         }
 
@@ -57,9 +58,34 @@ class Type
      */
     private static function isIntersectionTypes($value, array $allowedTypes): bool
     {
+        foreach ($allowedTypes as $aTypes) {
+            if (is_string($aTypes)
+                && preg_match('/\\\/', $aTypes) === 1
+                && ! interface_exists($aTypes)) {
+                throw new Exception\FatalErrorException(
+                    'Class or interface does not exist.'
+                );
+            }
+
+            if (! interface_exists($aTypes)) {
+                throw new Exception\FatalErrorException(
+                    'Intersection Types only support class and interface names as intersection members.'
+                );
+            }
+
+            $actualTypesCount = count(array_count_values($allowedTypes));
+            $expectedTypesCount = count($allowedTypes);
+
+            if ($expectedTypesCount != $actualTypesCount) {
+                throw new Exception\FatalErrorException(
+                    'Duplicate type names in the same declaration is not allowed.'
+                );
+            }
+        }
+
         $validTypes = array_filter(
             $allowedTypes,
-            fn ($allowedTypes) => self::rules($value, $allowedTypes)
+            fn ($allowedTypes) => $value instanceof $allowedTypes
         );
 
         if (count($allowedTypes) === count($validTypes)) {
@@ -102,36 +128,28 @@ class Type
      */
     private static function assertTypeFormatDeclaration(string $types): void
     {
-        if (preg_match('/^[a-z-A-Z|&\\\:]+$/', $types) === 0) {
+        if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
             throw new Exception\FatalErrorException(
-                "Only '|' or  '&' symbol that allowed."
+                "Only '|' symbol that allowed."
             );
         }
 
         // Simbol harus diletakkan diantara nama tipe
-        if (preg_match('/^([\|\&])|([\|\&])$/', $types) > 0) {
+        if (preg_match('/^([\|])|([\|])$/', $types) > 0) {
             throw new Exception\FatalErrorException(
                 'Symbols must be between type names.'
             );
         }
 
         // Tidak boleh ada duplikat simbol
-        if (preg_match('/(\|\|)|(&&)/', $types) > 0) {
+        if (preg_match('/(\|\|)/', $types) > 0) {
             throw new Exception\FatalErrorException(
                 'Duplicate symbols are not allowed.'
             );
         }
 
-        // Tidak boleh ada 2 simbol yang berbeda dalam satu deklarasi yang sama.
-        // symfony/polyfill-php80
-        if (str_contains($types, '|') && str_contains($types, '&')) {
-            throw new Exception\FatalErrorException(
-                "Combining '|' and '&' in the same declaration is not allowed."
-            );
-        }
-
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
-        $typeInArrayForm = str_contains($types, '|') ? explode('|', $types) : explode('&', $types);
+        $typeInArrayForm = explode('|', $types);
         $actualTypesCount = count(array_count_values($typeInArrayForm));
         $expectedTypesCount = count($typeInArrayForm);
 
