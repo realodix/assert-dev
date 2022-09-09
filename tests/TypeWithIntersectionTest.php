@@ -4,66 +4,49 @@ namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\FatalErrorException;
+use Realodix\Assert\Tests\Fixtures\ClassAB;
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
 
 class TypeWithIntersectionTest extends TestCase
 {
-    use TypeWithUnionTestProvider;
+    use TypeWithIntersectionTestProvider;
 
     /**
-     * @dataProvider unionTypesProvider
+     * @dataProvider intersectionTypesProvider
      */
-    public function testUnionTypes($type, $value, $pass = true)
+    public function testIntersectionTypes($type, $value)
     {
-        (! $pass) && $this->testFailed($type, $value);
-
-        Assert::type($type, $value);
+        Assert::type($type, $value, '', true);
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider allowedSymbolProvider
-     */
-    public function testAllowedSymbol($type, $value)
+    public function testIntersectionTypesWithObjectDoesNotExist()
     {
         $this->expectException(FatalErrorException::class);
-        $this->expectExceptionMessage("Only '|' symbol that allowed.");
-        Assert::type($type, $value);
+        $this->expectExceptionMessage(
+            'Class or interface does not exist.'
+        );
+
+        Assert::type(fooBar::class, new ClassAB, '', true);
     }
 
-    /**
-     * @dataProvider symbolsMustBeBetweenTypeNamesProvider
-     */
-    public function testSymbolsMustBeBetweenTypeNames($type, $value)
+    public function testIntersectionTypesWithUnsupportedMember()
     {
         $this->expectException(FatalErrorException::class);
-        $this->expectExceptionMessage('Symbols must be between type names.');
-        Assert::type($type, $value);
+        $this->expectExceptionMessage(
+            'Intersection Types only support class and interface names as intersection members.'
+        );
+
+        Assert::type(['string', true], new ClassAB, '', true);
     }
 
-    /**
-     * @dataProvider duplicateSymbolsProvider
-     */
-    public function testDuplicateSymbols($type, $value)
-    {
-        $this->expectException(FatalErrorException::class);
-        $this->expectExceptionMessage('Duplicate symbols are not allowed.');
-        Assert::type($type, $value);
-    }
-
-    /**
-     * Reject duplicate type names
-     *
-     * Each name-resolved type may only occur once. Types like A|B|A or A&B&A
-     * result in an error.
-     *
-     * @dataProvider duplicateTypeNamesProvider
-     */
-    public function testDuplicateTypeNames($type, $value)
+    public function testIntersectionTypesWithDuplicateMember()
     {
         $this->expectException(FatalErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
-        Assert::type($type, $value);
+
+        Assert::type([InterfaceA::class, InterfaceA::class], new ClassAB, '', true);
     }
 }
