@@ -1,15 +1,16 @@
 <?php
 
-namespace Realodix\Assert\Tests;
+namespace Realodix\Assert\Tests\Multiple;
 
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\FatalErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\InterfaceA;
+use Realodix\Assert\Tests\TestCase;
 
-class TypeWithIntersectionTest extends TestCase
+class IntersectionTypesTest extends TestCase
 {
-    use TypeWithIntersectionTestProvider;
+    use IntersectionTypesTestProvider;
 
     /**
      * @dataProvider intersectionTypesProvider

@@ -1,6 +1,6 @@
 <?php
 
-namespace Realodix\Assert\Tests;
+namespace Realodix\Assert\Tests\Multiple;
 
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\InterfaceA;
@@ -8,7 +8,7 @@ use Realodix\Assert\Tests\Fixtures\InterfaceB;
 use Realodix\Relax\RuleSet\RuleSetInterface;
 use Realodix\Relax\RuleSet\Sets\Realodix;
 
-trait TypeWithIntersectionTestProvider
+trait IntersectionTypesTestProvider
 {
     public function intersectionTypesProvider()
     {
