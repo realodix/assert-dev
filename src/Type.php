@@ -25,7 +25,9 @@ class Type
             }
 
             if (! self::isIntersectionTypes($value, $types)) {
-                throw new Exception\InvalidArgumentTypeException(implode($types), $value, $message);
+                throw new Exception\InvalidArgumentTypeException(
+                    implode($types), $value, $message
+                );
             }
         }
 
@@ -35,7 +37,9 @@ class Type
         }
 
         if (! self::hasType($value, $types)) {
-            throw new Exception\InvalidArgumentTypeException(implode($types), $value, $message);
+            throw new Exception\InvalidArgumentTypeException(
+                implode($types), $value, $message
+            );
         }
     }
 
