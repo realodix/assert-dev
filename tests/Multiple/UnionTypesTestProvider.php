@@ -54,6 +54,10 @@ trait UnionTypesTestProvider
         return [
             ['bool|bool', true],
             ['bool|string|bool', true],
+            // ['float|double', 0.1],
+            // ['float|numeric', 0.1],
+            // ['double|numeric', 0.1],
+            // ['int|numeric', '42'],
         ];
     }
 
