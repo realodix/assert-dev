@@ -34,7 +34,7 @@ class Type
      * @param mixed $types
      * @param mixed $value
      */
-    public static function intersectionTypes($types, $value, string $message = '')
+    public static function intersectionTypes($types, $value, string $message = ''): void
     {
         if (is_string($types)) {
             $types = explode(' ', $types);
