@@ -30,7 +30,7 @@ class Type
         }
 
         if (is_string($types)) {
-            self::assertTypeFormatDeclaration($types);
+            self::assertTypeDeclaration($types);
             $types = explode('|', $types);
         }
 
@@ -126,7 +126,7 @@ class Type
      *
      * @throws Exception\FatalErrorException
      */
-    private static function assertTypeFormatDeclaration(string $types): void
+    private static function assertTypeDeclaration(string $types): void
     {
         if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
             throw new Exception\FatalErrorException(
