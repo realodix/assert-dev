@@ -6,10 +6,6 @@
     </TooManyArguments>
   </file>
   <file src="src/Type.php">
-    <MissingParamType occurrences="2">
-      <code>$types</code>
-      <code>$value</code>
-    </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>intersectionTypes</code>
     </MissingReturnType>
