@@ -12,8 +12,8 @@ class Type
      *                            type or a class or interface, or a list of such names.
      * @param mixed        $value The parameter's actual value.
      *
-     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects, is not
-     *                                                an instance of) $type.
+     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
+     *                                                is not an instance of) $type.
      */
     public static function is($types, $value, string $message = ''): void
     {
