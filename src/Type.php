@@ -30,7 +30,7 @@ class Type
         }
 
         if (is_string($types)) {
-            self::assertTypeFormatDeclaration($types);
+            self::assertTypeDeclaration($types);
             $types = explode('|', $types);
         }
 
@@ -126,7 +126,7 @@ class Type
      *
      * @throws Exception\FatalErrorException
      */
-    private static function assertTypeFormatDeclaration(string $types): void
+    private static function assertTypeDeclaration(string $types): void
     {
         if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
             throw new Exception\FatalErrorException(
@@ -150,7 +150,9 @@ class Type
 
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
         $typeInArrayForm = explode('|', $types);
-        $actualTypesCount = count(array_count_values($typeInArrayForm));
+        $actualTypesCount = count(
+            array_count_values(self::normalizeType($typeInArrayForm))
+        );
         $expectedTypesCount = count($typeInArrayForm);
 
         if ($expectedTypesCount != $actualTypesCount) {
@@ -158,5 +160,26 @@ class Type
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }
+    }
+
+    private static function normalizeType(array $types): array
+    {
+        return array_map(
+            function ($type) {
+                switch ($type) {
+                    case 'double':
+                        return 'float';
+                    case 'integer':
+                        return 'int';
+                    case 'boolean':
+                        return 'bool';
+                    case 'NULL':
+                        return 'null';
+                    default:
+                        return $type;
+                }
+            },
+            $types
+        );
     }
 }
