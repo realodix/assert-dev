@@ -47,19 +47,7 @@ class Type
         }
     }
 
-    /**
-     * @param mixed $value
-     */
-    private static function hasType($value, array $allowedTypes): bool
-    {
-        foreach ($allowedTypes as $aTypes) {
-            if (self::rules($value, $aTypes)) {
-                return true;
-            }
-        }
 
-        return false;
-    }
 
     /**
      * @param mixed $value
@@ -102,7 +90,19 @@ class Type
 
         return false;
     }
+/**
+     * @param mixed $value
+     */
+    private static function hasType($value, array $allowedTypes): bool
+    {
+        foreach ($allowedTypes as $aTypes) {
+            if (self::rules($value, $aTypes)) {
+                return true;
+            }
+        }
 
+        return false;
+    }
     /**
      * @param mixed $value
      */
