@@ -51,9 +51,9 @@ class Type
     /**
      * @param mixed $value
      */
-    private static function assertIntersectionTypes($value, array $allowedTypes): bool
+    private static function assertIntersectionTypes($value, array $types): bool
     {
-        foreach ($allowedTypes as $aTypes) {
+        foreach ($types as $aTypes) {
             if (is_string($aTypes)
                 && preg_match('/\\\/', $aTypes) === 1
                 && ! interface_exists($aTypes)) {
@@ -68,8 +68,8 @@ class Type
                 );
             }
 
-            $actualTypesCount = count(array_count_values($allowedTypes));
-            $expectedTypesCount = count($allowedTypes);
+            $actualTypesCount = count(array_count_values($types));
+            $expectedTypesCount = count($types);
 
             if ($expectedTypesCount != $actualTypesCount) {
                 throw new Exception\FatalErrorException(
@@ -79,11 +79,11 @@ class Type
         }
 
         $validTypes = array_filter(
-            $allowedTypes,
-            fn ($allowedTypes) => $value instanceof $allowedTypes
+            $types,
+            fn ($types) => $value instanceof $types
         );
 
-        if (count($allowedTypes) === count($validTypes)) {
+        if (count($types) === count($validTypes)) {
             return true;
         }
 
