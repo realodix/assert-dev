@@ -15,8 +15,10 @@ class IntersectionTypesTest extends TestCase
     /**
      * @dataProvider intersectionTypesProvider
      */
-    public function testIntersectionTypes($type, $value)
+    public function testIntersectionTypes($type, $value, $pass = true)
     {
+        (! $pass) && $this->testFailed($type, $value);
+
         Assert::type($type, $value, '', true);
         $this->addToAssertionCount(1);
     }

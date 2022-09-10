@@ -16,6 +16,8 @@ trait IntersectionTypesTestProvider
             [RuleSetInterface::class, new Realodix],
             [[RuleSetInterface::class], new Realodix],
             [[InterfaceA::class, InterfaceB::class], new ClassAB],
+            // Invalid
+            [\Countable::class, new \stdClass, false],
         ];
     }
 }
