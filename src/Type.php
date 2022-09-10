@@ -8,29 +8,15 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param string|array|object $types    The parameter's expected type. Can be the name
-     *                                      of a native type or a class or interface, or a
-     *                                      list of such names.
-     * @param mixed               $value    The parameter's actual value.
-     * @param bool                $isection
+     * @param string|array $types The parameter's expected type. Can be the name of a native
+     *                            type or a class or interface, or a list of such names.
+     * @param mixed        $value The parameter's actual value.
      *
-     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
-     *                                                is not an instance of) $type.
+     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects, is not
+     *                                                an instance of) $type.
      */
-    public static function is($types, $value, string $message = '', $isection = false): void
+    public static function is($types, $value, string $message = ''): void
     {
-        if ($isection === true) {
-            if (is_string($types)) {
-                $types = explode(' ', $types);
-            }
-
-            if (! self::isIntersectionTypes($value, $types)) {
-                throw new Exception\InvalidArgumentTypeException(
-                    implode($types), $value, $message
-                );
-            }
-        }
-
         if (is_string($types)) {
             self::assertTypeDeclaration($types);
             $types = explode('|', $types);
@@ -44,25 +30,30 @@ class Type
     }
 
     /**
+     * @param mixed $types
      * @param mixed $value
+     *
+     * @throws Exception\InvalidArgumentTypeException
      */
-    private static function hasType($value, array $allowedTypes): bool
+    public static function intersectionTypes($types, $value, string $message = ''): void
     {
-        foreach ($allowedTypes as $aTypes) {
-            if (self::rules($value, $aTypes)) {
-                return true;
-            }
+        if (is_string($types)) {
+            $types = explode(' ', $types);
         }
 
-        return false;
+        if (! self::assertIntersectionTypes($value, $types)) {
+            throw new Exception\InvalidArgumentTypeException(
+                implode($types), $value, $message
+            );
+        }
     }
 
     /**
      * @param mixed $value
      */
-    private static function isIntersectionTypes($value, array $allowedTypes): bool
+    private static function assertIntersectionTypes($value, array $types): bool
     {
-        foreach ($allowedTypes as $aTypes) {
+        foreach ($types as $aTypes) {
             if (is_string($aTypes)
                 && preg_match('/\\\/', $aTypes) === 1
                 && ! interface_exists($aTypes)) {
@@ -77,8 +68,8 @@ class Type
                 );
             }
 
-            $actualTypesCount = count(array_count_values($allowedTypes));
-            $expectedTypesCount = count($allowedTypes);
+            $actualTypesCount = count(array_count_values($types));
+            $expectedTypesCount = count($types);
 
             if ($expectedTypesCount != $actualTypesCount) {
                 throw new Exception\FatalErrorException(
@@ -88,12 +79,26 @@ class Type
         }
 
         $validTypes = array_filter(
-            $allowedTypes,
-            fn ($allowedTypes) => $value instanceof $allowedTypes
+            $types,
+            fn ($types) => $value instanceof $types
         );
 
-        if (count($allowedTypes) === count($validTypes)) {
+        if (count($types) === count($validTypes)) {
             return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    private static function hasType($value, array $allowedTypes): bool
+    {
+        foreach ($allowedTypes as $aTypes) {
+            if (self::rules($value, $aTypes)) {
+                return true;
+            }
         }
 
         return false;

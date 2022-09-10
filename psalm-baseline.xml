@@ -1,11 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
-  <file src="src/Type.php">
-    <PossiblyInvalidArgument occurrences="4">
-      <code>$types</code>
-      <code>$types</code>
-      <code>$types</code>
-      <code>$types</code>
-    </PossiblyInvalidArgument>
-  </file>
-</files>
+<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac"/>
