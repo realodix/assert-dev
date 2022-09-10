@@ -1,8 +1,8 @@
 <?php
 
-namespace Realodix\Assert\Tests;
+namespace Realodix\Assert\Tests\Multiple;
 
-trait TypeFormatTestProvider
+trait UnionTypesTestProvider
 {
     public function unionTypesProvider()
     {
@@ -15,36 +15,6 @@ trait TypeFormatTestProvider
             // Invalid
             ['int|float', 'abc', false],
             ['array|string|int', new \stdClass, false],
-        ];
-    }
-
-    public function intersectionTypesProvider()
-    {
-        return [
-            // Array
-            ['array&countable', []],
-            ['array&iterable&countable', [1, 2, 3]],
-            // Bool
-            ['bool&true', true],
-            ['bool&false', false],
-            // Bool, but invalid
-            ['bool&true', false, false],
-            ['bool&false', true, false],
-            // Object
-            ['Exception&object', new \RuntimeException],
-            ['object&countable', new \ArrayIterator([])],
-            ['object&stdClass', new \stdClass],
-            ['object&SimpleXMLElement', new \SimpleXMLElement('<foo>bar</foo>')],
-            // Scalar
-            ['scalar&bool&true', true],
-            ['scalar&numeric&int', 123],
-            ['scalar&float', 123.4],
-            ['scalar&string', 'string'],
-            // Scalar, but invalid
-            ['scalar&bool&false', true, false],
-            ['scalar&float', 123, false],
-            ['scalar&int', 123.4, false],
-            ['scalar&array', 'string', false],
         ];
     }
 
@@ -68,13 +38,6 @@ trait TypeFormatTestProvider
             ['string|int|', 'string'],
             ['|string|int|', 'string'],
             ['|string|int|', 'string'],
-
-            ['&int', 1],
-            ['&int&numeric', 1],
-            ['int&', 1],
-            ['int&numeric&', 1],
-            ['&int&', 1],
-            ['&int&numeric&', 1],
         ];
     }
 
@@ -83,9 +46,6 @@ trait TypeFormatTestProvider
         return [
             ['scalar||float', 1],
             ['scalar|||float', 1],
-
-            ['scalar&&float', 1],
-            ['scalar&&&float', 1],
         ];
     }
 
@@ -94,9 +54,9 @@ trait TypeFormatTestProvider
         return [
             ['bool|bool', true],
             ['bool|string|bool', true],
-
-            ['int&int', 1],
-            ['int&numeric&int', 1],
+            ['float|double', 0.1],
+            ['int|integer', '42'],
+            ['bool|boolean', true],
         ];
     }
 
