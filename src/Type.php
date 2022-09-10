@@ -8,13 +8,12 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param string|array $types The parameter's expected type. Can be the name
-     *                            of a native type or a class or interface, or a
-     *                            list of such names.
+     * @param string|array $types The parameter's expected type. Can be the name of a native
+     *                            type or a class or interface, or a list of such names.
      * @param mixed        $value The parameter's actual value.
      *
-     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
-     *                                                is not an instance of) $type.
+     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects, is not
+     *                                                an instance of) $type.
      */
     public static function is($types, $value, string $message = ''): void
     {
@@ -33,6 +32,8 @@ class Type
     /**
      * @param mixed $types
      * @param mixed $value
+     *
+     * @throws Exception\InvalidArgumentTypeException
      */
     public static function intersectionTypes($types, $value, string $message = ''): void
     {
