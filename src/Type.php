@@ -40,7 +40,7 @@ class Type
             $types = explode(' ', $types);
         }
 
-        if (! self::isIntersectionTypes($value, $types)) {
+        if (! self::assertIntersectionTypes($value, $types)) {
             throw new Exception\InvalidArgumentTypeException(
                 implode($types), $value, $message
             );
@@ -50,7 +50,7 @@ class Type
     /**
      * @param mixed $value
      */
-    private static function isIntersectionTypes($value, array $allowedTypes): bool
+    private static function assertIntersectionTypes($value, array $allowedTypes): bool
     {
         foreach ($allowedTypes as $aTypes) {
             if (is_string($aTypes)
