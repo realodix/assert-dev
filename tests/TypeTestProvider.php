@@ -51,12 +51,12 @@ trait TypeTestProvider
             ['int', 1.23, false],
             ['int', true, false],
 
-            ['float|double', 0.1],
-            ['float|double', 1.0],
-            ['float|double', 2.3],
-            ['float|double', 1 / 3],
-            ['float|double', 1 - 2 / 3],
-            ['float|double', log(0)],
+            ['float', 0.1],
+            ['float', 1.0],
+            ['float', 2.3],
+            ['float', 1 / 3],
+            ['float', 1 - 2 / 3],
+            ['float', log(0)],
             // Invalid float
             ['float', 1, false],
             ['float', false, false],
