@@ -2,11 +2,11 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
-use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\FatalErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\InterfaceA;
 use Realodix\Assert\Tests\TestCase;
+use Realodix\Assert\Type;
 
 class IntersectionTypesTest extends TestCase
 {
@@ -19,7 +19,7 @@ class IntersectionTypesTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Assert::type($type, $value, '', true);
+        Type::intersectionTypes($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -30,7 +30,7 @@ class IntersectionTypesTest extends TestCase
             'Class or interface does not exist.'
         );
 
-        Assert::type(fooBar::class, new ClassAB, '', true);
+        Type::intersectionTypes(fooBar::class, new ClassAB);
     }
 
     public function testIntersectionTypesWithUnsupportedMember()
@@ -40,7 +40,7 @@ class IntersectionTypesTest extends TestCase
             'Intersection Types only support class and interface names as intersection members.'
         );
 
-        Assert::type(['string', true], new ClassAB, '', true);
+        Type::intersectionTypes(['string', true], new ClassAB);
     }
 
     public function testIntersectionTypesWithDuplicateMember()
@@ -50,6 +50,6 @@ class IntersectionTypesTest extends TestCase
             'Duplicate type names in the same declaration is not allowed.'
         );
 
-        Assert::type([InterfaceA::class, InterfaceA::class], new ClassAB, '', true);
+        Type::intersectionTypes([InterfaceA::class, InterfaceA::class], new ClassAB);
     }
 }

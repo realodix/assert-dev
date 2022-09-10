@@ -8,35 +8,35 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param string|array|object $types    The parameter's expected type. Can be the name
-     *                                      of a native type or a class or interface, or a
-     *                                      list of such names.
-     * @param mixed               $value    The parameter's actual value.
-     * @param bool                $isection
+     * @param string|array|object $types The parameter's expected type. Can be the name
+     *                                   of a native type or a class or interface, or a
+     *                                   list of such names.
+     * @param mixed               $value The parameter's actual value.
      *
      * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
      *                                                is not an instance of) $type.
      */
-    public static function is($types, $value, string $message = '', $isection = false): void
+    public static function is($types, $value, string $message = ''): void
     {
-        if ($isection === true) {
-            if (is_string($types)) {
-                $types = explode(' ', $types);
-            }
-
-            if (! self::isIntersectionTypes($value, $types)) {
-                throw new Exception\InvalidArgumentTypeException(
-                    implode($types), $value, $message
-                );
-            }
-        }
-
         if (is_string($types)) {
             self::assertTypeDeclaration($types);
             $types = explode('|', $types);
         }
 
         if (! self::hasType($value, $types)) {
+            throw new Exception\InvalidArgumentTypeException(
+                implode($types), $value, $message
+            );
+        }
+    }
+
+    public static function intersectionTypes($types, $value, string $message = '')
+    {
+        if (is_string($types)) {
+            $types = explode(' ', $types);
+        }
+
+        if (! self::isIntersectionTypes($value, $types)) {
             throw new Exception\InvalidArgumentTypeException(
                 implode($types), $value, $message
             );
