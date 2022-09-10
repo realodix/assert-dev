@@ -8,10 +8,10 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param string|array|object $types The parameter's expected type. Can be the name
-     *                                   of a native type or a class or interface, or a
-     *                                   list of such names.
-     * @param mixed               $value The parameter's actual value.
+     * @param string|array $types The parameter's expected type. Can be the name
+     *                            of a native type or a class or interface, or a
+     *                            list of such names.
+     * @param mixed        $value The parameter's actual value.
      *
      * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
      *                                                is not an instance of) $type.
