@@ -35,7 +35,7 @@ class Type
      *
      * @throws Exception\InvalidArgumentTypeException
      */
-    public static function intersectionTypes($types, $value, string $message = ''): void
+    public static function intersection($types, $value, string $message = ''): void
     {
         if (is_string($types)) {
             $types = explode(' ', $types);

@@ -19,7 +19,7 @@ class IntersectionTypesTest extends TestCase
     {
         (! $pass) && $this->testFailed($type, $value);
 
-        Type::intersectionTypes($type, $value);
+        Type::intersection($type, $value);
         $this->addToAssertionCount(1);
     }
 
@@ -30,7 +30,7 @@ class IntersectionTypesTest extends TestCase
             'Class or interface does not exist.'
         );
 
-        Type::intersectionTypes(fooBar::class, new ClassAB);
+        Type::intersection(fooBar::class, new ClassAB);
     }
 
     public function testIntersectionTypesWithUnsupportedMember()
@@ -40,7 +40,7 @@ class IntersectionTypesTest extends TestCase
             'Intersection Types only support class and interface names as intersection members.'
         );
 
-        Type::intersectionTypes(['string', true], new ClassAB);
+        Type::intersection(['string', true], new ClassAB);
     }
 
     public function testIntersectionTypesWithDuplicateMember()
@@ -50,6 +50,6 @@ class IntersectionTypesTest extends TestCase
             'Duplicate type names in the same declaration is not allowed.'
         );
 
-        Type::intersectionTypes([InterfaceA::class, InterfaceA::class], new ClassAB);
+        Type::intersection([InterfaceA::class, InterfaceA::class], new ClassAB);
     }
 }
