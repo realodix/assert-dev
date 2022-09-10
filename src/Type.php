@@ -47,8 +47,6 @@ class Type
         }
     }
 
-
-
     /**
      * @param mixed $value
      */
@@ -90,7 +88,8 @@ class Type
 
         return false;
     }
-/**
+
+    /**
      * @param mixed $value
      */
     private static function hasType($value, array $allowedTypes): bool
@@ -103,6 +102,7 @@ class Type
 
         return false;
     }
+
     /**
      * @param mixed $value
      */
