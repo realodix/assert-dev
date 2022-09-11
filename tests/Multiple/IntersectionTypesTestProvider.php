@@ -32,6 +32,8 @@ trait IntersectionTypesTestProvider
     {
         return [
             [\Countable::class, new \stdClass],
+            [[\Countable::class], new \stdClass],
+            [[\ArrayAccess::class, \Countable::class], new \stdClass],
         ];
     }
 }
