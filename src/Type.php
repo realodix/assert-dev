@@ -13,7 +13,7 @@ class Type
      * @param mixed        $value The parameter's actual value.
      *
      * @throws Exception\TypeErrorException If $value is not of type (or for objects,
-     *                                                is not an instance of) $type.
+     *                                      is not an instance of) $type.
      */
     public static function is($types, $value, string $message = ''): void
     {
@@ -52,6 +52,8 @@ class Type
 
     /**
      * @param mixed $value
+     *
+     * @throws Exception\FatalErrorException
      */
     private static function assertIntersectionTypes($value, array $types): bool
     {

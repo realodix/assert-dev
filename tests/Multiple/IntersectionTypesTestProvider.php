@@ -25,7 +25,12 @@ trait IntersectionTypesTestProvider
             [[A::class, B::class], new ClassAB],
             [ArrayAccessCountable::class, new ClassArrayAccessCountable],
             [[\ArrayAccess::class, \Countable::class], new ClassArrayAccessCountable],
-            // Invalid
+        ];
+    }
+
+    public function invalidIntersectionTypesProvider()
+    {
+        return [
             [\Countable::class, new \stdClass, false],
         ];
     }

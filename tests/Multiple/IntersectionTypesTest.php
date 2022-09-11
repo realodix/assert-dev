@@ -23,6 +23,14 @@ class IntersectionTypesTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    /**
+     * @dataProvider invalidIntersectionTypesProvider
+     */
+    public function testInvalidIntersectionTypes($type, $value)
+    {
+        $this->testFailed($type, $value);
+    }
+
     public function testIntersectionTypesWithObjectDoesNotExist()
     {
         $this->expectException(FatalErrorException::class);
