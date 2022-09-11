@@ -15,7 +15,7 @@ class UnionTypesTest extends TestCase
      */
     public function testUnionTypes($type, $value, $pass = true)
     {
-        (! $pass) && $this->testInvalidType($type, $value);
+        (! $pass) && $this->testInvalidTypes($type, $value);
 
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
