@@ -2,6 +2,8 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-class ClassAB implements InterfaceAB
+use Realodix\Assert\Tests\Fixtures\Interface\AB;
+
+class ClassAB implements AB
 {
 }

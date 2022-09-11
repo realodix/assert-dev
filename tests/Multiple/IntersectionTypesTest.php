@@ -4,7 +4,7 @@ namespace Realodix\Assert\Tests\Multiple;
 
 use Realodix\Assert\Exception\FatalErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
-use Realodix\Assert\Tests\Fixtures\InterfaceA;
+use Realodix\Assert\Tests\Fixtures\Interface\A;
 use Realodix\Assert\Tests\TestCase;
 use Realodix\Assert\Type;
 
@@ -50,6 +50,6 @@ class IntersectionTypesTest extends TestCase
             'Duplicate type names in the same declaration is not allowed.'
         );
 
-        Type::intersection([InterfaceA::class, InterfaceA::class], new ClassAB);
+        Type::intersection([A::class, A::class], new ClassAB);
     }
 }
