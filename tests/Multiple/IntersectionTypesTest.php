@@ -3,6 +3,7 @@
 namespace Realodix\Assert\Tests\Multiple;
 
 use Realodix\Assert\Exception\FatalErrorException;
+use Realodix\Assert\Exception\TypeErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\Interface\A;
 use Realodix\Assert\Tests\TestCase;
@@ -26,7 +27,8 @@ class IntersectionTypesTest extends TestCase
      */
     public function testInvalidIntersectionTypes($type, $value)
     {
-        $this->testFailed($type, $value);
+        $this->expectException(TypeErrorException::class);
+        Type::intersection($type, $value);
     }
 
     public function testIntersectionTypesWithObjectDoesNotExist()
