@@ -30,8 +30,10 @@ class Type
     }
 
     /**
-     * @param mixed $types
-     * @param mixed $value
+     * https://gist.github.com/Pierstoval/ed387a09d4a5e76108e60e8a7585ac2d
+     *
+     * @param string|array $types The parameter's expected type.
+     * @param mixed        $value The parameter's actual value.
      *
      * @throws Exception\InvalidArgumentTypeException
      */
