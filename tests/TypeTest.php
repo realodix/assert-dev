@@ -13,7 +13,7 @@ class TypeTest extends TestCase
      */
     public function testArray($type, $value, $pass = true)
     {
-        (! $pass) && $this->testInvalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($type, $value);
 
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
@@ -24,7 +24,7 @@ class TypeTest extends TestCase
      */
     public function testNumber($type, $value, $pass = true)
     {
-        (! $pass) && $this->testInvalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($type, $value);
 
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
@@ -35,7 +35,7 @@ class TypeTest extends TestCase
      */
     public function testObject($type, $value, $pass = true)
     {
-        (! $pass) && $this->testInvalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($type, $value);
 
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
@@ -47,7 +47,7 @@ class TypeTest extends TestCase
      */
     public function is_bool($type, $value, $pass = true)
     {
-        (! $pass) && $this->testInvalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($type, $value);
 
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
@@ -59,7 +59,7 @@ class TypeTest extends TestCase
      */
     public function instanceof($type, $value, $pass = true)
     {
-        (! $pass) && $this->testInvalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($type, $value);
 
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
@@ -78,7 +78,7 @@ class TypeTest extends TestCase
      */
     public function is_scalar($type, $value, $pass = true)
     {
-        (! $pass) && $this->testInvalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($type, $value);
 
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
@@ -99,6 +99,6 @@ class TypeTest extends TestCase
      */
     public function testTypeFail($type, $value)
     {
-        $this->testInvalidTypes($type, $value);
+        $this->invalidTypes($type, $value);
     }
 }
