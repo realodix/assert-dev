@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Exception;
 
-class InvalidArgumentTypeException extends \Exception
+class TypeErrorException extends \Exception
 {
     /**
      * @param mixed $value

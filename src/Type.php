@@ -12,7 +12,7 @@ class Type
      *                            type or a class or interface, or a list of such names.
      * @param mixed        $value The parameter's actual value.
      *
-     * @throws Exception\InvalidArgumentTypeException If $value is not of type (or for objects,
+     * @throws Exception\TypeErrorException If $value is not of type (or for objects,
      *                                                is not an instance of) $type.
      */
     public static function is($types, $value, string $message = ''): void
@@ -23,7 +23,7 @@ class Type
         }
 
         if (! self::hasType($value, $types)) {
-            throw new Exception\InvalidArgumentTypeException(
+            throw new Exception\TypeErrorException(
                 implode($types), $value, $message
             );
         }
@@ -35,7 +35,7 @@ class Type
      * @param string|array $types The parameter's expected type.
      * @param mixed        $value The parameter's actual value.
      *
-     * @throws Exception\InvalidArgumentTypeException
+     * @throws Exception\TypeErrorException
      */
     public static function intersection($types, $value, string $message = ''): void
     {
@@ -44,7 +44,7 @@ class Type
         }
 
         if (! self::assertIntersectionTypes($value, $types)) {
-            throw new Exception\InvalidArgumentTypeException(
+            throw new Exception\TypeErrorException(
                 implode($types), $value, $message
             );
         }
