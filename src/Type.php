@@ -54,15 +54,14 @@ class Type
     private static function assertIntersectionTypes($value, array $types): bool
     {
         foreach ($types as $aTypes) {
-            if (is_string($aTypes)
-                && preg_match('/\\\/', $aTypes) === 1
-                && ! interface_exists($aTypes)) {
+            if (is_string($aTypes) && preg_match('/\\\/', $aTypes) === 1
+                && ! interface_exists($aTypes) && ! class_exists($aTypes)) {
                 throw new Exception\FatalErrorException(
                     'Class or interface does not exist.'
                 );
             }
 
-            if (! interface_exists($aTypes)) {
+            if (! interface_exists($aTypes) && ! class_exists($aTypes)) {
                 throw new Exception\FatalErrorException(
                     'Intersection Types only support class and interface names as intersection members.'
                 );
@@ -81,6 +80,7 @@ class Type
         $validTypes = array_filter(
             $types,
             fn ($types) => $value instanceof $types
+            // fn ($types) => is_subclass_of($value, $types)
         );
 
         if (count($types) === count($validTypes)) {
