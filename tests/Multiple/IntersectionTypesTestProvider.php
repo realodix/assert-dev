@@ -31,7 +31,7 @@ trait IntersectionTypesTestProvider
     public function invalidIntersectionTypesProvider()
     {
         return [
-            [\Countable::class, new \stdClass, false],
+            [\Countable::class, new \stdClass],
         ];
     }
 }
