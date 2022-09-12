@@ -7,7 +7,7 @@ use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\Interface\A;
 use Realodix\Assert\Tests\TestCase;
 use Realodix\Assert\Type;
-
+use Realodix\Assert\Exception\TypeErrorException;
 class IntersectionTypesTest extends TestCase
 {
     use IntersectionTypesTestProvider;
@@ -26,7 +26,8 @@ class IntersectionTypesTest extends TestCase
      */
     public function testInvalidTypes($type, $value)
     {
-        $this->invalidIntersectionTypes($type, $value);
+        $this->expectException(TypeErrorException::class);
+        Type::intersection($type, $value);
     }
 
     public function testObjectDoesNotExist()
