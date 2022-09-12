@@ -17,6 +17,12 @@ class Type
      */
     public static function is($types, $value, string $message = ''): void
     {
+        if (! is_string($types) && ! is_array($types)) {
+            throw new \InvalidArgumentException(
+                "Argument #1 (\$types) must 'string or array'"
+            );
+        }
+
         if (is_string($types)) {
             self::assertTypeDeclaration($types);
             $types = explode('|', $types);
