@@ -21,6 +21,12 @@ class UnionTypesTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    public function testIvalidUnionTypesExceptionMessage()
+    {
+        $this->expectExceptionMessage('Expected an array|string. Got: integer.');
+        Assert::type('array|string', 1);
+    }
+
     /**
      * @dataProvider allowedSymbolProvider
      */
