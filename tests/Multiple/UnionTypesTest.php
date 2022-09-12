@@ -4,7 +4,7 @@ namespace Realodix\Assert\Tests\Multiple;
 
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\ErrorException;
-use Realodix\Assert\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Exception\TypeErrorException;
 class UnionTypesTest extends TestCase
 {

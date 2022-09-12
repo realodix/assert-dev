@@ -5,7 +5,7 @@ namespace Realodix\Assert\Tests\Multiple;
 use Realodix\Assert\Exception\ErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\Interface\A;
-use Realodix\Assert\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Type;
 use Realodix\Assert\Exception\TypeErrorException;
 class IntersectionTypesTest extends TestCase
