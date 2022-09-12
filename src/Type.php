@@ -12,6 +12,7 @@ class Type
      *                            type or a class or interface, or a list of such names.
      * @param mixed        $value The parameter's actual value.
      *
+     * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException If $value is not of type (or for objects,
      *                                      is not an instance of) $type.
      */
@@ -41,10 +42,17 @@ class Type
      * @param string|array $types The parameter's expected type.
      * @param mixed        $value The parameter's actual value.
      *
+     * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException
      */
     public static function intersection($types, $value, string $message = ''): void
     {
+        if (! is_string($types) && ! is_array($types)) {
+            throw new \InvalidArgumentException(
+                "Argument #1 (\$types) must 'string or array'"
+            );
+        }
+
         if (is_string($types)) {
             $types = explode(' ', $types);
         }
