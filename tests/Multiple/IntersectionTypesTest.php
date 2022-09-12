@@ -2,10 +2,11 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
+use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Exception\ErrorException;
-use Realodix\Assert\Tests\Fixtures\ClassAB;
-use Realodix\Assert\Tests\Fixtures\Interface\A;
-use Realodix\Assert\Tests\TestCase;
+use Realodix\Assert\Exception\TypeErrorException;
+use Realodix\Assert\Tests\Fixtures\AB;
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
 use Realodix\Assert\Type;
 
 class IntersectionTypesTest extends TestCase
@@ -15,7 +16,7 @@ class IntersectionTypesTest extends TestCase
     /**
      * @dataProvider intersectionTypesProvider
      */
-    public function testIntersectionTypes($type, $value)
+    public function testValidTypes($type, $value)
     {
         Type::intersection($type, $value);
         $this->addToAssertionCount(1);
@@ -24,38 +25,45 @@ class IntersectionTypesTest extends TestCase
     /**
      * @dataProvider invalidIntersectionTypesProvider
      */
-    public function testInvalidIntersectionTypes($type, $value)
+    public function testInvalidTypes($type, $value)
     {
-        $this->invalidIntersectionTypes($type, $value);
+        $this->expectException(TypeErrorException::class);
+        Type::intersection($type, $value);
     }
 
-    public function testIntersectionTypesWithObjectDoesNotExist()
+    public function testExceptionMessage()
     {
-        $this->expectException(ErrorException::class);
-        $this->expectExceptionMessage(
-            'Class or interface does not exist.'
-        );
-
-        Type::intersection(fooBar::class, new ClassAB);
+        $this->expectExceptionMessage('Expected an ArrayAccess & Countable. Got: object.');
+        Type::intersection([\ArrayAccess::class, \Countable::class], new \stdClass);
     }
 
-    public function testIntersectionTypesWithUnsupportedMember()
+    public function testObjectDoesNotExist()
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
-            'Intersection Types only support class and interface names as intersection members.'
+            'Class or Interface does not exist.'
         );
 
-        Type::intersection(['string', true], new ClassAB);
+        Type::intersection(fooBar::class, new AB);
     }
 
-    public function testIntersectionTypesWithDuplicateMember()
+    public function testUnsupportedMember()
+    {
+        $this->expectException(ErrorException::class);
+        $this->expectExceptionMessage(
+            'Intersection Types only support class and Interface names as intersection members.'
+        );
+
+        Type::intersection(['string', true], new AB);
+    }
+
+    public function testDuplicateMember()
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
 
-        Type::intersection([A::class, A::class], new ClassAB);
+        Type::intersection([InterfaceA::class, InterfaceA::class], new AB);
     }
 }

@@ -2,26 +2,34 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
+use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\ErrorException;
-use Realodix\Assert\Tests\TestCase;
+use Realodix\Assert\Exception\TypeErrorException;
 
 class UnionTypesTest extends TestCase
 {
     use UnionTypesTestProvider;
 
     /**
-     * @dataProvider unionTypesProvider
+     * @dataProvider validTypesProvider
      */
-    public function testUnionTypes($type, $value, $pass = true)
+    public function testValidTypes($type, $value)
     {
-        (! $pass) && $this->invalidTypes($type, $value);
-
         Assert::type($type, $value);
         $this->addToAssertionCount(1);
     }
 
-    public function testIvalidUnionTypesExceptionMessage()
+    /**
+     * @dataProvider invalidTypesProvider
+     */
+    public function testInvalidTypes($type, $value)
+    {
+        $this->expectException(TypeErrorException::class);
+        Assert::type($type, $value);
+    }
+
+    public function testExceptionMessage()
     {
         $this->expectExceptionMessage('Expected an array|string. Got: integer.');
         Assert::type('array|string', 1);

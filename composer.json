@@ -11,6 +11,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
+        "realodix/change-case": "^3.4",
+        "realodix/readtime": "^1.3",
         "realodix/relax": "dev-main"
     },
     "autoload": {
