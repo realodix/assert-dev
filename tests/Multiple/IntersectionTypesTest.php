@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
-use Realodix\Assert\Exception\FatalErrorException;
+use Realodix\Assert\Exception\ErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\Interface\A;
 use Realodix\Assert\Tests\TestCase;
@@ -31,7 +31,7 @@ class IntersectionTypesTest extends TestCase
 
     public function testIntersectionTypesWithObjectDoesNotExist()
     {
-        $this->expectException(FatalErrorException::class);
+        $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
             'Class or interface does not exist.'
         );
@@ -41,7 +41,7 @@ class IntersectionTypesTest extends TestCase
 
     public function testIntersectionTypesWithUnsupportedMember()
     {
-        $this->expectException(FatalErrorException::class);
+        $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
             'Intersection Types only support class and interface names as intersection members.'
         );
@@ -51,7 +51,7 @@ class IntersectionTypesTest extends TestCase
 
     public function testIntersectionTypesWithDuplicateMember()
     {
-        $this->expectException(FatalErrorException::class);
+        $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );

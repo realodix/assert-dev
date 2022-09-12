@@ -3,7 +3,7 @@
 namespace Realodix\Assert\Tests\Multiple;
 
 use Realodix\Assert\Assert;
-use Realodix\Assert\Exception\FatalErrorException;
+use Realodix\Assert\Exception\ErrorException;
 use Realodix\Assert\Tests\TestCase;
 
 class UnionTypesTest extends TestCase
@@ -26,7 +26,7 @@ class UnionTypesTest extends TestCase
      */
     public function testAllowedSymbol($type, $value)
     {
-        $this->expectException(FatalErrorException::class);
+        $this->expectException(ErrorException::class);
         $this->expectExceptionMessage("Only '|' symbol that allowed.");
         Assert::type($type, $value);
     }
@@ -36,7 +36,7 @@ class UnionTypesTest extends TestCase
      */
     public function testSymbolsMustBeBetweenTypeNames($type, $value)
     {
-        $this->expectException(FatalErrorException::class);
+        $this->expectException(ErrorException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
         Assert::type($type, $value);
     }
@@ -46,7 +46,7 @@ class UnionTypesTest extends TestCase
      */
     public function testDuplicateSymbols($type, $value)
     {
-        $this->expectException(FatalErrorException::class);
+        $this->expectException(ErrorException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
         Assert::type($type, $value);
     }
@@ -61,7 +61,7 @@ class UnionTypesTest extends TestCase
      */
     public function testDuplicateTypeNames($type, $value)
     {
-        $this->expectException(FatalErrorException::class);
+        $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
