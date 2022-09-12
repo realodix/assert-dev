@@ -2,12 +2,13 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
+use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Exception\ErrorException;
+use Realodix\Assert\Exception\TypeErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\Interface\A;
-use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Type;
-use Realodix\Assert\Exception\TypeErrorException;
+
 class IntersectionTypesTest extends TestCase
 {
     use IntersectionTypesTestProvider;
@@ -28,6 +29,12 @@ class IntersectionTypesTest extends TestCase
     {
         $this->expectException(TypeErrorException::class);
         Type::intersection($type, $value);
+    }
+
+    public function testExceptionMessage()
+    {
+        $this->expectExceptionMessage('Expected an ArrayAccess & Countable. Got: object.');
+        Type::intersection([\ArrayAccess::class, \Countable::class], new \stdClass);
     }
 
     public function testObjectDoesNotExist()

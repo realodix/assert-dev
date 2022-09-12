@@ -2,8 +2,9 @@
 
 namespace Realodix\Assert\Tests;
 
-use Realodix\Assert\Assert;
 use PHPUnit\Framework\TestCase;
+use Realodix\Assert\Assert;
+
 class ExceptionMessageTest extends TestCase
 {
     public function testExceptionMessage()

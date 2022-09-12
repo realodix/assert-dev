@@ -31,7 +31,7 @@ class Type
 
         if (! self::hasType($value, $types)) {
             throw new Exception\TypeErrorException(
-                implode('|',$types), $value, $message
+                implode('|', $types), $value, $message
             );
         }
     }
@@ -59,7 +59,7 @@ class Type
 
         if (! self::assertIntersectionTypes($value, $types)) {
             throw new Exception\TypeErrorException(
-                implode($types), $value, $message
+                implode(' & ', $types), $value, $message
             );
         }
     }
