@@ -53,20 +53,20 @@ class Type
     /**
      * @param mixed $value
      *
-     * @throws Exception\FatalErrorException
+     * @throws Exception\ErrorException
      */
     private static function assertIntersectionTypes($value, array $types): bool
     {
         foreach ($types as $aTypes) {
             if (is_string($aTypes) && preg_match('/\\\/', $aTypes) === 1
                 && ! interface_exists($aTypes) && ! class_exists($aTypes)) {
-                throw new Exception\FatalErrorException(
+                throw new Exception\ErrorException(
                     'Class or interface does not exist.'
                 );
             }
 
             if (! interface_exists($aTypes) && ! class_exists($aTypes)) {
-                throw new Exception\FatalErrorException(
+                throw new Exception\ErrorException(
                     'Intersection Types only support class and interface names as intersection members.'
                 );
             }
@@ -75,7 +75,7 @@ class Type
             $expectedTypesCount = count($types);
 
             if ($expectedTypesCount != $actualTypesCount) {
-                throw new Exception\FatalErrorException(
+                throw new Exception\ErrorException(
                     'Duplicate type names in the same declaration is not allowed.'
                 );
             }
@@ -137,26 +137,26 @@ class Type
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
      * diberikan merupakan format yang valid.
      *
-     * @throws Exception\FatalErrorException
+     * @throws Exception\ErrorException
      */
     private static function assertTypeDeclaration(string $types): void
     {
         if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
-            throw new Exception\FatalErrorException(
+            throw new Exception\ErrorException(
                 "Only '|' symbol that allowed."
             );
         }
 
         // Simbol harus diletakkan diantara nama tipe
         if (preg_match('/^([\|])|([\|])$/', $types) > 0) {
-            throw new Exception\FatalErrorException(
+            throw new Exception\ErrorException(
                 'Symbols must be between type names.'
             );
         }
 
         // Tidak boleh ada duplikat simbol
         if (preg_match('/(\|\|)/', $types) > 0) {
-            throw new Exception\FatalErrorException(
+            throw new Exception\ErrorException(
                 'Duplicate symbols are not allowed.'
             );
         }
@@ -169,7 +169,7 @@ class Type
         $expectedTypesCount = count($typeInArrayForm);
 
         if ($expectedTypesCount != $actualTypesCount) {
-            throw new Exception\FatalErrorException(
+            throw new Exception\ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }

@@ -5,6 +5,6 @@ namespace Realodix\Assert\Exception;
 /**
  * @codeCoverageIgnore
  */
-class FatalErrorException extends \Exception
+class ErrorException extends \Exception
 {
 }
