@@ -45,6 +45,12 @@ class Type
      */
     public static function intersection($types, $value, string $message = ''): void
     {
+        if (! is_string($types) && ! is_array($types)) {
+            throw new \InvalidArgumentException(
+                "Argument #1 (\$types) must 'string or array'"
+            );
+        }
+
         if (is_string($types)) {
             $types = explode(' ', $types);
         }
