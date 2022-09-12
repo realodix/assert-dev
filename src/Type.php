@@ -20,7 +20,7 @@ class Type
     {
         if (! is_string($types) && ! is_array($types)) {
             throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'"
+                "Argument #1 (\$types) must 'string or array'."
             );
         }
 
@@ -31,7 +31,7 @@ class Type
 
         if (! self::hasType($value, $types)) {
             throw new Exception\TypeErrorException(
-                implode($types), $value, $message
+                implode('|',$types), $value, $message
             );
         }
     }
@@ -49,7 +49,7 @@ class Type
     {
         if (! is_string($types) && ! is_array($types)) {
             throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'"
+                "Argument #1 (\$types) must 'string or array'."
             );
         }
 
