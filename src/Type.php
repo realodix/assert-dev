@@ -186,8 +186,6 @@ class Type
                         return 'int';
                     case 'boolean':
                         return 'bool';
-                    case 'NULL':
-                        return 'null';
                     default:
                         return $type;
                 }
