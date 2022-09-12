@@ -15,7 +15,7 @@ class IntersectionTypesTest extends TestCase
     /**
      * @dataProvider intersectionTypesProvider
      */
-    public function testIntersectionTypes($type, $value)
+    public function testValidTypes($type, $value)
     {
         Type::intersection($type, $value);
         $this->addToAssertionCount(1);
@@ -24,12 +24,12 @@ class IntersectionTypesTest extends TestCase
     /**
      * @dataProvider invalidIntersectionTypesProvider
      */
-    public function testInvalidIntersectionTypes($type, $value)
+    public function testInvalidTypes($type, $value)
     {
         $this->invalidIntersectionTypes($type, $value);
     }
 
-    public function testIntersectionTypesWithObjectDoesNotExist()
+    public function testObjectDoesNotExist()
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
@@ -39,7 +39,7 @@ class IntersectionTypesTest extends TestCase
         Type::intersection(fooBar::class, new ClassAB);
     }
 
-    public function testIntersectionTypesWithUnsupportedMember()
+    public function testUnsupportedMember()
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
@@ -49,7 +49,7 @@ class IntersectionTypesTest extends TestCase
         Type::intersection(['string', true], new ClassAB);
     }
 
-    public function testIntersectionTypesWithDuplicateMember()
+    public function testDuplicateMember()
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
