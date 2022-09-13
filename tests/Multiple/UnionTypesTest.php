@@ -14,7 +14,7 @@ class UnionTypesTest extends TestCase
     /**
      * @dataProvider validTypesProvider
      */
-    public function testValidTypes($value, $types)
+    public function testValidTypes($types, $value, )
     {
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -23,7 +23,7 @@ class UnionTypesTest extends TestCase
     /**
      * @dataProvider invalidTypesProvider
      */
-    public function testInvalidTypes($value, $types)
+    public function testInvalidTypes($types, $value, )
     {
         $this->expectException(TypeErrorException::class);
         Assert::type($value, $types);
@@ -38,7 +38,7 @@ class UnionTypesTest extends TestCase
     /**
      * @dataProvider allowedSymbolProvider
      */
-    public function testAllowedSymbol($value, $types)
+    public function testAllowedSymbol($types, $value, )
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage("Only '|' symbol that allowed.");
@@ -48,7 +48,7 @@ class UnionTypesTest extends TestCase
     /**
      * @dataProvider symbolsMustBeBetweenTypeNamesProvider
      */
-    public function testSymbolsMustBeBetweenTypeNames($value, $types)
+    public function testSymbolsMustBeBetweenTypeNames($types, $value, )
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
@@ -58,7 +58,7 @@ class UnionTypesTest extends TestCase
     /**
      * @dataProvider duplicateSymbolsProvider
      */
-    public function testDuplicateSymbols($value, $types)
+    public function testDuplicateSymbols($types, $value, )
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
@@ -73,7 +73,7 @@ class UnionTypesTest extends TestCase
      *
      * @dataProvider duplicateTypeNamesProvider
      */
-    public function testDuplicateTypeNames($value, $types)
+    public function testDuplicateTypeNames($types, $value, )
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
