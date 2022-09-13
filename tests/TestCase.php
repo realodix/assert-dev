@@ -8,9 +8,9 @@ use Realodix\Assert\Exception\TypeErrorException;
 
 class TestCase extends PHPUnitTestCase
 {
-    protected function invalidTypes($type, $value)
+    protected function invalidTypes($value, $types)
     {
         $this->expectException(TypeErrorException::class);
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 }

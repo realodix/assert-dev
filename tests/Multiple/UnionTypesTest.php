@@ -14,19 +14,19 @@ class UnionTypesTest extends TestCase
     /**
      * @dataProvider validTypesProvider
      */
-    public function testValidTypes($type, $value)
+    public function testValidTypes($value, $types)
     {
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
     /**
      * @dataProvider invalidTypesProvider
      */
-    public function testInvalidTypes($type, $value)
+    public function testInvalidTypes($value, $types)
     {
         $this->expectException(TypeErrorException::class);
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 
     public function testExceptionMessage()
@@ -38,31 +38,31 @@ class UnionTypesTest extends TestCase
     /**
      * @dataProvider allowedSymbolProvider
      */
-    public function testAllowedSymbol($type, $value)
+    public function testAllowedSymbol($value, $types)
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage("Only '|' symbol that allowed.");
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 
     /**
      * @dataProvider symbolsMustBeBetweenTypeNamesProvider
      */
-    public function testSymbolsMustBeBetweenTypeNames($type, $value)
+    public function testSymbolsMustBeBetweenTypeNames($value, $types)
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 
     /**
      * @dataProvider duplicateSymbolsProvider
      */
-    public function testDuplicateSymbols($type, $value)
+    public function testDuplicateSymbols($value, $types)
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 
     /**
@@ -73,12 +73,12 @@ class UnionTypesTest extends TestCase
      *
      * @dataProvider duplicateTypeNamesProvider
      */
-    public function testDuplicateTypeNames($type, $value)
+    public function testDuplicateTypeNames($value, $types)
     {
         $this->expectException(ErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 }
