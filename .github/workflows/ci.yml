@@ -45,9 +45,6 @@ jobs:
           timeout_minutes: 5
           max_attempts: 5
           command: composer update --prefer-${{ matrix.stability }} --no-progress ${{ matrix.flags }}
-      - name: Execute tests
-        run: ./vendor/bin/phpunit
-
       - name: Install Titipan
         if: ${{ matrix.php-version >= 8.0 }}
         uses: nick-invision/retry@v2
@@ -57,3 +54,5 @@ jobs:
           command: |
             composer require realodix/change-case
             composer require realodix/readtime -W
+      - name: Execute tests
+        run: ./vendor/bin/phpunit

@@ -11,33 +11,33 @@ class TypeTest extends TestCase
     /**
      * @dataProvider arrayProvider
      */
-    public function testArray($type, $value, $pass = true)
+    public function testArray($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($value, $types);
 
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
     /**
      * @dataProvider numberProvider
      */
-    public function testNumber($type, $value, $pass = true)
+    public function testNumber($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($value, $types);
 
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
     /**
      * @dataProvider objectProvider
      */
-    public function testObject($type, $value, $pass = true)
+    public function testObject($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($value, $types);
 
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
@@ -45,11 +45,11 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider isBoolProvider
      */
-    public function is_bool($type, $value, $pass = true)
+    public function is_bool($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($value, $types);
 
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
@@ -57,18 +57,18 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider instanceofProvider
      */
-    public function instanceof($type, $value, $pass = true)
+    public function instanceof($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($value, $types);
 
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
     /** @test */
     public function is_null()
     {
-        Assert::type('null', null);
+        Assert::type(null, 'null');
         $this->addToAssertionCount(1);
     }
 
@@ -76,11 +76,11 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider isScalarProvider
      */
-    public function is_scalar($type, $value, $pass = true)
+    public function is_scalar($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($type, $value);
+        (! $pass) && $this->invalidTypes($value, $types);
 
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
@@ -88,17 +88,17 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider isStringProvider
      */
-    public function is_string($type, $value)
+    public function is_string($types, $value)
     {
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
     /**
      * @dataProvider typeFailProvider
      */
-    public function testTypeFail($type, $value)
+    public function testTypeFail($types, $value)
     {
-        $this->invalidTypes($type, $value);
+        $this->invalidTypes($value, $types);
     }
 }

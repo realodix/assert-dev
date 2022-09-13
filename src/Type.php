@@ -8,15 +8,15 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
+     * @param mixed        $value The parameter's actual value.
      * @param string|array $types The parameter's expected type. Can be the name of a native
      *                            type or a class or Interface, or a list of such names.
-     * @param mixed        $value The parameter's actual value.
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException If $value is not of type (or for objects,
      *                                      is not an instance of) $type.
      */
-    public static function is($types, $value, string $message = ''): void
+    public static function is($value, $types, string $message = ''): void
     {
         if (! is_string($types) && ! is_array($types)) {
             throw new \InvalidArgumentException(

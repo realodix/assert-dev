@@ -2,8 +2,6 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-
-
 class ArrayAccessCountable implements InterfaceArrayAccessCountable
 {
     protected $_myCount = 3;

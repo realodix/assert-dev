@@ -16,19 +16,19 @@ class IntersectionTypesTest extends TestCase
     /**
      * @dataProvider intersectionTypesProvider
      */
-    public function testValidTypes($type, $value)
+    public function testValidTypes($value, $types)
     {
-        Type::intersection($type, $value);
+        Type::intersection($value, $types);
         $this->addToAssertionCount(1);
     }
 
     /**
      * @dataProvider invalidIntersectionTypesProvider
      */
-    public function testInvalidTypes($type, $value)
+    public function testInvalidTypes($value, $types)
     {
         $this->expectException(TypeErrorException::class);
-        Type::intersection($type, $value);
+        Type::intersection($value, $types);
     }
 
     public function testExceptionMessage()
