@@ -11,7 +11,7 @@ class TypeTest extends TestCase
     /**
      * @dataProvider arrayProvider
      */
-    public function testArray($types, $value,  $pass = true)
+    public function testArray($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidTypes($value, $types);
 
