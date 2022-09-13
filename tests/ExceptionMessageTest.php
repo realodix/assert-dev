@@ -13,7 +13,7 @@ class ExceptionMessageTest extends TestCase
         Assert::type(1, 'string');
 
         $this->expectExceptionMessage('Expected an int. Got: string.');
-        Assert::type('int', '1');
+        Assert::type('1', 'int');
     }
 
     public function testCustomExceptionMessage()
