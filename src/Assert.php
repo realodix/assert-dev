@@ -11,6 +11,6 @@ class Assert
      */
     public static function type(($value, $types, string $message = '')
     {
-        return Type::is($types, $value, $message);
+        return Type::is(($value, $types, $message);
     }
 }
