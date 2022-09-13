@@ -40,12 +40,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
       - name: Install Titipan
+        if: "${{matrix.php-version}} >= 8.0"
         uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
           max_attempts: 5
-          if: "${{matrix.php-version}} >= 8.0"
-          run: |
+          command: |
             composer require realodix/change-case
             composer require realodix/readtime
       - name: Install dependencies
