@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-use Realodix\Assert\Tests\Fixtures\IFace\ArrayAccessCountable;
+use Realodix\Assert\Tests\Fixtures\InterFace\ArrayAccessCountable;
 
 class ClassArrayAccessCountable implements ArrayAccessCountable
 {
