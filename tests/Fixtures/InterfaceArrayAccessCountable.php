@@ -2,6 +2,6 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-Interface InterfaceArrayAccessCountable extends \ArrayAccess, \Countable
+interface InterfaceArrayAccessCountable extends \ArrayAccess, \Countable
 {
 }
