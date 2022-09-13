@@ -39,13 +39,13 @@ class Type
     /**
      * https://gist.github.com/Pierstoval/ed387a09d4a5e76108e60e8a7585ac2d
      *
-     * @param string|array $types The parameter's expected type.
      * @param mixed        $value The parameter's actual value.
+     * @param string|array $types The parameter's expected type.
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException
      */
-    public static function intersection($types, $value, string $message = ''): void
+    public static function intersection($value, $types, string $message = ''): void
     {
         if (! is_string($types) && ! is_array($types)) {
             throw new \InvalidArgumentException(
@@ -67,40 +67,34 @@ class Type
     /**
      * @param mixed $value
      *
-     * @throws Exception\ErrorException
+
+     * @throws Exception\UnknownClassOrInterfaceException
      */
     private static function assertIntersectionTypes($value, array $types): bool
     {
         foreach ($types as $aTypes) {
             if (is_string($aTypes) && preg_match('/\\\/', $aTypes) === 1
                 && ! interface_exists($aTypes) && ! class_exists($aTypes)) {
-                throw new Exception\ErrorException(
-                    'Class or Interface does not exist.'
-                );
+                // https://github.com/flashios09/php-union-types/blob/master/src/Exception/ClassNotFoundException.php
+                throw new Exception\UnknownClassOrInterfaceException;
             }
 
             if (! interface_exists($aTypes) && ! class_exists($aTypes)) {
-                throw new Exception\ErrorException(
-                    'Intersection Types only support class and Interface names as intersection members.'
-                );
-            }
-
-            $actualTypesCount = count(array_count_values($types));
-            $expectedTypesCount = count($types);
-
-            if ($expectedTypesCount != $actualTypesCount) {
-                throw new Exception\ErrorException(
-                    'Duplicate type names in the same declaration is not allowed.'
+                throw new \ErrorException(
+                    'Only support class and interface names as intersection members.'
                 );
             }
         }
 
-        $validTypes = array_filter(
-            $types,
-            fn ($types) => $value instanceof $types
-            // fn ($types) => is_subclass_of($value, $types)
-        );
+        $actualTypesCount = count(array_count_values($types));
+        $expectedTypesCount = count($types);
+        if ($expectedTypesCount != $actualTypesCount) {
+            throw new \ErrorException(
+                'Duplicate type names in the same declaration is not allowed.'
+            );
+        }
 
+        $validTypes = array_filter($types, fn ($types) => $value instanceof $types);
         if (count($types) === count($validTypes)) {
             return true;
         }
@@ -151,26 +145,26 @@ class Type
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
      * diberikan merupakan format yang valid.
      *
-     * @throws Exception\ErrorException
+     * @throws \ErrorException
      */
     private static function assertTypeDeclaration(string $types): void
     {
         if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
-            throw new Exception\ErrorException(
+            throw new \ErrorException(
                 "Only '|' symbol that allowed."
             );
         }
 
         // Simbol harus diletakkan diantara nama tipe
         if (preg_match('/^([\|])|([\|])$/', $types) > 0) {
-            throw new Exception\ErrorException(
+            throw new \ErrorException(
                 'Symbols must be between type names.'
             );
         }
 
         // Tidak boleh ada duplikat simbol
         if (preg_match('/(\|\|)/', $types) > 0) {
-            throw new Exception\ErrorException(
+            throw new \ErrorException(
                 'Duplicate symbols are not allowed.'
             );
         }
@@ -183,7 +177,7 @@ class Type
         $expectedTypesCount = count($typeInArrayForm);
 
         if ($expectedTypesCount != $actualTypesCount) {
-            throw new Exception\ErrorException(
+            throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }

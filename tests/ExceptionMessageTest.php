@@ -9,7 +9,7 @@ class ExceptionMessageTest extends TestCase
 {
     public function testExceptionMessage()
     {
-        $this->expectExceptionMessage('Expected a string. Got: integer.');
+        $this->expectExceptionMessage('Expected a string. Got: int.');
         Assert::type(1, 'string');
 
         $this->expectExceptionMessage('Expected an int. Got: string.');

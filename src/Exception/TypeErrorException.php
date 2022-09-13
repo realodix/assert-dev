@@ -14,7 +14,8 @@ class TypeErrorException extends \Exception
                 'Expected %s %s. Got: %s.',
                 \in_array(lcfirst($types)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
                 $types,
-                gettype($value)
+                // symfony/polyfill-php80
+                get_debug_type($value)
             );
         }
 

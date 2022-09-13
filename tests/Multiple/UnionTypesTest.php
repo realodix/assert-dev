@@ -4,7 +4,6 @@ namespace Realodix\Assert\Tests\Multiple;
 
 use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
-use Realodix\Assert\Exception\ErrorException;
 use Realodix\Assert\Exception\TypeErrorException;
 
 class UnionTypesTest extends TestCase
@@ -31,7 +30,7 @@ class UnionTypesTest extends TestCase
 
     public function testExceptionMessage()
     {
-        $this->expectExceptionMessage('Expected an array|string. Got: integer.');
+        $this->expectExceptionMessage('Expected an array|string. Got: int.');
         Assert::type(1, 'array|string');
     }
 
@@ -40,7 +39,7 @@ class UnionTypesTest extends TestCase
      */
     public function testAllowedSymbol($types, $value)
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage("Only '|' symbol that allowed.");
         Assert::type($value, $types);
     }
@@ -50,7 +49,7 @@ class UnionTypesTest extends TestCase
      */
     public function testSymbolsMustBeBetweenTypeNames($types, $value)
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
         Assert::type($value, $types);
     }
@@ -60,7 +59,7 @@ class UnionTypesTest extends TestCase
      */
     public function testDuplicateSymbols($types, $value)
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
         Assert::type($value, $types);
     }
@@ -75,7 +74,7 @@ class UnionTypesTest extends TestCase
      */
     public function testDuplicateTypeNames($types, $value)
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );

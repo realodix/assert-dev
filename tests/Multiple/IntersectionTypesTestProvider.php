@@ -18,23 +18,23 @@ trait IntersectionTypesTestProvider
     public function intersectionTypesProvider()
     {
         return [
-            [RuleSetInterface::class, new Realodix],
-            [[RuleSetInterface::class], new Realodix],
-            [A::class, new B],
-            [[InterfaceAB::class], new AB],
-            [[InterfaceA::class, InterfaceB::class], new AB],
-            [InterfaceArrayAccessCountable::class, new ArrayAccessCountable],
-            [[\ArrayAccess::class, \Countable::class], new ArrayAccessCountable],
+            [new Realodix, RuleSetInterface::class],
+            [new Realodix, [RuleSetInterface::class]],
+            [new B, A::class],
+            [new AB, [InterfaceAB::class]],
+            [new AB, [InterfaceA::class, InterfaceB::class]],
+            [new ArrayAccessCountable, InterfaceArrayAccessCountable::class],
+            [new ArrayAccessCountable, [\ArrayAccess::class, \Countable::class]],
         ];
     }
 
     public function invalidIntersectionTypesProvider()
     {
         return [
-            [[InterfaceA::class, \Countable::class], new AB],
-            [\Countable::class, new \stdClass],
-            [[\Countable::class], new \stdClass],
-            [[\ArrayAccess::class, \Countable::class], new \stdClass],
+            [new AB, [InterfaceA::class, \Countable::class]],
+            [new \stdClass, \Countable::class],
+            [new \stdClass, [\Countable::class]],
+            [new \stdClass, [\ArrayAccess::class, \Countable::class]],
         ];
     }
 }
