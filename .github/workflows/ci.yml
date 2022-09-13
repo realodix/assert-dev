@@ -50,11 +50,11 @@ jobs:
         run: ./vendor/bin/phpunit
 
       - name: Install Titipan
-          if: "${{matrix.php-version}} >= 8.0"
-          uses: nick-invision/retry@v2
-          with:
-            timeout_minutes: 5
-            max_attempts: 5
-            command: |
-              composer require realodix/change-case
-              composer require realodix/readtime
+        if: "${{matrix.php-version}} >= 8.0"
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          command: |
+            composer require realodix/change-case
+            composer require realodix/readtime
