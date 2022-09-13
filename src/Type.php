@@ -9,7 +9,7 @@ class Type
      * $value is not of $type.
      *
      * @param string|array $types The parameter's expected type. Can be the name of a native
-     *                            type or a class or interface, or a list of such names.
+     *                            type or a class or Interface, or a list of such names.
      * @param mixed        $value The parameter's actual value.
      *
      * @throws \InvalidArgumentException
@@ -75,13 +75,13 @@ class Type
             if (is_string($aTypes) && preg_match('/\\\/', $aTypes) === 1
                 && ! interface_exists($aTypes) && ! class_exists($aTypes)) {
                 throw new Exception\ErrorException(
-                    'Class or interface does not exist.'
+                    'Class or Interface does not exist.'
                 );
             }
 
             if (! interface_exists($aTypes) && ! class_exists($aTypes)) {
                 throw new Exception\ErrorException(
-                    'Intersection Types only support class and interface names as intersection members.'
+                    'Intersection Types only support class and Interface names as intersection members.'
                 );
             }
 

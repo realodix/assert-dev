@@ -2,8 +2,8 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
-use Realodix\Assert\Tests\Fixtures\ClassAB;
-use Realodix\Assert\Tests\Fixtures\InterFace\A;
+use Realodix\Assert\Tests\Fixtures\AB;
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
 
 trait UnionTypesTestProvider
 {
@@ -15,7 +15,7 @@ trait UnionTypesTestProvider
             ['array|string|object', new \stdClass],
             ['int|float', 1],
             ['int|float', 1.0],
-            [[A::class, \Countable::class], new ClassAB],
+            [[InterfaceA::class, \Countable::class], new AB],
         ];
     }
 
