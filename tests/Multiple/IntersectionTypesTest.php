@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Exception\ErrorException;
 use Realodix\Assert\Exception\TypeErrorException;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
-use Realodix\Assert\Tests\Fixtures\Interface\A;
+use Realodix\Assert\Tests\Fixtures\IFace\A;
 use Realodix\Assert\Type;
 
 class IntersectionTypesTest extends TestCase

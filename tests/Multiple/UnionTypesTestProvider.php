@@ -3,7 +3,7 @@
 namespace Realodix\Assert\Tests\Multiple;
 
 use Realodix\Assert\Tests\Fixtures\ClassAB;
-use Realodix\Assert\Tests\Fixtures\Interface\A;
+use Realodix\Assert\Tests\Fixtures\IFace\A;
 
 trait UnionTypesTestProvider
 {

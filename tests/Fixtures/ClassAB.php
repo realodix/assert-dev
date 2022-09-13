@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-use Realodix\Assert\Tests\Fixtures\Interface\AB;
+use Realodix\Assert\Tests\Fixtures\IFace\AB;
 
 class ClassAB implements AB
 {

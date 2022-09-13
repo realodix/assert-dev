@@ -6,10 +6,10 @@ use Realodix\Assert\Tests\Fixtures\ClassA;
 use Realodix\Assert\Tests\Fixtures\ClassAB;
 use Realodix\Assert\Tests\Fixtures\ClassArrayAccessCountable;
 use Realodix\Assert\Tests\Fixtures\ClassB;
-use Realodix\Assert\Tests\Fixtures\Interface\A;
-use Realodix\Assert\Tests\Fixtures\Interface\AB;
-use Realodix\Assert\Tests\Fixtures\Interface\ArrayAccessCountable;
-use Realodix\Assert\Tests\Fixtures\Interface\B;
+use Realodix\Assert\Tests\Fixtures\IFace\A;
+use Realodix\Assert\Tests\Fixtures\IFace\AB;
+use Realodix\Assert\Tests\Fixtures\IFace\ArrayAccessCountable;
+use Realodix\Assert\Tests\Fixtures\IFace\B;
 use Realodix\Relax\RuleSet\RuleSetInterface;
 use Realodix\Relax\RuleSet\Sets\Realodix;
 
