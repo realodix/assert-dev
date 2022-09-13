@@ -21,6 +21,6 @@ class ExceptionMessageTest extends TestCase
         $message = 'foobar';
 
         $this->expectExceptionMessage($message);
-        Assert::type('string', 1, $message);
+        Assert::type(1, 'string', $message);
     }
 }
