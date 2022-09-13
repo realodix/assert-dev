@@ -50,7 +50,7 @@ jobs:
         run: ./vendor/bin/phpunit
 
       - name: Install Titipan
-        if: "${{matrix.php-version}} >= 8.0"
+        if: ${{ matrix.php-version >= 8.0 }}
         uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
