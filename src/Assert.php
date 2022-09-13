@@ -9,7 +9,7 @@ class Assert
      * @param  mixed        $value
      * @return void|null
      */
-    public static function type($types, $value, string $message = '')
+    public static function type(($value, $types, string $message = '')
     {
         return Type::is($types, $value, $message);
     }
