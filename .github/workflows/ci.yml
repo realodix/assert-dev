@@ -57,4 +57,4 @@ jobs:
           max_attempts: 5
           command: |
             composer require realodix/change-case
-            composer require realodix/readtime
+            composer require realodix/readtime -W
