@@ -32,7 +32,7 @@ class UnionTypesTest extends TestCase
     public function testExceptionMessage()
     {
         $this->expectExceptionMessage('Expected an array|string. Got: integer.');
-        Assert::type('array|string', 1);
+        Assert::type(1,'array|string', );
     }
 
     /**
