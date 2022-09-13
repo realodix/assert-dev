@@ -11,7 +11,7 @@ class TypeTest extends TestCase
     /**
      * @dataProvider arrayProvider
      */
-    public function testArray($value, $types, $pass = true)
+    public function testArray($types, $value,  $pass = true)
     {
         (! $pass) && $this->invalidTypes($value, $types);
 
@@ -22,7 +22,7 @@ class TypeTest extends TestCase
     /**
      * @dataProvider numberProvider
      */
-    public function testNumber($value, $types, $pass = true)
+    public function testNumber($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidTypes($value, $types);
 
@@ -33,7 +33,7 @@ class TypeTest extends TestCase
     /**
      * @dataProvider objectProvider
      */
-    public function testObject($value, $types, $pass = true)
+    public function testObject($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidTypes($value, $types);
 
@@ -45,7 +45,7 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider isBoolProvider
      */
-    public function is_bool($value, $types, $pass = true)
+    public function is_bool($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidTypes($value, $types);
 
@@ -57,7 +57,7 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider instanceofProvider
      */
-    public function instanceof($value, $types, $pass = true)
+    public function instanceof($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidTypes($value, $types);
 
@@ -76,7 +76,7 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider isScalarProvider
      */
-    public function is_scalar($value, $types, $pass = true)
+    public function is_scalar($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidTypes($value, $types);
 
@@ -88,7 +88,7 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider isStringProvider
      */
-    public function is_string($value, $types)
+    public function is_string($types, $value)
     {
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -97,7 +97,7 @@ class TypeTest extends TestCase
     /**
      * @dataProvider typeFailProvider
      */
-    public function testTypeFail($value, $types)
+    public function testTypeFail($types, $value)
     {
         $this->invalidTypes($value, $types);
     }
