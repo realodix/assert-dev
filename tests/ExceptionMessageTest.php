@@ -2,17 +2,18 @@
 
 namespace Realodix\Assert\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
 
 class ExceptionMessageTest extends TestCase
 {
     public function testExceptionMessage()
     {
-        $this->expectExceptionMessage('Expected a string. Got: integer.');
-        Assert::type('string', 1);
+        $this->expectExceptionMessage('Expected a string. Got: int.');
+        Assert::type(1, 'string');
 
         $this->expectExceptionMessage('Expected an int. Got: string.');
-        Assert::type('int', '1');
+        Assert::type('1', 'int');
     }
 
     public function testCustomExceptionMessage()
@@ -20,6 +21,13 @@ class ExceptionMessageTest extends TestCase
         $message = 'foobar';
 
         $this->expectExceptionMessage($message);
-        Assert::type('string', 1, $message);
+        Assert::type(1, 'string', $message);
+    }
+
+    public function testInvalidTypeValueForType()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Argument #1 (\$types) must 'string or array'.");
+        Assert::type(1, true);
     }
 }

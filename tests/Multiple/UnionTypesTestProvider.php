@@ -2,12 +2,12 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
-use Realodix\Assert\Tests\Fixtures\ClassAB;
-use Realodix\Assert\Tests\Fixtures\Interface\A;
+use Realodix\Assert\Tests\Fixtures\AB;
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
 
 trait UnionTypesTestProvider
 {
-    public function unionTypesProvider()
+    public function validTypesProvider()
     {
         return [
             ['string|array', 'abc'],
@@ -15,10 +15,15 @@ trait UnionTypesTestProvider
             ['array|string|object', new \stdClass],
             ['int|float', 1],
             ['int|float', 1.0],
-            [[A::class, \Countable::class], new ClassAB],
-            // Invalid
-            ['int|float', 'abc', false],
-            ['array|string|int', new \stdClass, false],
+            [[InterfaceA::class, \Countable::class], new AB],
+        ];
+    }
+
+    public function invalidTypesProvider()
+    {
+        return [
+            ['int|float', 'abc'],
+            ['array|string|int', new \stdClass],
         ];
     }
 

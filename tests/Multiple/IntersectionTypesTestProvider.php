@@ -2,14 +2,14 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
-use Realodix\Assert\Tests\Fixtures\ClassA;
-use Realodix\Assert\Tests\Fixtures\ClassAB;
-use Realodix\Assert\Tests\Fixtures\ClassArrayAccessCountable;
-use Realodix\Assert\Tests\Fixtures\ClassB;
-use Realodix\Assert\Tests\Fixtures\Interface\A;
-use Realodix\Assert\Tests\Fixtures\Interface\AB;
-use Realodix\Assert\Tests\Fixtures\Interface\ArrayAccessCountable;
-use Realodix\Assert\Tests\Fixtures\Interface\B;
+use Realodix\Assert\Tests\Fixtures\A;
+use Realodix\Assert\Tests\Fixtures\AB;
+use Realodix\Assert\Tests\Fixtures\ArrayAccessCountable;
+use Realodix\Assert\Tests\Fixtures\B;
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
+use Realodix\Assert\Tests\Fixtures\InterfaceAB;
+use Realodix\Assert\Tests\Fixtures\InterfaceArrayAccessCountable;
+use Realodix\Assert\Tests\Fixtures\InterfaceB;
 use Realodix\Relax\RuleSet\RuleSetInterface;
 use Realodix\Relax\RuleSet\Sets\Realodix;
 
@@ -18,23 +18,23 @@ trait IntersectionTypesTestProvider
     public function intersectionTypesProvider()
     {
         return [
-            [RuleSetInterface::class, new Realodix],
-            [[RuleSetInterface::class], new Realodix],
-            [ClassA::class, new ClassB],
-            [[AB::class], new ClassAB],
-            [[A::class, B::class], new ClassAB],
-            [ArrayAccessCountable::class, new ClassArrayAccessCountable],
-            [[\ArrayAccess::class, \Countable::class], new ClassArrayAccessCountable],
+            [new Realodix, RuleSetInterface::class],
+            [new Realodix, [RuleSetInterface::class]],
+            [new B, A::class],
+            [new AB, [InterfaceAB::class]],
+            [new AB, [InterfaceA::class, InterfaceB::class]],
+            [new ArrayAccessCountable, InterfaceArrayAccessCountable::class],
+            [new ArrayAccessCountable, [\ArrayAccess::class, \Countable::class]],
         ];
     }
 
     public function invalidIntersectionTypesProvider()
     {
         return [
-            [[A::class, \Countable::class], new ClassAB],
-            [\Countable::class, new \stdClass],
-            [[\Countable::class], new \stdClass],
-            [[\ArrayAccess::class, \Countable::class], new \stdClass],
+            [new AB, [InterfaceA::class, \Countable::class]],
+            [new \stdClass, \Countable::class],
+            [new \stdClass, [\Countable::class]],
+            [new \stdClass, [\ArrayAccess::class, \Countable::class]],
         ];
     }
 }

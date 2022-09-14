@@ -2,53 +2,66 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
+use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
-use Realodix\Assert\Exception\ErrorException;
-use Realodix\Assert\Tests\TestCase;
+use Realodix\Assert\Exception\TypeErrorException;
 
 class UnionTypesTest extends TestCase
 {
     use UnionTypesTestProvider;
 
     /**
-     * @dataProvider unionTypesProvider
+     * @dataProvider validTypesProvider
      */
-    public function testUnionTypes($type, $value, $pass = true)
+    public function testValidTypes($types, $value)
     {
-        (! $pass) && $this->invalidTypes($type, $value);
-
-        Assert::type($type, $value);
+        Assert::type($value, $types);
         $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @dataProvider invalidTypesProvider
+     */
+    public function testInvalidTypes($types, $value)
+    {
+        $this->expectException(TypeErrorException::class);
+        Assert::type($value, $types);
+    }
+
+    public function testExceptionMessage()
+    {
+        $this->expectExceptionMessage('Expected an array|string. Got: int.');
+        Assert::type(1, 'array|string');
     }
 
     /**
      * @dataProvider allowedSymbolProvider
      */
-    public function testAllowedSymbol($type, $value)
+    public function testAllowedSymbol($types, $value)
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage("Only '|' symbol that allowed.");
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 
     /**
      * @dataProvider symbolsMustBeBetweenTypeNamesProvider
      */
-    public function testSymbolsMustBeBetweenTypeNames($type, $value)
+    public function testSymbolsMustBeBetweenTypeNames($types, $value)
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 
     /**
      * @dataProvider duplicateSymbolsProvider
      */
-    public function testDuplicateSymbols($type, $value)
+    public function testDuplicateSymbols($types, $value)
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 
     /**
@@ -59,12 +72,12 @@ class UnionTypesTest extends TestCase
      *
      * @dataProvider duplicateTypeNamesProvider
      */
-    public function testDuplicateTypeNames($type, $value)
+    public function testDuplicateTypeNames($types, $value)
     {
-        $this->expectException(ErrorException::class);
+        $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
-        Assert::type($type, $value);
+        Assert::type($value, $types);
     }
 }
