@@ -23,4 +23,14 @@ class Assert
             ));
         }
     }
+
+    public static function isMap($array, $message = '')
+    {
+        if (! \is_array($array)
+            || \array_keys($array) !== \array_filter(\array_keys($array), 'is_string')) {
+            throw new \InvalidArgumentException(
+                $message ?: 'Expected map - associative array with string keys.'
+            );
+        }
+    }
 }

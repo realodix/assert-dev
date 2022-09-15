@@ -17,4 +17,15 @@ class AssertTest extends TestCase
         Assert::keyExists($value, $key);
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @test
+     */
+    public function isMap()
+    {
+        $value = ['string' => true];
+
+        Assert::isMap($value);
+        $this->addToAssertionCount(1);
+    }
 }
