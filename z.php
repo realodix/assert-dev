@@ -1,4 +1,5 @@
 <?php
+
 Assert::isMap($params, 'Expected $params to have only string keys');
 Assert::keyExists();
 Assert::inArray();
@@ -28,7 +29,7 @@ Assert::null($this->microTime, 'Timer can not be started again without stopping.
 Assert::nullOrIntegerish($lineCount);
 Assert::nullOrNotEmpty($version);
 Assert::oneOf($mutatorClass, ProfileList::ALL_MUTATORS);
-Assert::range($statusCode,200,599,'Expected an HTTP status code. Got "%s"');
+Assert::range($statusCode, 200, 599, 'Expected an HTTP status code. Got "%s"');
 Assert::string($docblock);
 Assert::stringNotEmpty($docblock);
 Assert::subclassOf();
