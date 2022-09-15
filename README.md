@@ -43,6 +43,23 @@ functions costs time.
 - scalar
 - string
 
+### Array Assertions
+
+Method                                             | Description
+-------------------------------------------------- | ------------------------------------------------------------------
+`keyExists($array, $key, $message = '')`           | Check that a key exists in an array
+<!-- `keyNotExists($array, $key, $message = '')`        | Check that a key does not exist in an array
+`validArrayKey($key, $message = '')`               | Check that a value is a valid array key (int or string)
+`count($array, $number, $message = '')`            | Check that an array contains a specific number of elements
+`minCount($array, $min, $message = '')`            | Check that an array contains at least a certain number of elements
+`maxCount($array, $max, $message = '')`            | Check that an array contains at most a certain number of elements
+`countBetween($array, $min, $max, $message = '')`  | Check that an array has a count in the given range
+`isList($array, $message = '')`                    | Check that an array is a non-associative list
+`isNonEmptyList($array, $message = '')`            | Check that an array is a non-associative list, and not empty
+`isMap($array, $message = '')`                     | Check that an array is associative and has strings as keys
+`isNonEmptyMap($array, $message = '')`             | Check that an array is associative and has strings as keys, and is not empty -->
+
+
 ## License
 
 This package is licensed using the [MIT License](/LICENSE).

@@ -1,7 +1,6 @@
 <?php
 
 Assert::isMap($params, 'Expected $params to have only string keys');
-Assert::keyExists();
 Assert::inArray();
 Assert::count($arguments, 0);
 Assert::minCount();
