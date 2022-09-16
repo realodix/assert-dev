@@ -22,7 +22,7 @@ class Helper
 
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
         $actualTypesCount = count(
-            array_count_values(self::normalizeType($types))
+            array_count_values(self::normalize_type($types))
         );
         if (count($types) != $actualTypesCount) {
             return true;
@@ -31,7 +31,7 @@ class Helper
         return false;
     }
 
-    public static function normalizeType(array $types): array
+    public static function normalize_type(array $types): array
     {
         return array_map(
             function ($type) {
