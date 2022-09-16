@@ -80,7 +80,7 @@ class Type
 
             if (! interface_exists($aTypes) && ! class_exists($aTypes)) {
                 throw new \ErrorException(
-                    'Only support class and interface names as intersection members.'
+                    'Only class and interface can be part of an intersection type.'
                 );
             }
         }

@@ -56,7 +56,7 @@ class IntersectionTypesTest extends TestCase
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
-            'Only support class and interface names as intersection members.'
+            'Only class and interface can be part of an intersection type.'
         );
 
         Type::intersection(new AB, ['string', true]);
