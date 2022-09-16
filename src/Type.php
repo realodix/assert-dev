@@ -26,7 +26,7 @@ class Type
 
         if (is_string($types)) {
             self::assertTypeDeclaration($types);
-            $types = explode('|', $types);
+            $types = Helper::normalize_type(explode('|', $types));
         }
 
         if (! self::hasType($value, $types)) {

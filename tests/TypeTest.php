@@ -104,4 +104,12 @@ class TypeTest extends TestCase
             Helper::type_has_duplicate($types)
         );
     }
+
+    public function testTypeIsDuplicate2()
+    {
+        $actual = Helper::normalize_type(explode('|', 'int|integer'));
+        $expected = ['int', 'int'];
+
+        $this->assertSame($expected, $actual);
+    }
 }
