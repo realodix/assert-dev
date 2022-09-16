@@ -93,12 +93,4 @@ class TypeTest extends TestCase
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
-
-    /**
-     * @dataProvider typeFailProvider
-     */
-    public function testTypeFail($types, $value)
-    {
-        $this->invalidTypes($value, $types);
-    }
 }
