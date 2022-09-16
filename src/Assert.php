@@ -18,4 +18,23 @@ class Assert
     {
         return true;
     }
+
+    private static function normalizeType(array $types): array
+    {
+        return array_map(
+            function ($type) {
+                switch ($type) {
+                    case 'double':
+                        return 'float';
+                    case 'integer':
+                        return 'int';
+                    case 'boolean':
+                        return 'bool';
+                    default:
+                        return $type;
+                }
+            },
+            $types
+        );
+    }
 }
