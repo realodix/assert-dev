@@ -4,10 +4,8 @@ namespace Realodix\Assert;
 
 class Helper
 {
-    public static function type_has_duplicate(string $types): bool
+    public static function type_has_duplicate(array $types): bool
     {
-        $types = explode('|', $types);
-
         if (in_array('scalar', $types) &&
                 (in_array('numeric', $types)
                 || in_array('int', $types)

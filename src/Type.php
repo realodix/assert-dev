@@ -168,7 +168,7 @@ class Type
             );
         }
 
-        if (Helper::type_has_duplicate($types)) {
+        if (Helper::type_has_duplicate(explode('|', $types))) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );

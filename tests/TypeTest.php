@@ -98,14 +98,16 @@ class TypeTest extends TestCase
     /**
      * @dataProvider duplicateProvider
      */
-    public function testTypeIsDuplicate($types)
+    public function testTypeHasDuplicateMember($types)
     {
+        $types = explode('|', $types);
+
         $this->assertTrue(
             Helper::type_has_duplicate($types)
         );
     }
 
-    public function testTypeIsDuplicate2()
+    public function testNormalizeType()
     {
         $actual = Helper::normalize_type(explode('|', 'int|integer'));
         $expected = ['int', 'int'];
