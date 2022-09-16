@@ -23,7 +23,7 @@ class Helper
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
         $actualTypesCount = count($types);
         $expectedTypesCount = count(array_unique($types));
-        if ($expectedTypesCount != $actualTypesCount) {
+        if ($expectedTypesCount < $actualTypesCount) {
             return true;
         }
 
