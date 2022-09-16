@@ -21,9 +21,7 @@ class Helper
         }
 
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
-        $actualTypesCount = count(
-            array_count_values(self::normalize_type($types))
-        );
+        $actualTypesCount = count(array_unique(self::normalize_type($types)));
         if (count($types) != $actualTypesCount) {
             return true;
         }
