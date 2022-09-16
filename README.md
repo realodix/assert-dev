@@ -29,7 +29,7 @@ Checking parameters, or other assertions such as pre- or postconditions, is not 
 performance critical regions of the code, since evaluating expressions and calling the assertion
 functions costs time.
 
-Types         | Description
+Types          | Description
 -------------- | ------------------------------------------------------------------
 `array`        | Check that a key exists in an array
 `bool`         | Check that a key does not exist in an array
