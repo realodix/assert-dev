@@ -29,19 +29,22 @@ Checking parameters, or other assertions such as pre- or postconditions, is not 
 performance critical regions of the code, since evaluating expressions and calling the assertion
 functions costs time.
 
-- array
-- bool
-- callable
-- countable
-- float
-- int
-- iterable
-- null
-- numeric
-- object
-- resource
-- scalar
-- string
+Types         | Description
+-------------- | ------------------------------------------------------------------
+`array`        | Check that a key exists in an array
+`bool`         | Check that a key does not exist in an array
+`callable`     | Check that a value is a valid array key (int or string)
+`countable`    | Check that an array contains a specific number of elements
+`float`        | Check that an array contains at least a certain number of elements
+`int`          | Check that an array contains at most a certain number of elements
+`iterable`     | Check that an array has a count in the given range
+`null`         | Check that an array is a non-associative list
+`numeric`      | Check that an array is a non-associative list, and not empty
+`object`       | Check that an array is associative and has strings as keys
+`resource`     | Check that an array is associative and has strings as keys, and is not empty
+`scalar`       | Check that an array is associative and has strings as keys, and is not empty
+`string`       | Check that an array is associative and has strings as keys, and is not empty
+
 
 ## License
 
