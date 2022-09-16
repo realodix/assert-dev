@@ -3,6 +3,7 @@
 namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
+use Realodix\Assert\Helper;
 
 class TypeTest extends TestCase
 {
@@ -100,7 +101,7 @@ class TypeTest extends TestCase
     public function testTypeIsDuplicate($types)
     {
         $this->assertTrue(
-            Assert::type_has_duplicate($types)
+            Helper::type_has_duplicate($types)
         );
     }
 }
