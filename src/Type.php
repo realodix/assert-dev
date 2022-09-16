@@ -168,14 +168,7 @@ class Type
             );
         }
 
-        // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
-        $typeInArrayForm = explode('|', $types);
-        $actualTypesCount = count(
-            array_count_values(Helper::normalizeType($typeInArrayForm))
-        );
-        $expectedTypesCount = count($typeInArrayForm);
-
-        if ($expectedTypesCount != $actualTypesCount) {
+        if (Helper::type_has_duplicate($types)) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
