@@ -190,4 +190,11 @@ trait TypeTestProvider
             'Traversable is not Iterator' => ['Iterator', new \ArrayObject],
         ];
     }
+
+    public function duplicateProvider()
+    {
+        return [
+            ['scalar|numeric'],
+        ];
+    }
 }

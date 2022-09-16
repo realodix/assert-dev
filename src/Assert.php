@@ -14,7 +14,7 @@ class Assert
         return Type::is($value, $types, $message);
     }
 
-    public static function type_is_duplicate($types): bool
+    public static function type_has_duplicate($types): bool
     {
         $types = explode('|', $types);
 
@@ -22,10 +22,10 @@ class Assert
             in_array('scalar', $types)
                 && in_array('numeric', $types)
         ) {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     private static function normalizeType(array $types): array

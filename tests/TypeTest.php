@@ -102,8 +102,13 @@ class TypeTest extends TestCase
         $this->invalidTypes($value, $types);
     }
 
-    public function testTypeIsDuplicate()
+    /**
+     * @dataProvider duplicateProvider
+     */
+    public function testTypeIsDuplicate($types)
     {
-        $this->assertFalse(Assert::type_is_duplicate('scalar|numeric'));
+        $this->assertTrue(
+            Assert::type_has_duplicate($types)
+        );
     }
 }
