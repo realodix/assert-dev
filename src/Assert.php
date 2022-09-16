@@ -13,4 +13,9 @@ class Assert
     {
         return Type::is($value, $types, $message);
     }
+
+    public static function type_is_duplicate($types): bool
+    {
+        return true;
+    }
 }
