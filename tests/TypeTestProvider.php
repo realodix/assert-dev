@@ -199,6 +199,9 @@ trait TypeTestProvider
             ['scalar|float'],
             ['scalar|string'],
             ['scalar|bool'],
+
+            ['numeric|int'],
+            ['numeric|float'],
         ];
     }
 }
