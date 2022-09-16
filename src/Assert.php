@@ -18,8 +18,7 @@ class Assert
     {
         $types = explode('|', $types);
 
-        if (
-            in_array('scalar', $types) &&
+        if (in_array('scalar', $types) &&
                 (in_array('numeric', $types)
                 || in_array('int', $types)
                 || in_array('float', $types)
@@ -27,8 +26,7 @@ class Assert
                 || in_array('bool', $types))
             || in_array('numeric', $types) &&
                 (in_array('int', $types)
-                || in_array('float', $types))
-        ) {
+                || in_array('float', $types))) {
             return true;
         }
 
