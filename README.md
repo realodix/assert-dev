@@ -42,7 +42,7 @@ Types          | Description
 `numeric`      | Check whether a variable is a number or a numeric string, or not
 `object`       | Check whether a variable is an object or not
 `resource`     | Check whether a variable is a resource or not
-`scalar`       | Check that an array is associative and has strings as keys, and is not empty
+`scalar`       | Check whether a variable is a scalar or not
 `string`       | Check that an array is associative and has strings as keys, and is not empty
 
 
