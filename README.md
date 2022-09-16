@@ -37,6 +37,7 @@ Types          | Description
 `int`          | Check whether a variable is of type integer or not
 `float`        | Check whether a variable is of type float or not
 `string`       | Check whether a variable is of type string or not
+`numeric`      | Check whether a variable is a number or a numeric string, or not
 `scalar`       | Check whether a variable is a scalar or not
 
 Types          | Description
@@ -54,7 +55,6 @@ Types          | Description
 Types          | Description
 -------------- | ------------------------------------------------------------------
 `countable`    | Check whether the contents of a variable is a countable value or not
-`numeric`      | Check whether a variable is a number or a numeric string, or not
 
 
 ### Array Assertions
