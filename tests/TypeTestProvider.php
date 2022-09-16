@@ -181,18 +181,4 @@ trait TypeTestProvider
             ['string', '0'],
         ];
     }
-
-    public function duplicateProvider()
-    {
-        return [
-            ['scalar|numeric'],
-            ['scalar|int'],
-            ['scalar|float'],
-            ['scalar|string'],
-            ['scalar|bool'],
-
-            ['numeric|int'],
-            ['numeric|float'],
-        ];
-    }
 }
