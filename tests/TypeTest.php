@@ -101,4 +101,9 @@ class TypeTest extends TestCase
     {
         $this->invalidTypes($value, $types);
     }
+
+    public function testTypeIsDuplicate()
+    {
+        $this->assertFalse(Assert::type_is_duplicate('scalar|numeric'));
+    }
 }

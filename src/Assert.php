@@ -16,6 +16,15 @@ class Assert
 
     public static function type_is_duplicate($types): bool
     {
+        $types = explode('|', $types);
+
+        if (
+            in_array('scalar', $types)
+                && in_array('numeric', $types)
+        ) {
+            return false;
+        }
+
         return true;
     }
 
