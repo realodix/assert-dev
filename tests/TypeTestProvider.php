@@ -195,6 +195,10 @@ trait TypeTestProvider
     {
         return [
             ['scalar|numeric'],
+            ['scalar|int'],
+            ['scalar|float'],
+            ['scalar|string'],
+            ['scalar|bool'],
         ];
     }
 }
