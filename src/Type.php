@@ -85,9 +85,7 @@ class Type
             }
         }
 
-        $actualTypesCount = count(array_count_values($types));
-        $expectedTypesCount = count($types);
-        if ($expectedTypesCount != $actualTypesCount) {
+        if (Helper::type_has_duplicate($types)) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
