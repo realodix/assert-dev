@@ -67,7 +67,6 @@ class Type
     /**
      * @param mixed $value
      *
-
      * @throws Exception\UnknownClassOrInterfaceException
      */
     private static function assertIntersectionTypes($value, array $types): bool
