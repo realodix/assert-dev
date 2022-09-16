@@ -95,14 +95,6 @@ class TypeTest extends TestCase
     }
 
     /**
-     * @dataProvider typeFailProvider
-     */
-    public function testTypeFail($types, $value)
-    {
-        $this->invalidTypes($value, $types);
-    }
-
-    /**
      * @dataProvider duplicateProvider
      */
     public function testTypeIsDuplicate($types)

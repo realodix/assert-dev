@@ -182,15 +182,6 @@ trait TypeTestProvider
         ];
     }
 
-    public function typeFailProvider()
-    {
-        return [
-            // 'callback alias is not accepted' => ['callback', 'time'],
-            'object is not Traversable'   => ['traversable', new \stdClass],
-            'Traversable is not Iterator' => ['Iterator', new \ArrayObject],
-        ];
-    }
-
     public function duplicateProvider()
     {
         return [
