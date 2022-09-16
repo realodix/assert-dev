@@ -29,6 +29,8 @@ Checking parameters, or other assertions such as pre- or postconditions, is not 
 performance critical regions of the code, since evaluating expressions and calling the assertion
 functions costs time.
 
+### Types Assertions
+
 Types          | Description
 -------------- | ------------------------------------------------------------------
 `array`        | Check whether a variable is an array or not
