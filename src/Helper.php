@@ -78,6 +78,12 @@ class Helper
                 );
             }
         }
+
+        if (self::typeHasDuplicate($values)) {
+            throw new \ErrorException(
+                'Duplicate type names in the same declaration is not allowed.'
+            );
+        }
     }
 
     /**
@@ -108,7 +114,7 @@ class Helper
             );
         }
 
-        if (self::type_has_duplicate(explode('|', $types))) {
+        if (self::typeHasDuplicate(explode('|', $types))) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
@@ -118,9 +124,9 @@ class Helper
     /**
      * @param string|array $types
      */
-    public static function type_has_duplicate($types): bool
+    private static function typeHasDuplicate($types): bool
     {
-        self::assertStringOrArray($types, '$types');
+        Helper::assertStringOrArray($types, '$types');
 
         if (\is_string($types)) {
             $types = explode('|', $types);
@@ -146,35 +152,5 @@ class Helper
         }
 
         return false;
-    }
-
-    /**
-     * @param string|array $types
-     */
-    public static function normalize_type($types): array
-    {
-        self::assertStringOrArray($types, '$types');
-
-        if (\is_string($types)) {
-            $types = explode('|', $types);
-        }
-
-        return array_map(
-            function ($type) {
-                switch ($type) {
-                    case 'double':
-                        return 'float';
-                    case 'integer':
-                        return 'int';
-                    case 'boolean':
-                        return 'bool';
-                    case 'NULL':
-                        return 'null';
-                    default:
-                        return $type;
-                }
-            },
-            $types
-        );
     }
 }

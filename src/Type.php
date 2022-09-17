@@ -20,10 +20,8 @@ class Type
     {
         Helper::assertStringOrArray($types, '$types', 2);
 
-        if (\is_string($types)) {
-            $types = Helper::normalize_type(explode('|', $types));
-            Helper::assertTypeDeclaration(implode('|', $types));
-        }
+        $types = self::normalizeType($types);
+        Helper::assertTypeDeclaration(implode('|', $types));
 
         if (! self::hasType($value, $types)) {
             throw new Exception\TypeErrorException(
@@ -66,12 +64,6 @@ class Type
     {
         Helper::assertIntersectionTypeMember($types);
 
-        if (Helper::type_has_duplicate($types)) {
-            throw new \ErrorException(
-                'Duplicate type names in the same declaration is not allowed.'
-            );
-        }
-
         $validTypes = array_filter($types, fn ($types) => $value instanceof $types);
         if (\count($types) === \count($validTypes)) {
             return true;
@@ -85,8 +77,8 @@ class Type
      */
     private static function hasType($value, array $allowedTypes): bool
     {
-        foreach ($allowedTypes as $aTypes) {
-            if (self::rules($value, $aTypes)) {
+        foreach ($allowedTypes as $type) {
+            if (self::rules($value, $type)) {
                 return true;
             }
         }
@@ -117,5 +109,35 @@ class Type
             || ('numeric' == $allowedTypes) && is_numeric($value)
             || ('int' == $allowedTypes) && \is_int($value)
             || ('float' == $allowedTypes) && \is_float($value);
+    }
+
+    /**
+     * @param string|array $types
+     */
+    private static function normalizeType($types): array
+    {
+        Helper::assertStringOrArray($types, '$types');
+
+        if (\is_string($types)) {
+            $types = explode('|', $types);
+        }
+
+        return array_map(
+            function ($type) {
+                switch ($type) {
+                    case 'double':
+                        return 'float';
+                    case 'integer':
+                        return 'int';
+                    case 'boolean':
+                        return 'bool';
+                    case 'NULL':
+                        return 'null';
+                    default:
+                        return $type;
+                }
+            },
+            $types
+        );
     }
 }
