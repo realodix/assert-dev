@@ -111,8 +111,6 @@ class Type
             || ('float' == $allowedTypes) && \is_float($value);
     }
 
-
-
     /**
      * @param string|array $types
      */
