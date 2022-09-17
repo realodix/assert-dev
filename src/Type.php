@@ -99,7 +99,7 @@ class Type
      */
     private static function rules($value, string $allowedTypes): bool
     {
-        // Apply strtolower because gettype returns "NULL" for null values.
+        // Apply strtolower because gettype() returns "NULL" for null values.
         $type = strtolower(gettype($value));
 
         return ($type === $allowedTypes)
