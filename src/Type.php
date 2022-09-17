@@ -20,10 +20,12 @@ class Type
     {
         Helper::assertStringOrArray($types, '$types', 2);
 
+        $types = self::normalize_type($types);
         if (\is_string($types)) {
             $types = self::normalize_type(explode('|', $types));
-            Helper::assertTypeDeclaration(implode('|', $types));
         }
+
+        Helper::assertTypeDeclaration(implode('|', $types));
 
         if (! self::hasType($value, $types)) {
             throw new Exception\TypeErrorException(

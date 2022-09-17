@@ -80,4 +80,16 @@ class UnionTypesTest extends TestCase
         );
         Assert::type($value, $types);
     }
+
+    /**
+     * @dataProvider duplicateMembersWithArrayInputProvider
+     */
+    public function testDuplicateMembersWithArrayInput($types, $value)
+    {
+        $this->expectException(\ErrorException::class);
+        $this->expectExceptionMessage(
+            'Duplicate type names in the same declaration is not allowed.'
+        );
+        Assert::type($value, $types);
+    }
 }
