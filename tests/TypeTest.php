@@ -69,7 +69,8 @@ class TypeTest extends TestCase
     public function is_null()
     {
         Assert::type(null, 'null');
-        $this->addToAssertionCount(1);
+        Assert::type(null, 'NULL');
+        $this->addToAssertionCount(2);
     }
 
     /**
