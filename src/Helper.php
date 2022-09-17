@@ -43,6 +43,8 @@ class Helper
         }
 
         return (string) $value;
+    }
+
     /**
      * @param string|array $types
      */
