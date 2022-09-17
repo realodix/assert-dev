@@ -20,7 +20,7 @@ class Type
     {
         Helper::assertStringOrArray($types, '$types', 2);
 
-        if (is_string($types)) {
+        if (\is_string($types)) {
             $types = Helper::normalize_type(explode('|', $types));
             Helper::assertTypeDeclaration(implode('|', $types));
         }
@@ -45,7 +45,7 @@ class Type
     {
         Helper::assertStringOrArray($types, '$types', 2);
 
-        if (is_string($types)) {
+        if (\is_string($types)) {
             $types = explode(' ', $types);
         }
 
@@ -73,7 +73,7 @@ class Type
         }
 
         $validTypes = array_filter($types, fn ($types) => $value instanceof $types);
-        if (count($types) === count($validTypes)) {
+        if (\count($types) === \count($validTypes)) {
             return true;
         }
 
@@ -100,22 +100,22 @@ class Type
     private static function rules($value, string $allowedTypes): bool
     {
         // Apply strtolower because gettype returns "NULL" for null values.
-        $type = strtolower(gettype($value));
+        $type = strtolower(\gettype($value));
 
         return ($type === $allowedTypes)
-            || is_object($value) && $value instanceof $allowedTypes
-            || ('callable' == $allowedTypes) && is_callable($value)
-            || ('scalar' == $allowedTypes) && is_scalar($value)
+            || \is_object($value) && $value instanceof $allowedTypes
+            || ('callable' == $allowedTypes) && \is_callable($value)
+            || ('scalar' == $allowedTypes) && \is_scalar($value)
             // Array
             || ('countable' == $allowedTypes) && is_countable($value)
             || ('iterable' == $allowedTypes) && is_iterable($value)
             // Boolean
-            || ('bool' == $allowedTypes) && is_bool($value)
+            || ('bool' == $allowedTypes) && \is_bool($value)
             || ('true' == $allowedTypes) && $value === true
             || ('false' == $allowedTypes) && $value === false
             // Number
             || ('numeric' == $allowedTypes) && is_numeric($value)
-            || ('int' == $allowedTypes) && is_int($value)
-            || ('float' == $allowedTypes) && is_float($value);
+            || ('int' == $allowedTypes) && \is_int($value)
+            || ('float' == $allowedTypes) && \is_float($value);
     }
 }

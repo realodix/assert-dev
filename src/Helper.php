@@ -9,7 +9,7 @@ class Helper
      */
     public static function assertStringOrArray($value, string $variable = '', int $order = 1): void
     {
-        if (! is_string($value) && ! is_array($value)) {
+        if (! \is_string($value) && ! \is_array($value)) {
             throw new \InvalidArgumentException(sprintf(
                 "Argument #%s%s must 'string or array'.",
                 $order,
@@ -25,7 +25,7 @@ class Helper
     public static function assertIntersectionTypeMember(array $values): void
     {
         foreach ($values as $value) {
-            if (is_string($value) && preg_match('/\\\/', $value) === 1
+            if (\is_string($value) && preg_match('/\\\/', $value) === 1
                 && ! interface_exists($value) && ! class_exists($value)) {
                 // https://github.com/flashios09/php-union-types/blob/master/src/Exception/ClassNotFoundException.php
                 throw new Exception\UnknownClassOrInterfaceException;
@@ -81,25 +81,25 @@ class Helper
     {
         self::assertStringOrArray($types, '$types');
 
-        if (is_string($types)) {
+        if (\is_string($types)) {
             $types = explode('|', $types);
         }
 
-        if (in_array('scalar', $types) &&
-                (in_array('numeric', $types)
-                || in_array('int', $types)
-                || in_array('float', $types)
-                || in_array('string', $types)
-                || in_array('bool', $types))
-            || in_array('numeric', $types) &&
-                (in_array('int', $types)
-                || in_array('float', $types))) {
+        if (\in_array('scalar', $types) &&
+                (\in_array('numeric', $types)
+                || \in_array('int', $types)
+                || \in_array('float', $types)
+                || \in_array('string', $types)
+                || \in_array('bool', $types))
+            || \in_array('numeric', $types) &&
+                (\in_array('int', $types)
+                || \in_array('float', $types))) {
             return true;
         }
 
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
-        $actualTypesCount = count($types);
-        $expectedTypesCount = count(array_unique($types));
+        $actualTypesCount = \count($types);
+        $expectedTypesCount = \count(array_unique($types));
         if ($expectedTypesCount < $actualTypesCount) {
             return true;
         }
@@ -114,7 +114,7 @@ class Helper
     {
         self::assertStringOrArray($types, '$types');
 
-        if (is_string($types)) {
+        if (\is_string($types)) {
             $types = explode('|', $types);
         }
 
@@ -128,7 +128,7 @@ class Helper
                     case 'boolean':
                         return 'bool';
                     case 'NULL':
-                            return 'null';
+                        return 'null';
                     default:
                         return $type;
                 }
