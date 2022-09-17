@@ -19,6 +19,27 @@ class Helper
     }
 
     /**
+     * @throws \ErrorException
+     * @throws Exception\UnknownClassOrInterfaceException
+     */
+    public static function assertIntersectionTypeMember(array $values): void
+    {
+        foreach ($values as $value) {
+            if (is_string($value) && preg_match('/\\\/', $value) === 1
+                && ! interface_exists($value) && ! class_exists($value)) {
+                // https://github.com/flashios09/php-union-types/blob/master/src/Exception/ClassNotFoundException.php
+                throw new Exception\UnknownClassOrInterfaceException;
+            }
+
+            if (! interface_exists($value) && ! class_exists($value)) {
+                throw new \ErrorException(
+                    'Only class and interface can be part of an intersection type.'
+                );
+            }
+        }
+    }
+
+    /**
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
      * diberikan merupakan format yang valid.
      *

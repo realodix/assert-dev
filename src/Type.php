@@ -59,23 +59,12 @@ class Type
     /**
      * @param mixed $value
      *
+     * @throws \ErrorException
      * @throws Exception\UnknownClassOrInterfaceException
      */
     private static function intersectionTypesValidator($value, array $types): bool
     {
-        foreach ($types as $aTypes) {
-            if (is_string($aTypes) && preg_match('/\\\/', $aTypes) === 1
-                && ! interface_exists($aTypes) && ! class_exists($aTypes)) {
-                // https://github.com/flashios09/php-union-types/blob/master/src/Exception/ClassNotFoundException.php
-                throw new Exception\UnknownClassOrInterfaceException;
-            }
-
-            if (! interface_exists($aTypes) && ! class_exists($aTypes)) {
-                throw new \ErrorException(
-                    'Only class and interface can be part of an intersection type.'
-                );
-            }
-        }
+        Helper::assertIntersectionTypeMember($types);
 
         if (Helper::type_has_duplicate($types)) {
             throw new \ErrorException(
