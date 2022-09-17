@@ -79,7 +79,7 @@ class Helper
      */
     public static function type_has_duplicate($types): bool
     {
-        self::assertStringOrArray($types, '$types',1, );
+        self::assertStringOrArray($types, '$types', 1);
 
         if (is_string($types)) {
             $types = explode('|', $types);
