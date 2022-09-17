@@ -20,7 +20,7 @@ class Type
     {
         Helper::assertStringOrArray($types, '$types', 2);
 
-        $types = self::normalize_type($types);
+        $types = self::normalizeType($types);
         Helper::assertTypeDeclaration(implode('|', $types));
 
         if (! self::hasType($value, $types)) {
@@ -114,7 +114,7 @@ class Type
     /**
      * @param string|array $types
      */
-    public static function normalize_type($types): array
+    public static function normalizeType($types): array
     {
         Helper::assertStringOrArray($types, '$types');
 
