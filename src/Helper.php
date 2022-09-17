@@ -112,11 +112,7 @@ class Helper
      */
     public static function normalize_type($types): array
     {
-        if (! is_string($types) && ! is_array($types)) {
-            throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'."
-            );
-        }
+        self::assertStringOrArray($types, '$types');
 
         if (is_string($types)) {
             $types = explode('|', $types);
