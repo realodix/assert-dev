@@ -21,7 +21,7 @@ class Type
         Helper::assertStringOrArray($types, '$types', 2);
 
         if (\is_string($types)) {
-            $types = Helper::normalize_type(explode('|', $types));
+            $types = self::normalize_type(explode('|', $types));
             Helper::assertTypeDeclaration(implode('|', $types));
         }
 
@@ -66,7 +66,7 @@ class Type
     {
         Helper::assertIntersectionTypeMember($types);
 
-        if (Helper::type_has_duplicate($types)) {
+        if (self::type_has_duplicate($types)) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
