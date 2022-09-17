@@ -79,9 +79,6 @@ trait UnionTypesTestProvider
             ['numeric|int', 123],
             ['numeric|float', 123],
 
-            ['bool|bool', true],
-            ['bool|string|bool', true],
-
             ['bool|boolean', true],
             ['float|double', 1.23],
             ['int|integer', 123],
