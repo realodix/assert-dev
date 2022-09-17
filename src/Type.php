@@ -18,7 +18,7 @@ class Type
      */
     public static function is($value, $types, string $message = ''): void
     {
-        Helper::assertStringOrArray($types, 2, '$types');
+        Helper::assertStringOrArray($types, '$types', 2);
 
         if (is_string($types)) {
             $types = Helper::normalize_type(explode('|', $types));
@@ -43,7 +43,7 @@ class Type
      */
     public static function intersection($value, $types, string $message = ''): void
     {
-        Helper::assertStringOrArray($types, 2, '$types');
+        Helper::assertStringOrArray($types, '$types', 2);
 
         if (is_string($types)) {
             $types = explode(' ', $types);
