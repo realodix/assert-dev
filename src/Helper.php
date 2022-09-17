@@ -48,13 +48,13 @@ class Helper
     /**
      * @param mixed $value
      */
-    public static function assertStringOrArray($value, int $order = 1, string $variable = ''): void
+    public static function assertStringOrArray($value, string $variable = '', int $order = 1): void
     {
         if (! is_string($value) && ! is_array($value)) {
             throw new \InvalidArgumentException(sprintf(
                 "Argument #%s%s must 'string or array'.",
                 $order,
-                $variable = '' ? '' : ' ('.$variable.')'
+                $variable = empty($variable) ? '' : ' ('.$variable.')'
             ));
         }
     }
@@ -120,7 +120,7 @@ class Helper
      */
     public static function type_has_duplicate($types): bool
     {
-        self::assertStringOrArray($types, 1, '$types');
+        self::assertStringOrArray($types, '$types');
 
         if (is_string($types)) {
             $types = explode('|', $types);
@@ -153,11 +153,7 @@ class Helper
      */
     public static function normalize_type($types): array
     {
-        if (! is_string($types) && ! is_array($types)) {
-            throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'."
-            );
-        }
+        self::assertStringOrArray($types, '$types');
 
         if (is_string($types)) {
             $types = explode('|', $types);
