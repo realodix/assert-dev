@@ -37,6 +37,12 @@ class Helper
                 );
             }
         }
+
+        if (self::typeHasDuplicate($values)) {
+            throw new \ErrorException(
+                'Duplicate type names in the same declaration is not allowed.'
+            );
+        }
     }
 
     /**
@@ -67,10 +73,43 @@ class Helper
             );
         }
 
-        if (Type::type_has_duplicate(explode('|', $types))) {
+        if (self::typeHasDuplicate(explode('|', $types))) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }
+    }
+
+    /**
+     * @param string|array $types
+     */
+    private static function typeHasDuplicate($types): bool
+    {
+        Helper::assertStringOrArray($types, '$types');
+
+        if (\is_string($types)) {
+            $types = explode('|', $types);
+        }
+
+        if (\in_array('scalar', $types) &&
+                (\in_array('numeric', $types)
+                || \in_array('int', $types)
+                || \in_array('float', $types)
+                || \in_array('string', $types)
+                || \in_array('bool', $types))
+            || \in_array('numeric', $types) &&
+                (\in_array('int', $types)
+                || \in_array('float', $types))) {
+            return true;
+        }
+
+        // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
+        $actualTypesCount = \count($types);
+        $expectedTypesCount = \count(array_unique($types));
+        if ($expectedTypesCount < $actualTypesCount) {
+            return true;
+        }
+
+        return false;
     }
 }
