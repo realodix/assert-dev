@@ -27,7 +27,7 @@ class ExceptionMessageTest extends TestCase
     public function testInvalidTypeValueForType()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage("Argument #1 (\$types) must 'string or array'.");
+        $this->expectExceptionMessage("Argument #2 (\$types) must 'string or array'.");
         Assert::type(1, true);
     }
 }

@@ -18,15 +18,11 @@ class Type
      */
     public static function is($value, $types, string $message = ''): void
     {
-        if (! is_string($types) && ! is_array($types)) {
-            throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'."
-            );
-        }
+        Helper::assertStringOrArray($types , 2, '$types');
 
         if (is_string($types)) {
             $types = Helper::normalize_type(explode('|', $types));
-            self::assertTypeDeclaration(implode('|', $types));
+            Helper::assertTypeDeclaration(implode('|', $types));
         }
 
         if (! self::hasType($value, $types)) {
@@ -47,17 +43,13 @@ class Type
      */
     public static function intersection($value, $types, string $message = ''): void
     {
-        if (! is_string($types) && ! is_array($types)) {
-            throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'."
-            );
-        }
+        Helper::assertStringOrArray($types , 2, '$types');
 
         if (is_string($types)) {
             $types = explode(' ', $types);
         }
 
-        if (! self::assertIntersectionTypes($value, $types)) {
+        if (! self::intersectionTypesValidator($value, $types)) {
             throw new Exception\TypeErrorException(
                 implode(' & ', $types), $value, $message
             );
@@ -69,7 +61,7 @@ class Type
      *
      * @throws Exception\UnknownClassOrInterfaceException
      */
-    private static function assertIntersectionTypes($value, array $types): bool
+    private static function intersectionTypesValidator($value, array $types): bool
     {
         foreach ($types as $aTypes) {
             if (is_string($aTypes) && preg_match('/\\\/', $aTypes) === 1
@@ -136,40 +128,5 @@ class Type
             || ('numeric' == $allowedTypes) && is_numeric($value)
             || ('int' == $allowedTypes) && is_int($value)
             || ('float' == $allowedTypes) && is_float($value);
-    }
-
-    /**
-     * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
-     * diberikan merupakan format yang valid.
-     *
-     * @throws \ErrorException
-     */
-    private static function assertTypeDeclaration(string $types): void
-    {
-        if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
-            throw new \ErrorException(
-                "Only '|' symbol that allowed."
-            );
-        }
-
-        // Simbol harus diletakkan diantara nama tipe
-        if (preg_match('/^([\|])|([\|])$/', $types) > 0) {
-            throw new \ErrorException(
-                'Symbols must be between type names.'
-            );
-        }
-
-        // Tidak boleh ada duplikat simbol
-        if (preg_match('/(\|\|)/', $types) > 0) {
-            throw new \ErrorException(
-                'Duplicate symbols are not allowed.'
-            );
-        }
-
-        if (Helper::type_has_duplicate(explode('|', $types))) {
-            throw new \ErrorException(
-                'Duplicate type names in the same declaration is not allowed.'
-            );
-        }
     }
 }
