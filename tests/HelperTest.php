@@ -13,7 +13,7 @@ class HelperTest extends TestCase
      */
     public function testTypeHasDuplicateMember($types)
     {
-        $types = explode('|', $types);
+        $types = Helper::normalize_type($types);
 
         $this->assertTrue(
             Helper::type_has_duplicate($types)
@@ -27,7 +27,7 @@ class HelperTest extends TestCase
     {
         $this->assertSame(
             $expected,
-            Helper::normalize_type(explode('|', $actual))
+            Helper::normalize_type($actual)
         );
     }
 }

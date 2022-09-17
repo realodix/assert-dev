@@ -63,8 +63,6 @@ trait UnionTypesTestProvider
         return [
             ['bool|bool', true],
             ['bool|string|bool', true],
-            ['float|double', 0.1],
-            ['int|integer', '42'],
             ['bool|boolean', true],
         ];
     }

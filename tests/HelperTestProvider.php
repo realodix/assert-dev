@@ -2,6 +2,8 @@
 
 namespace Realodix\Assert\Tests;
 
+use Realodix\Assert\Tests\Fixtures\InterfaceA;
+
 trait HelperTestProvider
 {
     public function duplicateProvider()
@@ -12,9 +14,18 @@ trait HelperTestProvider
             ['scalar|float'],
             ['scalar|string'],
             ['scalar|bool'],
-
             ['numeric|int'],
             ['numeric|float'],
+
+            ['bool|bool'],
+            ['bool|string|bool'],
+
+            ['bool|boolean'],
+            ['float|double'],
+            ['int|integer'],
+
+            [['numeric', 'int']],
+            [[InterfaceA::class, InterfaceA::class]],
         ];
     }
 
@@ -24,6 +35,7 @@ trait HelperTestProvider
             [['int'], 'integer'],
             [['int', 'int'], 'int|integer'],
             [['float', 'bool'], 'double|boolean'],
+            [['float', 'float'], 'float|double'],
         ];
     }
 }

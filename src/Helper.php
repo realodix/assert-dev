@@ -4,8 +4,21 @@ namespace Realodix\Assert;
 
 class Helper
 {
-    public static function type_has_duplicate(array $types): bool
+    /**
+     * @param string|array $types
+     */
+    public static function type_has_duplicate($types): bool
     {
+        if (! is_string($types) && ! is_array($types)) {
+            throw new \InvalidArgumentException(
+                "Argument #1 (\$types) must 'string or array'."
+            );
+        }
+
+        if (is_string($types)) {
+            $types = explode('|', $types);
+        }
+
         if (in_array('scalar', $types) &&
                 (in_array('numeric', $types)
                 || in_array('int', $types)
@@ -28,8 +41,21 @@ class Helper
         return false;
     }
 
-    public static function normalize_type(array $types): array
+    /**
+     * @param string|array $types
+     */
+    public static function normalize_type($types): array
     {
+        if (! is_string($types) && ! is_array($types)) {
+            throw new \InvalidArgumentException(
+                "Argument #1 (\$types) must 'string or array'."
+            );
+        }
+
+        if (is_string($types)) {
+            $types = explode('|', $types);
+        }
+
         return array_map(
             function ($type) {
                 switch ($type) {
