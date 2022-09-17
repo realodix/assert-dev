@@ -49,7 +49,7 @@ class Type
             $types = explode(' ', $types);
         }
 
-        if (! self::assertIntersectionTypes($value, $types)) {
+        if (! self::intersectionTypesValidator($value, $types)) {
             throw new Exception\TypeErrorException(
                 implode(' & ', $types), $value, $message
             );
@@ -61,7 +61,7 @@ class Type
      *
      * @throws Exception\UnknownClassOrInterfaceException
      */
-    private static function assertIntersectionTypes($value, array $types): bool
+    private static function intersectionTypesValidator($value, array $types): bool
     {
         foreach ($types as $aTypes) {
             if (is_string($aTypes) && preg_match('/\\\/', $aTypes) === 1
