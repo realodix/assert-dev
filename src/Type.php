@@ -137,6 +137,4 @@ class Type
             || ('int' == $allowedTypes) && is_int($value)
             || ('float' == $allowedTypes) && is_float($value);
     }
-
-
 }
