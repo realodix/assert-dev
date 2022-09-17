@@ -9,20 +9,20 @@ trait HelperTestProvider
     public function duplicateProvider()
     {
         return [
-            ['scalar|numeric'],
-            ['scalar|int'],
-            ['scalar|float'],
-            ['scalar|string'],
-            ['scalar|bool'],
-            ['numeric|int'],
-            ['numeric|float'],
+            // ['scalar|numeric'],
+            // ['scalar|int'],
+            // ['scalar|float'],
+            // ['scalar|string'],
+            // ['scalar|bool'],
+            // ['numeric|int'],
+            // ['numeric|float'],
 
-            ['bool|bool'],
-            ['bool|string|bool'],
+            // ['bool|bool'],
+            // ['bool|string|bool'],
 
-            ['bool|boolean'],
-            ['float|double'],
-            ['int|integer'],
+            // ['bool|boolean'],
+            // ['float|double'],
+            // ['int|integer'],
 
             [['numeric', 'int']],
             [[InterfaceA::class, InterfaceA::class]],
