@@ -2,7 +2,7 @@
 
 namespace Realodix\Assert\Tests;
 
-use Realodix\Assert\Helper;
+use Realodix\Assert\Type;
 
 class HelperTest extends TestCase
 {
@@ -13,10 +13,10 @@ class HelperTest extends TestCase
      */
     public function testTypeHasDuplicateMember($types)
     {
-        $types = Helper::normalize_type($types);
+        $types = Type::normalize_type($types);
 
         $this->assertTrue(
-            Helper::type_has_duplicate($types)
+            Type::type_has_duplicate($types)
         );
     }
 
@@ -27,7 +27,7 @@ class HelperTest extends TestCase
     {
         $this->assertSame(
             $expected,
-            Helper::normalize_type($actual)
+            Type::normalize_type($actual)
         );
     }
 }
