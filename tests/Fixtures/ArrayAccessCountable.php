@@ -19,7 +19,7 @@ class ArrayAccessCountable implements InterfaceArrayAccessCountable
 
     public function offsetSet($offset, $value): void
     {
-        if (is_null($offset)) {
+        if (\is_null($offset)) {
             $this->container[] = $value;
         } else {
             $this->container[$offset] = $value;
