@@ -65,7 +65,7 @@ trait UnionTypesTestProvider
         ];
     }
 
-    public function duplicateTypeNamesProvider()
+    public function duplicateMembersProvider()
     {
         return [
             ['bool|bool', true],
