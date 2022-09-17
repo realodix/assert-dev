@@ -25,8 +25,8 @@ class Type
         }
 
         if (is_string($types)) {
-            self::assertTypeDeclaration($types);
-            $types = explode('|', $types);
+            $types = Helper::normalize_type(explode('|', $types));
+            self::assertTypeDeclaration(implode('|', $types));
         }
 
         if (! self::hasType($value, $types)) {
@@ -85,9 +85,7 @@ class Type
             }
         }
 
-        $actualTypesCount = count(array_count_values($types));
-        $expectedTypesCount = count($types);
-        if ($expectedTypesCount != $actualTypesCount) {
+        if (Helper::type_has_duplicate($types)) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
@@ -168,36 +166,10 @@ class Type
             );
         }
 
-        // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
-        $typeInArrayForm = explode('|', $types);
-        $actualTypesCount = count(
-            array_count_values(self::normalizeType($typeInArrayForm))
-        );
-        $expectedTypesCount = count($typeInArrayForm);
-
-        if ($expectedTypesCount != $actualTypesCount) {
+        if (Helper::type_has_duplicate(explode('|', $types))) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }
-    }
-
-    private static function normalizeType(array $types): array
-    {
-        return array_map(
-            function ($type) {
-                switch ($type) {
-                    case 'double':
-                        return 'float';
-                    case 'integer':
-                        return 'int';
-                    case 'boolean':
-                        return 'bool';
-                    default:
-                        return $type;
-                }
-            },
-            $types
-        );
     }
 }

@@ -15,6 +15,13 @@ trait UnionTypesTestProvider
             ['array|string|object', new \stdClass],
             ['int|float', 1],
             ['int|float', 1.0],
+
+            [['string', 'array'], 'abc'],
+            [['array', 'string'], 'abc'],
+            [['array', 'string'], 'object', new \stdClass],
+            [['int', 'float'], 1],
+            [['int', 'float'], 1.0],
+
             [[InterfaceA::class, \Countable::class], new AB],
         ];
     }
@@ -63,8 +70,6 @@ trait UnionTypesTestProvider
         return [
             ['bool|bool', true],
             ['bool|string|bool', true],
-            ['float|double', 0.1],
-            ['int|integer', '42'],
             ['bool|boolean', true],
         ];
     }
