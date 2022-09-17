@@ -20,11 +20,14 @@ class HelperTest extends TestCase
         );
     }
 
-    public function testNormalizeType()
+    /**
+     * @dataProvider normalizeTypeProvider
+     */
+    public function testNormalizeType($expected, $actual)
     {
-        $actual = Helper::normalize_type(explode('|', 'int|integer'));
-        $expected = ['int', 'int'];
-
-        $this->assertSame($expected, $actual);
+        $this->assertSame(
+            $expected,
+            Helper::normalize_type(explode('|', $actual))
+        );
     }
 }

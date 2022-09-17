@@ -17,4 +17,13 @@ trait HelperTestProvider
             ['numeric|float'],
         ];
     }
+
+    public function normalizeTypeProvider()
+    {
+        return [
+            [['int'], 'integer'],
+            [['int', 'int'], 'int|integer'],
+            [['float', 'bool'], 'double|boolean'],
+        ];
+    }
 }
