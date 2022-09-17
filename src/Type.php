@@ -26,7 +26,7 @@ class Type
 
         if (is_string($types)) {
             $types = Helper::normalize_type(explode('|', $types));
-            self::assertTypeDeclaration(implode('|', $types));
+            Helper::assertTypeDeclaration(implode('|', $types));
         }
 
         if (! self::hasType($value, $types)) {
@@ -138,38 +138,5 @@ class Type
             || ('float' == $allowedTypes) && is_float($value);
     }
 
-    /**
-     * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
-     * diberikan merupakan format yang valid.
-     *
-     * @throws \ErrorException
-     */
-    private static function assertTypeDeclaration(string $types): void
-    {
-        if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
-            throw new \ErrorException(
-                "Only '|' symbol that allowed."
-            );
-        }
 
-        // Simbol harus diletakkan diantara nama tipe
-        if (preg_match('/^([\|])|([\|])$/', $types) > 0) {
-            throw new \ErrorException(
-                'Symbols must be between type names.'
-            );
-        }
-
-        // Tidak boleh ada duplikat simbol
-        if (preg_match('/(\|\|)/', $types) > 0) {
-            throw new \ErrorException(
-                'Duplicate symbols are not allowed.'
-            );
-        }
-
-        if (Helper::type_has_duplicate(explode('|', $types))) {
-            throw new \ErrorException(
-                'Duplicate type names in the same declaration is not allowed.'
-            );
-        }
-    }
 }
