@@ -5,6 +5,20 @@ namespace Realodix\Assert;
 class Helper
 {
     /**
+     * @param mixed        $value
+     */
+    public static function assertStringOrArray($value, int $order = 1, string $variable = ''): void
+    {
+        if (! is_string($value) && ! is_array($value)) {
+            throw new \InvalidArgumentException(sprintf(
+                "Argument #%s%s must 'string or array'.",
+                $order,
+                $variable = '' ? '' : ' ('.$variable.')'
+            ));
+        }
+
+    }
+    /**
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
      * diberikan merupakan format yang valid.
      *
@@ -44,11 +58,7 @@ class Helper
      */
     public static function type_has_duplicate($types): bool
     {
-        if (! is_string($types) && ! is_array($types)) {
-            throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'."
-            );
-        }
+        Helper::assertStringOrArray($types , 1, '$types');
 
         if (is_string($types)) {
             $types = explode('|', $types);

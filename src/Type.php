@@ -18,11 +18,7 @@ class Type
      */
     public static function is($value, $types, string $message = ''): void
     {
-        if (! is_string($types) && ! is_array($types)) {
-            throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'."
-            );
-        }
+        Helper::assertStringOrArray($types , 2, '$types');
 
         if (is_string($types)) {
             $types = Helper::normalize_type(explode('|', $types));
@@ -47,11 +43,7 @@ class Type
      */
     public static function intersection($value, $types, string $message = ''): void
     {
-        if (! is_string($types) && ! is_array($types)) {
-            throw new \InvalidArgumentException(
-                "Argument #1 (\$types) must 'string or array'."
-            );
-        }
+        Helper::assertStringOrArray($types , 2, '$types');
 
         if (is_string($types)) {
             $types = explode(' ', $types);
