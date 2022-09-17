@@ -83,8 +83,8 @@ class Type
      */
     private static function hasType($value, array $allowedTypes): bool
     {
-        foreach ($allowedTypes as $aTypes) {
-            if (self::rules($value, $aTypes)) {
+        foreach ($allowedTypes as $type) {
+            if (self::rules($value, $type)) {
                 return true;
             }
         }
