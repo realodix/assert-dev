@@ -114,7 +114,7 @@ class Type
     /**
      * @param string|array $types
      */
-    public static function normalizeType($types): array
+    private static function normalizeType($types): array
     {
         Helper::assertStringOrArray($types, '$types');
 
