@@ -46,7 +46,7 @@ class Helper
     }
 
     /**
-     * @param mixed        $value
+     * @param mixed $value
      */
     public static function assertStringOrArray($value, int $order = 1, string $variable = ''): void
     {
@@ -57,8 +57,8 @@ class Helper
                 $variable = '' ? '' : ' ('.$variable.')'
             ));
         }
-
     }
+
     /**
      * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
      * diberikan merupakan format yang valid.
@@ -99,7 +99,7 @@ class Helper
      */
     public static function type_has_duplicate($types): bool
     {
-        self::assertStringOrArray($types , 1, '$types');
+        self::assertStringOrArray($types, 1, '$types');
 
         if (is_string($types)) {
             $types = explode('|', $types);
