@@ -45,6 +45,7 @@ trait TypeTestProvider
         return [
             ['int', 0],
             ['int', 1],
+            ['int', -1],
             // Invalid int
             ['int', '123', false],
             ['int', 1.0, false],
