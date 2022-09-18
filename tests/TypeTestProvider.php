@@ -188,6 +188,24 @@ trait TypeTestProvider
             ['array_empty', []],
             ['array_empty', [''], false],
             ['array_empty', ['abc'], false],
+
+            ['array_numeric', []],
+            ['array_numeric', [1]],
+            ['array_numeric', [1.1]],
+            ['array_numeric', [0x10]],
+            ['array_numeric', [0b10]],
+            ['array_numeric', ['010']],
+            ['array_numeric', ['10']],
+            ['array_numeric', [' 10']],
+            ['array_numeric', ['10.1']],
+            ['array_numeric', ['10e2']],
+            ['array_numeric', ['0b10'], false],
+            ['array_numeric', ['0x10'], false],
+            ['array_numeric', ['null'], false],
+            ['array_numeric', [null], false],
+            ['array_numeric', [true], false],
+            ['array_numeric', [[]], false],
+            ['array_numeric', [''], false],
         ];
     }
 }

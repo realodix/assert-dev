@@ -8,4 +8,17 @@ class Constraint
     {
         return empty($value);
     }
+
+    public static function arrayIsNumeric(array $value): bool
+    {
+        $result = true;
+
+        foreach ($value as $val) {
+            if (! is_numeric($val)) {
+                $result = false;
+            }
+        }
+
+        return $result;
+    }
 }
