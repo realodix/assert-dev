@@ -43,11 +43,11 @@ Types          | Description
 Types           | Description
 --------------- | ------------------------------------------------------------------
 `array`         | Check whether a variable is an array or not
-`bool[]`        | An array of bool
-`array_string`  | An array of string
-`array_int`     | An array of integer
-`array_float`   | An array of float
-`array_object`  | An array of object
+`bool[]`        | Check whether a variable is an array of bool or not
+`string[]`      | Check whether a variable is an array of string or not
+`int[]`         | Check whether a variable is an array of integer or not
+`float[]`       | Check whether a variable is an array of float or not
+`object[]`      | Check whether a variable is an array of object or not
 `object`        | Check whether a variable is an object or not
 `callable`      | Check whether the contents of a variable can be called as a function or not
 `iterable`      | Check whether the contents of a variable is an iterable value or not
