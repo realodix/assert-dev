@@ -101,6 +101,7 @@ class Type
             // Array
             || ('countable' === $allowedTypes) && is_countable($value)
             || ('iterable' === $allowedTypes) && is_iterable($value)
+            || ('bool[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_bool')
             || ('string[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_string')
             || ('int[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_int')
             || ('float[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_float')

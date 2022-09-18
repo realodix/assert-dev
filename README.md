@@ -43,6 +43,7 @@ Types          | Description
 Types           | Description
 --------------- | ------------------------------------------------------------------
 `array`         | Check whether a variable is an array or not
+`bool[]`        | An array of bool
 `array_string`  | An array of string
 `array_int`     | An array of integer
 `array_float`   | An array of float

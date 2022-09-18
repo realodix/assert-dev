@@ -235,6 +235,12 @@ trait TypeTestProvider
             ['float[]', ['1.23'], false],
             ['float[]', ['10'], false],
 
+            ['bool[]', [true]],
+            ['bool[]', [false]],
+            // Invalid boolean
+            ['bool[]', [1], false],
+            ['bool[]', ['1'], false],
+
             ['object[]', []],
             ['object[]', [new \stdClass]],
             ['object[]', [1], false],
