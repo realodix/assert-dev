@@ -101,9 +101,9 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider isStringProvider
      */
-    public function is_string($types, $value)
+    public function is_string($value)
     {
-        Assert::type($value, $types);
+        Assert::type($value, 'string');
         $this->addToAssertionCount(1);
     }
 

@@ -173,12 +173,12 @@ trait TypeTestProvider
     public function isStringProvider()
     {
         return [
-            ['string', 'abc'],
-            ['string', '23'],
-            ['string', '23.5'],
-            ['string', ''],
-            ['string', ' '],
-            ['string', '0'],
+            ['abc'],
+            ['23'],
+            ['23.5'],
+            [''],
+            [' '],
+            ['0'],
         ];
     }
 
