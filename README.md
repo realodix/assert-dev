@@ -31,14 +31,20 @@ functions costs time.
 
 ### Types Assertions
 
-Types     | Description
---------- | ------------------------------------------------------------------
-`bool`    | Check whether a variable is a boolean or not
-`int`     | Check whether a variable is of type integer or not
-`float`   | Check whether a variable is of type float or not
-`string`  | Check whether a variable is of type string or not
-`numeric` | Check whether a variable is a number or a numeric string, or not
-`scalar`  | Check whether a variable is a scalar or not
+Types       | Description
+----------- | ------------------------------------------------------------------
+`bool`      | Check whether a variable is a boolean or not
+`int`       | Check whether a variable is of type integer or not
+`float`     | Check whether a variable is of type float or not
+`string`    | Check whether a variable is of type string or not
+`numeric`   | Check whether a variable is a number or a numeric string, or not
+`scalar`    | Check whether a variable is a scalar or not
+`null`      | Check whether a variable is NULL or not
+`resource`  | Check whether a variable is a resource or not
+`countable` | Check whether the contents of a variable is a countable value or not
+`object`    | Check whether a variable is an object or not
+`callable`  | Check whether the contents of a variable can be called as a function or not
+`iterable`  | Check whether the contents of a variable is an iterable value or not
 
 Types        | Description
 ------------ | ------------------------------------------------------------------
@@ -49,18 +55,8 @@ Types        | Description
 `float[]`    | Check whether a variable is an array of float or not
 `object[]`   | Check whether a variable is an array of object or not
 `callable[]` | Check whether a variable is an array of callable or not
-`object`     | Check whether a variable is an object or not
-`callable`   | Check whether the contents of a variable can be called as a function or not
-`iterable`   | Check whether the contents of a variable is an iterable value or not
 
-Types      | Description
----------- | ------------------------------------------------------------------
-`null`     | Check whether a variable is NULL or not
-`resource` | Check whether a variable is a resource or not
 
-Types       | Description
------------ | ------------------------------------------------------------------
-`countable` | Check whether the contents of a variable is a countable value or not
 
 
 ## License
