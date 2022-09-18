@@ -171,7 +171,7 @@ trait TypeTestProvider
         ];
     }
 
-    public function isStringProvider()
+    public function string_provider()
     {
         return [
             ['abc'],

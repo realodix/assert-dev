@@ -21,7 +21,7 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider isStringProvider
+     * @dataProvider string_provider
      */
     public function arrayOfString($value, $pass = true)
     {
@@ -99,7 +99,7 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider isStringProvider
+     * @dataProvider string_provider
      */
     public function is_string($value, $pass = true)
     {
