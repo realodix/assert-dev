@@ -43,7 +43,7 @@ Types          | Description
 Types           | Description
 --------------- | ------------------------------------------------------------------
 `array`         | Check whether a variable is an array or not
-`array_empty`   | An array of empty objects
+`array_empty`   | An array with empty objects
 `array_string`  | An array of string objects
 `array_int`     | An array of integer objects
 `array_numeric` | An array of numeric objects
