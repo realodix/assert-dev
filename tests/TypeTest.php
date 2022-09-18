@@ -20,6 +20,18 @@ class TypeTest extends TestCase
     }
 
     /**
+     * @test
+     * @dataProvider arrayWithVariantProvider
+     */
+    public function arrayOfString($types, $value, $pass = true)
+    {
+        (! $pass) && $this->invalidTypes($value, $types);
+
+        Assert::type($value, $types);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
      * @dataProvider numberProvider
      */
     public function testNumber($types, $value, $pass = true)
