@@ -179,6 +179,7 @@ trait TypeTestProvider
             [''],
             [' '],
             ['0'],
+            [[], false],
         ];
     }
 

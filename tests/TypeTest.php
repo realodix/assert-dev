@@ -101,8 +101,10 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider isStringProvider
      */
-    public function is_string($value)
+    public function is_string($value, $pass = true)
     {
+        (! $pass) && $this->invalidTypes($value, 'string');
+
         Assert::type($value, 'string');
         $this->addToAssertionCount(1);
     }
