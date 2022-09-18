@@ -109,17 +109,10 @@ class TypeTest extends TestCase
 
     /**
      * @test
+     * @dataProvider arrayWithVariantWIthInvalidInputProvider
      */
-    public function arrayWithVariant2()
+    public function arrayWithVariantWIthInvalidInput($types, $value)
     {
-        $this->invalidTypes([], 'float[]');
-    }
-
-    /**
-     * @test
-     */
-    public function arrayWithVariant3()
-    {
-        $this->invalidTypes(1, 'int[]');
+        $this->invalidTypes($value, $types);
     }
 }

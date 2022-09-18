@@ -243,4 +243,17 @@ trait TypeTestProvider
             ['object[]', [1], false],
         ];
     }
+
+    public function arrayWithVariantWIthInvalidInputProvider()
+    {
+        return [
+            ['string[]', []],
+
+            ['string[]', ''],
+            ['int[]', 1],
+            ['float[]', 0.1],
+            ['bool[]', true],
+            ['object[]', new \stdClass],
+        ];
+    }
 }
