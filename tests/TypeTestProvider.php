@@ -192,17 +192,6 @@ trait TypeTestProvider
     public function arrayWithVariantProvider()
     {
         return [
-            ['string[]', []],
-            ['string[]', ['010']],
-            ['string[]', ['10']],
-            ['string[]', [' 10']],
-            ['string[]', ['10.1']],
-            ['string[]', ['10e2']],
-            ['string[]', ['0b10']],
-            ['string[]', ['0x10']],
-            ['string[]', ['null']],
-            ['string[]', ['']],
-
             ['int[]', []],
             ['int[]', [1]],
             ['int[]', [1.1], false],
