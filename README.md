@@ -50,7 +50,7 @@ Types        | Description
 ------------ | ------------------------------------------------------------------
 `array`      | Check whether a variable is an array or not
 `bool[]`     | Check whether a variable is of type `array<int, bool>` or not
-`string[]`   | Check whether a variable is an array of string or not
+`string[]`   | `array<int, string>`
 `int[]`      | Check whether a variable is an array of integer or not
 `float[]`    | Check whether a variable is an array of float or not
 `object[]`   | Check whether a variable is an array of object or not
