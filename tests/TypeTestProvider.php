@@ -204,20 +204,6 @@ trait TypeTestProvider
     public function arrayWithVariantProvider()
     {
         return [
-            ['float[]', [0.1]],
-            ['float[]', [1.0]],
-            ['float[]', [2.3]],
-            ['float[]', [1 / 3]],
-            ['float[]', [1 - 2 / 3]],
-            ['float[]', [log(0)]],
-            // Invalid float
-            ['float[]', [1], false],
-            ['float[]', [false], false],
-            ['float[]', ['test'], false],
-            ['float[]', [null], false],
-            ['float[]', ['1.23'], false],
-            ['float[]', ['10'], false],
-
             ['bool[]', [true]],
             ['bool[]', [false]],
             // Invalid boolean
