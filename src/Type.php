@@ -101,6 +101,9 @@ class Type
             // Array
             || ('countable' === $allowedTypes) && is_countable($value)
             || ('iterable' === $allowedTypes) && is_iterable($value)
+            || ('string[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_string')
+            || ('int[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_int')
+            || ('object[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_object')
             // Boolean
             || ('bool' === $allowedTypes) && \is_bool($value)
             || ('true' === $allowedTypes) && $value === true
@@ -108,10 +111,7 @@ class Type
             // Number
             || ('numeric' === $allowedTypes) && is_numeric($value)
             || ('int' === $allowedTypes) && \is_int($value)
-            || ('float' === $allowedTypes) && \is_float($value)
-            || ('string[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_string')
-            || ('int[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_int')
-            || ('object[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_object');
+            || ('float' === $allowedTypes) && \is_float($value);
     }
 
     /**
