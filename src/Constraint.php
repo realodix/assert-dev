@@ -9,9 +9,14 @@ class Constraint
         return empty($value);
     }
 
-    public static function arrayIs(array $value, callable $callback): bool
+    /**
+     * @param mixed $value
+     */
+    public static function arrayIs($value, callable $callback): bool
     {
         $result = true;
+
+        $value = \Aimeos\Map::from($value)->toArray();
 
         foreach ($value as $val) {
             if (! $callback($val)) {

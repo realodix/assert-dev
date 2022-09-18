@@ -45,6 +45,7 @@ Types           | Description
 `array`         | Check whether a variable is an array or not
 `array_string`  | An array of string
 `array_int`     | An array of integer
+`array_float`   | An array of float
 `array_object`  | An array of object
 `object`        | Check whether a variable is an object or not
 `callable`      | Check whether the contents of a variable can be called as a function or not

@@ -103,6 +103,7 @@ class Type
             || ('iterable' === $allowedTypes) && is_iterable($value)
             || ('string[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_string')
             || ('int[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_int')
+            || ('float[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_float')
             || ('object[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_object')
             // Boolean
             || ('bool' === $allowedTypes) && \is_bool($value)
