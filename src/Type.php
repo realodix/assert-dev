@@ -108,7 +108,8 @@ class Type
             // Number
             || ('numeric' === $allowedTypes) && is_numeric($value)
             || ('int' === $allowedTypes) && \is_int($value)
-            || ('float' === $allowedTypes) && \is_float($value);
+            || ('float' === $allowedTypes) && \is_float($value)
+            || ('array_empty' === $allowedTypes) && Constraint::arrayIsEmpty($value);
     }
 
     /**

@@ -181,4 +181,13 @@ trait TypeTestProvider
             ['string', '0'],
         ];
     }
+
+    public function arrayNewProvider()
+    {
+        return [
+            ['array_empty', []],
+            ['array_empty', [''], false],
+            ['array_empty', ['abc'], false],
+        ];
+    }
 }

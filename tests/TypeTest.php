@@ -94,4 +94,16 @@ class TypeTest extends TestCase
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @test
+     * @dataProvider arrayNewProvider
+     */
+    public function array_new($types, $value, $pass = true)
+    {
+        (! $pass) && $this->invalidTypes($value, $types);
+
+        Assert::type($value, $types);
+        $this->addToAssertionCount(1);
+    }
 }
