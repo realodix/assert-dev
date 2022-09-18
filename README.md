@@ -49,11 +49,11 @@ Types       | Description
 `array`     | Check whether a variable is an array or not
 `countable` | Check whether the contents of a variable is a countable value or not
 `iterable`  | Check whether the contents of a variable is an iterable value or not
-`bool[]`    | `array<int, bool>`
-`string[]`  | `array<int, string>`
-`int[]`     | `array<int, int>`
-`float[]`   | `array<int, float>`
-`object[]`  | `array<int, object>`
+`bool[]`    | `array<mixed, bool>`
+`string[]`  | `array<mixed, string>`
+`int[]`     | `array<mixed, int>`
+`float[]`   | `array<mixed, float>`
+`object[]`  | `array<mixed, object>`
 
 
 ## License
