@@ -201,6 +201,19 @@ trait TypeTestProvider
         ];
     }
 
+    public function arrayOfObjectProvider()
+    {
+        return [
+            [new \stdClass],
+            [new \RuntimeException],
+            // Invalid object
+            [null, false],
+            [true, false],
+            [1, false],
+            [[], false],
+        ];
+    }
+
     public function arrayWithVariantProvider()
     {
         return [

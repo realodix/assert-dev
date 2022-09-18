@@ -168,4 +168,27 @@ class TypeTest extends TestCase
         Assert::type($value, 'float');
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @test
+     * @dataProvider arrayOfObjectProvider
+     */
+    public function arrayOfObject($value, $pass = true)
+    {
+        (! $pass) && $this->invalidTypes([$value], 'object[]');
+
+        Assert::type([$value], 'object[]');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     */
+    public function arrayOfObject2()
+    {
+
+
+        Assert::type([], 'object[]');
+        $this->addToAssertionCount(1);
+    }
 }
