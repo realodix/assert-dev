@@ -97,9 +97,9 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider arrayNewProvider
+     * @dataProvider arrayWithVariantProvider
      */
-    public function array_new($types, $value, $pass = true)
+    public function arrayWithVariant($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidTypes($value, $types);
 

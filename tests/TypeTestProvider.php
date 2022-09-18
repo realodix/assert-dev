@@ -182,7 +182,7 @@ trait TypeTestProvider
         ];
     }
 
-    public function arrayNewProvider()
+    public function arrayWithVariantProvider()
     {
         return [
             ['array_string', []],
