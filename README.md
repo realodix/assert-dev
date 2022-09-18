@@ -49,7 +49,7 @@ Types       | Description
 Types        | Description
 ------------ | ------------------------------------------------------------------
 `array`      | Check whether a variable is an array or not
-`bool[]`     | Check whether a variable is an array of bool or not
+`bool[]`     | Check whether a variable is of type `array<int, bool>` or not
 `string[]`   | Check whether a variable is an array of string or not
 `int[]`      | Check whether a variable is an array of integer or not
 `float[]`    | Check whether a variable is an array of float or not
