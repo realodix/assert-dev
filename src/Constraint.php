@@ -34,4 +34,17 @@ class Constraint
 
         return $result;
     }
+
+    public static function arrayIsScalar(array $value): bool
+    {
+        $result = true;
+
+        foreach ($value as $val) {
+            if (! \is_scalar($val)) {
+                $result = false;
+            }
+        }
+
+        return $result;
+    }
 }
