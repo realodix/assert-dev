@@ -110,9 +110,9 @@ class Type
             || ('int' === $allowedTypes) && \is_int($value)
             || ('float' === $allowedTypes) && \is_float($value)
             || ('array_empty' === $allowedTypes) && Constraint::arrayIsEmpty($value)
-            || ('array_numeric' === $allowedTypes) && Constraint::arrayIsNumeric($value)
-            || ('array_object' === $allowedTypes) && Constraint::arrayIsObject($value)
-            || ('array_scalar' === $allowedTypes) && Constraint::arrayIsScalar($value);
+            || ('array_numeric' === $allowedTypes) && Constraint::arrayIs($value, 'is_numeric')
+            || ('array_object' === $allowedTypes) && Constraint::arrayIs($value, 'is_object')
+            || ('array_scalar' === $allowedTypes) && Constraint::arrayIs($value, 'is_scalar');
     }
 
     /**
