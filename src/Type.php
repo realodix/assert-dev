@@ -96,19 +96,19 @@ class Type
 
         return ($type === $allowedTypes)
             || \is_object($value) && $value instanceof $allowedTypes
-            || ('callable' == $allowedTypes) && \is_callable($value)
-            || ('scalar' == $allowedTypes) && \is_scalar($value)
+            || ('callable' === $allowedTypes) && \is_callable($value)
+            || ('scalar' === $allowedTypes) && \is_scalar($value)
             // Array
-            || ('countable' == $allowedTypes) && is_countable($value)
-            || ('iterable' == $allowedTypes) && is_iterable($value)
+            || ('countable' === $allowedTypes) && is_countable($value)
+            || ('iterable' === $allowedTypes) && is_iterable($value)
             // Boolean
-            || ('bool' == $allowedTypes) && \is_bool($value)
-            || ('true' == $allowedTypes) && $value === true
-            || ('false' == $allowedTypes) && $value === false
+            || ('bool' === $allowedTypes) && \is_bool($value)
+            || ('true' === $allowedTypes) && $value === true
+            || ('false' === $allowedTypes) && $value === false
             // Number
-            || ('numeric' == $allowedTypes) && is_numeric($value)
-            || ('int' == $allowedTypes) && \is_int($value)
-            || ('float' == $allowedTypes) && \is_float($value);
+            || ('numeric' === $allowedTypes) && is_numeric($value)
+            || ('int' === $allowedTypes) && \is_int($value)
+            || ('float' === $allowedTypes) && \is_float($value);
     }
 
     /**
