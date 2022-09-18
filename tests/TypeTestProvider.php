@@ -185,7 +185,6 @@ trait TypeTestProvider
     public function arrayWithVariantProvider()
     {
         return [
-            ['string[]', []],
             ['string[]', [1], false],
             ['string[]', [1.1], false],
             ['string[]', [0x10], false],
@@ -203,7 +202,6 @@ trait TypeTestProvider
             ['string[]', [[]], false],
             ['string[]', ['']],
 
-            ['int[]', []],
             ['int[]', [1]],
             ['int[]', [1.1], false],
             ['int[]', [0x10]],
@@ -241,7 +239,6 @@ trait TypeTestProvider
             ['bool[]', [1], false],
             ['bool[]', ['1'], false],
 
-            ['object[]', []],
             ['object[]', [new \stdClass]],
             ['object[]', [1], false],
         ];

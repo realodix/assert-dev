@@ -106,4 +106,12 @@ class TypeTest extends TestCase
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @test
+     */
+    public function arrayWithVariant2()
+    {
+        $this->invalidTypes([], 'float[]');
+    }
 }

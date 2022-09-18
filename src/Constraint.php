@@ -11,7 +11,11 @@ class Constraint
     {
         $result = true;
 
-        $value = \Aimeos\Map::from($value)->toArray();
+        // $value = \Aimeos\Map::from($value)->toArray();
+
+        if (empty($value)) {
+            return false;
+        }
 
         foreach ($value as $val) {
             if (! $callback($val)) {
