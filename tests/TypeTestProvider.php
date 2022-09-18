@@ -182,7 +182,7 @@ trait TypeTestProvider
         ];
     }
 
-    public function arrayWithVariantProvider()
+    public function arrayIsProvider()
     {
         return [
             ['string[]', [1], false],
@@ -244,7 +244,7 @@ trait TypeTestProvider
         ];
     }
 
-    public function arrayWithVariantWIthInvalidInputProvider()
+    public function arrayIsWithInvalidInputProvider()
     {
         return [
             ['string[]', []],
