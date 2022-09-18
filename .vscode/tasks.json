@@ -58,7 +58,7 @@
             "problemMatcher": []
         },
         {
-            "label": "[SA] Psalm (baseline)",
+            "label": "[SA] PHPStan (baseline)",
             "type": "shell",
             "command": "./vendor/bin/phpstan analyse --generate-baseline",
             "problemMatcher": []
