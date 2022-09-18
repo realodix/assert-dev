@@ -41,19 +41,19 @@ Types       | Description
 `scalar`    | Check whether a variable is a scalar or not
 `null`      | Check whether a variable is NULL or not
 `resource`  | Check whether a variable is a resource or not
-`countable` | Check whether the contents of a variable is a countable value or not
 `object`    | Check whether a variable is an object or not
 `callable`  | Check whether the contents of a variable can be called as a function or not
-`iterable`  | Check whether the contents of a variable is an iterable value or not
 
-Types        | Description
------------- | ------------------------------------------------------------------
-`array`      | Check whether a variable is an array or not
-`bool[]`     | `array<int, bool>`
-`string[]`   | `array<int, string>`
-`int[]`      | `array<int, int>`
-`float[]`    | `array<int, float>`
-`object[]`   | `array<int, object>`
+Types       | Description
+----------- | ------------------------------------------------------------------
+`array`     | Check whether a variable is an array or not
+`countable` | Check whether the contents of a variable is a countable value or not
+`iterable`  | Check whether the contents of a variable is an iterable value or not
+`bool[]`    | `array<int, bool>`
+`string[]`  | `array<int, string>`
+`int[]`     | `array<int, int>`
+`float[]`   | `array<int, float>`
+`object[]`  | `array<int, object>`
 
 
 ## License
