@@ -49,12 +49,12 @@ Types       | Description
 Types        | Description
 ------------ | ------------------------------------------------------------------
 `array`      | Check whether a variable is an array or not
-`bool[]`     | Check whether a variable is of type `array<int, bool>` or not
+`bool[]`     | `array<int, bool>`
 `string[]`   | `array<int, string>`
-`int[]`      | Check whether a variable is an array of integer or not
-`float[]`    | Check whether a variable is an array of float or not
-`object[]`   | Check whether a variable is an array of object or not
-`callable[]` | Check whether a variable is an array of callable or not
+`int[]`      | `array<int, int>`
+`float[]`    | `array<int, float>`
+`object[]`   | `array<int, object>`
+`callable[]` | `array<int, callable>`
 
 
 
