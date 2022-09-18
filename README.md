@@ -46,9 +46,7 @@ Types           | Description
 `array_empty`   | An array with empty objects
 `array_string`  | An array of string objects
 `array_int`     | An array of integer objects
-`array_numeric` | An array of numeric objects
 `array_object`  | An array of object objects
-`array_scalar`  | An array of scalar objects
 `object`        | Check whether a variable is an object or not
 `callable`      | Check whether the contents of a variable can be called as a function or not
 `iterable`      | Check whether the contents of a variable is an iterable value or not

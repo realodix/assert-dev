@@ -225,36 +225,9 @@ trait TypeTestProvider
             ['array_int', [[]], false],
             ['array_int', [''], false],
 
-            ['array_numeric', []],
-            ['array_numeric', [1]],
-            ['array_numeric', [1.1]],
-            ['array_numeric', [0x10]],
-            ['array_numeric', [0b10]],
-            ['array_numeric', ['010']],
-            ['array_numeric', ['10']],
-            ['array_numeric', [' 10']],
-            ['array_numeric', ['10.1']],
-            ['array_numeric', ['10e2']],
-            ['array_numeric', ['0b10'], false],
-            ['array_numeric', ['0x10'], false],
-            ['array_numeric', ['null'], false],
-            ['array_numeric', [null], false],
-            ['array_numeric', [true], false],
-            ['array_numeric', [[]], false],
-            ['array_numeric', [''], false],
-
             ['array_object', []],
             ['array_object', [new \stdClass]],
             ['array_object', [1], false],
-
-            ['array_scalar', []],
-            ['array_scalar', [1]],
-            ['array_scalar', [1.1]],
-            ['array_scalar', ['abc']],
-            ['array_scalar', [true, false]],
-            ['array_scalar', [new \stdClass], false],
-            ['array_scalar', [null], false],
-            ['array_scalar', [[1]], false],
         ];
     }
 }
