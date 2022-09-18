@@ -43,14 +43,6 @@ trait TypeTestProvider
     public function numberProvider()
     {
         return [
-            ['int', 0],
-            ['int', 1],
-            ['int', -1],
-            // Invalid int
-            ['int', '123', false],
-            ['int', 1.0, false],
-            ['int', 1.23, false],
-            ['int', true, false],
 
             ['float', 0.1],
             ['float', 1.0],
@@ -186,6 +178,20 @@ trait TypeTestProvider
             [0x10, false],
             [0b10, false],
             [null, false],
+            [true, false],
+        ];
+    }
+
+    public function int_provider()
+    {
+        return [
+            [0],
+            [1],
+            [-1],
+            // Invalid int
+            ['123', false],
+            [1.0, false],
+            [1.23, false],
             [true, false],
         ];
     }

@@ -20,18 +20,6 @@ class TypeTest extends TestCase
     }
 
     /**
-     * @test
-     * @dataProvider string_provider
-     */
-    public function arrayOfString($value, $pass = true)
-    {
-        (! $pass) && $this->invalidTypes($value, 'string[]');
-
-        Assert::type([$value], 'string[]');
-        $this->addToAssertionCount(1);
-    }
-
-    /**
      * @dataProvider numberProvider
      */
     public function testNumber($types, $value, $pass = true)
@@ -99,6 +87,30 @@ class TypeTest extends TestCase
 
     /**
      * @test
+     * @dataProvider arrayWithVariantProvider
+     */
+    public function arrayWithVariant($types, $value, $pass = true)
+    {
+        (! $pass) && $this->invalidTypes($value, $types);
+
+        Assert::type($value, $types);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider string_provider
+     */
+    public function arrayOfString($value, $pass = true)
+    {
+        (! $pass) && $this->invalidTypes($value, 'string[]');
+
+        Assert::type([$value], 'string[]');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
      * @dataProvider string_provider
      */
     public function is_string($value, $pass = true)
@@ -111,13 +123,25 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider arrayWithVariantProvider
+     * @dataProvider int_provider
      */
-    public function arrayWithVariant($types, $value, $pass = true)
+    public function arrayOfInteger($value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidTypes($value, 'int[]');
 
-        Assert::type($value, $types);
+        Assert::type([$value], 'int[]');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider int_provider
+     */
+    public function is_int($value, $pass = true)
+    {
+        (! $pass) && $this->invalidTypes($value, 'int');
+
+        Assert::type($value, 'int');
         $this->addToAssertionCount(1);
     }
 }
