@@ -44,20 +44,6 @@ trait TypeTestProvider
     {
         return [
 
-            ['float', 0.1],
-            ['float', 1.0],
-            ['float', 2.3],
-            ['float', 1 / 3],
-            ['float', 1 - 2 / 3],
-            ['float', log(0)],
-            // Invalid float
-            ['float', 1, false],
-            ['float', false, false],
-            ['float', 'test', false],
-            ['float', null, false],
-            ['float', '1.23', false],
-            ['float', '10', false],
-
             ['numeric', '42'],
             ['numeric', 1337],
             ['numeric', 0x539],
@@ -196,27 +182,28 @@ trait TypeTestProvider
         ];
     }
 
+    public function float_provider()
+    {
+        return [
+            [0.1],
+            [1.0],
+            [2.3],
+            [1 / 3],
+            [1 - 2 / 3],
+            [log(0)],
+            // Invalid float
+            [1, false],
+            [false, false],
+            ['test', false],
+            [null, false],
+            ['1.23', false],
+            ['10', false],
+        ];
+    }
+
     public function arrayWithVariantProvider()
     {
         return [
-            ['int[]', []],
-            ['int[]', [1]],
-            ['int[]', [1.1], false],
-            ['int[]', [0x10]],
-            ['int[]', [0b10]],
-            ['int[]', ['010'], false],
-            ['int[]', ['10'], false],
-            ['int[]', [' 10'], false],
-            ['int[]', ['10.1'], false],
-            ['int[]', ['10e2'], false],
-            ['int[]', ['0b10'], false],
-            ['int[]', ['0x10'], false],
-            ['int[]', ['null'], false],
-            ['int[]', [null], false],
-            ['int[]', [true], false],
-            ['int[]', [[]], false],
-            ['int[]', [''], false],
-
             ['float[]', [0.1]],
             ['float[]', [1.0]],
             ['float[]', [2.3]],

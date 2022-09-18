@@ -144,4 +144,28 @@ class TypeTest extends TestCase
         Assert::type($value, 'int');
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @test
+     * @dataProvider float_provider
+     */
+    public function arrayOfFloat($value, $pass = true)
+    {
+        (! $pass) && $this->invalidTypes($value, 'float[]');
+
+        Assert::type([$value], 'float[]');
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider float_provider
+     */
+    public function is_float($value, $pass = true)
+    {
+        (! $pass) && $this->invalidTypes($value, 'float');
+
+        Assert::type($value, 'float');
+        $this->addToAssertionCount(1);
+    }
 }
