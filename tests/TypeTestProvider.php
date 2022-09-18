@@ -179,7 +179,13 @@ trait TypeTestProvider
             [''],
             [' '],
             ['0'],
-            // [[], false],
+            [[], false],
+            [1, false],
+            [1.1, false],
+            [0x10, false],
+            [0b10, false],
+            [null, false],
+            [true, false],
         ];
     }
 
@@ -187,10 +193,6 @@ trait TypeTestProvider
     {
         return [
             ['string[]', []],
-            ['string[]', [1], false],
-            ['string[]', [1.1], false],
-            ['string[]', [0x10], false],
-            ['string[]', [0b10], false],
             ['string[]', ['010']],
             ['string[]', ['10']],
             ['string[]', [' 10']],
@@ -199,9 +201,6 @@ trait TypeTestProvider
             ['string[]', ['0b10']],
             ['string[]', ['0x10']],
             ['string[]', ['null']],
-            ['string[]', [null], false],
-            ['string[]', [true], false],
-            ['string[]', [[]], false],
             ['string[]', ['']],
 
             ['int[]', []],

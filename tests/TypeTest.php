@@ -27,7 +27,7 @@ class TypeTest extends TestCase
     {
         (! $pass) && $this->invalidTypes($value, 'string[]');
 
-        Assert::type($value, 'string[]');
+        Assert::type([$value], 'string[]');
         $this->addToAssertionCount(1);
     }
 
