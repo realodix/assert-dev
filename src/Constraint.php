@@ -11,9 +11,7 @@ class Constraint
     {
         $result = true;
 
-        // $value = \Aimeos\Map::from($value)->toArray();
-
-        if (empty($value)) {
+        if (empty($value) || ! \is_array($value)) {
             return false;
         }
 

@@ -114,4 +114,12 @@ class TypeTest extends TestCase
     {
         $this->invalidTypes([], 'float[]');
     }
+
+    /**
+     * @test
+     */
+    public function arrayWithVariant3()
+    {
+        $this->invalidTypes(1, 'int[]');
+    }
 }
