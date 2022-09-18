@@ -185,6 +185,7 @@ trait TypeTestProvider
     public function arrayIsProvider()
     {
         return [
+            ['string[]', ['abc' => 'string']],
             ['string[]', ['abc']],
             ['string[]', ['23']],
             ['string[]', ['23.5']],
