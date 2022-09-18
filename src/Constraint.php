@@ -21,4 +21,17 @@ class Constraint
 
         return $result;
     }
+
+    public static function arrayIsObject(array $value): bool
+    {
+        $result = true;
+
+        foreach ($value as $val) {
+            if (! \is_object($val)) {
+                $result = false;
+            }
+        }
+
+        return $result;
+    }
 }

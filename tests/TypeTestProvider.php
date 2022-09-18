@@ -206,6 +206,10 @@ trait TypeTestProvider
             ['array_numeric', [true], false],
             ['array_numeric', [[]], false],
             ['array_numeric', [''], false],
+
+            ['array_object', []],
+            ['array_object', [new \stdClass]],
+            ['array_object', [1], false],
         ];
     }
 }
