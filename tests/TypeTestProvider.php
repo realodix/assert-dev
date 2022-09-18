@@ -244,15 +244,6 @@ trait TypeTestProvider
             ['object[]', []],
             ['object[]', [new \stdClass]],
             ['object[]', [1], false],
-
-            ['callable[]', ['strlen']],
-            ['callable[]', ['Realodix\Assert\Assert::type']],
-            ['callable[]', [function () {}]],
-            ['callable[]', [function (int $input): bool {return $input + ($input / 2) == 15; }]],
-            ['callable[]', [static function () {}]],
-            // Invalid callable
-            ['callable[]', ['foobar'], false],
-            ['callable[]', [new \stdClass], false],
         ];
     }
 }

@@ -54,9 +54,6 @@ Types        | Description
 `int[]`      | `array<int, int>`
 `float[]`    | `array<int, float>`
 `object[]`   | `array<int, object>`
-`callable[]` | `array<int, callable>`
-
-
 
 
 ## License
