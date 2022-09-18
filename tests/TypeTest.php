@@ -21,13 +21,13 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider arrayWithVariantProvider
+     * @dataProvider isStringProvider
      */
-    public function arrayOfString($types, $value, $pass = true)
+    public function arrayOfString($value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidTypes($value, 'string[]');
 
-        Assert::type($value, $types);
+        Assert::type($value, 'string[]');
         $this->addToAssertionCount(1);
     }
 
