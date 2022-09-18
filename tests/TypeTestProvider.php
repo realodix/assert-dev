@@ -185,10 +185,6 @@ trait TypeTestProvider
     public function arrayNewProvider()
     {
         return [
-            ['array_empty', []],
-            ['array_empty', [''], false],
-            ['array_empty', ['abc'], false],
-
             ['array_string', []],
             ['array_string', [1], false],
             ['array_string', [1.1], false],
