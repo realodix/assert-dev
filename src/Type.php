@@ -116,8 +116,9 @@ class Type
             || ('int' === $allowedTypes) && \is_int($value)
             || ('float' === $allowedTypes) && \is_float($value)
             // non-empty-...
-            || ('non-empty-string' === $allowedTypes) && \is_string($value) && empty($value)
-            || ('non-empty-array' === $allowedTypes) && \is_array($value) && empty($value);
+            || ('non-empty-string' === $allowedTypes) && $value !== ''
+            || ('non-empty-array' === $allowedTypes) && $value !== []
+            || ('non-empty-list' === $allowedTypes) && $value !== [];
     }
 
     /**
