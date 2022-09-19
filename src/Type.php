@@ -114,7 +114,10 @@ class Type
             // Number
             || ('numeric' === $allowedTypes) && is_numeric($value)
             || ('int' === $allowedTypes) && \is_int($value)
-            || ('float' === $allowedTypes) && \is_float($value);
+            || ('float' === $allowedTypes) && \is_float($value)
+            // non-empty-...
+            || ('non-empty-string' === $allowedTypes) && \is_string($value) && empty($value)
+            || ('non-empty-array' === $allowedTypes) && \is_array($value) && empty($value);
     }
 
     /**
