@@ -82,7 +82,6 @@ trait UnionTypesTestProvider
             ['scalar|bool', 123],
             ['numeric|int', 123],
             ['numeric|float', 123],
-
             ['array|bool[]', []],
             ['array|string[]', []],
             ['array|int[]', []],
