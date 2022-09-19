@@ -71,6 +71,10 @@ trait UnionTypesTestProvider
             ['bool|bool', true],
             ['bool|string|bool', true],
 
+            ['bool|boolean', true],
+            ['float|double', 1.23],
+            ['int|integer', 123],
+
             ['scalar|numeric', 123],
             ['scalar|int', 123],
             ['scalar|float', 123],
@@ -79,30 +83,12 @@ trait UnionTypesTestProvider
             ['numeric|int', 123],
             ['numeric|float', 123],
 
-            ['bool|boolean', true],
-            ['float|double', 1.23],
-            ['int|integer', 123],
-        ];
-    }
-
-    public function duplicateMembersWithArrayInputProvider()
-    {
-        return [
-            [['bool', 'bool'], true],
-            [['bool', 'string', 'bool'], true],
-            [[InterfaceA::class, InterfaceA::class], new AB],
-
-            [['scalar', 'numeric'], 123],
-            [['scalar', 'int'], 123],
-            [['scalar', 'float'], 123],
-            [['scalar', 'string'], 123],
-            [['scalar', 'bool'], 123],
-            [['numeric', 'int'], 123],
-            [['numeric', 'float'], 123],
-
-            [['bool', 'boolean'], true],
-            [['float', 'double'], 1.23],
-            [['int', 'integer'], 123],
+            ['array|bool[]', []],
+            ['array|string[]', []],
+            ['array|int[]', []],
+            ['array|float[]', []],
+            ['array|object[]', []],
+            ['array|list[]', []],
         ];
     }
 
