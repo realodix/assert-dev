@@ -94,7 +94,7 @@ class Helper
      */
     public static function assertTypeDeclaration(string $types): void
     {
-        if (preg_match('/^[a-z-A-Z|\\\:]+$/', $types) === 0) {
+        if (preg_match('/^[\[\]|a-zA-Z\\\:]+$/', $types) === 0) {
             throw new \ErrorException(
                 "Only '|' symbol that allowed."
             );
@@ -140,7 +140,15 @@ class Helper
                 || \in_array('bool', $types))
             || \in_array('numeric', $types) &&
                 (\in_array('int', $types)
-                || \in_array('float', $types))) {
+                || \in_array('float', $types))
+            || \in_array('array', $types) &&
+                (\in_array('bool[]', $types)
+                || \in_array('string[]', $types)
+                || \in_array('int[]', $types)
+                || \in_array('float[]', $types)
+                || \in_array('object[]', $types)
+                || \in_array('list[]', $types))
+        ) {
             return true;
         }
 

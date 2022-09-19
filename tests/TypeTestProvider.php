@@ -181,4 +181,74 @@ trait TypeTestProvider
             ['string', '0'],
         ];
     }
+
+    public function arrayIsProvider()
+    {
+        return [
+            ['string[]', ['string']],
+            ['string[]', ['string' => 'string']],
+            ['string[]', [0 => 'string']],
+            ['string[]', [1 => 'string']],
+            ['string[]', [1 => 'string', 0 => 'string']],
+            ['string[]', [1], false],
+            ['string[]', ['string', 1], false],
+            ['string[]', [1, 'string'], false],
+            ['string[]', [0 => 0, 1 => 1], false],
+            ['string[]', [0 => 0, 1 => 'string'], false],
+
+            ['int[]', [0]],
+            ['int[]', [1]],
+            ['int[]', [-1]],
+            ['int[]', [1.0], false],
+            ['int[]', [1.23], false],
+            ['int[]', [true], false],
+            ['int[]', ['123'], false],
+
+            ['float[]', [1.0]],
+            ['float[]', [1], false],
+            ['float[]', [true], false],
+            ['float[]', ['string'], false],
+            ['float[]', [null], false],
+            ['float[]', ['1.23'], false],
+            ['float[]', ['10'], false],
+
+            ['bool[]', [true]],
+            ['bool[]', [false]],
+            // Invalid boolean
+            ['bool[]', [1], false],
+            ['bool[]', ['1'], false],
+
+            ['object[]', [new \stdClass]],
+            ['object[]', [new \RuntimeException]],
+            ['object[]', [null], false],
+            ['object[]', [true], false],
+            ['object[]', [1], false],
+
+            ['list[]', []],
+            ['list[]', ['apple', 2, 3]],
+            ['list[]', [0 => 'apple', 'orange']],
+            // The array does not start at 0
+            ['list[]', [1 => 'apple', 'orange'], false],
+            // The keys are not in the correct order
+            ['list[]', [1 => 'apple', 0 => 'orange'], false],
+            // Non-integer keys
+            ['list[]', [0 => 'apple', 'foo' => 'bar'], false],
+            // Non-consecutive keys
+            ['list[]', [0 => 'apple', 2 => 'bar'], false],
+        ];
+    }
+
+    public function arrayIsWithInvalidInputProvider()
+    {
+        return [
+            ['string[]', []],
+
+            ['string[]', ''],
+            ['int[]', 1],
+            ['float[]', 0.1],
+            ['bool[]', true],
+            ['object[]', new \stdClass],
+            ['list[]', 'string'],
+        ];
+    }
 }
