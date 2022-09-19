@@ -105,7 +105,8 @@ class Helper
                 || \in_array('string[]', $types)
                 || \in_array('int[]', $types)
                 || \in_array('float[]', $types)
-                || \in_array('object[]', $types))
+                || \in_array('object[]', $types)
+                || \in_array('list[]', $types))
         ) {
             return true;
         }
