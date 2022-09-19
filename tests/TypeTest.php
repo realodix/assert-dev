@@ -3,6 +3,7 @@
 namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
+use Realodix\Assert\Constraint;
 
 class TypeTest extends TestCase
 {
@@ -114,5 +115,16 @@ class TypeTest extends TestCase
     public function arrayIsWithInvalidInput($types, $value)
     {
         $this->invalidTypes($value, $types);
+    }
+
+    /**
+     * @test
+     */
+    public function arrayKeyValueIs()
+    {
+
+        $this->assertTrue(
+            Constraint::arrayKeyValueIs(['1a' => 'true'], 'is_string')
+        );
     }
 }
