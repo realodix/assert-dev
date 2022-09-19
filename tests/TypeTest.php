@@ -122,7 +122,6 @@ class TypeTest extends TestCase
      */
     public function arrayKeyValueIs()
     {
-
         $this->assertTrue(
             Constraint::arrayKeyValueIs(['1a' => 'true'], 'is_string')
         );
