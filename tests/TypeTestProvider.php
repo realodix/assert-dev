@@ -248,6 +248,7 @@ trait TypeTestProvider
             ['float[]', 0.1],
             ['bool[]', true],
             ['object[]', new \stdClass],
+            ['list[]', 'string'],
         ];
     }
 }

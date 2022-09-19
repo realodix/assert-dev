@@ -31,6 +31,10 @@ class Constraint
      */
     public static function arrayIsList($value): bool
     {
+        if (! \is_array($value)) {
+            return false;
+        }
+
         return array_is_list($value);
     }
 }
