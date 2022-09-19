@@ -49,11 +49,11 @@ Types       | Description
 `array`     | Check whether a variable is an array or not
 `countable` | Check whether the contents of a variable is a countable value or not
 `iterable`  | Check whether the contents of a variable is an iterable value or not
+`list[]`    | Check that an array is a non-associative list, see [php.net/manual/function.array-is-list](https://www.php.net/manual/en/function.array-is-list.php)
 `bool[]`    | `array<mixed, bool>`
 `string[]`  | `array<mixed, string>`
 `int[]`     | `array<mixed, int>`
 `float[]`   | `array<mixed, float>`
-`list[]`    | Check that an array is a non-associative list, see [php.net/manual/function.array-is-list](https://www.php.net/manual/en/function.array-is-list.php)
 `object[]`  | `array<mixed, object>`
 
 
