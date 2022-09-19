@@ -60,7 +60,7 @@ class Type
      * @throws \ErrorException
      * @throws Exception\UnknownClassOrInterfaceException
      */
-    private static function intersectionTypesValidator($value, array $types): bool
+    private static function intersectionTypesValidator($value, ...$types): bool
     {
         Helper::assertIntersectionTypeMember($types);
 
