@@ -7,7 +7,6 @@
     "homepage": "https://github.com/realodix/assert",
     "require": {
         "php": ">=7.4",
-        "aimeos/map": "^3.2",
         "symfony/polyfill-php80": "^1.26",
         "symfony/polyfill-php81": "^1.26"
     },
