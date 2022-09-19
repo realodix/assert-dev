@@ -11,7 +11,7 @@ class Constraint
     {
         $result = true;
 
-        if (empty($value) || ! \is_array($value)) {
+        if (! \is_array($value) || empty($value)) {
             return false;
         }
 
