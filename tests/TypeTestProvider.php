@@ -194,6 +194,7 @@ trait TypeTestProvider
             ['string[]', ['string', 1], false],
             ['string[]', [1, 'string'], false],
             ['string[]', [0 => 0, 1 => 1], false],
+            ['string[]', [0 => 0, 1 => 'string'], false],
 
             ['int[]', [0]],
             ['int[]', [1]],
