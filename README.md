@@ -53,6 +53,7 @@ Types       | Description
 `string[]`  | `array<mixed, string>`
 `int[]`     | `array<mixed, int>`
 `float[]`   | `array<mixed, float>`
+`list[]`    | `array<int, mixed>`, Check that an array is a non-associative list
 `object[]`  | `array<mixed, object>`
 
 

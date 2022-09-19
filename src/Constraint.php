@@ -23,4 +23,14 @@ class Constraint
 
         return $result;
     }
+
+    /**
+     * https://www.php.net/manual/en/function.array-is-list.php
+     *
+     * @param mixed $value
+     */
+    public static function arrayIsList($value): bool
+    {
+        return array_is_list($value);
+    }
 }

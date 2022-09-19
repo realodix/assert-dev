@@ -106,6 +106,7 @@ class Type
             || ('int[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_int')
             || ('float[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_float')
             || ('object[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_object')
+            || ('list[]' === $allowedTypes) && Constraint::arrayIsList($value)
             // Boolean
             || ('bool' === $allowedTypes) && \is_bool($value)
             || ('true' === $allowedTypes) && $value === true

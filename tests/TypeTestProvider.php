@@ -232,6 +232,18 @@ trait TypeTestProvider
             ['object[]', [true], false],
             ['object[]', [1], false],
             ['object[]', [[]], false],
+
+            ['list[]', []],
+            ['list[]', ['apple', 2, 3]],
+            ['list[]', [0 => 'apple', 'orange']],
+            // The array does not start at 0
+            ['list[]', [1 => 'apple', 'orange'], false],
+            // The keys are not in the correct order
+            ['list[]', [1 => 'apple', 0 => 'orange'], false],
+            // Non-integer keys
+            ['list[]', [0 => 'apple', 'foo' => 'bar'], false],
+            // Non-consecutive keys
+            ['list[]', [0 => 'apple', 2 => 'bar'], false],
         ];
     }
 
