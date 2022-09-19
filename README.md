@@ -53,7 +53,7 @@ Types       | Description
 `string[]`  | `array<mixed, string>`
 `int[]`     | `array<mixed, int>`
 `float[]`   | `array<mixed, float>`
-`list[]`    | Check that an array is a non-associative list, see [php.net/manual/en/function.array-is-list.php](https://www.php.net/manual/en/function.array-is-list.php)
+`list[]`    | Check that an array is a non-associative list, see [php.net/manual/function.array-is-list.php](https://www.php.net/manual/en/function.array-is-list.php)
 `object[]`  | `array<mixed, object>`
 
 
