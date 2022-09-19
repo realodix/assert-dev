@@ -198,7 +198,6 @@ trait TypeTestProvider
             ['string[]', [0b10], false],
             ['string[]', [null], false],
             ['string[]', [true], false],
-            ['string[]', [[]], false],
 
             ['int[]', [0]],
             ['int[]', [1]],
@@ -231,7 +230,6 @@ trait TypeTestProvider
             ['object[]', [null], false],
             ['object[]', [true], false],
             ['object[]', [1], false],
-            ['object[]', [[]], false],
 
             ['list[]', []],
             ['list[]', ['apple', 2, 3]],
