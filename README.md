@@ -63,7 +63,7 @@ Super-type | Sub-type
 ---------- | ------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
 `numeric`  | `int`, and  `float`
-`array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]` and  `float`
+`array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]` and  `float[]`
 
 ## License
 
