@@ -110,6 +110,8 @@ class Helper
                 || \in_array('float[]', $types)
                 || \in_array('object[]', $types)
                 || \in_array('list[]', $types))
+            || \in_array('non-empty-array', $types) &&
+                (\in_array('non-empty-list', $types))
         ) {
             return true;
         }

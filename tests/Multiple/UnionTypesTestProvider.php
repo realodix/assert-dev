@@ -90,6 +90,8 @@ trait UnionTypesTestProvider
             ['array|float[]', []],
             ['array|object[]', []],
             ['array|list[]', []],
+
+            ['non-empty-array|non-empty-list', ['string']],
         ];
     }
 
