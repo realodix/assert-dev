@@ -242,6 +242,7 @@ trait TypeTestProvider
     {
         return [
             ['non-empty-string', 'string'],
+            ['non-empty-string', ['string'], false],
             ['non-empty-string', '', false],
             ['non-empty-string', [''], false],
             ['non-empty-string', null, false],
