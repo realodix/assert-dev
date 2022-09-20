@@ -241,10 +241,22 @@ trait TypeTestProvider
     public function nonEmptyProvider()
     {
         return [
-            ['non-empty-string', ['abc']],
-            ['non-empty-array', [1]],
+            ['non-empty-string', 'string'],
+            ['non-empty-string', '', false],
+            ['non-empty-string', [''], false],
+            ['non-empty-string', null, false],
+            ['non-empty-string', [null], false],
+            ['non-empty-string', 0, false],
+            ['non-empty-string', [0], false],
+            ['non-empty-string', 0.0, false],
+            ['non-empty-string', [0.0], false],
+            ['non-empty-string', false, false],
+            ['non-empty-string', [false], false],
+            ['non-empty-string', [], false],
+            ['non-empty-string', [[]], false],
 
-            // ['non-empty-string', '', false],
+            // ['non-empty-array', [1]],
+
             // ['non-empty-string', [], false],
             // ['non-empty-array', 0, false],
         ];
