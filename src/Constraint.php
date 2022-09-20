@@ -44,11 +44,7 @@ class Constraint
      */
     public static function nonEmptyString($value): bool
     {
-        if (! \is_string($value)) {
-            return false;
-        }
-
-        if (empty($value)) {
+        if (! \is_string($value) || empty($value)) {
             return false;
         }
 
@@ -60,11 +56,7 @@ class Constraint
      */
     public static function nonEmptyArray($value): bool
     {
-        if (! \is_array($value)) {
-            return false;
-        }
-
-        if (empty(array_filter($value))) {
+        if (! \is_array($value) || empty(array_filter($value))) {
             return false;
         }
 
