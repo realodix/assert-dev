@@ -271,10 +271,11 @@ trait TypeTestProvider
             ['non-empty-array', [], false],
             ['non-empty-array', [[]], false],
 
-            // ['non-empty-array', [1]],
+            ['non-empty-list', ['string']],
+            ['non-empty-list', ['string' => 'string'], false],
 
+            // ['non-empty-array', [1]],
             // ['non-empty-string', [], false],
-            // ['non-empty-array', 0, false],
         ];
     }
 
