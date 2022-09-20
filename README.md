@@ -56,8 +56,8 @@ Types       | Description
 `int[]`     | `array<mixed, int>`
 `float[]`   | `array<mixed, float>`
 `object[]`  | `array<mixed, object>`
-`non-empty-array`  | Check whether a variable is of type array, and not empty
-`non-empty-list`   | Check that an array is a non-associative list, and not empty
+`non-empty-array` | Check whether a variable is of type array, and not empty
+`non-empty-list`  | Check that an array is a non-associative list, and not empty
 
 
 ## License
