@@ -62,7 +62,7 @@ Types       | Description
 You cannot declare a super-type and a sub-type in one union type declaration.
 
 Super-type | Sub-type
----------- | ------------------------------------------------------------------
+---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
 `bool`     | `true`, and  `false`
 `numeric`  | `int`, and  `float`
