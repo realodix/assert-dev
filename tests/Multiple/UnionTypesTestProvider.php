@@ -91,6 +91,7 @@ trait UnionTypesTestProvider
             ['array|object[]', []],
             ['array|list[]', []],
 
+            ['list[]|non-empty-list', ['string']],
             ['non-empty-array|non-empty-list', ['string']],
         ];
     }

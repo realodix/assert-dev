@@ -68,6 +68,7 @@ Super-type | Sub-type
 `numeric`  | `int`, and  `float`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
 `non-empty-array` | `non-empty-list`
+`list[]`   | `non-empty-list`
 
 ## License
 
