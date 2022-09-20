@@ -38,4 +38,28 @@ class Constraint
         // symfony/polyfill-php81
         return array_is_list($value);
     }
+
+    /**
+     * @param mixed $value
+     */
+    public static function nonEmptyString($value): bool
+    {
+        if (! \is_string($value) || empty($value)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public static function nonEmptyArray($value): bool
+    {
+        if (! \is_array($value) || empty(array_filter($value))) {
+            return false;
+        }
+
+        return true;
+    }
 }

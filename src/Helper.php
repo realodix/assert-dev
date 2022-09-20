@@ -94,7 +94,7 @@ class Helper
      */
     public static function assertTypeDeclaration(string $types): void
     {
-        if (preg_match('/^[\[\]|a-zA-Z\\\:]+$/', $types) === 0) {
+        if (preg_match('/^[\[\]\-|a-zA-Z\\\:]+$/', $types) === 0) {
             throw new \ErrorException(
                 "Only '|' symbol that allowed."
             );
