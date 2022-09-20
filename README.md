@@ -66,7 +66,7 @@ Super-type | Sub-type
 `bool`     | `true`, and  `false`
 `numeric`  | `int`, and  `float`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, and `non-empty-array`
-`string`   | `non-empty-string`
+
 
 ### Array Assertions
 
