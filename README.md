@@ -59,6 +59,11 @@ Types       | Description
 `non-empty-array` | Check whether a variable is of type array, and not empty
 `non-empty-list`  | Check that an array is a non-associative list, and not empty
 
+Super-type | Sub-type
+---------- | ------------------------------------------------------------------
+`scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
+`numeric`  | `int`, and  `float`
+`array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]` and  `float`
 
 ## License
 
