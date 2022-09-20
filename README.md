@@ -14,14 +14,14 @@ common kind is to check the type of a parameter, typically in a constructor or a
 ```php
 use Realodix\Assert\Assert;
 
-public function setFoo($foo)
-{
-    Assert::type('integer', $foo, 'foo');
-}
-
 public function __construct($bar, array $bazz)
 {
     Assert::type('Me\MyApp\SomeClass', $bar);
+}
+
+public function setFoo($foo)
+{
+    Assert::type('integer', $foo, 'foo');
 }
 ```
 
