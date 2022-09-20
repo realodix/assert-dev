@@ -84,15 +84,17 @@ trait UnionTypesTestProvider
             ['bool|false', false],
             ['numeric|int', 123],
             ['numeric|float', 123],
+
             ['array|bool[]', []],
             ['array|string[]', []],
             ['array|int[]', []],
             ['array|float[]', []],
             ['array|object[]', []],
             ['array|list[]', []],
-
-            ['list[]|non-empty-list', ['string']],
+            ['array|non-empty-array', ['string']],
+            ['array|non-empty-list', ['string']],
             ['non-empty-array|non-empty-list', ['string']],
+            ['non-empty-list|list[]', ['string']],
         ];
     }
 
