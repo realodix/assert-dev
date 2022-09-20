@@ -68,10 +68,22 @@ class Constraint
      */
     public static function nonEmptyList($value): bool
     {
-        if (! self::arrayIsList($value) || empty(array_filter($value))) {
+        $result = true;
+
+        if (! self::arrayIsList($value)) {
             return false;
         }
 
-        return true;
+        if (empty(array_filter($value))) {
+            $result = false;
+        }
+
+        foreach ($value as $val) {
+            if (empty($val)) {
+                $result = false;
+            }
+        }
+
+        return $result;
     }
 }
