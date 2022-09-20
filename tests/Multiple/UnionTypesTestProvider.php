@@ -86,7 +86,12 @@ trait UnionTypesTestProvider
             ['numeric|float', 123],
 
             ['string|non-empty-string', 'string'],
+        ];
+    }
 
+    public function duplicateMembersWithArrayInputProvider()
+    {
+        return [
             ['array|bool[]', []],
             ['array|string[]', []],
             ['array|int[]', []],
