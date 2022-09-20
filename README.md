@@ -59,7 +59,7 @@ Types       | Description
 Super-type | Sub-type
 ---------- | ------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`numeric`  | `true`, and  `false`
+`bool`     | `true`, and  `false`
 `numeric`  | `int`, and  `float`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]` and  `float[]`
 
