@@ -70,6 +70,7 @@ trait UnionTypesTestProvider
         return [
             ['bool|bool', true],
             ['bool|string|bool', true],
+            // ['int|string|INT', 1],
 
             ['bool|boolean', true],
             ['float|double', 1.23],
