@@ -112,9 +112,11 @@ class Helper
                 || \in_array('list[]', $types)
                 || \in_array('non-empty-array', $types)
                 || \in_array('non-empty-list', $types))
-            || \in_array('non-empty-list', $types) &&
+            || \in_array('non-empty-array', $types) &&
                 (\in_array('list[]', $types)
-                || (\in_array('non-empty-array', $types)))
+                || (\in_array('non-empty-list', $types)))
+            || \in_array('list[]', $types) &&
+                (\in_array('non-empty-list', $types))
         ) {
             return true;
         }
