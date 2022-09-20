@@ -40,8 +40,6 @@ class Constraint
     }
 
     /**
-     * https://www.php.net/manual/en/function.array-is-list.php
-     *
      * @param mixed $value
      */
     public static function nonEmptyString($value): bool
@@ -51,6 +49,22 @@ class Constraint
         }
 
         if (empty($value)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public static function nonEmptyArray($value): bool
+    {
+        if (! \is_array($value)) {
+            return false;
+        }
+
+        if (empty(array_filter($value))) {
             return false;
         }
 
