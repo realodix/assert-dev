@@ -37,6 +37,7 @@ Types       | Description
 `int`       | Check whether a variable is of type integer or not
 `float`     | Check whether a variable is of type float or not
 `string`    | Check whether a variable is of type string or not
+`non-empty-string` | Check whether a variable is of type string, and not empty
 `numeric`   | Check whether a variable is a number or a numeric string, or not
 `scalar`    | Check whether a variable is a scalar or not
 `null`      | Check whether a variable is NULL or not
@@ -55,7 +56,6 @@ Types       | Description
 `int[]`     | `array<mixed, int>`
 `float[]`   | `array<mixed, float>`
 `object[]`  | `array<mixed, object>`
-`non-empty-string` | Check whether a variable is of type string, and not empty
 `non-empty-array`  | Check whether a variable is of type array, and not empty
 `non-empty-list`   | Check that an array is a non-associative list, and not empty
 
