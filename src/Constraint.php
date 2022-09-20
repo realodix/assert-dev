@@ -62,16 +62,4 @@ class Constraint
 
         return true;
     }
-
-    /**
-     * @param mixed $value
-     */
-    public static function nonEmptyList($value): bool
-    {
-        if (! self::arrayIsList($value) || empty(array_filter($value))) {
-            return false;
-        }
-
-        return true;
-    }
 }

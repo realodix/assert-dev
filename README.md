@@ -57,14 +57,13 @@ Types       | Description
 `float[]`   | `array<mixed, float>`
 `object[]`  | `array<mixed, object>`
 `non-empty-array` | Check whether a variable is of type array, and not empty
-`non-empty-list`  | Check that an array is a non-associative list, and not empty
 
 Super-type | Sub-type
 ---------- | ------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
 `bool`     | `true`, and  `false`
 `numeric`  | `int`, and  `float`
-`array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-array`, and `non-empty-list`
+`array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-array`, and `non-empty-string`
 `string`   | `non-empty-string`
 
 ## License
