@@ -117,7 +117,8 @@ class Type
             || ('float' === $allowedTypes) && \is_float($value)
             // non-empty-...
             || ('non-empty-string' === $allowedTypes) && Constraint::nonEmptyString($value)
-            || ('non-empty-array' === $allowedTypes) && Constraint::nonEmptyArray($value);
+            || ('non-empty-array' === $allowedTypes) && Constraint::nonEmptyArray($value)
+            || ('non-empty-list' === $allowedTypes) && Constraint::nonEmptyList($value);
     }
 
     /**
