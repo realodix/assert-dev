@@ -116,9 +116,9 @@ class Helper
                 (\in_array('list[]', $types)
                 || (\in_array('non-empty-list', $types)))
             || \in_array('list[]', $types) &&
-                (\in_array('non-empty-list', $types))
+                \in_array('non-empty-list', $types)
             || \in_array('string', $types) &&
-                (\in_array('non-empty-string', $types))
+                \in_array('non-empty-string', $types)
         ) {
             return true;
         }
