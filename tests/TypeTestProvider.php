@@ -276,9 +276,6 @@ trait TypeTestProvider
             ['non-empty-list', [0 => 'apple', 'orange']],
             ['non-empty-list', [], false],
             ['non-empty-list', ['string' => 'string'], false],
-
-            // ['non-empty-array', [1]],
-            // ['non-empty-string', [], false],
         ];
     }
 
