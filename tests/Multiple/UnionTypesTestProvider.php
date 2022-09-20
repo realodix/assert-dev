@@ -85,6 +85,8 @@ trait UnionTypesTestProvider
             ['numeric|int', 123],
             ['numeric|float', 123],
 
+            ['string|non-empty-string', 'string'],
+
             ['array|bool[]', []],
             ['array|string[]', []],
             ['array|int[]', []],
