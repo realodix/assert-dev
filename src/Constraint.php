@@ -63,7 +63,7 @@ class Constraint
         return true;
     }
 
-        /**
+    /**
      * @param mixed $value
      */
     public static function nonEmptyList($value): bool
