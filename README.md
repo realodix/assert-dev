@@ -58,6 +58,8 @@ Types       | Description
 `object[]`  | `array<mixed, object>`
 `non-empty-array` | Check whether a variable is of type array, and not empty
 
+You cannot declare a super-type and a sub-type in one union type declaration.
+
 Super-type | Sub-type
 ---------- | ------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
