@@ -70,9 +70,9 @@ class UnionTypesTest extends TestCase
      * Each name-resolved type may only occur once. Types like A|B|A or A&B&A
      * result in an error.
      *
-     * @dataProvider duplicateMembersProvider
+     * @dataProvider duplicateTypesProvider
      */
-    public function testDuplicateMembers($types, $value)
+    public function testDuplicateTypes($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
@@ -87,9 +87,9 @@ class UnionTypesTest extends TestCase
     }
 
     /**
-     * @dataProvider redundantMembersProvider
+     * @dataProvider redundantTypesProvider
      */
-    public function testRedundantMembers($types, $value)
+    public function testRedundantTypes($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(

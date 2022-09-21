@@ -65,7 +65,7 @@ trait UnionTypesTestProvider
         ];
     }
 
-    public function duplicateMembersProvider()
+    public function duplicateTypesProvider()
     {
         return [
             ['bool|bool', true],
@@ -78,7 +78,7 @@ trait UnionTypesTestProvider
         ];
     }
 
-    public function redundantMembersProvider()
+    public function redundantTypesProvider()
     {
         return [
             ['scalar|numeric', 123],
