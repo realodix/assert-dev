@@ -14,11 +14,6 @@ common kind is to check the type of a parameter, typically in a constructor or a
 ```php
 use Realodix\Assert\Assert;
 
-public function __construct($bar, array $bazz)
-{
-    Assert::type($bar, 'Me\MyApp\SomeClass');
-}
-
 public function setFoo($foo)
 {
     Assert::type($foo, 'int', 'message');
@@ -29,10 +24,6 @@ public function setBar($foo)
     Assert::type($foo, 'int|float', 'message');
 }
 ```
-
-Checking parameters, or other assertions such as pre- or postconditions, is not recommended for
-performance critical regions of the code, since evaluating expressions and calling the assertion
-functions costs time.
 
 ### Types Assertions
 
