@@ -60,7 +60,7 @@ Types       | Description
 `non-empty-list`  | Check that an array is a non-associative list, and not empty
 
 #### Redundant types
-You cannot declare a super-type and a sub-type one union type declaration.
+You cannot declare a super-type and a sub-type one union type declarations.
 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
