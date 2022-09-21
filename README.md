@@ -72,6 +72,15 @@ Super-type | Sub-type
 `list[]`   | `non-empty-list`
 `non-empty-array` | `non-empty-list`
 
+```php
+use Realodix\Assert\Assert;
+
+public function setFoo($foo)
+{
+    Assert::type($foo, 'bool|false'); // Disallowed
+}
+```
+
 ## License
 
 This package is licensed using the [MIT License](/LICENSE).
