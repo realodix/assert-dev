@@ -14,11 +14,6 @@ common kind is to check the type of a parameter, typically in a constructor or a
 ```php
 use Realodix\Assert\Assert;
 
-public function __construct($bar, array $bazz)
-{
-    Assert::type($bar, 'Me\MyApp\SomeClass');
-}
-
 public function setFoo($foo)
 {
     Assert::type($foo, 'int', 'message');
