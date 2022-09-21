@@ -113,19 +113,18 @@ class Helper
                 || \in_array('non-empty-array', $types)
                 || \in_array('non-empty-list', $types))
             || \in_array('non-empty-array', $types) &&
-                (\in_array('list[]', $types)
-                || (\in_array('non-empty-list', $types)))
-            || \in_array('list[]', $types) &&
-                \in_array('non-empty-list', $types)
-            || \in_array('string', $types) &&
-                \in_array('non-empty-string', $types)
+                (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
+            || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
+            || \in_array('string', $types) && \in_array('non-empty-string', $types)
         ) {
             return true;
         }
 
         // Duplicate types
         $actualTypesCount = \count($types);
-        $expectedTypesCount = \count(array_intersect_key($types, array_unique(array_map('strtolower', $types))));
+        $expectedTypesCount = \count(
+            array_intersect_key($types, array_unique(array_map('strtolower', $types)))
+        );
         if ($expectedTypesCount < $actualTypesCount) {
             return true;
         }
