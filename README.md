@@ -16,12 +16,17 @@ use Realodix\Assert\Assert;
 
 public function __construct($bar, array $bazz)
 {
-    Assert::type('Me\MyApp\SomeClass', $bar);
+    Assert::type($bar, 'Me\MyApp\SomeClass');
 }
 
 public function setFoo($foo)
 {
-    Assert::type('integer', $foo, 'foo');
+    Assert::type($foo, 'int', 'message');
+}
+
+public function setBar($foo)
+{
+    Assert::type($foo, 'int|float', 'message');
 }
 ```
 
