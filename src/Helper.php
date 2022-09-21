@@ -121,11 +121,11 @@ class Helper
         }
 
         // Duplicate types
-        $actualTypesCount = \count($types);
-        $expectedTypesCount = \count(
+        $actTypesCount = \count($types);
+        $expTypesCount = \count(
             array_intersect_key($types, array_unique(array_map('strtolower', $types)))
         );
-        if ($expectedTypesCount < $actualTypesCount) {
+        if ($expTypesCount < $actTypesCount) {
             return true;
         }
 
