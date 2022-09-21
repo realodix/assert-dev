@@ -75,7 +75,12 @@ trait UnionTypesTestProvider
             ['bool|boolean', true],
             ['float|double', 1.23],
             ['int|integer', 123],
+        ];
+    }
 
+    public function redundantMembersProvider()
+    {
+        return [
             ['scalar|numeric', 123],
             ['scalar|int', 123],
             ['scalar|float', 123],
@@ -87,12 +92,7 @@ trait UnionTypesTestProvider
             ['numeric|float', 123],
 
             ['string|non-empty-string', 'string'],
-        ];
-    }
 
-    public function duplicateMembersWithArrayInputProvider()
-    {
-        return [
             ['array|bool[]', []],
             ['array|string[]', []],
             ['array|int[]', []],

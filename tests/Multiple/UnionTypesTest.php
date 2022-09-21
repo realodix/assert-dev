@@ -78,30 +78,28 @@ class UnionTypesTest extends TestCase
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
-        Assert::type($value, $types);
+
+        if (\is_array($types)) {
+            Assert::type([$value], $types);
+        } else {
+            Assert::type($value, $types);
+        }
     }
 
     /**
-     * @dataProvider duplicateMembersProvider
+     * @dataProvider redundantMembersProvider
      */
-    public function testDuplicateMembersWithArrayInput($types, $value)
+    public function testRedundantMembers($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
-        Assert::type([$value], $types);
-    }
 
-    /**
-     * @dataProvider duplicateMembersWithArrayInputProvider
-     */
-    public function testDuplicateMembersWithArrayInput2($types, $value)
-    {
-        $this->expectException(\ErrorException::class);
-        $this->expectExceptionMessage(
-            'Duplicate type names in the same declaration is not allowed.'
-        );
-        Assert::type($value, $types);
+        if (\is_array($types)) {
+            Assert::type([$value], $types);
+        } else {
+            Assert::type($value, $types);
+        }
     }
 }
