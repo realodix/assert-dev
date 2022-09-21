@@ -91,6 +91,7 @@ class Helper
             $types = explode('|', $types);
         }
 
+        // Redundant types
         if (\in_array('scalar', $types) &&
                 (\in_array('numeric', $types)
                 || \in_array('int', $types)
@@ -123,6 +124,7 @@ class Helper
             return true;
         }
 
+        // Duplicate types
         // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
         $actualTypesCount = \count($types);
         $expectedTypesCount = \count(array_unique(array_map('strtolower', $types)));
