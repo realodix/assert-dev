@@ -65,11 +65,6 @@ class UnionTypesTest extends TestCase
     }
 
     /**
-     * Reject duplicate type names
-     *
-     * Each name-resolved type may only occur once. Types like A|B|A or A&B&A
-     * result in an error.
-     *
      * @dataProvider duplicateTypesProvider
      */
     public function testDuplicateTypes($types, $value)
@@ -79,11 +74,21 @@ class UnionTypesTest extends TestCase
             'Duplicate type names in the same declaration is not allowed.'
         );
 
-        if (\is_array($types)) {
-            Assert::type($value, $types);
-        } else {
-            Assert::type([$value], $types);
-        }
+        Assert::type($value, $types);
+    }
+
+    /**
+     * @dataProvider duplicateTypesProvider
+     */
+    public function testDuplicateTypesWithArrayTypeInput($types, $value)
+    {
+        $this->expectException(\ErrorException::class);
+        $this->expectExceptionMessage(
+            'Duplicate type names in the same declaration is not allowed.'
+        );
+
+        $types = explode('|', $types);
+        Assert::type($value, $types);
     }
 
     /**
@@ -96,10 +101,20 @@ class UnionTypesTest extends TestCase
             'Duplicate type names in the same declaration is not allowed.'
         );
 
-        if (\is_array($types)) {
-            Assert::type($value, $types);
-        } else {
-            Assert::type([$value], $types);
-        }
+        Assert::type($value, $types);
+    }
+
+    /**
+     * @dataProvider redundantTypesProvider
+     */
+    public function testRedundantTypesWithArrayTypeInput($types, $value)
+    {
+        $this->expectException(\ErrorException::class);
+        $this->expectExceptionMessage(
+            'Duplicate type names in the same declaration is not allowed.'
+        );
+
+        $types = explode('|', $types);
+        Assert::type($value, $types);
     }
 }
