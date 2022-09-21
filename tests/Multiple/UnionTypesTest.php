@@ -11,18 +11,20 @@ class UnionTypesTest extends TestCase
     use UnionTypesTestProvider;
 
     /**
+     * @test
      * @dataProvider validTypesProvider
      */
-    public function testValidTypes($types, $value)
+    public function validTypes($types, $value)
     {
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
 
     /**
+     * @test
      * @dataProvider invalidTypesProvider
      */
-    public function testInvalidTypes($types, $value)
+    public function invalidTypes($types, $value)
     {
         $this->expectException(TypeErrorException::class);
         Assert::type($value, $types);
@@ -35,9 +37,10 @@ class UnionTypesTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider allowedSymbolProvider
      */
-    public function testAllowedSymbol($types, $value)
+    public function allowedSymbol($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage("Only '|' symbol that allowed.");
@@ -45,9 +48,10 @@ class UnionTypesTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider symbolsMustBeBetweenTypeNamesProvider
      */
-    public function testSymbolsMustBeBetweenTypeNames($types, $value)
+    public function symbolsMustBeBetweenTypeNames($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage('Symbols must be between type names.');
@@ -55,9 +59,10 @@ class UnionTypesTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider duplicateSymbolsProvider
      */
-    public function testDuplicateSymbols($types, $value)
+    public function duplicateSymbols($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage('Duplicate symbols are not allowed.');
@@ -65,9 +70,10 @@ class UnionTypesTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider duplicateTypesProvider
      */
-    public function testDuplicateTypes($types, $value)
+    public function duplicateTypes($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
@@ -78,9 +84,10 @@ class UnionTypesTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider duplicateTypesProvider
      */
-    public function testDuplicateTypesWithArrayTypeInput($types, $value)
+    public function duplicateTypesWithTypeInputAsAnArray($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
@@ -92,9 +99,10 @@ class UnionTypesTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider redundantTypesProvider
      */
-    public function testRedundantTypes($types, $value)
+    public function redundantTypes($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
@@ -105,9 +113,10 @@ class UnionTypesTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider redundantTypesProvider
      */
-    public function testRedundantTypesWithArrayTypeInput($types, $value)
+    public function redundantTypesWithTypeInputAsAnArray($types, $value)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
