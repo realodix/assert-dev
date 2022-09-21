@@ -80,9 +80,9 @@ class UnionTypesTest extends TestCase
         );
 
         if (\is_array($types)) {
-            Assert::type([$value], $types);
-        } else {
             Assert::type($value, $types);
+        } else {
+            Assert::type([$value], $types);
         }
     }
 
@@ -97,9 +97,9 @@ class UnionTypesTest extends TestCase
         );
 
         if (\is_array($types)) {
-            Assert::type([$value], $types);
-        } else {
             Assert::type($value, $types);
+        } else {
+            Assert::type([$value], $types);
         }
     }
 }
