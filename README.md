@@ -77,7 +77,8 @@ use Realodix\Assert\Assert;
 
 public function setFoo($foo)
 {
-    Assert::type($foo, 'bool|false'); // Disallowed
+    // Disallowed because false is a type of bool
+    Assert::type($foo, 'bool|false');
 }
 ```
 
