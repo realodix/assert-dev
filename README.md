@@ -30,10 +30,6 @@ public function setBar($foo)
 }
 ```
 
-Checking parameters, or other assertions such as pre- or postconditions, is not recommended for
-performance critical regions of the code, since evaluating expressions and calling the assertion
-functions costs time.
-
 ### Types Assertions
 
 Types       | Description
