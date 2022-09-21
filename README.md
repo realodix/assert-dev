@@ -59,6 +59,7 @@ Types       | Description
 `non-empty-array` | Check whether a variable is of type array, and not empty
 `non-empty-list`  | Check that an array is a non-associative list, and not empty
 
+#### Redundant types
 You cannot declare a super-type and a sub-type in one union type declaration.
 
 Super-type | Sub-type
