@@ -7,7 +7,8 @@ use Realodix\Assert\Assert;
 
 class ExceptionMessageTest extends TestCase
 {
-    public function testExceptionMessage()
+    /** @test */
+    public function exceptionMessage()
     {
         $this->expectExceptionMessage('Expected a string. Got: int.');
         Assert::type(1, 'string');
@@ -16,7 +17,8 @@ class ExceptionMessageTest extends TestCase
         Assert::type('1', 'int');
     }
 
-    public function testCustomExceptionMessage()
+    /** @test */
+    public function customExceptionMessage()
     {
         $message = 'foobar';
 
@@ -24,7 +26,8 @@ class ExceptionMessageTest extends TestCase
         Assert::type(1, 'string', $message);
     }
 
-    public function testInvalidTypeValueForType()
+    /** @test */
+    public function invalidTypeValueForType()
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage("Argument #2 (\$types) must 'string or array'.");
