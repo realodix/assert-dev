@@ -50,6 +50,17 @@ class Assert
         self::notEmpty($array, $message);
     }
 
+    public static function count($array, $number, $message = '')
+    {
+        if (\count($array) != $number) {
+            throw new \InvalidArgumentException(\sprintf(
+                $message ?: 'Expected an array to contain %d elements. Got: %d.',
+                $number,
+                \count($array)
+            ));
+        }
+    }
+
     public static function maxCount($array, $max, $message = '')
     {
         if (\count($array) > $max) {

@@ -44,6 +44,14 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
+    public function testCount()
+    {
+        $value = ['string' => true];
+
+        Assert::count($value, 1);
+        $this->addToAssertionCount(1);
+    }
+
     /** @test */
     public function maxCount()
     {
