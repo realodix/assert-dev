@@ -14,30 +14,34 @@ class IntersectionTypesTest extends TestCase
     use IntersectionTypesTestProvider;
 
     /**
+     * @test
      * @dataProvider intersectionTypesProvider
      */
-    public function testValidTypes($value, $types)
+    public function validTypes($value, $types)
     {
         Type::intersection($value, $types);
         $this->addToAssertionCount(1);
     }
 
     /**
+     * @test
      * @dataProvider invalidIntersectionTypesProvider
      */
-    public function testInvalidTypes($value, $types)
+    public function invalidTypes($value, $types)
     {
         $this->expectException(TypeErrorException::class);
         Type::intersection($value, $types);
     }
 
-    public function testExceptionMessage()
+    /** @test */
+    public function exceptionMessage()
     {
         $this->expectExceptionMessage('Expected an ArrayAccess & Countable. Got: stdClass.');
         Type::intersection(new \stdClass, [\ArrayAccess::class, \Countable::class]);
     }
 
-    public function testExceptionMessage2()
+    /** @test */
+    public function exceptionMessage2()
     {
         $this->expectExceptionMessage(
             'Expected a Realodix\Assert\Tests\Fixtures\InterfaceA & Countable. Got: stdClass.'
@@ -45,14 +49,16 @@ class IntersectionTypesTest extends TestCase
         Type::intersection(new \stdClass, [InterfaceA::class, \Countable::class]);
     }
 
-    public function testObjectDoesNotExist()
+    /** @test */
+    public function objectDoesNotExist()
     {
         $this->expectException(UnknownClassOrInterfaceException::class);
         $this->expectExceptionMessage('Class or Interface does not exist.');
         Type::intersection(new AB, fooBar::class);
     }
 
-    public function testUnsupportedMember()
+    /** @test */
+    public function unsupportedMember()
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
@@ -62,7 +68,8 @@ class IntersectionTypesTest extends TestCase
         Type::intersection(new AB, ['string', true]);
     }
 
-    public function testDuplicateMember()
+    /** @test */
+    public function duplicateMember()
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
