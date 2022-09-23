@@ -79,4 +79,11 @@ class AssertTest extends TestCase
         Assert::countBetween($value, 2, 4);
         $this->addToAssertionCount(2);
     }
+
+    /** @test */
+    public function validArrayKey()
+    {
+        Assert::validArrayKey(1);
+        $this->addToAssertionCount(1);
+    }
 }
