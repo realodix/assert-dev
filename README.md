@@ -55,7 +55,8 @@ Types       | Description
 `non-empty-array` | Check whether a variable is of type array, and not empty
 `non-empty-list`  | Check that an array is a non-associative list, and not empty
 
-You cannot declare a super-type and a sub-type in one union type declaration.
+#### Redundant types
+You cannot declare a super-type and a sub-type in union type declarations.
 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
@@ -63,8 +64,19 @@ Super-type | Sub-type
 `bool`     | `true`, and  `false`
 `numeric`  | `int`, and  `float`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
+`string`   | `non-empty-string`
 `list[]`   | `non-empty-list`
 `non-empty-array` | `non-empty-list`
+
+```php
+use Realodix\Assert\Assert;
+
+public function setFoo($foo)
+{
+    // Disallowed because false is a type of bool
+    Assert::type($foo, 'bool|false');
+}
+```
 
 ## License
 

@@ -91,6 +91,7 @@ class Helper
             $types = explode('|', $types);
         }
 
+        // Redundant types
         if (\in_array('scalar', $types) &&
                 (\in_array('numeric', $types)
                 || \in_array('int', $types)
@@ -98,8 +99,7 @@ class Helper
                 || \in_array('string', $types)
                 || \in_array('bool', $types))
             || \in_array('bool', $types) &&
-                (\in_array('true', $types)
-                || \in_array('false', $types))
+                (\in_array('true', $types) || \in_array('false', $types))
             || \in_array('numeric', $types) &&
                 (\in_array('int', $types)
                 || \in_array('float', $types))
@@ -113,18 +113,19 @@ class Helper
                 || \in_array('non-empty-array', $types)
                 || \in_array('non-empty-list', $types))
             || \in_array('non-empty-array', $types) &&
-                (\in_array('list[]', $types)
-                || (\in_array('non-empty-list', $types)))
-            || \in_array('list[]', $types) &&
-                (\in_array('non-empty-list', $types))
+                (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
+            || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
+            || \in_array('string', $types) && \in_array('non-empty-string', $types)
         ) {
             return true;
         }
 
-        // Tidak boleh ada 2 nama tipe atau lebih dalam satu deklarasi yang sama.
-        $actualTypesCount = \count($types);
-        $expectedTypesCount = \count(array_unique($types));
-        if ($expectedTypesCount < $actualTypesCount) {
+        // Duplicate types
+        $actTypesCount = \count($types);
+        $expTypesCount = \count(
+            array_intersect_key($types, array_unique(array_map('strtolower', $types)))
+        );
+        if ($expTypesCount < $actTypesCount) {
             return true;
         }
 
