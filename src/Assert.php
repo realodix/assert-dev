@@ -43,4 +43,20 @@ class Assert
             );
         }
     }
+
+    public static function isNonEmptyMap($array, $message = '')
+    {
+        self::isMap($array, $message);
+        self::notEmpty($array, $message);
+    }
+
+    public static function notEmpty($value, $message = '')
+    {
+        if (empty($value)) {
+            throw new \InvalidArgumentException(\sprintf(
+                $message ?: 'Expected a non-empty value. Got: %s',
+                Helper::valueToString($value)
+            ));
+        }
+    }
 }
