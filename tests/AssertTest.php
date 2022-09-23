@@ -6,9 +6,7 @@ use Realodix\Assert\Assert;
 
 class AssertTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function keyExists()
     {
         $value = ['first' => 1, 'second' => 4];
@@ -18,9 +16,7 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function isMap()
     {
         $value = ['string' => true];
