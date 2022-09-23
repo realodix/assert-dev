@@ -89,10 +89,10 @@ Method                                             | Description
 `isNonEmptyMap($array, $message = '')`             | Check that an array is associative and has strings as keys, and is not empty
 `maxCount($array, $max, $message = '')`            | Check that an array contains at most a certain number of elements
 `minCount($array, $min, $message = '')`            | Check that an array contains at least a certain number of elements
-<!--
-`validArrayKey($key, $message = '')`               | Check that a value is a valid array key (int or string)
-`count($array, $number, $message = '')`            | Check that an array contains a specific number of elements
 `countBetween($array, $min, $max, $message = '')`  | Check that an array has a count in the given range
+<!--
+`count($array, $number, $message = '')`            | Check that an array contains a specific number of elements
+`validArrayKey($key, $message = '')`               | Check that a value is a valid array key (int or string)
 `isList($array, $message = '')`                    | Check that an array is a non-associative list
 `isNonEmptyList($array, $message = '')`            | Check that an array is a non-associative list, and not empty
  -->

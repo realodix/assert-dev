@@ -61,4 +61,14 @@ class AssertTest extends TestCase
         Assert::minCount($value, 1);
         $this->addToAssertionCount(1);
     }
+
+    /** @test */
+    public function countBetween()
+    {
+        $value = ['foo', 'bar', 'baz'];
+
+        Assert::countBetween($value, 1, 3);
+        Assert::countBetween($value, 2, 4);
+        $this->addToAssertionCount(2);
+    }
 }

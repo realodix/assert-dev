@@ -72,6 +72,20 @@ class Assert
         }
     }
 
+    public static function countBetween($array, $min, $max, $message = '')
+    {
+        $count = \count($array);
+
+        if ($count < $min || $count > $max) {
+            throw new \InvalidArgumentException(\sprintf(
+                $message ?: 'Expected an array to contain between %2$d and %3$d elements. Got: %d',
+                $count,
+                $min,
+                $max
+            ));
+        }
+    }
+
     public static function notEmpty($value, $message = '')
     {
         if (empty($value)) {
