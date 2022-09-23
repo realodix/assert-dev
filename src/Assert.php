@@ -24,6 +24,16 @@ class Assert
         }
     }
 
+    public static function keyNotExists($array, $key, $message = ''): void
+    {
+        if ((isset($array[$key]) || \array_key_exists($key, $array))) {
+            throw new \InvalidArgumentException(\sprintf(
+                $message ?: 'Expected the key %s to not exist.',
+                Helper::valueToString($key)
+            ));
+        }
+    }
+
     public static function isMap($array, $message = '')
     {
         if (! \is_array($array)
