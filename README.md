@@ -91,11 +91,7 @@ Method                                             | Description
 `maxCount($array, $max, $message = '')`            | Check that an array contains at most a certain number of elements
 `minCount($array, $min, $message = '')`            | Check that an array contains at least a certain number of elements
 `countBetween($array, $min, $max, $message = '')`  | Check that an array has a count in the given range
-<!--
 `validArrayKey($key, $message = '')`               | Check that a value is a valid array key (int or string)
-`isList($array, $message = '')`                    | Check that an array is a non-associative list
-`isNonEmptyList($array, $message = '')`            | Check that an array is a non-associative list, and not empty
- -->
 
 
 ## License
