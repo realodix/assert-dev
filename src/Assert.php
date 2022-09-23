@@ -50,6 +50,28 @@ class Assert
         self::notEmpty($array, $message);
     }
 
+    public static function maxCount($array, $max, $message = '')
+    {
+        if (\count($array) > $max) {
+            throw new \InvalidArgumentException(\sprintf(
+                $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
+                \count($array),
+                $max
+            ));
+        }
+    }
+
+    public static function minCount($array, $min, $message = '')
+    {
+        if (\count($array) < $min) {
+            throw new \InvalidArgumentException(\sprintf(
+                $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
+                \count($array),
+                $min
+            ));
+        }
+    }
+
     public static function notEmpty($value, $message = '')
     {
         if (empty($value)) {

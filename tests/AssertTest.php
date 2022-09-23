@@ -43,4 +43,22 @@ class AssertTest extends TestCase
         Assert::isNonEmptyMap($value);
         $this->addToAssertionCount(1);
     }
+
+    /** @test */
+    public function maxCount()
+    {
+        $value = ['string' => true];
+
+        Assert::maxCount($value, 1);
+        $this->addToAssertionCount(1);
+    }
+
+    /** @test */
+    public function minCount()
+    {
+        $value = ['string' => true];
+
+        Assert::minCount($value, 1);
+        $this->addToAssertionCount(1);
+    }
 }
