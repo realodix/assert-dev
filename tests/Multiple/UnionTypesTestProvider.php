@@ -65,16 +65,22 @@ trait UnionTypesTestProvider
         ];
     }
 
-    public function duplicateMembersProvider()
+    public function duplicateTypesProvider()
     {
         return [
             ['bool|bool', true],
             ['bool|string|bool', true],
+            ['int|string|INT', 1],
 
             ['bool|boolean', true],
             ['float|double', 1.23],
             ['int|integer', 123],
+        ];
+    }
 
+    public function redundantTypesProvider()
+    {
+        return [
             ['scalar|numeric', 123],
             ['scalar|int', 123],
             ['scalar|float', 123],
@@ -84,6 +90,8 @@ trait UnionTypesTestProvider
             ['bool|false', false],
             ['numeric|int', 123],
             ['numeric|float', 123],
+
+            ['string|non-empty-string', 'string'],
 
             ['array|bool[]', []],
             ['array|string[]', []],
