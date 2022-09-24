@@ -30,4 +30,23 @@ trait AssertTestProvider
             [[true], false],
         ];
     }
+
+    // public function isNonEmptyMapProvider()
+    // {
+    //     return [
+    //         [['string' => true]],
+
+    //         [['string' => 0], false],
+    //     ];
+    // }
+
+    public function testCountProvider()
+    {
+        return [
+            [1, ['foo' => 'bar']],
+            [2, ['foo' => 'bar', 'baz']],
+
+            [2, ['foo' => 'bar'], false],
+        ];
+    }
 }
