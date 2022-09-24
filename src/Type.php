@@ -40,6 +40,8 @@ class Type
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException
+     *
+     * @psalm-assert string|array $types
      */
     public static function intersection($value, $types, string $message = ''): void
     {
@@ -125,6 +127,8 @@ class Type
 
     /**
      * @param string|array $types
+     *
+     * @psalm-assert string|array $types
      */
     private static function normalizeType($types): array
     {
