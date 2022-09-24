@@ -22,7 +22,7 @@ class Assert
         self::type($key, 'int|string');
 
         if (! (isset($array[$key]) || \array_key_exists($key, $array))) {
-            self::generateMessage(sprintf(
+            self::createException(sprintf(
                 $message ?: 'Expected the key %s to exist.',
                 Helper::valueToString($key)
             ));
@@ -37,7 +37,7 @@ class Assert
         self::type($key, 'int|string');
 
         if (isset($array[$key]) || \array_key_exists($key, $array)) {
-            self::generateMessage(sprintf(
+            self::createException(sprintf(
                 $message ?: 'Expected the key %s to not exist.',
                 Helper::valueToString($key)
             ));
@@ -47,7 +47,7 @@ class Assert
     public static function isMap(array $array, string $message = ''): void
     {
         if (array_keys($array) !== array_filter(array_keys($array), 'is_string')) {
-            self::generateMessage(
+            self::createException(
                 $message ?: 'Expected map - associative array with string keys.'
             );
         }
@@ -67,7 +67,7 @@ class Assert
         self::type($array, 'countable|array');
 
         if (\count($array) != $number) {
-            self::generateMessage(sprintf(
+            self::createException(sprintf(
                 $message ?: 'Expected an array to contain %d elements. Got: %d.',
                 $number,
                 \count($array)
@@ -83,7 +83,7 @@ class Assert
         self::type($array, 'countable|array');
 
         if (\count($array) > $max) {
-            self::generateMessage(sprintf(
+            self::createException(sprintf(
                 $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
                 \count($array),
                 $max
@@ -101,7 +101,7 @@ class Assert
         self::type($array, 'countable|array');
 
         if (\count($array) < $min) {
-            self::generateMessage(sprintf(
+            self::createException(sprintf(
                 $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
                 \count($array),
                 $min
@@ -119,7 +119,7 @@ class Assert
         $count = \count($array);
 
         if ($count < $min || $count > $max) {
-            self::generateMessage(sprintf(
+            self::createException(sprintf(
                 $message ?: 'Expected an array to contain between %2$d and %3$d elements. Got: %d',
                 $count,
                 $min,
@@ -134,7 +134,7 @@ class Assert
     public static function validArrayKey($value, string $message = ''): void
     {
         if (! (\is_int($value) || \is_string($value))) {
-            self::generateMessage(sprintf(
+            self::createException(sprintf(
                 $message ?: 'Expected string or integer. Got: %s',
                 Helper::typeToString($value)
             ));
@@ -147,14 +147,14 @@ class Assert
     public static function notEmpty($value, string $message = ''): void
     {
         if (empty($value)) {
-            self::generateMessage(sprintf(
+            self::createException(sprintf(
                 $message ?: 'Expected a non-empty value. Got: %s',
                 Helper::valueToString($value)
             ));
         }
     }
 
-    protected static function generateMessage(string $message): string
+    protected static function createException(string $message): string
     {
         throw new \InvalidArgumentException($message);
     }
