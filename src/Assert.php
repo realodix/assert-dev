@@ -19,6 +19,8 @@ class Assert
      */
     public static function keyExists(array $array, $key, string $message = ''): void
     {
+        self::type($key, 'int|string');
+
         if (! (isset($array[$key]) || \array_key_exists($key, $array))) {
             self::generateMessage(sprintf(
                 $message ?: 'Expected the key %s to exist.',
@@ -32,6 +34,8 @@ class Assert
      */
     public static function keyNotExists(array $array, $key, string $message = ''): void
     {
+        self::type($key, 'int|string');
+
         if (isset($array[$key]) || \array_key_exists($key, $array)) {
             self::generateMessage(sprintf(
                 $message ?: 'Expected the key %s to not exist.',
@@ -58,8 +62,10 @@ class Assert
     /**
      * @param Countable|array $array
      */
-    public static function count(array $array, int $number, string $message = ''): void
+    public static function count($array, int $number, string $message = ''): void
     {
+        self::type($array, 'countable|array');
+
         if (\count($array) != $number) {
             self::generateMessage(sprintf(
                 $message ?: 'Expected an array to contain %d elements. Got: %d.',
@@ -72,8 +78,10 @@ class Assert
     /**
      * @param Countable|array $array
      */
-    public static function maxCount(array $array, int $max, string $message = ''): void
+    public static function maxCount($array, int $max, string $message = ''): void
     {
+        self::type($array, 'countable|array');
+
         if (\count($array) > $max) {
             self::generateMessage(sprintf(
                 $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
@@ -86,8 +94,10 @@ class Assert
     /**
      * @param Countable|array $array
      */
-    public static function minCount(array $array, int $min, string $message = ''): void
+    public static function minCount($array, int $min, string $message = ''): void
     {
+        self::type($array, 'countable|array');
+
         if (\count($array) < $min) {
             self::generateMessage(sprintf(
                 $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
@@ -100,8 +110,10 @@ class Assert
     /**
      * @param Countable|array $array
      */
-    public static function countBetween(array $array, int $min, int $max, string $message = ''): void
+    public static function countBetween($array, int $min, int $max, string $message = ''): void
     {
+        self::type($array, 'countable|array');
+
         $count = \count($array);
 
         if ($count < $min || $count > $max) {
