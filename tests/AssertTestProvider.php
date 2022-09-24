@@ -49,4 +49,34 @@ trait AssertTestProvider
             [2, ['foo' => 'bar'], false],
         ];
     }
+
+    public function maxCountProvider()
+    {
+        return [
+            [1, ['foo' => 'bar']],
+            [2, ['foo', 'bar']],
+
+            [2, ['foo', 'bar', 'baz'], false],
+        ];
+    }
+
+    public function minCountProvider()
+    {
+        return [
+            [1, ['foo' => 'bar']],
+            [2, ['foo', 'bar']],
+
+            [2, ['foo'], false],
+        ];
+    }
+
+    public function countBetweenProvider()
+    {
+        return [
+            [1, 3, ['foo', 'bar', 'baz']],
+            [2, 4, ['foo', 'bar', 'baz']],
+
+            [4, 5, ['foo', 'bar', 'baz'], false],
+        ];
+    }
 }

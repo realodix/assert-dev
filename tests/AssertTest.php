@@ -57,6 +57,7 @@ class AssertTest extends TestCase
     // }
 
     /**
+     * @test
      * @dataProvider countProvider
      */
     public function testCount($expected, $value, $pass = true)
@@ -67,32 +68,40 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function maxCount()
+    /**
+     * @test
+     * @dataProvider maxCountProvider
+     */
+    public function maxCount($expected, $value, $pass = true)
     {
-        $value = ['string' => true];
+        (! $pass) && $this->invalidAssertion('maxCount', $value, $expected);
 
-        Assert::maxCount($value, 1);
+        Assert::maxCount($value, $expected);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function minCount()
+    /**
+     * @test
+     * @dataProvider minCountProvider
+     */
+    public function minCount($expected, $value, $pass = true)
     {
-        $value = ['string' => true];
+        (! $pass) && $this->invalidAssertion('minCount', $value, $expected);
 
-        Assert::minCount($value, 1);
+        Assert::minCount($value, $expected);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function countBetween()
+    /**
+     * @test
+     * @dataProvider countBetweenProvider
+     */
+    public function countBetween($min, $max, $value, $pass = true)
     {
-        $value = ['foo', 'bar', 'baz'];
+        (! $pass) && $this->invalidAssertion('countBetween', $value, $min, $max);
 
-        Assert::countBetween($value, 1, 3);
-        Assert::countBetween($value, 2, 4);
-        $this->addToAssertionCount(2);
+        Assert::countBetween($value, $min, $max);
+        $this->addToAssertionCount(1);
     }
 
     /** @test */
