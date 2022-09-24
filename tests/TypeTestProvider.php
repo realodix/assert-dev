@@ -7,10 +7,6 @@ trait TypeTestProvider
     public function arrayProvider()
     {
         return [
-            ['ArrayAccess', new \ArrayObject],
-            ['Traversable', new \ArrayObject],
-            ['Traversable', new \ArrayIterator([])],
-
             ['array', []],
             ['array', ['this', 'is', 'an array']],
             ['array', [0 => 1]],
@@ -145,6 +141,10 @@ trait TypeTestProvider
     {
         return [
             ['stdClass', new \stdClass],
+            // ['stdClass', [new \stdClass, new \stdClass]],
+            ['ArrayAccess', new \ArrayObject],
+            ['Traversable', new \ArrayObject],
+            ['Traversable', new \ArrayIterator([])],
             // Invalid instanceof
             ['stdClass', new \Exception, false],
             ['stdClass', 123, false],
