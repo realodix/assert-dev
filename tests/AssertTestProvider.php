@@ -79,4 +79,14 @@ trait AssertTestProvider
             [4, 5, ['foo', 'bar', 'baz'], false],
         ];
     }
+
+    public function validArrayKeyProvider()
+    {
+        return [
+            [1],
+            ['string'],
+
+            [[1], false],
+        ];
+    }
 }

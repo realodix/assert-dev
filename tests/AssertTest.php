@@ -104,10 +104,15 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function validArrayKey()
+    /**
+     * @test
+     * @dataProvider validArrayKeyProvider
+     */
+    public function validArrayKey($value, $pass = true)
     {
-        Assert::validArrayKey(1);
+        (! $pass) && $this->invalidAssertion('validArrayKey', $value);
+
+        Assert::validArrayKey($value);
         $this->addToAssertionCount(1);
     }
 }
