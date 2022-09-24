@@ -34,9 +34,8 @@ class Type
     {
         self::is($values, 'array', $message);
 
-        if (\is_string($types)) {
-            $types = explode('|', $types);
-        }
+        $types = self::normalizeType($types);
+        Helper::assertTypeDeclaration(implode('|', $types));
 
         foreach ($values as $value) {
             if (! self::hasType($value, $types)) {
