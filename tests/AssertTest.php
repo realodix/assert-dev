@@ -58,7 +58,7 @@ class AssertTest extends TestCase
 
     /**
      * @test
-     * @dataProvider testCountProvider
+     * @dataProvider countProvider
      */
     public function testCount($expected, $value, $pass = true)
     {

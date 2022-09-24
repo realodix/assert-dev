@@ -40,7 +40,7 @@ trait AssertTestProvider
     //     ];
     // }
 
-    public function testCountProvider()
+    public function countProvider()
     {
         return [
             [1, ['foo' => 'bar']],
