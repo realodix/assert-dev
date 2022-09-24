@@ -4,7 +4,18 @@ namespace Realodix\Assert;
 
 class Helper
 {
-    public static function valueToString($value)
+    /**
+     * @param mixed $value
+     */
+    protected static function typeToString($value): string
+    {
+        return \is_object($value) ? \get_class($value) : \gettype($value);
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public static function valueToString($value): string
     {
         if (null === $value) {
             return 'null';
