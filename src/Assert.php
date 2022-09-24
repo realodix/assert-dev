@@ -127,6 +127,9 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     */
     public static function notEmpty($value, string $message = ''): void
     {
         if (empty($value)) {
