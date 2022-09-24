@@ -24,7 +24,7 @@ class UnionTypesTest extends TestCase
      * @test
      * @dataProvider invalidTypesProvider
      */
-    public function invalidTypes($types, $value)
+    public function invalidType($types, $value)
     {
         $this->expectException(TypeErrorException::class);
         Assert::type($value, $types);

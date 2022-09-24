@@ -27,7 +27,7 @@ class IntersectionTypesTest extends TestCase
      * @test
      * @dataProvider invalidIntersectionTypesProvider
      */
-    public function invalidTypes($value, $types)
+    public function invalidType($value, $types)
     {
         $this->expectException(TypeErrorException::class);
         Type::intersection($value, $types);

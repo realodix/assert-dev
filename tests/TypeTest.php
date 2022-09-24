@@ -13,7 +13,7 @@ class TypeTest extends TestCase
      */
     public function testArray($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -24,7 +24,7 @@ class TypeTest extends TestCase
      */
     public function testNumber($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -35,7 +35,7 @@ class TypeTest extends TestCase
      */
     public function testObject($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -47,7 +47,7 @@ class TypeTest extends TestCase
      */
     public function is_bool($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -59,7 +59,7 @@ class TypeTest extends TestCase
      */
     public function instanceof($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -79,7 +79,7 @@ class TypeTest extends TestCase
      */
     public function is_scalar($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -101,7 +101,7 @@ class TypeTest extends TestCase
      */
     public function arrayIs($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -113,7 +113,7 @@ class TypeTest extends TestCase
      */
     public function nonEmpty($types, $value, $pass = true)
     {
-        (! $pass) && $this->invalidTypes($value, $types);
+        (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
@@ -125,6 +125,6 @@ class TypeTest extends TestCase
      */
     public function arrayIsWithInvalidInput($types, $value)
     {
-        $this->invalidTypes($value, $types);
+        $this->invalidType($value, $types);
     }
 }
