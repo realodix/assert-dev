@@ -14,7 +14,10 @@ class Assert
         return Type::is($value, $types, $message);
     }
 
-    public static function keyExists($array, $key, $message = ''): void
+    /**
+     * @param int|string $key
+     */
+    public static function keyExists(array $array, $key, string $message = ''): void
     {
         if (! (isset($array[$key]) || \array_key_exists($key, $array))) {
             self::generateMessage(sprintf(
@@ -24,7 +27,10 @@ class Assert
         }
     }
 
-    public static function keyNotExists($array, $key, $message = ''): void
+    /**
+     * @param int|string $key
+     */
+    public static function keyNotExists(array $array, $key, string $message = ''): void
     {
         if (isset($array[$key]) || \array_key_exists($key, $array)) {
             self::generateMessage(sprintf(
@@ -34,23 +40,25 @@ class Assert
         }
     }
 
-    public static function isMap($array, $message = '')
+    public static function isMap(array $array, string $message = ''): void
     {
-        if (! \is_array($array)
-            || array_keys($array) !== array_filter(array_keys($array), 'is_string')) {
+        if (array_keys($array) !== array_filter(array_keys($array), 'is_string')) {
             self::generateMessage(
                 $message ?: 'Expected map - associative array with string keys.'
             );
         }
     }
 
-    public static function isNonEmptyMap($array, $message = '')
+    public static function isNonEmptyMap(array $array, string $message = ''): void
     {
         self::isMap($array, $message);
         self::notEmpty($array, $message);
     }
 
-    public static function count($array, $number, $message = '')
+    /**
+     * @param Countable|array $array
+     */
+    public static function count(array $array, int $number, string $message = ''): void
     {
         if (\count($array) != $number) {
             self::generateMessage(sprintf(
@@ -61,7 +69,10 @@ class Assert
         }
     }
 
-    public static function maxCount($array, $max, $message = '')
+    /**
+     * @param Countable|array $array
+     */
+    public static function maxCount(array $array, int $max, string $message = ''): void
     {
         if (\count($array) > $max) {
             self::generateMessage(sprintf(
@@ -72,7 +83,10 @@ class Assert
         }
     }
 
-    public static function minCount($array, $min, $message = '')
+    /**
+     * @param Countable|array $array
+     */
+    public static function minCount(array $array, int $min, string $message = ''): void
     {
         if (\count($array) < $min) {
             self::generateMessage(sprintf(
@@ -83,7 +97,10 @@ class Assert
         }
     }
 
-    public static function countBetween($array, $min, $max, $message = '')
+    /**
+     * @param Countable|array $array
+     */
+    public static function countBetween(array $array, int $min, int $max, string $message = ''): void
     {
         $count = \count($array);
 
@@ -97,7 +114,10 @@ class Assert
         }
     }
 
-    public static function validArrayKey($value, $message = '')
+    /**
+     * @param mixed $value
+     */
+    public static function validArrayKey($value, string $message = ''): void
     {
         if (! (\is_int($value) || \is_string($value))) {
             self::generateMessage(sprintf(
@@ -107,7 +127,7 @@ class Assert
         }
     }
 
-    public static function notEmpty($value, $message = '')
+    public static function notEmpty($value, string $message = ''): void
     {
         if (empty($value)) {
             self::generateMessage(sprintf(
@@ -117,7 +137,7 @@ class Assert
         }
     }
 
-    protected static function generateMessage($message): string
+    protected static function generateMessage(string $message): string
     {
         throw new \InvalidArgumentException($message);
     }
