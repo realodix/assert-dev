@@ -32,18 +32,20 @@ class Type
         }
     }
 
-    public static function elementType( $types, $value, $name ): void {
-		self::parameterType( 'array', $value, $name );
-		if ( is_string( $types ) ) {
-			$types = explode( '|', $types );
-		}
+    public static function elementType($values, $types, string $message = ''): void
+    {
+        self::is('array', $values, $message = '');
 
-		foreach ( $value as $element ) {
-			if ( !self::hasType( $element, $types ) ) {
-				throw new ParameterElementTypeException( $name, implode( '|', $types ) );
-			}
-		}
-	}
+        if (\is_string($types)) {
+            $types = explode('|', $types);
+        }
+
+        foreach ($values as $value) {
+            if (! self::hasType($value, $types)) {
+                throw new Exception\TypeErrorException(implode('|', $types), $value, $message);
+            }
+        }
+    }
 
     /**
      * https://gist.github.com/Pierstoval/ed387a09d4a5e76108e60e8a7585ac2d
