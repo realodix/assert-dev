@@ -60,7 +60,7 @@ class Assert
     }
 
     /**
-     * @param Countable|array $array
+     * @param \Countable|array $array
      */
     public static function count($array, int $number, string $message = ''): void
     {
@@ -76,7 +76,7 @@ class Assert
     }
 
     /**
-     * @param Countable|array $array
+     * @param \Countable|array $array
      */
     public static function maxCount($array, int $max, string $message = ''): void
     {
@@ -92,7 +92,7 @@ class Assert
     }
 
     /**
-     * @param Countable|array $array
+     * @param \Countable|array $array
      *
      * @psalm-assert string[] $min
      */
@@ -110,7 +110,7 @@ class Assert
     }
 
     /**
-     * @param Countable|array $array
+     * @param \Countable|array $array
      */
     public static function countBetween($array, int $min, int $max, string $message = ''): void
     {
