@@ -25,9 +25,9 @@ trait AssertTestProvider
     public function isMapProvider()
     {
         return [
-            ['string' => true],
+            [['string' => true]],
 
-            [true, false],
+            [[true], false],
         ];
     }
 }

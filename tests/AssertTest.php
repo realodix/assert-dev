@@ -32,17 +32,17 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    // /**
-    //  * @test
-    //  * @dataProvider isMapProvider
-    //  */
-    // public function isMap($value)
-    // {
-    //     (! $pass) && $this->invalidAssertion($value, $key, 'keyNotExists');
+    /**
+     * @test
+     * @dataProvider isMapProvider
+     */
+    public function isMap($value, $pass = true)
+    {
+        (! $pass) && $this->invalidAssertion('isMap', $value);
 
-    //     Assert::isMap($value);
-    //     $this->addToAssertionCount(1);
-    // }
+        Assert::isMap($value);
+        $this->addToAssertionCount(1);
+    }
 
     /** @test */
     public function isNonEmptyMap()
