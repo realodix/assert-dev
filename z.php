@@ -1,10 +1,12 @@
 <?php
 
+Assert::isInstanceOf($nodes, DOMNodeList::class);
+Assert::isInstanceOfAny();
+Assert::allIsAOf($compilerPasses, CompilerPassInterface::class);
+Assert::allIsInstanceOf($tags, Tag::class);
 Assert::inArray();
 
 Assert::allFile($configFiles);
-Assert::allIsAOf($compilerPasses, CompilerPassInterface::class);
-Assert::allIsInstanceOf($tags, Tag::class);
 Assert::allNotNull();
 Assert::allString($directories);
 Assert::allStringNotEmpty();
@@ -15,8 +17,6 @@ Assert::greaterThanEq($startingLine, 1);
 Assert::implementsInterface($handler, Tag::class);
 Assert::integerish($startingLine);
 Assert::isCallable($callable);
-Assert::isInstanceOf($nodes, DOMNodeList::class);
-Assert::isInstanceOfAny();
 Assert::maxLength($name, self::MAX_LENGTH);
 Assert::notEmpty();
 Assert::notEndsWith($name, ' ');
