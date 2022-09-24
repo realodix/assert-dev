@@ -1,6 +1,0 @@
-parameters:
-	ignoreErrors:
-		-
-			message: "#^Result of static method Realodix\\\\Assert\\\\Type\\:\\:is\\(\\) \\(void\\) is used\\.$#"
-			count: 1
-			path: src/Assert.php
