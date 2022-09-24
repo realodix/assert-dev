@@ -2,8 +2,6 @@
 
 namespace Realodix\Assert\Tests;
 
-use Realodix\Assert\Assert;
-
 trait AssertTestProvider
 {
     public function keyExistsProvider()

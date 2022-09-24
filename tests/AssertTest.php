@@ -14,7 +14,7 @@ class AssertTest extends TestCase
      */
     public function keyExists($key, $value, $pass = true)
     {
-        (! $pass) && $this->invalidAssertionValue($value, $key, 'keyExists');
+        (! $pass) && $this->invalidAssertion($value, $key, 'keyExists');
 
         Assert::keyExists($value, $key);
         $this->addToAssertionCount(1);
@@ -26,7 +26,7 @@ class AssertTest extends TestCase
      */
     public function keyNotExists($key, $value, $pass = true)
     {
-        (! $pass) && $this->invalidAssertionValue($value, $key, 'keyNotExists');
+        (! $pass) && $this->invalidAssertion($value, $key, 'keyNotExists');
 
         Assert::keyNotExists($value, $key);
         $this->addToAssertionCount(1);
