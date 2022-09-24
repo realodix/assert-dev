@@ -32,7 +32,7 @@ class Type
         }
     }
 
-    public static function elementType($values, $types, string $message = ''): void
+    public static function element($values, $types, string $message = ''): void
     {
         self::is($values, 'array', $message);
 
