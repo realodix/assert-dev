@@ -1,0 +1,17 @@
+<?php
+
+namespace Realodix\Assert\Tests;
+
+use Realodix\Assert\Assert;
+
+trait AssertTestProvider
+{
+    public function keyExistsProvider()
+    {
+        return [
+            ['first', ['first' => 1, 'second' => 4]],
+
+            ['string', ['first' => 1, 'second' => 4], false],
+        ];
+    }
+}

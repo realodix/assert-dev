@@ -6,11 +6,15 @@ use Realodix\Assert\Assert;
 
 class AssertTest extends TestCase
 {
-    /** @test */
-    public function keyExists()
+    use AssertTestProvider;
+
+    /**
+     * @test
+     * @dataProvider keyExistsProvider
+     */
+    public function keyExists($key, $value, $pass = true)
     {
-        $value = ['first' => 1, 'second' => 4];
-        $key = 'first';
+        (! $pass) && $this->invalidAssertionValue($value, $key, 'keyExists');
 
         Assert::keyExists($value, $key);
         $this->addToAssertionCount(1);
