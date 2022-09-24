@@ -13,4 +13,10 @@ class TestCase extends PHPUnitTestCase
         $this->expectException(TypeErrorException::class);
         Assert::type($value, $types);
     }
+
+    protected function invalidAssertion(string $callback, ...$actual)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Assert::$callback(...$actual);
+    }
 }

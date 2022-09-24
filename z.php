@@ -1,13 +1,12 @@
 <?php
 
-Assert::isMap($params, 'Expected $params to have only string keys');
-Assert::inArray();
-Assert::count($arguments, 0);
-Assert::minCount();
-
-Assert::allFile($configFiles);
+Assert::isInstanceOf($nodes, DOMNodeList::class);
+Assert::isInstanceOfAny();
 Assert::allIsAOf($compilerPasses, CompilerPassInterface::class);
 Assert::allIsInstanceOf($tags, Tag::class);
+Assert::inArray();
+
+Assert::allFile($configFiles);
 Assert::allNotNull();
 Assert::allString($directories);
 Assert::allStringNotEmpty();
@@ -18,8 +17,6 @@ Assert::greaterThanEq($startingLine, 1);
 Assert::implementsInterface($handler, Tag::class);
 Assert::integerish($startingLine);
 Assert::isCallable($callable);
-Assert::isInstanceOf($nodes, DOMNodeList::class);
-Assert::isInstanceOfAny();
 Assert::maxLength($name, self::MAX_LENGTH);
 Assert::notEmpty();
 Assert::notEndsWith($name, ' ');

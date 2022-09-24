@@ -6,84 +6,113 @@ use Realodix\Assert\Assert;
 
 class AssertTest extends TestCase
 {
-    /** @test */
-    public function keyExists()
+    use AssertTestProvider;
+
+    /**
+     * @test
+     * @dataProvider keyExistsProvider
+     */
+    public function keyExists($key, $value, $pass = true)
     {
-        $value = ['first' => 1, 'second' => 4];
-        $key = 'first';
+        (! $pass) && $this->invalidAssertion('keyExists', $value, $key);
 
         Assert::keyExists($value, $key);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function keyNotExists()
+    /**
+     * @test
+     * @dataProvider keyNotExistsProvider
+     */
+    public function keyNotExists($key, $value, $pass = true)
     {
-        $value = ['first' => 1, 'second' => 4];
-        $key = 'foo';
+        (! $pass) && $this->invalidAssertion('keyNotExists', $value, $key);
 
         Assert::keyNotExists($value, $key);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function isMap()
+    /**
+     * @test
+     * @dataProvider isMapProvider
+     */
+    public function isMap($value, $pass = true)
     {
-        $value = ['string' => true];
+        (! $pass) && $this->invalidAssertion('isMap', $value);
 
         Assert::isMap($value);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function isNonEmptyMap()
+    /**
+     * @test
+     * @dataProvider isNonEmptyMapProvider
+     */
+    public function isNonEmptyMap($value, $pass = true)
     {
-        $value = ['string' => ''];
+        (! $pass) && $this->invalidAssertion('isNonEmptyMap', $value);
 
         Assert::isNonEmptyMap($value);
         $this->addToAssertionCount(1);
     }
 
-    public function testCount()
+    /**
+     * @test
+     * @dataProvider countProvider
+     */
+    public function testCount($expected, $value, $pass = true)
     {
-        $value = ['string' => true];
+        (! $pass) && $this->invalidAssertion('count', $value, $expected);
 
-        Assert::count($value, 1);
+        Assert::count($value, $expected);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function maxCount()
+    /**
+     * @test
+     * @dataProvider maxCountProvider
+     */
+    public function maxCount($expected, $value, $pass = true)
     {
-        $value = ['string' => true];
+        (! $pass) && $this->invalidAssertion('maxCount', $value, $expected);
 
-        Assert::maxCount($value, 1);
+        Assert::maxCount($value, $expected);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function minCount()
+    /**
+     * @test
+     * @dataProvider minCountProvider
+     */
+    public function minCount($expected, $value, $pass = true)
     {
-        $value = ['string' => true];
+        (! $pass) && $this->invalidAssertion('minCount', $value, $expected);
 
-        Assert::minCount($value, 1);
+        Assert::minCount($value, $expected);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function countBetween()
+    /**
+     * @test
+     * @dataProvider countBetweenProvider
+     */
+    public function countBetween($min, $max, $value, $pass = true)
     {
-        $value = ['foo', 'bar', 'baz'];
+        (! $pass) && $this->invalidAssertion('countBetween', $value, $min, $max);
 
-        Assert::countBetween($value, 1, 3);
-        Assert::countBetween($value, 2, 4);
-        $this->addToAssertionCount(2);
+        Assert::countBetween($value, $min, $max);
+        $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function validArrayKey()
+    /**
+     * @test
+     * @dataProvider validArrayKeyProvider
+     */
+    public function validArrayKey($value, $pass = true)
     {
-        Assert::validArrayKey(1);
+        (! $pass) && $this->invalidAssertion('validArrayKey', $value);
+
+        Assert::validArrayKey($value);
         $this->addToAssertionCount(1);
     }
 }
