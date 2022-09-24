@@ -7,7 +7,7 @@ class Helper
     /**
      * @param mixed $value
      */
-    protected static function typeToString($value): string
+    public static function typeToString($value): string
     {
         return \is_object($value) ? \get_class($value) : \gettype($value);
     }
