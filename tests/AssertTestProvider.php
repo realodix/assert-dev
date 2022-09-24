@@ -21,4 +21,13 @@ trait AssertTestProvider
             ['first', ['first' => 1, 'second' => 4], false],
         ];
     }
+
+    public function isMapProvider()
+    {
+        return [
+            ['string' => true],
+
+            [true, false],
+        ];
+    }
 }

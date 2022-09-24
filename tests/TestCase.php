@@ -14,9 +14,9 @@ class TestCase extends PHPUnitTestCase
         Assert::type($value, $types);
     }
 
-    protected function invalidAssertion($actual, $expected, string $callback)
+    protected function invalidAssertion(string $callback, ...$actual)
     {
         $this->expectException(\InvalidArgumentException::class);
-        Assert::$callback($actual, $expected);
+        Assert::$callback(...$actual);
     }
 }

@@ -14,7 +14,7 @@ class AssertTest extends TestCase
      */
     public function keyExists($key, $value, $pass = true)
     {
-        (! $pass) && $this->invalidAssertion($value, $key, 'keyExists');
+        (! $pass) && $this->invalidAssertion('keyExists', $value, $key);
 
         Assert::keyExists($value, $key);
         $this->addToAssertionCount(1);
@@ -26,20 +26,23 @@ class AssertTest extends TestCase
      */
     public function keyNotExists($key, $value, $pass = true)
     {
-        (! $pass) && $this->invalidAssertion($value, $key, 'keyNotExists');
+        (! $pass) && $this->invalidAssertion('keyNotExists', $value, $key);
 
         Assert::keyNotExists($value, $key);
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function isMap()
-    {
-        $value = ['string' => true];
+    // /**
+    //  * @test
+    //  * @dataProvider isMapProvider
+    //  */
+    // public function isMap($value)
+    // {
+    //     (! $pass) && $this->invalidAssertion($value, $key, 'keyNotExists');
 
-        Assert::isMap($value);
-        $this->addToAssertionCount(1);
-    }
+    //     Assert::isMap($value);
+    //     $this->addToAssertionCount(1);
+    // }
 
     /** @test */
     public function isNonEmptyMap()
