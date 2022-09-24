@@ -31,14 +31,15 @@ trait AssertTestProvider
         ];
     }
 
-    // public function isNonEmptyMapProvider()
-    // {
-    //     return [
-    //         [['string' => true]],
+    public function isNonEmptyMapProvider()
+    {
+        return [
+            [['string' => true]],
 
-    //         [['string' => 0], false],
-    //     ];
-    // }
+            [['string' => 0], false],
+            [['string' => ''], false],
+        ];
+    }
 
     public function countProvider()
     {

@@ -56,7 +56,16 @@ class Assert
     public static function isNonEmptyMap(array $array, string $message = ''): void
     {
         self::isMap($array, $message);
-        self::notEmpty($array, $message);
+
+        foreach ($array as $key => $value) {
+            $value = trim($value);
+            if (empty($value)) {
+                self::createException(sprintf(
+                    $message ?: 'Expected a non-empty value. Got: %s',
+                    Helper::valueToString($value)
+                ));
+            }
+        }
     }
 
     /**
