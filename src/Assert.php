@@ -150,19 +150,6 @@ class Assert
         }
     }
 
-    /**
-     * @param mixed $value
-     */
-    public static function notEmpty($value, string $message = ''): void
-    {
-        if (empty($value)) {
-            self::createException(sprintf(
-                $message ?: 'Expected a non-empty value. Got: %s',
-                Helper::valueToString($value)
-            ));
-        }
-    }
-
     protected static function createException(string $message): string
     {
         throw new \InvalidArgumentException($message);
