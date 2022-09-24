@@ -15,6 +15,8 @@ class Type
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException If $value is not of type (or for objects,
      *                                      is not an instance of) $type.
+     *
+     * @psalm-assert string|array $types
      */
     public static function is($value, $types, string $message = ''): void
     {
@@ -38,6 +40,8 @@ class Type
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException
+     *
+     * @psalm-assert string|array $types
      */
     public static function intersection($value, $types, string $message = ''): void
     {
@@ -123,6 +127,8 @@ class Type
 
     /**
      * @param string|array $types
+     *
+     * @psalm-assert string|array $types
      */
     private static function normalizeType($types): array
     {

@@ -5,8 +5,8 @@ namespace Realodix\Assert;
 class Assert
 {
     /**
-     * @param  mixed        $value
-     * @param  string|array $types
+     * @param  mixed           $value
+     * @param  string|string[] $types
      * @return void|null
      */
     public static function type($value, $types, string $message = '')
@@ -60,7 +60,7 @@ class Assert
     }
 
     /**
-     * @param Countable|array $array
+     * @param \Countable|array $array
      */
     public static function count($array, int $number, string $message = ''): void
     {
@@ -76,7 +76,7 @@ class Assert
     }
 
     /**
-     * @param Countable|array $array
+     * @param \Countable|array $array
      */
     public static function maxCount($array, int $max, string $message = ''): void
     {
@@ -92,7 +92,9 @@ class Assert
     }
 
     /**
-     * @param Countable|array $array
+     * @param \Countable|array $array
+     *
+     * @psalm-assert string[] $min
      */
     public static function minCount($array, int $min, string $message = ''): void
     {
@@ -108,7 +110,7 @@ class Assert
     }
 
     /**
-     * @param Countable|array $array
+     * @param \Countable|array $array
      */
     public static function countBetween($array, int $min, int $max, string $message = ''): void
     {
