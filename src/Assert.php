@@ -85,6 +85,8 @@ class Assert
 
     /**
      * @param Countable|array $array
+     *
+     * @psalm-assert string[] $min
      */
     public static function minCount(array $array, int $min, string $message = ''): void
     {

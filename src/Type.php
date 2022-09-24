@@ -8,13 +8,15 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param mixed           $value The parameter's actual value.
-     * @param string|string[] $types The parameter's expected type. Can be the name of a native
-     *                               type or a class or Interface, or a list of such names.
+     * @param mixed        $value The parameter's actual value.
+     * @param string|array $types The parameter's expected type. Can be the name of a native
+     *                            type or a class or Interface, or a list of such names.
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException If $value is not of type (or for objects,
      *                                      is not an instance of) $type.
+     *
+     * @psalm-assert string|array $types
      */
     public static function is($value, $types, string $message = ''): void
     {
