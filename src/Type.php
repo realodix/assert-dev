@@ -34,7 +34,7 @@ class Type
 
     public static function elementType($values, $types, string $message = ''): void
     {
-        self::is('array', $values, $message = '');
+        self::is($values, 'array', $message = '');
 
         if (\is_string($types)) {
             $types = explode('|', $types);
