@@ -14,4 +14,13 @@ trait AssertTestProvider
             ['string', ['first' => 1, 'second' => 4], false],
         ];
     }
+
+    public function keyNotExistsProvider()
+    {
+        return [
+            ['string', ['first' => 1, 'second' => 4]],
+
+            ['first', ['first' => 1, 'second' => 4], false],
+        ];
+    }
 }

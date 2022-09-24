@@ -20,11 +20,13 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /** @test */
-    public function keyNotExists()
+    /**
+     * @test
+     * @dataProvider keyNotExistsProvider
+     */
+    public function keyNotExists($key, $value, $pass = true)
     {
-        $value = ['first' => 1, 'second' => 4];
-        $key = 'foo';
+        (! $pass) && $this->invalidAssertionValue($value, $key, 'keyNotExists');
 
         Assert::keyNotExists($value, $key);
         $this->addToAssertionCount(1);
