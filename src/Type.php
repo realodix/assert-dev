@@ -26,9 +26,7 @@ class Type
         Helper::assertTypeDeclaration(implode('|', $types));
 
         if (! self::hasType($value, $types)) {
-            throw new Exception\TypeErrorException(
-                implode('|', $types), $value, $message
-            );
+            throw new Exception\TypeErrorException(implode('|', $types), $value, $message);
         }
     }
 
