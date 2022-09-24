@@ -1,9 +1,6 @@
 <?php
 
-Assert::isMap($params, 'Expected $params to have only string keys');
 Assert::inArray();
-Assert::count($arguments, 0);
-Assert::minCount();
 
 Assert::allFile($configFiles);
 Assert::allIsAOf($compilerPasses, CompilerPassInterface::class);
