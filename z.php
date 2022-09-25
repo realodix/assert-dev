@@ -5,7 +5,6 @@ Assert::isInstanceOfAny();
 Assert::allIsAOf($compilerPasses, CompilerPassInterface::class);
 Assert::allIsInstanceOf($tags, Tag::class);
 Assert::oneOf($mutatorClass, ProfileList::ALL_MUTATORS);
-Assert::implementsInterface($handler, Tag::class);
 Assert::subclassOf();
 
 Assert::allFile($configFiles);
@@ -19,7 +18,9 @@ Assert::null($this->microTime, 'Timer can not be started again without stopping.
 Assert::nullOrIntegerish($lineCount);
 Assert::nullOrNotEmpty($version);
 
+
 Assert::inArray();
+Assert::implementsInterface($handler, Tag::class);
 Assert::boolean();
 Assert::classExists($handler);
 Assert::eq($analyzer->getNumberOfArguments($contructor), 0);
