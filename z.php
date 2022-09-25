@@ -5,6 +5,8 @@ Assert::isInstanceOfAny();
 Assert::allIsAOf($compilerPasses, CompilerPassInterface::class);
 Assert::allIsInstanceOf($tags, Tag::class);
 Assert::oneOf($mutatorClass, ProfileList::ALL_MUTATORS);
+Assert::implementsInterface($handler, Tag::class);
+Assert::subclassOf();
 
 Assert::allFile($configFiles);
 Assert::allNotNull();
@@ -22,14 +24,13 @@ Assert::boolean();
 Assert::classExists($handler);
 Assert::eq($analyzer->getNumberOfArguments($contructor), 0);
 Assert::greaterThanEq($startingLine, 1);
-Assert::implementsInterface($handler, Tag::class);
+Assert::maxLength($name, self::MAX_LENGTH);
+Assert::range($statusCode, 200, 599, 'Expected an HTTP status code. Got "%s"');
+
 Assert::integerish($startingLine);
 Assert::isCallable($callable);
-Assert::maxLength($name, self::MAX_LENGTH);
 Assert::notEndsWith($name, ' ');
-Assert::range($statusCode, 200, 599, 'Expected an HTTP status code. Got "%s"');
 Assert::string($docblock);
 Assert::stringNotEmpty($docblock);
-Assert::subclassOf();
 Assert::true($s);
 Assert::fileExists();
