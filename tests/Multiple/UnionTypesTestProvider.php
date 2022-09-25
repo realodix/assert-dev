@@ -31,6 +31,9 @@ trait UnionTypesTestProvider
         return [
             ['int|float', 'abc'],
             ['array|string|int', new \stdClass],
+
+            [['int', 'float'], 'abc'],
+            [['array', 'string', 'int'], new \stdClass],
         ];
     }
 
