@@ -18,7 +18,7 @@ class TestCase extends PHPUnitTestCase
     protected function invalidElementType($value, $types)
     {
         $this->expectException(TypeErrorException::class);
-        Type::element($value, $types);
+        Type::inArray($value, $types);
     }
 
     protected function invalidAssertion(string $callback, ...$actual)
