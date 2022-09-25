@@ -32,7 +32,7 @@ class Type
 
     public static function element(array $values, $types, string $message = ''): void
     {
-        self::is($values, 'array', $message);
+        self::is($types, 'string|array');
 
         $types = self::normalizeType($types);
         Helper::assertTypeDeclaration(implode('|', $types));
