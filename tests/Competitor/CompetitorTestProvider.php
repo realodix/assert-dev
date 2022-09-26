@@ -9,6 +9,8 @@ trait CompetitorTestProvider
         return [
             ['scalar', true],
             ['string', 'string'],
+
+            ['numeric', 1],
             ['int', 1],
             ['float', 1.0],
 

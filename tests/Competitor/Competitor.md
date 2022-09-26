@@ -1,7 +1,7 @@
 ## Beberlei
 https://github.com/beberlei/assert
 
-Total: 7/91
+Total: 8/91
 
 - [ ] Assertion::alnum(mixed $value);
 - [ ] Assertion::base64(string $value);
@@ -72,7 +72,7 @@ Total: 7/91
 - [ ] Assertion::notRegex(mixed $value, string $pattern);
 - [ ] Assertion::notSame(mixed $value1, mixed $value2);
 - [ ] Assertion::null(mixed $value);
-- [ ] Assertion::numeric(mixed $value);
+- [x] Assertion::numeric(mixed $value);
 - [ ] Assertion::objectOrClass(mixed $value);
 - [ ] Assertion::phpVersion(string $operator, mixed $version);
 - [ ] Assertion::propertiesExist(mixed $value, array $properties);
@@ -99,16 +99,16 @@ Total: 7/91
 ## webmozarts
 https://github.com/webmozarts/assert
 
-Total: 7/95
+Total: 8/95
 
-Total: 5/25
+Total: 6/25
 - [x] string($value, $message = '')
 - [ ] stringNotEmpty($value, $message = '')
 - [x] integer($value, $message = '')
 - [ ] integerish($value, $message = '')
 - [ ] positiveInteger($value, $message = '')
 - [x] float($value, $message = '')
-- [ ] numeric($value, $message = '')
+- [x] numeric($value, $message = '')
 - [ ] natural($value, $message= ''')
 - [x] boolean($value, $message = '')
 - [x] scalar($value, $message = '')
