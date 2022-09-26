@@ -18,7 +18,6 @@ Assert::null($this->microTime, 'Timer can not be started again without stopping.
 Assert::nullOrIntegerish($lineCount);
 Assert::nullOrNotEmpty($version);
 
-
 Assert::inArray();
 Assert::implementsInterface($handler, Tag::class);
 Assert::boolean();
