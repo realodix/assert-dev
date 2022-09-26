@@ -5,7 +5,7 @@
 - [ ] Assertion::between(mixed $value, mixed $lowerLimit, mixed $upperLimit);
 - [ ] Assertion::betweenExclusive(mixed $value, mixed $lowerLimit, mixed $upperLimit);
 - [ ] Assertion::betweenLength(mixed $value, int $minLength, int $maxLength);
-- [ ] Assertion::boolean(mixed $value);
+- [x] Assertion::boolean(mixed $value);
 - [ ] Assertion::choice(mixed $value, array $choices);
 - [ ] Assertion::choicesNotEmpty(array $values, array $choices);
 - [ ] Assertion::classExists(mixed $value);
@@ -22,7 +22,7 @@
 - [ ] Assertion::eqArraySubset(mixed $value, mixed $value2);
 - [ ] Assertion::extensionLoaded(mixed $value);
 - [ ] Assertion::extensionVersion(string $extension, string $operator, mixed $version);
-- [ ] Assertion::false(mixed $value);
+- [x] Assertion::false(mixed $value);
 - [ ] Assertion::file(string $value);
 - [ ] Assertion::float(mixed $value);
 - [ ] Assertion::greaterOrEqualThan(mixed $value, mixed $limit);
@@ -83,7 +83,7 @@
 - [ ] Assertion::startsWith(mixed $string, string $needle);
 - [ ] Assertion::string(mixed $value);
 - [ ] Assertion::subclassOf(mixed $value, string $className);
-- [ ] Assertion::true(mixed $value);
+- [x] Assertion::true(mixed $value);
 - [ ] Assertion::uniqueValues(array $values);
 - [ ] Assertion::url(mixed $value);
 - [ ] Assertion::uuid(string $value);
@@ -102,7 +102,7 @@
 - [ ] float($value, $message = '')
 - [ ] numeric($value, $message = '')
 - [ ] natural($value, $message= ''')
-- [ ] boolean($value, $message = '')
+- [x] boolean($value, $message = '')
 - [ ] scalar($value, $message = '')
 - [ ] object($value, $message = '')
 - [ ] resource($value, $type = null, $message = '')
@@ -122,8 +122,8 @@
 
 ---
 
-- [ ] true($value, $message = '')
-- [ ] false($value, $message = '')
+- [x] true($value, $message = '')
+- [x] false($value, $message = '')
 - [ ] notFalse($value, $message = '')
 - [ ] null($value, $message = '')
 - [ ] notNull($value, $message = '')
