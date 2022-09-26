@@ -2,9 +2,9 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
-use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Assert;
 use Realodix\Assert\Exception\TypeErrorException;
+use Realodix\Assert\Tests\TestCase;
 
 class UnionTypesTest extends TestCase
 {
@@ -18,6 +18,34 @@ class UnionTypesTest extends TestCase
     {
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider validTypesProvider
+     */
+    public function validTypesInputArray($types, $value)
+    {
+        if (\is_string($types)) {
+            $types = $this->stringToArray($types);
+        }
+
+        Assert::type($value, $types);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider invalidTypesProvider
+     */
+    public function invalidTypeInputArray($types, $value)
+    {
+        if (\is_string($types)) {
+            $types = $this->stringToArray($types);
+        }
+
+        $this->expectException(TypeErrorException::class);
+        Assert::type($value, $types);
     }
 
     /**

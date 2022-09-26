@@ -16,12 +16,6 @@ trait UnionTypesTestProvider
             ['int|float', 1],
             ['int|float', 1.0],
 
-            [['string', 'array'], 'abc'],
-            [['array', 'string'], 'abc'],
-            [['array', 'string'], 'object', new \stdClass],
-            [['int', 'float'], 1],
-            [['int', 'float'], 1.0],
-
             [[InterfaceA::class, \Countable::class], new AB],
         ];
     }
@@ -31,9 +25,6 @@ trait UnionTypesTestProvider
         return [
             ['int|float', 'abc'],
             ['array|string|int', new \stdClass],
-
-            [['int', 'float'], 'abc'],
-            [['array', 'string', 'int'], new \stdClass],
         ];
     }
 

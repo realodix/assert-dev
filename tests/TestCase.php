@@ -9,6 +9,11 @@ use Realodix\Assert\Type;
 
 class TestCase extends PHPUnitTestCase
 {
+    protected function stringToArray($value): array
+    {
+        return explode('|', $value);
+    }
+
     protected function invalidType($value, $types)
     {
         $this->expectException(TypeErrorException::class);
