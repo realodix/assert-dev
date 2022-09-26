@@ -1,6 +1,6 @@
 
-Beberlei: 17/91 (14.56%)<br>
-Webmozarts: 18/95 (16.15%)
+Beberlei: 18/91 (16.38%)<br>
+Webmozarts: 18/95 (17.10%)
 
 ---
 
@@ -16,6 +16,7 @@ https://github.com/beberlei/assert
 - [x] Assertion::isCountable(array|Countable|ResourceBundle|SimpleXMLElement $value);
 - [x] Assertion::isInstanceOf(mixed $value, string $className);
 - [x] Assertion::isObject(mixed $value);
+- [x] Assertion::objectOrClass(mixed $value);
 - [x] Assertion::isResource(mixed $value);
 - [x] Assertion::isTraversable(mixed $value);
 - [x] Assertion::null(mixed $value);
@@ -80,7 +81,6 @@ https://github.com/beberlei/assert
 - [ ] Assertion::notNull(mixed $value);
 - [ ] Assertion::notRegex(mixed $value, string $pattern);
 - [ ] Assertion::notSame(mixed $value1, mixed $value2);
-- [ ] Assertion::objectOrClass(mixed $value);
 - [ ] Assertion::phpVersion(string $operator, mixed $version);
 - [ ] Assertion::propertiesExist(mixed $value, array $properties);
 - [ ] Assertion::propertyExists(mixed $value, string $property);
