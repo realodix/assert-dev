@@ -1,5 +1,7 @@
 ## Beberlei
 
+Total: 3/91
+
 - [ ] Assertion::alnum(mixed $value);
 - [ ] Assertion::base64(string $value);
 - [ ] Assertion::between(mixed $value, mixed $lowerLimit, mixed $upperLimit);
@@ -94,6 +96,9 @@
 
 
 ## webmozarts
+
+Total: 3/95
+
 - [ ] string($value, $message = '')
 - [ ] stringNotEmpty($value, $message = '')
 - [ ] integer($value, $message = '')
