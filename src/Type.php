@@ -26,9 +26,21 @@ class Type
         Helper::assertTypeDeclaration(implode('|', $types));
 
         if (! self::hasType($value, $types)) {
-            throw new Exception\TypeErrorException(
-                implode('|', $types), $value, $message
-            );
+            throw new Exception\TypeErrorException(implode('|', $types), $value, $message);
+        }
+    }
+
+    public static function inArray(array $values, $types, string $message = ''): void
+    {
+        self::is($types, 'string|array');
+
+        $types = self::normalizeType($types);
+        Helper::assertTypeDeclaration(implode('|', $types));
+
+        foreach ($values as $value) {
+            if (! self::hasType($value, $types)) {
+                throw new Exception\TypeErrorException(implode('|', $types), $value, $message);
+            }
         }
     }
 

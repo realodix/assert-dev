@@ -3,6 +3,7 @@
 namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
+use Realodix\Assert\Type;
 
 class TypeTest extends TestCase
 {
@@ -116,6 +117,18 @@ class TypeTest extends TestCase
         (! $pass) && $this->invalidType($value, $types);
 
         Assert::type($value, $types);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     * @dataProvider elementProvider
+     */
+    public function inArray($types, $value, $pass = true)
+    {
+        (! $pass) && $this->invalidElementType($value, $types);
+
+        Type::inArray($value, $types);
         $this->addToAssertionCount(1);
     }
 

@@ -282,6 +282,17 @@ trait TypeTestProvider
         ];
     }
 
+    public function elementProvider()
+    {
+        return [
+            // beberlei/assert/allIsInstanceOf
+            // Assert::allIsInstanceOf
+            ['stdClass', [new \stdClass, new \stdClass]],
+            [\stdClass::class, [new \stdClass, new \stdClass]],
+            ['PDO', [new \stdClass, new \stdClass], false],
+        ];
+    }
+
     public function arrayIsWithInvalidInputProvider()
     {
         return [
