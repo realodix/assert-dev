@@ -1,6 +1,6 @@
 ## Beberlei
 
-Total: 3/91
+Total: 7/91
 
 - [ ] Assertion::alnum(mixed $value);
 - [ ] Assertion::base64(string $value);
@@ -26,12 +26,12 @@ Total: 3/91
 - [ ] Assertion::extensionVersion(string $extension, string $operator, mixed $version);
 - [x] Assertion::false(mixed $value);
 - [ ] Assertion::file(string $value);
-- [ ] Assertion::float(mixed $value);
+- [x] Assertion::float(mixed $value);
 - [ ] Assertion::greaterOrEqualThan(mixed $value, mixed $limit);
 - [ ] Assertion::greaterThan(mixed $value, mixed $limit);
 - [ ] Assertion::implementsInterface(mixed $class, string $interfaceName);
 - [ ] Assertion::inArray(mixed $value, array $choices);
-- [ ] Assertion::integer(mixed $value);
+- [x] Assertion::integer(mixed $value);
 - [ ] Assertion::integerish(mixed $value);
 - [ ] Assertion::interfaceExists(mixed $value);
 - [ ] Assertion::ip(string $value, int $flag = null);
@@ -81,9 +81,9 @@ Total: 3/91
 - [ ] Assertion::regex(mixed $value, string $pattern);
 - [ ] Assertion::same(mixed $value, mixed $value2);
 - [ ] Assertion::satisfy(mixed $value, callable $callback);
-- [ ] Assertion::scalar(mixed $value);
+- [x] Assertion::scalar(mixed $value);
 - [ ] Assertion::startsWith(mixed $string, string $needle);
-- [ ] Assertion::string(mixed $value);
+- [x] Assertion::string(mixed $value);
 - [ ] Assertion::subclassOf(mixed $value, string $className);
 - [x] Assertion::true(mixed $value);
 - [ ] Assertion::uniqueValues(array $values);
@@ -97,18 +97,19 @@ Total: 3/91
 
 ## webmozarts
 
-Total: 3/95
+Total: 7/95
 
-- [ ] string($value, $message = '')
+Total: 5/25
+- [x] string($value, $message = '')
 - [ ] stringNotEmpty($value, $message = '')
-- [ ] integer($value, $message = '')
+- [x] integer($value, $message = '')
 - [ ] integerish($value, $message = '')
 - [ ] positiveInteger($value, $message = '')
-- [ ] float($value, $message = '')
+- [x] float($value, $message = '')
 - [ ] numeric($value, $message = '')
 - [ ] natural($value, $message= ''')
 - [x] boolean($value, $message = '')
-- [ ] scalar($value, $message = '')
+- [x] scalar($value, $message = '')
 - [ ] object($value, $message = '')
 - [ ] resource($value, $type = null, $message = '')
 - [ ] isCallable($value, $message = '')
@@ -127,6 +128,7 @@ Total: 3/95
 
 ---
 
+Total: 2/18
 - [x] true($value, $message = '')
 - [x] false($value, $message = '')
 - [ ] notFalse($value, $message = '')
@@ -147,7 +149,7 @@ Total: 3/95
 - [ ] oneOf($value, array $values, $message = '')
 
 ---
-
+Total: 0/25
 - [ ] contains($value, $subString, $message = '')
 - [ ] notContains($value, $subString, $message = '')
 - [ ] startsWith($value, $prefix, $message = '')
@@ -175,7 +177,7 @@ Total: 3/95
 - [ ] notWhitespaceOnly($value, $message = '')
 
 ---
-
+Total: 0/5
 - [ ] fileExists($value, $message = '')
 - [ ] file($value, $message = '')
 - [ ] directory($value, $message = '')
@@ -183,7 +185,7 @@ Total: 3/95
 - [ ] writable($value, $message = '')
 
 ---
-
+Total: 0/8
 - [ ] classExists($value, $message = '')
 - [ ] subclassOf($value, $class, $message = '')
 - [ ] interfaceExists($value, $message = '')
@@ -194,7 +196,7 @@ Total: 3/95
 - [ ] methodNotExists($value, $method, $message = '')
 
 ---
-
+Total: 0/11
 - [ ] keyExists($array, $key, $message = '')
 - [ ] keyNotExists($array, $key, $message = '')
 - [ ] validArrayKey($key, $message = '')
@@ -208,7 +210,7 @@ Total: 3/95
 - [ ] isNonEmptyMap($array, $message = '')
 
 ---
-
+Total: 0/3
 - [ ] throws($closure, $class, $message = '')
 - [ ] Assert::allIsInstanceOf($employees, 'Acme\Employee');
 - [ ] Assert::nullOrString($middleName, 'The middle name must be a string or null. Got: %s');
