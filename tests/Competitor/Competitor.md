@@ -1,6 +1,6 @@
 
-Beberlei: 11/91 <br>
-Webmozarts: 12/95
+Beberlei: 13/91 <br>
+Webmozarts: 14/95
 
 ---
 
@@ -14,6 +14,8 @@ https://github.com/beberlei/assert
 - [x] Assertion::isArray(mixed $value);
 - [x] Assertion::isCallable(mixed $value);
 - [x] Assertion::isObject(mixed $value);
+- [x] Assertion::isResource(mixed $value);
+- [x] Assertion::null(mixed $value);
 - [x] Assertion::numeric(mixed $value);
 - [x] Assertion::scalar(mixed $value);
 - [x] Assertion::string(mixed $value);
@@ -53,7 +55,6 @@ https://github.com/beberlei/assert
 - [ ] Assertion::isCountable(array|Countable|ResourceBundle|SimpleXMLElement $value);
 - [ ] Assertion::isInstanceOf(mixed $value, string $className);
 - [ ] Assertion::isJsonString(mixed $value);
-- [ ] Assertion::isResource(mixed $value);
 - [ ] Assertion::isTraversable(mixed $value);
 - [ ] Assertion::keyExists(mixed $value, string|int $key);
 - [ ] Assertion::keyIsset(mixed $value, string|int $key);
@@ -79,7 +80,6 @@ https://github.com/beberlei/assert
 - [ ] Assertion::notNull(mixed $value);
 - [ ] Assertion::notRegex(mixed $value, string $pattern);
 - [ ] Assertion::notSame(mixed $value1, mixed $value2);
-- [ ] Assertion::null(mixed $value);
 - [ ] Assertion::objectOrClass(mixed $value);
 - [ ] Assertion::phpVersion(string $operator, mixed $version);
 - [ ] Assertion::propertiesExist(mixed $value, array $properties);
@@ -103,7 +103,7 @@ https://github.com/beberlei/assert
 ## Webmozarts
 https://github.com/webmozarts/assert
 
-Total: 10/25
+Total: 11/25
 - [x] boolean($value, $message = '')
 - [x] float($value, $message = '')
 - [x] integer($value, $message = '')
@@ -112,6 +112,7 @@ Total: 10/25
 - [x] isIterable($value, $message = '')
 - [x] numeric($value, $message = '')
 - [x] object($value, $message = '')
+- [x] resource($value, $type = null, $message = '')
 - [x] scalar($value, $message = '')
 - [x] string($value, $message = '')
 - [ ] integerish($value, $message = '')
@@ -126,17 +127,16 @@ Total: 10/25
 - [ ] natural($value, $message= ''')
 - [ ] notInstanceOf($value, $class, $message = '')
 - [ ] positiveInteger($value, $message = '')
-- [ ] resource($value, $type = null, $message = '')
 - [ ] stringNotEmpty($value, $message = '')
 - [ ] uniqueValues($values, $message = '')
 
 ---
 
-Total: 2/18
+Total: 3/18
 - [x] true($value, $message = '')
 - [x] false($value, $message = '')
+- [x] null($value, $message = '')
 - [ ] notFalse($value, $message = '')
-- [ ] null($value, $message = '')
 - [ ] notNull($value, $message = '')
 - [ ] isEmpty($value, $message = '')
 - [ ] notEmpty($value, $message = '')

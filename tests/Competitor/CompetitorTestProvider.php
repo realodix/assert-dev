@@ -30,4 +30,12 @@ trait CompetitorTestProvider
             ['callable', 'strlen'],
         ];
     }
+
+    public function specialTypesProvider()
+    {
+        return [
+            ['null', null],
+            ['resource', fopen(__FILE__, 'r')],
+        ];
+    }
 }
