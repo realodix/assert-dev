@@ -1,6 +1,6 @@
 
-Beberlei: 15/91 (13.65%)<br>
-Webmozarts: 16/95 (15.20%)
+Beberlei: 17/91 (14.56%)<br>
+Webmozarts: 18/95 (16.15%)
 
 ---
 
@@ -17,11 +17,13 @@ https://github.com/beberlei/assert
 - [x] Assertion::isInstanceOf(mixed $value, string $className);
 - [x] Assertion::isObject(mixed $value);
 - [x] Assertion::isResource(mixed $value);
+- [x] Assertion::isTraversable(mixed $value);
 - [x] Assertion::null(mixed $value);
 - [x] Assertion::numeric(mixed $value);
 - [x] Assertion::scalar(mixed $value);
 - [x] Assertion::string(mixed $value);
 - [x] Assertion::true(mixed $value);
+- [x] Assertion::isArrayAccessible(mixed $value);
 - [ ] Assertion::alnum(mixed $value);
 - [ ] Assertion::base64(string $value);
 - [ ] Assertion::between(mixed $value, mixed $lowerLimit, mixed $upperLimit);
@@ -53,9 +55,7 @@ https://github.com/beberlei/assert
 - [ ] Assertion::ip(string $value, int $flag = null);
 - [ ] Assertion::ipv4(string $value, int $flag = null);
 - [ ] Assertion::ipv6(string $value, int $flag = null);
-- [ ] Assertion::isArrayAccessible(mixed $value);
 - [ ] Assertion::isJsonString(mixed $value);
-- [ ] Assertion::isTraversable(mixed $value);
 - [ ] Assertion::keyExists(mixed $value, string|int $key);
 - [ ] Assertion::keyIsset(mixed $value, string|int $key);
 - [ ] Assertion::keyNotExists(mixed $value, string|int $key);
@@ -103,27 +103,27 @@ https://github.com/beberlei/assert
 ## Webmozarts
 https://github.com/webmozarts/assert
 
-Total: 13/25
+Total: 15/25
 - [x] boolean($value, $message = '')
 - [x] float($value, $message = '')
 - [x] integer($value, $message = '')
 - [x] isArray($value, $message = '')
+- [x] isArrayAccessible($value, $message = '')
 - [x] isCallable($value, $message = '')
+- [x] isCountable($value, $message = '')
+- [x] isInstanceOf($value, $class, $message = '')
 - [x] isIterable($value, $message = '')
+- [x] isTraversable($value, $message = '') (deprecated)
 - [x] numeric($value, $message = '')
 - [x] object($value, $message = '')
 - [x] resource($value, $type = null, $message = '')
 - [x] scalar($value, $message = '')
 - [x] string($value, $message = '')
-- [x] isCountable($value, $message = '')
-- [x] isInstanceOf($value, $class, $message = '')
 - [ ] integerish($value, $message = '')
 - [ ] isAnyOf($value, array $classes, $message = '')
 - [ ] isAOf($value, $class, $message = '')
-- [ ] isArrayAccessible($value, $message = '')
 - [ ] isInstanceOfAny($value, array $classes, $message = '')
 - [ ] isNotA($value, $class, $message = '')
-- [ ] isTraversable($value, $message = '') (deprecated)
 - [ ] natural($value, $message= ''')
 - [ ] notInstanceOf($value, $class, $message = '')
 - [ ] positiveInteger($value, $message = '')
