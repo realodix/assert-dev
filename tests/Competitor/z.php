@@ -20,7 +20,7 @@ Assert::nullOrNotEmpty($version);
 
 Assert::inArray();
 Assert::implementsInterface($handler, Tag::class);
-Assert::boolean();
+// Assert::boolean();
 Assert::classExists($handler);
 Assert::eq($analyzer->getNumberOfArguments($contructor), 0);
 Assert::greaterThanEq($startingLine, 1);
@@ -28,9 +28,9 @@ Assert::maxLength($name, self::MAX_LENGTH);
 Assert::range($statusCode, 200, 599, 'Expected an HTTP status code. Got "%s"');
 
 Assert::integerish($startingLine);
-Assert::isCallable($callable);
+// Assert::isCallable($callable);
 Assert::notEndsWith($name, ' ');
-Assert::string($docblock);
-Assert::stringNotEmpty($docblock);
-Assert::true($s);
+// Assert::string($docblock);
+// Assert::stringNotEmpty($docblock);
+// Assert::true($s);
 Assert::fileExists();
