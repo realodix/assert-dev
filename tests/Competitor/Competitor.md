@@ -1,7 +1,11 @@
+
+Beberlei: 8/91
+Webmozarts: 8/95
+
+---
+
 ## Beberlei
 https://github.com/beberlei/assert
-
-Total: 8/91
 
 - [ ] Assertion::alnum(mixed $value);
 - [ ] Assertion::base64(string $value);
@@ -96,10 +100,8 @@ Total: 8/91
 - [ ] Assertion::allIsInstanceOf(array(new \stdClass, new \stdClass), 'stdClass'); // success
 
 
-## webmozarts
+## Webmozarts
 https://github.com/webmozarts/assert
-
-Total: 8/95
 
 Total: 6/25
 - [x] string($value, $message = '')
