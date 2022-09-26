@@ -1,6 +1,6 @@
 
 Beberlei: 18/91 (16.38%)<br>
-Webmozarts: 18/95 (17.10%)
+Webmozarts: 20/95 (19.00%)
 
 ---
 
@@ -103,7 +103,7 @@ https://github.com/beberlei/assert
 ## Webmozarts
 https://github.com/webmozarts/assert
 
-Total: 15/25
+Total: 16/25
 - [x] boolean($value, $message = '')
 - [x] float($value, $message = '')
 - [x] integer($value, $message = '')
@@ -119,6 +119,7 @@ Total: 15/25
 - [x] resource($value, $type = null, $message = '')
 - [x] scalar($value, $message = '')
 - [x] string($value, $message = '')
+- [x] stringNotEmpty($value, $message = '')
 - [ ] integerish($value, $message = '')
 - [ ] isAnyOf($value, array $classes, $message = '')
 - [ ] isAOf($value, $class, $message = '')
@@ -127,7 +128,6 @@ Total: 15/25
 - [ ] natural($value, $message= ''')
 - [ ] notInstanceOf($value, $class, $message = '')
 - [ ] positiveInteger($value, $message = '')
-- [ ] stringNotEmpty($value, $message = '')
 - [ ] uniqueValues($values, $message = '')
 
 ---
@@ -200,7 +200,8 @@ Total: 0/8
 - [ ] methodNotExists($value, $method, $message = '')
 
 ---
-Total: 0/11
+Total: 1/11
+- [x] isNonEmptyList($array, $message = '')
 - [ ] keyExists($array, $key, $message = '')
 - [ ] keyNotExists($array, $key, $message = '')
 - [ ] validArrayKey($key, $message = '')
@@ -209,7 +210,6 @@ Total: 0/11
 - [ ] maxCount($array, $max, $message = '')
 - [ ] countBetween($array, $min, $max, $message = '')
 - [ ] isList($array, $message = '')
-- [ ] isNonEmptyList($array, $message = '')
 - [ ] isMap($array, $message = '')
 - [ ] isNonEmptyMap($array, $message = '')
 
