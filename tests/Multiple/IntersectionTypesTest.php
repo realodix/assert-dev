@@ -2,11 +2,11 @@
 
 namespace Realodix\Assert\Tests\Multiple;
 
-use PHPUnit\Framework\TestCase;
 use Realodix\Assert\Exception\TypeErrorException;
 use Realodix\Assert\Exception\UnknownClassOrInterfaceException;
 use Realodix\Assert\Tests\Fixtures\AB;
 use Realodix\Assert\Tests\Fixtures\InterfaceA;
+use Realodix\Assert\Tests\TestCase;
 use Realodix\Assert\Type;
 
 class IntersectionTypesTest extends TestCase
