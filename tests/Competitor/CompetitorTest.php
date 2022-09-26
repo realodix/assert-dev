@@ -41,4 +41,15 @@ class CompetitorTest extends TestCase
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
     }
+
+    /**
+     * @dataProvider othersTypesProvider
+     */
+    public function testOthersTypes($types, $value, $pass = true)
+    {
+        (! $pass) && $this->invalidType($value, $types);
+
+        Assert::type($value, $types);
+        $this->addToAssertionCount(1);
+    }
 }

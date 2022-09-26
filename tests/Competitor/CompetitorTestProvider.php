@@ -38,4 +38,12 @@ trait CompetitorTestProvider
             ['resource', fopen(__FILE__, 'r')],
         ];
     }
+
+    public function othersTypesProvider()
+    {
+        return [
+            ['countable', [1, 2]],
+            [\Exception::class, new \RuntimeException],
+        ];
+    }
 }

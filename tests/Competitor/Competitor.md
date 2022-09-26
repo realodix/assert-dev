@@ -1,6 +1,6 @@
 
-Beberlei: 13/91 <br>
-Webmozarts: 14/95
+Beberlei: 15/91 (13.65%)<br>
+Webmozarts: 16/95 (15.20%)
 
 ---
 
@@ -13,6 +13,8 @@ https://github.com/beberlei/assert
 - [x] Assertion::integer(mixed $value);
 - [x] Assertion::isArray(mixed $value);
 - [x] Assertion::isCallable(mixed $value);
+- [x] Assertion::isCountable(array|Countable|ResourceBundle|SimpleXMLElement $value);
+- [x] Assertion::isInstanceOf(mixed $value, string $className);
 - [x] Assertion::isObject(mixed $value);
 - [x] Assertion::isResource(mixed $value);
 - [x] Assertion::null(mixed $value);
@@ -52,8 +54,6 @@ https://github.com/beberlei/assert
 - [ ] Assertion::ipv4(string $value, int $flag = null);
 - [ ] Assertion::ipv6(string $value, int $flag = null);
 - [ ] Assertion::isArrayAccessible(mixed $value);
-- [ ] Assertion::isCountable(array|Countable|ResourceBundle|SimpleXMLElement $value);
-- [ ] Assertion::isInstanceOf(mixed $value, string $className);
 - [ ] Assertion::isJsonString(mixed $value);
 - [ ] Assertion::isTraversable(mixed $value);
 - [ ] Assertion::keyExists(mixed $value, string|int $key);
@@ -103,7 +103,7 @@ https://github.com/beberlei/assert
 ## Webmozarts
 https://github.com/webmozarts/assert
 
-Total: 11/25
+Total: 13/25
 - [x] boolean($value, $message = '')
 - [x] float($value, $message = '')
 - [x] integer($value, $message = '')
@@ -115,12 +115,12 @@ Total: 11/25
 - [x] resource($value, $type = null, $message = '')
 - [x] scalar($value, $message = '')
 - [x] string($value, $message = '')
+- [x] isCountable($value, $message = '')
+- [x] isInstanceOf($value, $class, $message = '')
 - [ ] integerish($value, $message = '')
 - [ ] isAnyOf($value, array $classes, $message = '')
 - [ ] isAOf($value, $class, $message = '')
 - [ ] isArrayAccessible($value, $message = '')
-- [ ] isCountable($value, $message = '')
-- [ ] isInstanceOf($value, $class, $message = '')
 - [ ] isInstanceOfAny($value, array $classes, $message = '')
 - [ ] isNotA($value, $class, $message = '')
 - [ ] isTraversable($value, $message = '') (deprecated)
