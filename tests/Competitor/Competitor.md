@@ -1,6 +1,6 @@
 
 Beberlei: 18/91 (16.38%)<br>
-Webmozarts: 21/95 (19.95%)
+Webmozarts: 22/95 (20.90%)
 
 ---
 
@@ -214,7 +214,7 @@ Total: 2/11
 - [ ] isNonEmptyMap($array, $message = '')
 
 ---
-Total: 0/3
+Total: 1/3
+- [x] Assert::nullOrString($middleName, 'The middle name must be a string or null. Got: %s');
 - [ ] throws($closure, $class, $message = '')
 - [ ] Assert::allIsInstanceOf($employees, 'Acme\Employee');
-- [ ] Assert::nullOrString($middleName, 'The middle name must be a string or null. Got: %s');

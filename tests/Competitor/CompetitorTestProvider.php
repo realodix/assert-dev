@@ -35,6 +35,8 @@ trait CompetitorTestProvider
     {
         return [
             ['null', null],
+            ['null|string', null],
+            ['null|string', 'string'],
             ['resource', fopen(__FILE__, 'r')],
         ];
     }
