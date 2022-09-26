@@ -9,8 +9,8 @@ Assert::subclassOf();
 
 Assert::allFile($configFiles);
 Assert::allNotNull();
-Assert::allString($directories);
-Assert::allStringNotEmpty();
+// Assert::allString($directories);
+// Assert::allStringNotEmpty();
 
 Assert::notEmpty();
 Assert::notNull($descriptionFactory);
