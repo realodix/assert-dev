@@ -14,7 +14,7 @@ Assert::allStringNotEmpty();
 
 Assert::notEmpty();
 Assert::notNull($descriptionFactory);
-Assert::null($this->microTime, 'Timer can not be started again without stopping.');
+// Assert::null($this->microTime, 'Timer can not be started again without stopping.');
 Assert::nullOrIntegerish($lineCount);
 Assert::nullOrNotEmpty($version);
 
