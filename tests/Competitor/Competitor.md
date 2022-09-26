@@ -1,18 +1,28 @@
 
-Beberlei: 8/91 <br>
-Webmozarts: 8/95
+Beberlei: 11/91 <br>
+Webmozarts: 12/95
 
 ---
 
 ## Beberlei
 https://github.com/beberlei/assert
 
+- [x] Assertion::boolean(mixed $value);
+- [x] Assertion::false(mixed $value);
+- [x] Assertion::float(mixed $value);
+- [x] Assertion::integer(mixed $value);
+- [x] Assertion::isArray(mixed $value);
+- [x] Assertion::isCallable(mixed $value);
+- [x] Assertion::isObject(mixed $value);
+- [x] Assertion::numeric(mixed $value);
+- [x] Assertion::scalar(mixed $value);
+- [x] Assertion::string(mixed $value);
+- [x] Assertion::true(mixed $value);
 - [ ] Assertion::alnum(mixed $value);
 - [ ] Assertion::base64(string $value);
 - [ ] Assertion::between(mixed $value, mixed $lowerLimit, mixed $upperLimit);
 - [ ] Assertion::betweenExclusive(mixed $value, mixed $lowerLimit, mixed $upperLimit);
 - [ ] Assertion::betweenLength(mixed $value, int $minLength, int $maxLength);
-- [x] Assertion::boolean(mixed $value);
 - [ ] Assertion::choice(mixed $value, array $choices);
 - [ ] Assertion::choicesNotEmpty(array $values, array $choices);
 - [ ] Assertion::classExists(mixed $value);
@@ -29,26 +39,20 @@ https://github.com/beberlei/assert
 - [ ] Assertion::eqArraySubset(mixed $value, mixed $value2);
 - [ ] Assertion::extensionLoaded(mixed $value);
 - [ ] Assertion::extensionVersion(string $extension, string $operator, mixed $version);
-- [x] Assertion::false(mixed $value);
 - [ ] Assertion::file(string $value);
-- [x] Assertion::float(mixed $value);
 - [ ] Assertion::greaterOrEqualThan(mixed $value, mixed $limit);
 - [ ] Assertion::greaterThan(mixed $value, mixed $limit);
 - [ ] Assertion::implementsInterface(mixed $class, string $interfaceName);
 - [ ] Assertion::inArray(mixed $value, array $choices);
-- [x] Assertion::integer(mixed $value);
 - [ ] Assertion::integerish(mixed $value);
 - [ ] Assertion::interfaceExists(mixed $value);
 - [ ] Assertion::ip(string $value, int $flag = null);
 - [ ] Assertion::ipv4(string $value, int $flag = null);
 - [ ] Assertion::ipv6(string $value, int $flag = null);
-- [ ] Assertion::isArray(mixed $value);
 - [ ] Assertion::isArrayAccessible(mixed $value);
-- [ ] Assertion::isCallable(mixed $value);
 - [ ] Assertion::isCountable(array|Countable|ResourceBundle|SimpleXMLElement $value);
 - [ ] Assertion::isInstanceOf(mixed $value, string $className);
 - [ ] Assertion::isJsonString(mixed $value);
-- [ ] Assertion::isObject(mixed $value);
 - [ ] Assertion::isResource(mixed $value);
 - [ ] Assertion::isTraversable(mixed $value);
 - [ ] Assertion::keyExists(mixed $value, string|int $key);
@@ -76,7 +80,6 @@ https://github.com/beberlei/assert
 - [ ] Assertion::notRegex(mixed $value, string $pattern);
 - [ ] Assertion::notSame(mixed $value1, mixed $value2);
 - [ ] Assertion::null(mixed $value);
-- [x] Assertion::numeric(mixed $value);
 - [ ] Assertion::objectOrClass(mixed $value);
 - [ ] Assertion::phpVersion(string $operator, mixed $version);
 - [ ] Assertion::propertiesExist(mixed $value, array $properties);
@@ -86,11 +89,8 @@ https://github.com/beberlei/assert
 - [ ] Assertion::regex(mixed $value, string $pattern);
 - [ ] Assertion::same(mixed $value, mixed $value2);
 - [ ] Assertion::satisfy(mixed $value, callable $callback);
-- [x] Assertion::scalar(mixed $value);
 - [ ] Assertion::startsWith(mixed $string, string $needle);
-- [x] Assertion::string(mixed $value);
 - [ ] Assertion::subclassOf(mixed $value, string $className);
-- [x] Assertion::true(mixed $value);
 - [ ] Assertion::uniqueValues(array $values);
 - [ ] Assertion::url(mixed $value);
 - [ ] Assertion::uuid(string $value);
@@ -103,31 +103,31 @@ https://github.com/beberlei/assert
 ## Webmozarts
 https://github.com/webmozarts/assert
 
-Total: 6/25
-- [x] string($value, $message = '')
-- [ ] stringNotEmpty($value, $message = '')
-- [x] integer($value, $message = '')
-- [ ] integerish($value, $message = '')
-- [ ] positiveInteger($value, $message = '')
-- [x] float($value, $message = '')
-- [x] numeric($value, $message = '')
-- [ ] natural($value, $message= ''')
+Total: 10/25
 - [x] boolean($value, $message = '')
+- [x] float($value, $message = '')
+- [x] integer($value, $message = '')
+- [x] isArray($value, $message = '')
+- [x] isCallable($value, $message = '')
+- [x] isIterable($value, $message = '')
+- [x] numeric($value, $message = '')
+- [x] object($value, $message = '')
 - [x] scalar($value, $message = '')
-- [ ] object($value, $message = '')
-- [ ] resource($value, $type = null, $message = '')
-- [ ] isCallable($value, $message = '')
-- [ ] isArray($value, $message = '')
-- [ ] isTraversable($value, $message = '') (deprecated)
-- [ ] isIterable($value, $message = '')
+- [x] string($value, $message = '')
+- [ ] integerish($value, $message = '')
+- [ ] isAnyOf($value, array $classes, $message = '')
+- [ ] isAOf($value, $class, $message = '')
+- [ ] isArrayAccessible($value, $message = '')
 - [ ] isCountable($value, $message = '')
 - [ ] isInstanceOf($value, $class, $message = '')
 - [ ] isInstanceOfAny($value, array $classes, $message = '')
-- [ ] notInstanceOf($value, $class, $message = '')
-- [ ] isAOf($value, $class, $message = '')
-- [ ] isAnyOf($value, array $classes, $message = '')
 - [ ] isNotA($value, $class, $message = '')
-- [ ] isArrayAccessible($value, $message = '')
+- [ ] isTraversable($value, $message = '') (deprecated)
+- [ ] natural($value, $message= ''')
+- [ ] notInstanceOf($value, $class, $message = '')
+- [ ] positiveInteger($value, $message = '')
+- [ ] resource($value, $type = null, $message = '')
+- [ ] stringNotEmpty($value, $message = '')
 - [ ] uniqueValues($values, $message = '')
 
 ---
