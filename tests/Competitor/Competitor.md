@@ -1,6 +1,6 @@
 
 Beberlei: 18/91 (16.38%)<br>
-Webmozarts: 20/95 (19.00%)
+Webmozarts: 21/95 (19.95%)
 
 ---
 
@@ -200,7 +200,8 @@ Total: 0/8
 - [ ] methodNotExists($value, $method, $message = '')
 
 ---
-Total: 1/11
+Total: 2/11
+- [x] isList($array, $message = '')
 - [x] isNonEmptyList($array, $message = '')
 - [ ] keyExists($array, $key, $message = '')
 - [ ] keyNotExists($array, $key, $message = '')
@@ -209,7 +210,6 @@ Total: 1/11
 - [ ] minCount($array, $min, $message = '')
 - [ ] maxCount($array, $max, $message = '')
 - [ ] countBetween($array, $min, $max, $message = '')
-- [ ] isList($array, $message = '')
 - [ ] isMap($array, $message = '')
 - [ ] isNonEmptyMap($array, $message = '')
 
