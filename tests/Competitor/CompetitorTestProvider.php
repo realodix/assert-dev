@@ -57,4 +57,13 @@ trait CompetitorTestProvider
             ['ArrayAccess', new \ArrayObject],
         ];
     }
+
+    public function allIsInstanceOfProvider()
+    {
+        return [
+            ['stdClass', [new \stdClass, new \stdClass]],
+            [\stdClass::class, [new \stdClass, new \stdClass]],
+            ['PDO', [new \stdClass, new \stdClass], false],
+        ];
+    }
 }

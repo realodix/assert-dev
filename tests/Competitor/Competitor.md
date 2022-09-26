@@ -1,12 +1,13 @@
 
-Beberlei: 18/91 (19.78%)<br>
-Webmozarts: 22/95 (23.15%)
+Beberlei: 19/91 (20.87%)<br>
+Webmozarts: 23/95 (24.21%)
 
 ---
 
 ## Beberlei
 https://github.com/beberlei/assert
 
+- [x] Assertion::allIsInstanceOf(array(new \stdClass, new \stdClass), 'stdClass'); // success
 - [x] Assertion::boolean(mixed $value);
 - [x] Assertion::false(mixed $value);
 - [x] Assertion::float(mixed $value);
@@ -97,7 +98,6 @@ https://github.com/beberlei/assert
 - [ ] Assertion::version(string $version1, string $operator, string $version2);
 - [ ] Assertion::writeable(string $value);
 - [ ] Assertion::nullOrMax(null, 42); // success
-- [ ] Assertion::allIsInstanceOf(array(new \stdClass, new \stdClass), 'stdClass'); // success
 
 
 ## Webmozarts
@@ -214,7 +214,7 @@ Total: 2/11
 - [ ] isNonEmptyMap($array, $message = '')
 
 ---
-Total: 1/3
+Total: 2/3
+- [x] Assert::allIsInstanceOf($employees, 'Acme\Employee');
 - [x] Assert::nullOrString($middleName, 'The middle name must be a string or null. Got: %s');
 - [ ] throws($closure, $class, $message = '')
-- [ ] Assert::allIsInstanceOf($employees, 'Acme\Employee');
