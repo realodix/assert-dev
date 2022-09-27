@@ -30,6 +30,9 @@ class Type
         }
     }
 
+    /**
+     * @param string|array $types
+     */
     public static function inArray(array $values, $types, string $message = ''): void
     {
         self::is($types, 'string|array');
