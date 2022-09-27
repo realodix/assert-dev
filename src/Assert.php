@@ -10,15 +10,15 @@ class Assert
 
         $result = round(($remaining / $capacity) * 100, 2, PHP_ROUND_HALF_DOWN);
 
-        if (($result === 0) && ($capacity <= $used)) {
+        if ($remaining === 0) {
             return '0%';
-        } elseif (($result === 0) && ($capacity > $used)) {
+        } elseif ($remaining < ($capacity * 0.0001)) {
             return '0.01%';
-        } elseif ($remaining >= ($capacity * 0.9999)) {
+        } elseif ($remaining > ($capacity * 0.9999)) {
             return '99.99%';
         }
 
-        return $result;
+        return $result.'%';
     }
 
     /**

@@ -143,12 +143,13 @@ class TypeTest extends TestCase
 
     /**
      * @test
+     * @dataProvider keyRemainingInPercentProvider
      */
-    public function keyRemainingInPercent()
+    public function keyRemainingInPercent($actual, $remaining, $capacity)
     {
         $this->assertSame(
-            '99.99%',
-            Assert::keyRemainingInPercent(9999991, 10000000)
+            $actual,
+            Assert::keyRemainingInPercent($remaining, $capacity)
         );
     }
 }
