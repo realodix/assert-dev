@@ -124,11 +124,11 @@ class TypeTest extends TestCase
      * @test
      * @dataProvider elementProvider
      */
-    public function inArray($types, $value, $pass = true)
+    public function arrayValueIs($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidElementType($value, $types);
 
-        Type::inArray($value, $types);
+        Type::arrayValueIs($value, $types);
         $this->addToAssertionCount(1);
     }
 
