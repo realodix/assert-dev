@@ -93,7 +93,6 @@ trait TypeTestProvider
             ['RuntimeException', new \RuntimeException],
             [\RuntimeException::class, new \RuntimeException],
             ['Exception', new \RuntimeException],
-            [\Exception::class, new \RuntimeException],
             ['stdClass', new \stdClass],
             [\stdClass::class, new \stdClass],
             [\DateTimeInterface::class, new \DateTimeImmutable],
