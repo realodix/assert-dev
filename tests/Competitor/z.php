@@ -1,7 +1,7 @@
 <?php
 
-Assert::isInstanceOf($nodes, DOMNodeList::class);
-Assert::isInstanceOfAny();
+// Assert::isInstanceOf($nodes, DOMNodeList::class);
+// Assert::isInstanceOfAny();
 Assert::allIsAOf($compilerPasses, CompilerPassInterface::class);
 // Assert::allIsInstanceOf($tags, Tag::class);
 Assert::oneOf($mutatorClass, ProfileList::ALL_MUTATORS);
