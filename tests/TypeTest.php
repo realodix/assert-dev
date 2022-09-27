@@ -140,4 +140,15 @@ class TypeTest extends TestCase
     {
         $this->invalidType($value, $types);
     }
+
+    /**
+     * @test
+     */
+    public function keyRemainingInPercent()
+    {
+        $this->assertSame(
+            '99.99%',
+            Assert::keyRemainingInPercent(9999991, 10000000)
+        );
+    }
 }
