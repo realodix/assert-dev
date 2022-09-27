@@ -1,6 +1,6 @@
 
-Beberlei: 19/91 (20.87%)<br>
-Webmozarts: 26/95 (27.36%)
+Beberlei: 25/91 (27.47%) <br>
+Webmozarts: 35/95 (36.84%)
 
 ---
 
@@ -8,34 +8,38 @@ Webmozarts: 26/95 (27.36%)
 https://github.com/beberlei/assert
 
 - [x] Assertion::allIsInstanceOf(array(new \stdClass, new \stdClass), 'stdClass'); // success
+- [x] Assertion::between(mixed $value, mixed $lowerLimit, mixed $upperLimit);
 - [x] Assertion::boolean(mixed $value);
+- [x] Assertion::count(array|Countable|ResourceBundle|SimpleXMLElement $countable, int $count);
 - [x] Assertion::false(mixed $value);
 - [x] Assertion::float(mixed $value);
 - [x] Assertion::integer(mixed $value);
 - [x] Assertion::isArray(mixed $value);
+- [x] Assertion::isArrayAccessible(mixed $value);
 - [x] Assertion::isCallable(mixed $value);
 - [x] Assertion::isCountable(array|Countable|ResourceBundle|SimpleXMLElement $value);
 - [x] Assertion::isInstanceOf(mixed $value, string $className);
 - [x] Assertion::isObject(mixed $value);
-- [x] Assertion::objectOrClass(mixed $value);
 - [x] Assertion::isResource(mixed $value);
 - [x] Assertion::isTraversable(mixed $value);
+- [x] Assertion::keyExists(mixed $value, string|int $key);
+- [x] Assertion::keyNotExists(mixed $value, string|int $key);
+- [x] Assertion::maxCount(array|Countable|ResourceBundle|SimpleXMLElement $countable, int $count);
+- [x] Assertion::minCount(array|Countable|ResourceBundle|SimpleXMLElement $countable, int $count);
 - [x] Assertion::null(mixed $value);
 - [x] Assertion::numeric(mixed $value);
+- [x] Assertion::objectOrClass(mixed $value);
 - [x] Assertion::scalar(mixed $value);
 - [x] Assertion::string(mixed $value);
 - [x] Assertion::true(mixed $value);
-- [x] Assertion::isArrayAccessible(mixed $value);
 - [ ] Assertion::alnum(mixed $value);
 - [ ] Assertion::base64(string $value);
-- [ ] Assertion::between(mixed $value, mixed $lowerLimit, mixed $upperLimit);
 - [ ] Assertion::betweenExclusive(mixed $value, mixed $lowerLimit, mixed $upperLimit);
 - [ ] Assertion::betweenLength(mixed $value, int $minLength, int $maxLength);
 - [ ] Assertion::choice(mixed $value, array $choices);
 - [ ] Assertion::choicesNotEmpty(array $values, array $choices);
 - [ ] Assertion::classExists(mixed $value);
 - [ ] Assertion::contains(mixed $string, string $needle);
-- [ ] Assertion::count(array|Countable|ResourceBundle|SimpleXMLElement $countable, int $count);
 - [ ] Assertion::date(string $value, string $format);
 - [ ] Assertion::defined(mixed $constant);
 - [ ] Assertion::digit(mixed $value);
@@ -58,18 +62,14 @@ https://github.com/beberlei/assert
 - [ ] Assertion::ipv4(string $value, int $flag = null);
 - [ ] Assertion::ipv6(string $value, int $flag = null);
 - [ ] Assertion::isJsonString(mixed $value);
-- [ ] Assertion::keyExists(mixed $value, string|int $key);
 - [ ] Assertion::keyIsset(mixed $value, string|int $key);
-- [ ] Assertion::keyNotExists(mixed $value, string|int $key);
 - [ ] Assertion::length(mixed $value, int $length);
 - [ ] Assertion::lessOrEqualThan(mixed $value, mixed $limit);
 - [ ] Assertion::lessThan(mixed $value, mixed $limit);
 - [ ] Assertion::max(mixed $value, mixed $maxValue);
-- [ ] Assertion::maxCount(array|Countable|ResourceBundle|SimpleXMLElement $countable, int $count);
 - [ ] Assertion::maxLength(mixed $value, int $maxLength);
 - [ ] Assertion::methodExists(string $value, mixed $object);
 - [ ] Assertion::min(mixed $value, mixed $minValue);
-- [ ] Assertion::minCount(array|Countable|ResourceBundle|SimpleXMLElement $countable, int $count);
 - [ ] Assertion::minLength(mixed $value, int $minLength);
 - [ ] Assertion::noContent(mixed $value);
 - [ ] Assertion::notBlank(mixed $value);
@@ -200,18 +200,18 @@ Total: 0/8
 - [ ] methodNotExists($value, $method, $message = '')
 
 ---
-Total: 2/11
+Total: 11/11
+- [x] count($array, $number, $message = '')
+- [x] countBetween($array, $min, $max, $message = '')
 - [x] isList($array, $message = '')
+- [x] isMap($array, $message = '')
 - [x] isNonEmptyList($array, $message = '')
-- [ ] keyExists($array, $key, $message = '')
-- [ ] keyNotExists($array, $key, $message = '')
-- [ ] validArrayKey($key, $message = '')
-- [ ] count($array, $number, $message = '')
-- [ ] minCount($array, $min, $message = '')
-- [ ] maxCount($array, $max, $message = '')
-- [ ] countBetween($array, $min, $max, $message = '')
-- [ ] isMap($array, $message = '')
-- [ ] isNonEmptyMap($array, $message = '')
+- [x] isNonEmptyMap($array, $message = '')
+- [x] keyExists($array, $key, $message = '')
+- [x] keyNotExists($array, $key, $message = '')
+- [x] maxCount($array, $max, $message = '')
+- [x] minCount($array, $min, $message = '')
+- [x] validArrayKey($key, $message = '')
 
 ---
 Total: 2/3
