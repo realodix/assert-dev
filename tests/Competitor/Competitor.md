@@ -1,6 +1,6 @@
 
 Beberlei: 19/91 (20.87%)<br>
-Webmozarts: 23/95 (24.21%)
+Webmozarts: 26/95 (27.36%)
 
 ---
 
@@ -103,15 +103,18 @@ https://github.com/beberlei/assert
 ## Webmozarts
 https://github.com/webmozarts/assert
 
-Total: 16/25
+Total: 19/25
 - [x] boolean($value, $message = '')
 - [x] float($value, $message = '')
 - [x] integer($value, $message = '')
+- [x] isAnyOf($value, array $classes, $message = '')
+- [x] isAOf($value, $class, $message = '')
 - [x] isArray($value, $message = '')
 - [x] isArrayAccessible($value, $message = '')
 - [x] isCallable($value, $message = '')
 - [x] isCountable($value, $message = '')
 - [x] isInstanceOf($value, $class, $message = '')
+- [x] isInstanceOfAny($value, array $classes, $message = '')
 - [x] isIterable($value, $message = '')
 - [x] isTraversable($value, $message = '') (deprecated)
 - [x] numeric($value, $message = '')
@@ -121,9 +124,6 @@ Total: 16/25
 - [x] string($value, $message = '')
 - [x] stringNotEmpty($value, $message = '')
 - [ ] integerish($value, $message = '')
-- [ ] isAnyOf($value, array $classes, $message = '')
-- [ ] isAOf($value, $class, $message = '')
-- [ ] isInstanceOfAny($value, array $classes, $message = '')
 - [ ] isNotA($value, $class, $message = '')
 - [ ] natural($value, $message= ''')
 - [ ] notInstanceOf($value, $class, $message = '')
@@ -149,8 +149,8 @@ Total: 3/18
 - [ ] lessThan($value, $value2, $message = '')
 - [ ] lessThanEq($value, $value2, $message = '')
 - [ ] range($value, $min, $max, $message = '')
-- [ ] inArray($value, array $values, $message = '')
-- [ ] oneOf($value, array $values, $message = '')
+- [ ] inArray($value, array $values, $message = '') // oneOf()
+- [ ] oneOf($value, array $values, $message = '') // inArray()
 
 ---
 Total: 0/25
