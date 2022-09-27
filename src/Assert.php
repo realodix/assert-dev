@@ -8,7 +8,7 @@ class Assert
     {
         $used = $capacity - $remaining;
 
-        $result = round(($remaining / $capacity) * 100, 2, PHP_ROUND_HALF_DOWN);
+        $result = round(($remaining / $capacity) * 100, 2);
 
         if ($remaining === 0) {
             return '0%';
