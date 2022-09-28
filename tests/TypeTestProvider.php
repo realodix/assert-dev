@@ -305,15 +305,4 @@ trait TypeTestProvider
             ['list[]', 'string'],
         ];
     }
-
-    public function keyRemainingInPercentProvider()
-    {
-        return [
-            ['0.02%', 2000, 10 ** 7],
-
-            ['0%', 0, 10 ** 7],
-            ['0.01%', 1, 10 ** 7],
-            ['99.99%', 9999991, 10 ** 7],
-        ];
-    }
 }

@@ -4,23 +4,6 @@ namespace Realodix\Assert;
 
 class Assert
 {
-    public static function keyRemainingInPercent($remaining, $capacity): string
-    {
-        $used = $capacity - $remaining;
-
-        $result = round(($remaining / $capacity) * 100, 2);
-
-        if ($remaining === 0) {
-            return '0%';
-        } elseif ($remaining < ($capacity * 0.0001)) {
-            return '0.01%';
-        } elseif ($remaining > ($capacity * 0.9999)) {
-            return '99.99%';
-        }
-
-        return $result.'%';
-    }
-
     /**
      * @param  mixed           $value
      * @param  string|string[] $types

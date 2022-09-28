@@ -140,16 +140,4 @@ class TypeTest extends TestCase
     {
         $this->invalidType($value, $types);
     }
-
-    /**
-     * @test
-     * @dataProvider keyRemainingInPercentProvider
-     */
-    public function keyRemainingInPercent($actual, $remaining, $capacity)
-    {
-        $this->assertSame(
-            $actual,
-            Assert::keyRemainingInPercent($remaining, $capacity)
-        );
-    }
 }
