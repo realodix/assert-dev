@@ -147,8 +147,6 @@ class Type
      */
     private static function normalizeType($types): array
     {
-        Helper::assertStringOrArray($types, '$types');
-
         if (\is_string($types)) {
             $types = explode('|', $types);
         }
