@@ -203,10 +203,10 @@ trait TypeTestProvider
     {
         return [
             ['string[]', ['string']],
-            ['string[]', ['string' => 'string']],
             ['string[]', [0 => 'string']],
-            ['string[]', [1 => 'string']],
-            ['string[]', [1 => 'string', 0 => 'string']],
+            ['string[]', ['string' => 'string'], false],
+            ['string[]', [1 => 'string'], false],
+            ['string[]', [1 => 'string', 0 => 'string'], false],
             ['string[]', [1], false],
             ['string[]', ['string', 1], false],
             ['string[]', [1, 'string'], false],
