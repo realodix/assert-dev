@@ -60,18 +60,18 @@ Types       | Description
 `object[]`  | `array<mixed, object>`
 
 #### Redundant types
-You cannot declare a super-type and a sub-type in union type declarations.
+You cannot declare a super type and any of its subtypes in the same union type declaration.
 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
-`scalar`   | One of `string`, `bool`, `numeric`, `int`, and  `float`
-`numeric`  | One of `int`, `positive-int`, `negative-int`, and `float`
-`int`      | One of `positive-int`, and `negative-int`
-`bool`     | One of `true`, and  `false`
-`array`    | One of `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
-`string`   | One of `non-empty-string`
-`non-empty-array` | One of `list[]` and `non-empty-list`
-`list[]`   | One of `non-empty-list`
+`scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
+`numeric`  | `int`, `positive-int`, `negative-int`, and `float`
+`int`      | `positive-int`, and `negative-int`
+`bool`     | `true`, and  `false`
+`array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
+`string`   | `non-empty-string`
+`non-empty-array` | `list[]` and `non-empty-list`
+`list[]`   | `non-empty-list`
 
 ```php
 use Realodix\Assert\Assert;
