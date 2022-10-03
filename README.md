@@ -40,7 +40,7 @@ Types      | Description
 `negative-int` | Check that a value is a negative integer
 `float`    | Check that a value is a float
 `numeric`  | Check that a value is numeric
-`numeric-string` | Is a string that would pass an [`is_numeric()`][phpIsNumeric] check
+`numeric-string` | `is_string($value) && is_numeric($value)`
 `resource` | Check that a value is a resource
 `object`   | Check that a value is an object
 `callable` | Check that a value is a callable
@@ -107,5 +107,3 @@ This package is licensed using the [MIT License](/LICENSE).
 
 
 [phpArrayIsList]: https://www.php.net/manual/en/function.array-is-list.php
-[phpIsCallable]: https://www.php.net/manual/en/function.is-callable.php
-[phpIsNumeric]: https://www.php.net/manual/en/function.is-numeric.php
