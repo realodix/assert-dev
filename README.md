@@ -37,13 +37,13 @@ Types       | Description
 `string`    | Check whether a variable is of type string or not
 `non-empty-string` | Check whether a variable is of type string, and not empty
 `numeric`   | Check whether a variable is a number or a numeric string, or not
-`numeric-string` | is a string that would pass an [`is_numeric()`][phpIsNumeric] check
+`numeric-string` | Is a string that would pass an [`is_numeric()`][phpIsNumeric] check
 `scalar`    | Check whether a variable is a scalar or not
 `null`      | Check whether a variable is NULL or not
 `resource`  | Check whether a variable is a resource or not
 `object`    | Check whether a variable is an object or not
 `callable`  | Check whether the contents of a variable can be called as a function or not
-`callable-string` | is a string that would pass an [`is_callable()`][phpIsCallable] check
+`callable-string` | Is a string that would pass an [`is_callable()`][phpIsCallable] check
 
 Types       | Description
 ----------- | ------------------------------------------------------------------
