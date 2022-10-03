@@ -60,7 +60,7 @@ Types       | Description
 `object[]`  | `array<mixed, object>`
 
 #### Redundant types
-You cannot declare a super type and any of its subtypes in the same union type declaration.
+You cannot declare a super type and (any/all) of its subtypes in the same union type declaration.
 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
