@@ -133,7 +133,7 @@ class Helper
 
         if (self::typeHasRedundantMembers(explode('|', $types))) {
             throw new \ErrorException(
-                'Duplicate type names in the same declaration is not allowed.'
+                'Type declarations has redundant types.'
             );
         }
     }

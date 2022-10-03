@@ -134,7 +134,7 @@ class UnionTypesTest extends TestCase
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
-            'Duplicate type names in the same declaration is not allowed.'
+            'Type declarations has redundant types.'
         );
 
         Assert::type($value, $types);
@@ -148,7 +148,7 @@ class UnionTypesTest extends TestCase
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
-            'Duplicate type names in the same declaration is not allowed.'
+            'Type declarations has redundant types.'
         );
 
         $types = explode('|', $types);
