@@ -47,6 +47,16 @@ trait TypeTestProvider
             ['int', 1.23, false],
             ['int', true, false],
 
+            ['positive-int', 1],
+            // Invalid positive-int
+            ['positive-int', 0, false],
+            ['positive-int', -1, false],
+
+            ['negative-int', -1],
+            // Invalid negative-int
+            ['negative-int', 0, false],
+            ['negative-int', 1, false],
+
             ['float', 0.1],
             ['float', 1.0],
             ['float', 2.3],

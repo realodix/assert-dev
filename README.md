@@ -31,6 +31,8 @@ Types       | Description
 ----------- | ------------------------------------------------------------------
 `bool`      | Check whether a variable is a boolean or not
 `int`       | Check whether a variable is of type integer or not
+`positive-int` | Check whether a variable is of type positive integer or not
+`negative-int` | Check whether a variable is of type negative integer or not
 `float`     | Check whether a variable is of type float or not
 `string`    | Check whether a variable is of type string or not
 `non-empty-string` | Check whether a variable is of type string, and not empty
@@ -61,7 +63,8 @@ You cannot declare a super-type and a sub-type in union type declarations.
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`numeric`  | `int`, and  `float`
+`numeric`  | `int`, `positive-int`, `negative-int`, and  `float`
+`int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
 `string`   | `non-empty-string`
