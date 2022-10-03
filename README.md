@@ -27,30 +27,32 @@ public function setBar($foo)
 
 ### Types Assertions
 
-Types       | Description
------------ | ------------------------------------------------------------------
-`bool`      | Check whether a variable is a boolean or not
-`int`       | Check whether a variable is of type integer or not
-`positive-int` | Check whether a variable is of type positive integer or not
-`negative-int` | Check whether a variable is of type negative integer or not
-`float`     | Check whether a variable is of type float or not
-`string`    | Check whether a variable is of type string or not
-`non-empty-string` | Check whether a variable is of type string, and not empty
-`numeric`   | Check whether a variable is a number or a numeric string, or not
-`numeric-string` | Is a string that would pass an [`is_numeric()`][phpIsNumeric] check
-`scalar`    | Check whether a variable is a scalar or not
-`null`      | Check whether a variable is NULL or not
-`resource`  | Check whether a variable is a resource or not
-`object`    | Check whether a variable is an object or not
-`callable`  | Check whether the contents of a variable can be called as a function or not
-`callable-string` | Is a string that would pass an [`is_callable()`][phpIsCallable] check
+Types      | Description
+---------- | ------------------------------------------------------------------
+`scalar`   | Check that a value is a scalar
+`string`   | Check that a value is a string
+`non-empty-string` | Check that a value is a non-empty string
+`bool`     | Check that a value is a boolean
+`true`     | Check that a value is `true`
+`false`    | Check that a value is `false`
+`int`      | Check that a value is an integer
+`positive-int` | Check that a value is a positive integer
+`negative-int` | Check that a value is a negative integer
+`float`    | Check that a value is a float
+`numeric`  | Check that a value is numeric
+`numeric-string` | `is_string($value) && is_numeric($value)`
+`resource` | Check that a value is a resource
+`object`   | Check that a value is an object
+`callable` | Check that a value is a callable
+`callable-string` | `is_string($value) && is_callable($value)`
+`null`     | Check that a value is `null`
 
 Types       | Description
 ----------- | ------------------------------------------------------------------
-`array`     | Check whether a variable is an array or not
-`non-empty-array` | Check whether a variable is of type array, and not empty
-`countable` | Check whether the contents of a variable is a countable value or not
-`iterable`  | Check whether the contents of a variable is an iterable value or not
+`array`     | Check that a value is an array
+`non-empty-array` | Check that a value is an array, and not empty
+`countable` | Check that the contents of a variable is a countable value
+`iterable`  | Check that the contents of a variable is an iterable value
 `list[]`    | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check
 `non-empty-list` | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not empty
 `bool[]`    | `array<mixed, bool>`
@@ -65,11 +67,11 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
+`string`   | `non-empty-string`
 `numeric`  | `int`, `positive-int`, `negative-int`, and `float`
 `int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
-`string`   | `non-empty-string`
 `non-empty-array` | `list[]` and `non-empty-list`
 `list[]`   | `non-empty-list`
 
@@ -105,5 +107,3 @@ This package is licensed using the [MIT License](/LICENSE).
 
 
 [phpArrayIsList]: https://www.php.net/manual/en/function.array-is-list.php
-[phpIsCallable]: https://www.php.net/manual/en/function.is-callable.php
-[phpIsNumeric]: https://www.php.net/manual/en/function.is-numeric.php
