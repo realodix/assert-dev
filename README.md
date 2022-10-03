@@ -70,8 +70,8 @@ Super-type | Sub-type
 `bool`     | One of `true`, and  `false`
 `array`    | One of `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
 `string`   | One of `non-empty-string`
-`list[]`   | One of `non-empty-list`
 `non-empty-array` | One of `list[]` and `non-empty-list`
+`list[]`   | One of `non-empty-list`
 
 ```php
 use Realodix\Assert\Assert;
