@@ -46,7 +46,7 @@ Types     | Description
 `resource` | Check that a value is a resource
 `object`   | Check that a value is an object
 `callable` | Check that a value is a callable
-`callable-string` | Is a string that would pass an [`is_callable()`][phpIsCallable] check
+`callable-string` | `is_string($value) && is_callable($value)`
 
 Types       | Description
 ----------- | ------------------------------------------------------------------
