@@ -29,7 +29,7 @@ public function setBar($foo)
 
 Types      | Description
 ---------- | ------------------------------------------------------------------
-`null`     | Check that a value is `null`
+`scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
 `non-empty-string` | Check that a value is a non-empty string
 `bool`     | Check that a value is a boolean
@@ -41,7 +41,8 @@ Types      | Description
 `float`    | Check that a value is a float
 `numeric`  | Check that a value is numeric
 `numeric-string` | Is a string that would pass an [`is_numeric()`][phpIsNumeric] check
-`scalar`   | Check that a value is a scalar
+`null`     | Check that a value is `null`
+
 `resource` | Check that a value is a resource
 `object`   | Check that a value is an object
 `callable` | Check that a value is a callable
