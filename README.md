@@ -31,6 +31,8 @@ Types       | Description
 ----------- | ------------------------------------------------------------------
 `bool`      | Check whether a variable is a boolean or not
 `int`       | Check whether a variable is of type integer or not
+`positive-int` | Check whether a variable is of type positive integer or not
+`negative-int` | Check whether a variable is of type negative integer or not
 `float`     | Check whether a variable is of type float or not
 `string`    | Check whether a variable is of type string or not
 `non-empty-string` | Check whether a variable is of type string, and not empty
