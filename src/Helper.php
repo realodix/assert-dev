@@ -90,7 +90,7 @@ class Helper
             }
         }
 
-        if (self::typeHasDuplicate($values)) {
+        if (self::typeHasDuplicateMembers($values)) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
@@ -125,7 +125,7 @@ class Helper
             );
         }
 
-        if (self::typeHasDuplicate(explode('|', $types))) {
+        if (self::typeHasDuplicateMembers(explode('|', $types))) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
@@ -135,7 +135,7 @@ class Helper
     /**
      * @param string|array $types
      */
-    private static function typeHasDuplicate($types): bool
+    private static function typeHasDuplicateMembers($types): bool
     {
         Helper::assertStringOrArray($types, '$types');
 
