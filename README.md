@@ -50,14 +50,14 @@ Types       | Description
 `array`     | Check whether a variable is an array or not
 `countable` | Check whether the contents of a variable is a countable value or not
 `iterable`  | Check whether the contents of a variable is an iterable value or not
-`list[]`    | Check that an array is a non-associative list, see [php.net/manual/function.array-is-list](https://www.php.net/manual/en/function.array-is-list.php)
+`list[]`    | Is an array that would pass an [`array_is_list()`](https://www.php.net/manual/en/function.array-is-list.php) check
 `bool[]`    | `array<mixed, bool>`
 `string[]`  | `array<mixed, string>`
 `int[]`     | `array<mixed, int>`
 `float[]`   | `array<mixed, float>`
 `object[]`  | `array<mixed, object>`
 `non-empty-array` | Check whether a variable is of type array, and not empty
-`non-empty-list`  | Check that an array is a non-associative list, and not empty
+`non-empty-list`  | Is an array that would pass an [`array_is_list()`](https://www.php.net/manual/en/function.array-is-list.php) check, and not empty
 
 #### Redundant types
 You cannot declare a super-type and a sub-type in union type declarations.
