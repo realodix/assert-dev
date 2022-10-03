@@ -71,6 +71,7 @@ Super-type | Sub-type
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
 `string`   | `non-empty-string`
 `non-empty-array` | `list[]` and `non-empty-list`
+`non-empty-list` | `list[]` and `non-empty-list`
 `list[]`   | `non-empty-list`
 
 ```php
