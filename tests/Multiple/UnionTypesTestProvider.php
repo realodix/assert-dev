@@ -89,11 +89,9 @@ trait UnionTypesTestProvider
             ['numeric|negative-int', -123],
             ['int|positive-int', 123],
             ['int|negative-int', -123],
-            ['positive-int|negative-int', -123],
 
             ['bool|true', true],
             ['bool|false', false],
-            ['true|false', false],
 
             ['string|non-empty-string', 'string'],
 
