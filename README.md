@@ -29,6 +29,9 @@ public function setBar($foo)
 
 Types      | Description
 ---------- | ------------------------------------------------------------------
+`null`     | Check that a value is `null`
+`string`   | Check that a value is a string
+`non-empty-string` | Check that a value is a non-empty string
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
 `false`    | Check that a value is `false`
@@ -36,12 +39,9 @@ Types      | Description
 `positive-int` | Check that a value is a positive integer
 `negative-int` | Check that a value is a negative integer
 `float`    | Check that a value is a float
-`string`   | Check that a value is a string
-`non-empty-string` | Check that a value is a non-empty string
 `numeric`  | Check that a value is numeric
 `numeric-string` | Is a string that would pass an [`is_numeric()`][phpIsNumeric] check
 `scalar`   | Check that a value is a scalar
-`null`     | Check that a value is `null`
 `resource` | Check that a value is a resource
 `object`   | Check that a value is an object
 `callable` | Check that a value is a callable
