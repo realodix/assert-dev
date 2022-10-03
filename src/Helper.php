@@ -154,6 +154,7 @@ class Helper
                 || \in_array('bool', $types))
             || \in_array('bool', $types) &&
                 (\in_array('true', $types) || \in_array('false', $types))
+            || \in_array('true', $types) && \in_array('false', $types)
             || \in_array('numeric', $types) &&
                 (\in_array('int', $types)
                 || \in_array('positive-int', $types)
