@@ -133,6 +133,8 @@ class Type
             // Number
             || ('numeric' === $allowedTypes) && is_numeric($value)
             || ('int' === $allowedTypes) && \is_int($value)
+            || ('positive-int' === $allowedTypes) && \is_int($value) && $value >= 1
+            || ('negative-int' === $allowedTypes) && \is_int($value) && $value <= -1
             || ('float' === $allowedTypes) && \is_float($value)
             // non-empty-...
             || ('non-empty-string' === $allowedTypes) && Constraint::nonEmptyString($value)
