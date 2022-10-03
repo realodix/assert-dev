@@ -61,8 +61,8 @@ You cannot declare a super-type and a sub-type in union type declarations.
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`bool`     | `true`, and  `false`
 `numeric`  | `int`, and  `float`
+`bool`     | `true`, and  `false`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
 `string`   | `non-empty-string`
 `list[]`   | `non-empty-list`
