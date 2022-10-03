@@ -48,16 +48,16 @@ Types       | Description
 Types       | Description
 ----------- | ------------------------------------------------------------------
 `array`     | Check whether a variable is an array or not
+`non-empty-array` | Check whether a variable is of type array, and not empty
 `countable` | Check whether the contents of a variable is a countable value or not
 `iterable`  | Check whether the contents of a variable is an iterable value or not
 `list[]`    | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check
+`non-empty-list` | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not empty
 `bool[]`    | `array<mixed, bool>`
 `string[]`  | `array<mixed, string>`
 `int[]`     | `array<mixed, int>`
 `float[]`   | `array<mixed, float>`
 `object[]`  | `array<mixed, object>`
-`non-empty-array` | Check whether a variable is of type array, and not empty
-`non-empty-list`  | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not empty
 
 #### Redundant types
 You cannot declare a super-type and a sub-type in union type declarations.
