@@ -80,10 +80,12 @@ trait UnionTypesTestProvider
             ['scalar|float', 123],
             ['scalar|string', 123],
             ['scalar|bool', 123],
-            ['bool|true', true],
-            ['bool|false', false],
             ['numeric|int', 123],
             ['numeric|float', 123],
+
+            ['bool|true', true],
+            ['bool|false', false],
+            ['true|false', false],
 
             ['string|non-empty-string', 'string'],
 
