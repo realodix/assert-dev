@@ -138,6 +138,7 @@ class Type
             || ('float' === $allowedTypes) && \is_float($value)
             // ...-string
             || ('numeric-string' === $allowedTypes) && is_numeric($value) && is_string($value)
+            || ('callable-string' === $allowedTypes) && \is_callable($value) && is_string($value)
             // non-empty-...
             || ('non-empty-string' === $allowedTypes) && Constraint::nonEmptyString($value)
             || ('non-empty-array' === $allowedTypes) && Constraint::nonEmptyArray($value)
