@@ -130,6 +130,12 @@ class Helper
                 'Duplicate type names in the same declaration is not allowed.'
             );
         }
+
+        if (self::typeHasRedundantMembers(explode('|', $types))) {
+            throw new \ErrorException(
+                'Duplicate type names in the same declaration is not allowed.'
+            );
+        }
     }
 
     /**
@@ -143,7 +149,28 @@ class Helper
             $types = explode('|', $types);
         }
 
-        // Redundant types
+        $actTypesCount = \count($types);
+        $expTypesCount = \count(
+            array_intersect_key($types, array_unique(array_map('strtolower', $types)))
+        );
+        if ($expTypesCount < $actTypesCount) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param string|array $types
+     */
+    private static function typeHasRedundantMembers($types): bool
+    {
+        Helper::assertStringOrArray($types, '$types');
+
+        if (\is_string($types)) {
+            $types = explode('|', $types);
+        }
+
         if (\in_array('scalar', $types) &&
                 (\in_array('numeric', $types)
                 || \in_array('int', $types)
@@ -178,15 +205,6 @@ class Helper
             || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
             || \in_array('string', $types) && \in_array('non-empty-string', $types)
         ) {
-            return true;
-        }
-
-        // Duplicate types
-        $actTypesCount = \count($types);
-        $expTypesCount = \count(
-            array_intersect_key($types, array_unique(array_map('strtolower', $types)))
-        );
-        if ($expTypesCount < $actTypesCount) {
             return true;
         }
 
