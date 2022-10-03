@@ -94,6 +94,9 @@ trait TypeTestProvider
             ['numeric', [], false],
             ['numeric', null, false],
             ['numeric', '', false],
+
+            ['numeric-string', '42'],
+            ['numeric-string', 42, false],
         ];
     }
 
@@ -124,6 +127,11 @@ trait TypeTestProvider
             // Invalid callable
             ['callable', 'foobar', false],
             ['callable', new \stdClass, false],
+
+            ['callable-string', 'strlen'],
+            ['callable-string', 'Realodix\Assert\Assert::type'],
+            ['callable-string', ['Realodix\Assert\Type', 'is'], false],
+            ['callable-string', function () {}, false],
 
             ['resource', fopen(__FILE__, 'r')],
         ];
