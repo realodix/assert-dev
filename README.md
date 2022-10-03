@@ -27,26 +27,25 @@ public function setBar($foo)
 
 ### Types Assertions
 
-Types     | Description
---------- | ------------------------------------------------------------------
-`scalar`  | Check that a value is a scalar
-`string`  | Check that a value is a string
+Types      | Description
+---------- | ------------------------------------------------------------------
+`scalar`   | Check that a value is a scalar
+`string`   | Check that a value is a string
 `non-empty-string` | Check that a value is a non-empty string
-`bool`    | Check that a value is a boolean
-`true`    | Check that a value is `true`
-`false`   | Check that a value is `false`
-`int`     | Check that a value is an integer
+`bool`     | Check that a value is a boolean
+`true`     | Check that a value is `true`
+`false`    | Check that a value is `false`
+`int`      | Check that a value is an integer
 `positive-int` | Check that a value is a positive integer
 `negative-int` | Check that a value is a negative integer
-`float`   | Check that a value is a float
-`numeric` | Check that a value is numeric
+`float`    | Check that a value is a float
+`numeric`  | Check that a value is numeric
 `numeric-string` | Is a string that would pass an [`is_numeric()`][phpIsNumeric] check
-`null`    | Check that a value is `null`
-
 `resource` | Check that a value is a resource
 `object`   | Check that a value is an object
 `callable` | Check that a value is a callable
 `callable-string` | `is_string($value) && is_callable($value)`
+`null`     | Check that a value is `null`
 
 Types       | Description
 ----------- | ------------------------------------------------------------------
