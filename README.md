@@ -67,11 +67,11 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
+`string`   | `non-empty-string`
 `numeric`  | `int`, `positive-int`, `negative-int`, and `float`
 `int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
-`string`   | `non-empty-string`
 `non-empty-array` | `list[]` and `non-empty-list`
 `list[]`   | `non-empty-list`
 
