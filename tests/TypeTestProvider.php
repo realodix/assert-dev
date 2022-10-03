@@ -94,6 +94,9 @@ trait TypeTestProvider
             ['numeric', [], false],
             ['numeric', null, false],
             ['numeric', '', false],
+
+            ['numeric-string', '42'],
+            ['numeric-string', 42, false],
         ];
     }
 
