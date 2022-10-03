@@ -202,6 +202,18 @@ trait TypeTestProvider
     public function arrayIsProvider()
     {
         return [
+            ['list[]', []],
+            ['list[]', ['apple', 2, 3]],
+            ['list[]', [0 => 'apple', 'orange']],
+            // The array does not start at 0
+            ['list[]', [1 => 'apple', 'orange'], false],
+            // The keys are not in the correct order
+            ['list[]', [1 => 'apple', 0 => 'orange'], false],
+            // Non-integer keys
+            ['list[]', [0 => 'apple', 'foo' => 'bar'], false],
+            // Non-consecutive keys
+            ['list[]', [0 => 'apple', 2 => 'bar'], false],
+
             ['string[]', ['string']],
             ['string[]', [0 => 'string']],
             ['string[]', ['string' => 'string'], false],
@@ -240,18 +252,6 @@ trait TypeTestProvider
             ['object[]', [null], false],
             ['object[]', [true], false],
             ['object[]', [1], false],
-
-            ['list[]', []],
-            ['list[]', ['apple', 2, 3]],
-            ['list[]', [0 => 'apple', 'orange']],
-            // The array does not start at 0
-            ['list[]', [1 => 'apple', 'orange'], false],
-            // The keys are not in the correct order
-            ['list[]', [1 => 'apple', 0 => 'orange'], false],
-            // Non-integer keys
-            ['list[]', [0 => 'apple', 'foo' => 'bar'], false],
-            // Non-consecutive keys
-            ['list[]', [0 => 'apple', 2 => 'bar'], false],
         ];
     }
 
