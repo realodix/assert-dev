@@ -37,27 +37,27 @@ Types       | Description
 `string`    | Check whether a variable is of type string or not
 `non-empty-string` | Check whether a variable is of type string, and not empty
 `numeric`   | Check whether a variable is a number or a numeric string, or not
-`numeric-string` | is a string that would pass an [`is_numeric()`](https://www.php.net/manual/en/function.is-numeric.php) check
+`numeric-string` | is a string that would pass an [`is_numeric()`][phpIsNumeric] check
 `scalar`    | Check whether a variable is a scalar or not
 `null`      | Check whether a variable is NULL or not
 `resource`  | Check whether a variable is a resource or not
 `object`    | Check whether a variable is an object or not
 `callable`  | Check whether the contents of a variable can be called as a function or not
-`callable-string` | is a string that would pass an [`is_callable()`](https://www.php.net/manual/en/function.is-callable.php) check
+`callable-string` | is a string that would pass an [`is_callable()`][phpIsCallable] check
 
 Types       | Description
 ----------- | ------------------------------------------------------------------
 `array`     | Check whether a variable is an array or not
 `countable` | Check whether the contents of a variable is a countable value or not
 `iterable`  | Check whether the contents of a variable is an iterable value or not
-`list[]`    | Is an array that would pass an [`array_is_list()`](https://www.php.net/manual/en/function.array-is-list.php) check
+`list[]`    | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check
 `bool[]`    | `array<mixed, bool>`
 `string[]`  | `array<mixed, string>`
 `int[]`     | `array<mixed, int>`
 `float[]`   | `array<mixed, float>`
 `object[]`  | `array<mixed, object>`
 `non-empty-array` | Check whether a variable is of type array, and not empty
-`non-empty-list`  | Is an array that would pass an [`array_is_list()`](https://www.php.net/manual/en/function.array-is-list.php) check, and not empty
+`non-empty-list`  | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not empty
 
 #### Redundant types
 You cannot declare a super-type and a sub-type in union type declarations.
@@ -102,3 +102,8 @@ Method                                             | Description
 ## License
 
 This package is licensed using the [MIT License](/LICENSE).
+
+
+[phpArrayIsList]: https://www.php.net/manual/en/function.array-is-list.php
+[phpIsCallable]: https://www.php.net/manual/en/function.is-callable.php
+[phpIsNumeric]: https://www.php.net/manual/en/function.is-numeric.php
