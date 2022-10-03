@@ -49,10 +49,10 @@ Types      | Description
 
 Types       | Description
 ----------- | ------------------------------------------------------------------
-`array`     | Check whether a variable is an array or not
-`non-empty-array` | Check whether a variable is of type array, and not empty
-`countable` | Check whether the contents of a variable is a countable value or not
-`iterable`  | Check whether the contents of a variable is an iterable value or not
+`array`     | Check that a value is an array
+`non-empty-array` | Check that a value is an array, and not empty
+`countable` | Check that the contents of a variable is a countable value
+`iterable`  | Check that the contents of a variable is an iterable value
 `list[]`    | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check
 `non-empty-list` | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not empty
 `bool[]`    | `array<mixed, bool>`
