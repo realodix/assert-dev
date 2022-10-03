@@ -62,13 +62,13 @@ You cannot declare a super-type and a sub-type in union type declarations.
 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
-`scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`numeric`  | `int`, `positive-int`, `negative-int`, and  `float`
-`int`      | `positive-int`, and `negative-int`
-`bool`     | `true`, and  `false`
-`array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
-`string`   | `non-empty-string`
-`list[]`   | `non-empty-list`
+`scalar`   | One of `string`, `bool`, `numeric`, `int`, and  `float`
+`numeric`  | One of `int`, `positive-int`, `negative-int`, and `float`
+`int`      | One of `positive-int`, and `negative-int`
+`bool`     | One of `true`, and  `false`
+`array`    | One of `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-string`, `non-empty-array` , and `non-empty-list`
+`string`   | One of `non-empty-string`
+`list[]`   | One of `non-empty-list`
 `non-empty-array` | `non-empty-list`
 
 ```php
