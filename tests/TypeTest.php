@@ -98,9 +98,9 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider arrayIsProvider
+     * @dataProvider nonEmptyProvider
      */
-    public function arrayIs($types, $value, $pass = true)
+    public function nonEmpty($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidType($value, $types);
 
@@ -110,9 +110,9 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider nonEmptyProvider
+     * @dataProvider arrayIsProvider
      */
-    public function nonEmpty($types, $value, $pass = true)
+    public function arrayIs($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidType($value, $types);
 
