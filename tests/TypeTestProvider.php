@@ -272,6 +272,11 @@ trait TypeTestProvider
             ['non-empty-string', [], false],
             ['non-empty-string', [[]], false],
 
+            ['non-empty-string', 'true'],
+            ['non-empty-string', 'false'],
+            ['non-empty-string', '1'],
+            ['non-empty-string', '0', false],
+            ['non-empty-string', '', false],
             ['non-falsy-string', 'true'],
             ['non-falsy-string', 'false'],
             ['non-falsy-string', '1'],
