@@ -31,7 +31,7 @@ Types      | Description
 ---------- | ------------------------------------------------------------------
 `scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
-`non-empty-string` | Check that a value is a string, and not empty
+`non-empty-string` | Check that a value is any string except `''`. It does not mean “empty” in the weird sense used by [`empty()`][phpEmpty].
 `lowercase-string` | Check for lowercase character(s), see [`ctype_lower()`][phpCtypeLower]
 `non-falsy-string` | Subtype of `non-empty-string`, but it excludes '0'
 `bool`     | Check that a value is a boolean
@@ -111,4 +111,5 @@ This package is licensed using the [MIT License](/LICENSE).
 
 [phpArrayIsList]: https://www.php.net/manual/en/function.array-is-list.php
 [phpCtypeLower]: https://www.php.net/manual/en/function.ctype-lower.php
+[phpEmpty]: https://www.php.net/manual/en/function.empty.php
 [phpInvalidArgumentException]: https://www.php.net/manual/en/class.invalidargumentexception.php

@@ -87,7 +87,7 @@ class Constraint
      */
     public static function nonEmptyString($value): bool
     {
-        if (! \is_string($value) || empty($value)) {
+        if (! \is_string($value) || strlen($value) === 0) {
             return false;
         }
 
