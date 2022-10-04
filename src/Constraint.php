@@ -90,10 +90,31 @@ class Constraint
      */
     public static function nonEmptyString($value): bool
     {
-        if (! \is_string($value) || empty($value)) {
+        if (! \is_string($value) || \strlen($value) === 0) {
             return false;
         }
 
         return true;
+    }
+
+    /**
+     * Is any string that is true after casting to boolean.
+     * Effectively a subtype of non-empty-string
+     *
+     * @param mixed $value
+     */
+    public static function nonFalsyString($value): bool
+    {
+        $result = true;
+
+        if (! self::nonEmptyString($value)) {
+            $result = false;
+        }
+
+        if ($value === '0') {
+            $result = true;
+        }
+
+        return $result;
     }
 }
