@@ -202,45 +202,6 @@ trait TypeTestProvider
     public function arrayIsProvider()
     {
         return [
-            ['string[]', ['string']],
-            ['string[]', ['string' => 'string']],
-            ['string[]', [0 => 'string']],
-            ['string[]', [1 => 'string']],
-            ['string[]', [1 => 'string', 0 => 'string']],
-            ['string[]', [1], false],
-            ['string[]', ['string', 1], false],
-            ['string[]', [1, 'string'], false],
-            ['string[]', [0 => 0, 1 => 1], false],
-            ['string[]', [0 => 0, 1 => 'string'], false],
-
-            ['int[]', [0]],
-            ['int[]', [1]],
-            ['int[]', [-1]],
-            ['int[]', [1.0], false],
-            ['int[]', [1.23], false],
-            ['int[]', [true], false],
-            ['int[]', ['123'], false],
-
-            ['float[]', [1.0]],
-            ['float[]', [1], false],
-            ['float[]', [true], false],
-            ['float[]', ['string'], false],
-            ['float[]', [null], false],
-            ['float[]', ['1.23'], false],
-            ['float[]', ['10'], false],
-
-            ['bool[]', [true]],
-            ['bool[]', [false]],
-            // Invalid boolean
-            ['bool[]', [1], false],
-            ['bool[]', ['1'], false],
-
-            ['object[]', [new \stdClass]],
-            ['object[]', [new \RuntimeException]],
-            ['object[]', [null], false],
-            ['object[]', [true], false],
-            ['object[]', [1], false],
-
             ['list[]', []],
             ['list[]', ['apple', 2, 3]],
             ['list[]', [0 => 'apple', 'orange']],
@@ -252,6 +213,36 @@ trait TypeTestProvider
             ['list[]', [0 => 'apple', 'foo' => 'bar'], false],
             // Non-consecutive keys
             ['list[]', [0 => 'apple', 2 => 'bar'], false],
+
+            ['string[]', ['foo']],
+            ['string[]', ['foo', 'bar']],
+            ['string[]', [0 => 'foo']],
+            ['string[]', 'foo', false],
+            ['string[]', [1 => 'foo'], false],
+            ['string[]', ['foo', 1], false],
+            ['string[]', [1], false],
+            ['string[]', ['key' => 'value'], false],
+
+            ['int[]', [0]],
+            ['int[]', [1, -2]],
+            ['int[]', 0, false],
+            ['int[]', [1 => 0], false],
+            ['int[]', ['foo', 0], false],
+            ['int[]', ['foo'], false],
+            ['int[]', ['key' => 0], false],
+
+            ['float[]', [1.0]],
+            ['float[]', 1.0, false],
+
+            ['bool[]', [true]],
+            ['bool[]', [false]],
+            // Invalid boolean
+            ['bool[]', [1], false],
+            ['bool[]', ['1'], false],
+
+            ['object[]', [new \stdClass]],
+            ['object[]', [new \RuntimeException]],
+            ['object[]', new \stdClass, false],
         ];
     }
 
