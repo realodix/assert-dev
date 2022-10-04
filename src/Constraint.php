@@ -15,10 +15,8 @@ class Constraint
             return false;
         }
 
-        foreach ($value as $val) {
-            if (! $callback($val)) {
-                $result = false;
-            }
+        if (! array_product(array_map($callback, $value))) {
+            $result = false;
         }
 
         return $result;
