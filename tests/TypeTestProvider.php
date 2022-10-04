@@ -214,9 +214,10 @@ trait TypeTestProvider
             // Non-consecutive keys
             ['list[]', [0 => 'apple', 2 => 'bar'], false],
 
-            ['string[]', ['string']],
-            ['string[]', [0 => 'value']],
-            ['string[]', ['string', 1], false],
+            ['string[]', ['foo']],
+            ['string[]', ['foo', 'bar']],
+            ['string[]', [0 => 'foo']],
+            ['string[]', ['foo', 1], false],
             ['string[]', [1], false],
             ['string[]', ['key' => 'value'], false],
             ['string[]', [1, 'string'], false],
