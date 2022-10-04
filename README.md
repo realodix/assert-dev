@@ -31,7 +31,7 @@ Types      | Description
 ---------- | ------------------------------------------------------------------
 `scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
-`non-empty-string` | Check that a value is a non-empty string
+`non-empty-string` | Check that a value is a string, and not empty
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
 `false`    | Check that a value is `false`

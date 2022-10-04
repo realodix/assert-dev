@@ -25,6 +25,7 @@ class Constraint
     }
 
     /**
+     * Checks whether a given array is a list
      * https://www.php.net/manual/en/function.array-is-list.php
      *
      * @param mixed $value
@@ -40,30 +41,8 @@ class Constraint
     }
 
     /**
-     * @param mixed $value
-     */
-    public static function nonEmptyString($value): bool
-    {
-        if (! \is_string($value) || empty($value)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * @param mixed $value
-     */
-    public static function nonEmptyArray($value): bool
-    {
-        if (! \is_array($value) || empty(array_filter($value))) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
+     * Checks whether a given array is a list, and not empty
+     *
      * @param mixed $value
      */
     public static function nonEmptyList($value): bool
@@ -85,5 +64,33 @@ class Constraint
         }
 
         return $result;
+    }
+
+    /**
+     * Check that a value is an array, and not empty
+     *
+     * @param mixed $value
+     */
+    public static function nonEmptyArray($value): bool
+    {
+        if (! \is_array($value) || empty(array_filter($value))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Check that a value is a string, and not empty
+     *
+     * @param mixed $value
+     */
+    public static function nonEmptyString($value): bool
+    {
+        if (! \is_string($value) || empty($value)) {
+            return false;
+        }
+
+        return true;
     }
 }
