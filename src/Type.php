@@ -142,7 +142,7 @@ class Type
             || ('callable-string' === $allowedTypes) && \is_callable($value) && \is_string($value)
             // non-empty-...
             || ('non-empty-string' === $allowedTypes) && Constraint::nonEmptyString($value)
-            || ('non-falsy-string' === $allowedTypes) && ctype_lower($value)
+            || ('non-falsy-string' === $allowedTypes) && Constraint::nonFalsyString($value)
             || ('non-empty-array' === $allowedTypes) && Constraint::nonEmptyArray($value)
             || ('non-empty-list' === $allowedTypes) && Constraint::nonEmptyList($value);
     }

@@ -93,4 +93,19 @@ class Constraint
 
         return true;
     }
+
+    /**
+     * Is any string that is true after casting to boolean.
+     * Effectively a subtype of non-empty-string
+     *
+     * @param mixed $value
+     */
+    public static function nonFalsyString($value): bool
+    {
+        if (! \is_string($value) || (bool) $value === false) {
+            return false;
+        }
+
+        return true;
+    }
 }
