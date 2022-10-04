@@ -37,8 +37,8 @@ Types      | Description
 `true`     | Check that a value is `true`
 `false`    | Check that a value is `false`
 `int`      | Check that a value is an integer
-`positive-int` | Check that a value is a positive integer ($value >= 1)
-`negative-int` | Check that a value is a negative integer ($value <= -1)
+`positive-int` | Check that a value is a positive integer (`$value >= 1`)
+`negative-int` | Check that a value is a negative integer (`$value <= -1`)
 `float`    | Check that a value is a float
 `numeric`  | Check that a value is numeric
 `numeric-string` | `is_string($value) && is_numeric($value)`
