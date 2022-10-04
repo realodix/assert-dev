@@ -171,8 +171,8 @@ class Helper
             $types = explode('|', $types);
         }
 
-        if (\in_array('scalar', $types) &&
-                (\in_array('numeric', $types)
+        if (\in_array('scalar', $types) && (
+                \in_array('numeric', $types)
                 || \in_array('int', $types)
                 || \in_array('positive-int', $types)
                 || \in_array('negative-int', $types)
@@ -189,8 +189,8 @@ class Helper
             || \in_array('int', $types) &&
                 (\in_array('positive-int', $types)
                 || \in_array('negative-int', $types))
-            || \in_array('array', $types) &&
-                (\in_array('bool[]', $types)
+            || \in_array('array', $types) && (
+                \in_array('bool[]', $types)
                 || \in_array('string[]', $types)
                 || \in_array('int[]', $types)
                 || \in_array('float[]', $types)
@@ -201,7 +201,11 @@ class Helper
             || \in_array('non-empty-array', $types) &&
                 (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
             || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
-            || \in_array('string', $types) && \in_array('non-empty-string', $types)
+            || \in_array('string', $types) && (
+                \in_array('non-empty-string', $types)
+                || \in_array('lowercase-string', $types))
+            || \in_array('non-empty-string', $types) && (
+                \in_array('lowercase-string', $types))
         ) {
             return true;
         }

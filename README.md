@@ -3,7 +3,7 @@ https://github.com/wikimedia/Assert
 This package provides an alternative to PHP's `assert()` that allows for an simple and reliable way
 to check preconditions and postconditions in PHP code.
 
-All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`](https://www.php.net/manual/en/class.invalidargumentexception.php) if they fail.
+All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`][phpInvalidArgumentException] if they fail.
 
 Usage
 -------
@@ -32,6 +32,7 @@ Types      | Description
 `scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
 `non-empty-string` | Check that a value is a string, and not empty
+`lowercase-string` | Check for lowercase character(s), see [`ctype_lower()`][phpCtypeLower]
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
 `false`    | Check that a value is `false`
@@ -67,7 +68,8 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`string`   | `non-empty-string`
+`string`   | `non-empty-string`, and `lowercase-string`
+`non-empty-string` | `lowercase-string`
 `numeric`  | `int`, `positive-int`, `negative-int`, and `float`
 `int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
@@ -107,3 +109,5 @@ This package is licensed using the [MIT License](/LICENSE).
 
 
 [phpArrayIsList]: https://www.php.net/manual/en/function.array-is-list.php
+[phpCtypeLower]: https://www.php.net/manual/en/function.ctype-lower.php
+[phpInvalidArgumentException]: https://www.php.net/manual/en/class.invalidargumentexception.php
