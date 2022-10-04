@@ -33,6 +33,7 @@ Types      | Description
 `string`   | Check that a value is a string
 `non-empty-string` | Check that a value is a string, and not empty
 `lowercase-string` | Check for lowercase character(s), see [`ctype_lower()`][phpCtypeLower]
+`non-falsy-string` | Is any string that is true after casting to boolean.
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
 `false`    | Check that a value is `false`
