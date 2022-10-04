@@ -258,14 +258,16 @@ trait TypeTestProvider
     public function nonEmptyProvider()
     {
         return [
-            ['non-empty-list', ['string']],
-            ['non-empty-list', ['apple', 2, 3]],
-            ['non-empty-list', [0 => 'apple', 'orange']],
-            ['non-empty-list', [], false],
-            ['non-empty-list', ['', 2, 3], false],
-            ['non-empty-list', [0 => '', 'orange'], false],
-            ['non-empty-list', [0 => 'apple', ''], false],
-            ['non-empty-list', ['string' => 'string'], false],
+            ['non-empty-string', 'string'],
+            ['non-empty-string', ['string'], false],
+            ['non-empty-string', '', false],
+            ['non-empty-string', [''], false],
+            ['non-empty-string', null, false],
+            ['non-empty-string', 0, false],
+            ['non-empty-string', 0.0, false],
+            ['non-empty-string', false, false],
+            ['non-empty-string', [], false],
+            ['non-empty-string', [[]], false],
 
             ['non-empty-array', ['string']],
             ['non-empty-array', '', false],
@@ -277,16 +279,14 @@ trait TypeTestProvider
             ['non-empty-array', [], false],
             ['non-empty-array', [[]], false],
 
-            ['non-empty-string', 'string'],
-            ['non-empty-string', ['string'], false],
-            ['non-empty-string', '', false],
-            ['non-empty-string', [''], false],
-            ['non-empty-string', null, false],
-            ['non-empty-string', 0, false],
-            ['non-empty-string', 0.0, false],
-            ['non-empty-string', false, false],
-            ['non-empty-string', [], false],
-            ['non-empty-string', [[]], false],
+            ['non-empty-list', ['string']],
+            ['non-empty-list', ['apple', 2, 3]],
+            ['non-empty-list', [0 => 'apple', 'orange']],
+            ['non-empty-list', [], false],
+            ['non-empty-list', ['', 2, 3], false],
+            ['non-empty-list', [0 => '', 'orange'], false],
+            ['non-empty-list', [0 => 'apple', ''], false],
+            ['non-empty-list', ['string' => 'string'], false],
         ];
     }
 
