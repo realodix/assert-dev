@@ -110,6 +110,18 @@ class TypeTest extends TestCase
 
     /**
      * @test
+     * @dataProvider arrayIsListProvider
+     */
+    public function arrayIsList($types, $value, $pass = true)
+    {
+        (! $pass) && $this->invalidType($value, $types);
+
+        Assert::type($value, $types);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
      * @dataProvider arrayIsProvider
      */
     public function arrayIs($types, $value, $pass = true)

@@ -199,7 +199,7 @@ trait TypeTestProvider
         ];
     }
 
-    public function arrayIsProvider()
+    public function arrayIsListProvider()
     {
         return [
             ['list[]', []],
@@ -213,7 +213,12 @@ trait TypeTestProvider
             ['list[]', [0 => 'apple', 'foo' => 'bar'], false],
             // Non-consecutive keys
             ['list[]', [0 => 'apple', 2 => 'bar'], false],
+        ];
+    }
 
+    public function arrayIsProvider()
+    {
+        return [
             ['string[]', ['foo']],
             ['string[]', ['foo', 'bar']],
             ['string[]', [0 => 'foo']],
