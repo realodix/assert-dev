@@ -15,8 +15,13 @@ class Constraint
             return false;
         }
 
-        if (! array_product(array_map($callback, $value))) {
-            $result = false;
+        // if (! array_product(array_map($callback, $value))) {
+        //     $result = false;
+        // }
+        foreach ($value as $val) {
+            if (! $callback($val)) {
+                $result = false;
+            }
         }
 
         return $result;
