@@ -233,10 +233,6 @@ trait TypeTestProvider
 
             ['float[]', [1.0]],
             ['float[]', 1.0, false],
-            ['float[]', [1 => 1.0], false],
-            ['float[]', ['foo', 1.0], false],
-            ['float[]', ['foo'], false],
-            ['float[]', ['key' => 1.0], false],
 
             ['bool[]', [true]],
             ['bool[]', [false]],
