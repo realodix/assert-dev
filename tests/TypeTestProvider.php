@@ -217,10 +217,11 @@ trait TypeTestProvider
             ['string[]', ['foo']],
             ['string[]', ['foo', 'bar']],
             ['string[]', [0 => 'foo']],
+            ['string[]', 'foo', false],
+            ['string[]', [1 => 'foo'], false],
             ['string[]', ['foo', 1], false],
             ['string[]', [1], false],
             ['string[]', ['key' => 'value'], false],
-            ['string[]', [1, 'string'], false],
 
             ['int[]', [0]],
             ['int[]', [1]],
