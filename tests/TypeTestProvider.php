@@ -96,6 +96,7 @@ trait TypeTestProvider
             ['numeric', '', false],
 
             ['numeric-string', '42'],
+            ['numeric-string', date('Y')],
             ['numeric-string', 42, false],
         ];
     }
