@@ -102,10 +102,16 @@ class Constraint
      */
     public static function nonFalsyString($value): bool
     {
-        if (! \is_string($value) || (bool) $value === false) {
-            return false;
+        $result = true;
+
+        if (! self::nonEmptyString($value)) {
+            $result = false;
         }
 
-        return true;
+        if ($value === '0') {
+            $result = true;
+        }
+
+        return $result;
     }
 }
