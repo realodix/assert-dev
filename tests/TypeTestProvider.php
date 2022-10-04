@@ -242,9 +242,7 @@ trait TypeTestProvider
 
             ['object[]', [new \stdClass]],
             ['object[]', [new \RuntimeException]],
-            ['object[]', [null], false],
-            ['object[]', [true], false],
-            ['object[]', [1], false],
+            ['object[]', new \stdClass, false],
         ];
     }
 
