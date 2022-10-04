@@ -68,7 +68,7 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`string`   | `non-empty-string`
+`string`   | `non-empty-string`, and `lowercase-string`
 `numeric`  | `int`, `positive-int`, `negative-int`, and `float`
 `int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
