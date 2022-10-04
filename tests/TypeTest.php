@@ -154,4 +154,16 @@ class TypeTest extends TestCase
     {
         $this->invalidType($value, $types);
     }
+
+    /**
+     * @test
+     */
+    public function nonFalsyString()
+    {
+        $this->assertTrue((bool) 'true');
+        $this->assertTrue((bool) 'false');
+        $this->assertTrue((bool) '1');
+        $this->assertFalse((bool) '0');
+        $this->assertFalse((bool) '');
+    }
 }
