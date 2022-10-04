@@ -3,7 +3,7 @@ https://github.com/wikimedia/Assert
 This package provides an alternative to PHP's `assert()` that allows for an simple and reliable way
 to check preconditions and postconditions in PHP code.
 
-All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`](https://www.php.net/manual/en/class.invalidargumentexception.php) if they fail.
+All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`][phpInvalidArgumentException] if they fail.
 
 Usage
 -------
@@ -110,3 +110,4 @@ This package is licensed using the [MIT License](/LICENSE).
 
 [phpArrayIsList]: https://www.php.net/manual/en/function.array-is-list.php
 [phpCtypeLower]: https://www.php.net/manual/en/function.ctype-lower.php
+[phpInvalidArgumentException]: https://www.php.net/manual/en/class.invalidargumentexception.php
