@@ -11,7 +11,7 @@ class Constraint
     {
         $result = true;
 
-        if (! \is_array($value) || ! array_is_list($value) || empty($value)) {
+        if (! self::arrayIsList($value) || empty($value)) {
             return false;
         }
 
