@@ -172,7 +172,7 @@ class Helper
         }
 
         if (\in_array('scalar', $types) &&
-                (\in_array('numeric', $types)
+            (\in_array('numeric', $types)
                 || \in_array('int', $types)
                 || \in_array('positive-int', $types)
                 || \in_array('negative-int', $types)
