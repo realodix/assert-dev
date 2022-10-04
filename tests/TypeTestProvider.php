@@ -216,6 +216,7 @@ trait TypeTestProvider
 
             ['string[]', ['string']],
             ['string[]', [0 => 'value']],
+            ['string[]', ['string', 1], false],
             ['string[]', [1], false],
             ['string[]', ['key' => 'value'], false],
             ['string[]', [1, 'string'], false],
