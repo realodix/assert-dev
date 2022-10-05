@@ -83,12 +83,12 @@ trait UnionTypesTestProvider
             ['numeric|int', 123],
             ['numeric|float', 123],
 
-            ['scalar|positive-int', 123],
-            ['scalar|negative-int', -123],
-            ['numeric|positive-int', 123],
-            ['numeric|negative-int', -123],
-            ['int|positive-int', 123],
-            ['int|negative-int', -123],
+            ['positive-int|scalar', 123],
+            ['negative-int|scalar', -123],
+            ['positive-int|numeric', 123],
+            ['negative-int|numeric', -123],
+            ['positive-int|int', 123],
+            ['negative-int|int', -123],
 
             ['bool|true', true],
             ['bool|false', false],
