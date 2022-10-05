@@ -208,6 +208,6 @@ class Helper
             }
         }
 
-        return implode('|', $dups);
+        return 'Duplicate type '.$dups[0].' is redundant';
     }
 }
