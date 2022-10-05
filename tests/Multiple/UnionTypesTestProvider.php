@@ -62,6 +62,7 @@ trait UnionTypesTestProvider
     public function duplicateTypesProvider()
     {
         $duplicateType = 'Duplicate type ';
+
         return [
             ['bool|bool', true, $duplicateType.'bool'],
             ['bool|string|bool', true, $duplicateType.'bool'],
