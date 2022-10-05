@@ -111,7 +111,9 @@ class Helper
             );
         }
 
-        foreach (array_count_values(array_map('strtolower', explode('|', $types))) as $val => $c) {
+        $types = explode('|', $types);
+
+        foreach (array_count_values(array_map('strtolower', $types)) as $val => $c) {
             if ($c > 1) {
                 $dups[] = $val;
 
@@ -122,7 +124,7 @@ class Helper
             }
         }
 
-        if (self::typeHasRedundantMembers(explode('|', $types))) {
+        if (self::typeHasRedundantMembers($types)) {
             throw new \ErrorException(
                 'Type declarations has redundant types.'
             );
