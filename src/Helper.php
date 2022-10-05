@@ -207,7 +207,6 @@ class Helper
             || \in_array('non-empty-string', $types) &&
                 (\in_array('non-falsy-string', $types)
                 || \in_array('lowercase-string', $types))
-            || \in_array('non-empty-string', $types) && \in_array('lowercase-string', $types)
         ) {
             return true;
         }
