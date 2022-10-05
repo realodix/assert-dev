@@ -163,12 +163,12 @@ class TypeTest extends TestCase
     {
         $this->assertSame(
             'Duplicate type int is redundant',
-            Helper::duplicate(['int', 'string', 'int', 'true','string'])
+            Helper::duplicate(['int', 'string', 'int', 'true', 'string'])
         );
 
         $this->assertSame(
             'Duplicate type string is redundant',
-            Helper::duplicate(['string', 'int', 'true','string'])
+            Helper::duplicate(['string', 'int', 'true', 'string'])
         );
     }
 }
