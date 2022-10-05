@@ -161,6 +161,6 @@ class TypeTest extends TestCase
      */
     public function duplicate()
     {
-        $this->assertSame('true|2', Helper::duplicate(['true', 2, 'true', 2, 5]));
+        $this->assertSame('int|string', Helper::duplicate(['int', 'string', 'int', 'true','string']));
     }
 }
