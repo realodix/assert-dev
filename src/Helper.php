@@ -76,7 +76,12 @@ class Helper
             }
         }
 
-        if (self::intersectTypeHasDuplicateMembers($values)) {
+        $actTypesCount = \count($values);
+        $expTypesCount = \count(
+            array_intersect_key($values, array_unique(array_map('strtolower', $values)))
+        );
+
+        if ($expTypesCount < $actTypesCount) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
@@ -131,20 +136,6 @@ class Helper
                 'Type declarations has redundant types.'
             );
         }
-    }
-
-    private static function intersectTypeHasDuplicateMembers(array $types): bool
-    {
-        $actTypesCount = \count($types);
-        $expTypesCount = \count(
-            array_intersect_key($types, array_unique(array_map('strtolower', $types)))
-        );
-
-        if ($expTypesCount < $actTypesCount) {
-            return true;
-        }
-
-        return false;
     }
 
     private static function typeHasRedundantMembers(array $types): bool
