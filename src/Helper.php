@@ -114,6 +114,8 @@ class Helper
         $types = explode('|', $types);
 
         foreach (array_count_values(array_map('strtolower', $types)) as $val => $c) {
+            $dups = [];
+
             if ($c > 1) {
                 $dups[] = $val;
 
