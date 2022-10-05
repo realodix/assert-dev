@@ -3,7 +3,6 @@
 namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
-use Realodix\Assert\Helper;
 use Realodix\Assert\Type;
 
 class TypeTest extends TestCase
@@ -155,20 +154,4 @@ class TypeTest extends TestCase
     {
         $this->invalidType($value, $types);
     }
-
-    /**
-     * @test
-     */
-    // public function duplicate()
-    // {
-    //     $this->assertSame(
-    //         'Duplicate type int is redundant',
-    //         Helper::duplicate(['int', 'string', 'int', 'true', 'string'])
-    //     );
-
-    //     $this->assertSame(
-    //         'Duplicate type string is redundant',
-    //         Helper::duplicate(['string', 'int', 'true', 'string'])
-    //     );
-    // }
 }
