@@ -57,20 +57,6 @@ class Helper
     }
 
     /**
-     * @param mixed $value
-     */
-    public static function assertStringOrArray($value, string $variable = '', int $order = 1): void
-    {
-        if (! \is_string($value) && ! \is_array($value)) {
-            throw new \InvalidArgumentException(sprintf(
-                "Argument #%s%s must 'string or array'.",
-                $order,
-                $variable = empty($variable) ? '' : ' ('.$variable.')'
-            ));
-        }
-    }
-
-    /**
      * @throws \ErrorException
      * @throws Exception\UnknownClassOrInterfaceException
      */
@@ -194,5 +180,19 @@ class Helper
         }
 
         return false;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public static function assertStringOrArray($value, string $variable = '', int $order = 1): void
+    {
+        if (! \is_string($value) && ! \is_array($value)) {
+            throw new \InvalidArgumentException(sprintf(
+                "Argument #%s%s must 'string or array'.",
+                $order,
+                $variable = empty($variable) ? '' : ' ('.$variable.')'
+            ));
+        }
     }
 }
