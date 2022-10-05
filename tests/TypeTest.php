@@ -3,6 +3,7 @@
 namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
+use Realodix\Assert\Helper;
 use Realodix\Assert\Type;
 
 class TypeTest extends TestCase
@@ -153,5 +154,13 @@ class TypeTest extends TestCase
     public function arrayIsWithInvalidInput($types, $value)
     {
         $this->invalidType($value, $types);
+    }
+
+    /**
+     * @test
+     */
+    public function duplicate()
+    {
+        $this->assertSame('true|2', Helper::duplicate(['true', 2, 'true', 2, 5]));
     }
 }

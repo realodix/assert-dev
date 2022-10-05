@@ -195,4 +195,19 @@ class Helper
             ));
         }
     }
+
+    /**
+     * @param mixed $arr
+     */
+    public static function duplicate($arr)
+    {
+        $dups = [];
+        foreach (array_count_values($arr) as $val => $c) {
+            if ($c > 1) {
+                $dups[] = $val;
+            }
+        }
+
+        return implode('|', $dups);
+    }
 }
