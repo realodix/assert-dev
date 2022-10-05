@@ -130,6 +130,7 @@ class Helper
         $expTypesCount = \count(
             array_intersect_key($types, array_unique(array_map('strtolower', $types)))
         );
+
         if ($expTypesCount < $actTypesCount) {
             return true;
         }
