@@ -7,11 +7,10 @@ class Assert
     /**
      * @param  mixed           $value
      * @param  string|string[] $types
-     * @return void|null
      */
-    public static function type($value, $types, string $message = '')
+    public static function type($value, $types, string $message = ''): void
     {
-        return Type::is($value, $types, $message);
+        Type::is($value, $types, $message);
     }
 
     /**
