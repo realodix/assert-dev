@@ -37,4 +37,12 @@ trait IntersectionTypesTestProvider
             [new \stdClass, [\ArrayAccess::class, \Countable::class]],
         ];
     }
+
+    public function duplicateMemberProvider()
+    {
+        return [
+            [new AB, [InterfaceA::class, InterfaceA::class]],
+            [new AB, [InterfaceA::class, Interfacea::class]],
+        ];
+    }
 }

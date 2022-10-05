@@ -101,12 +101,10 @@ class UnionTypesTest extends TestCase
      * @test
      * @dataProvider duplicateTypesProvider
      */
-    public function duplicateTypes($types, $value)
+    public function duplicateTypes($types, $value, $message)
     {
         $this->expectException(\ErrorException::class);
-        $this->expectExceptionMessage(
-            'Duplicate type names in the same declaration is not allowed.'
-        );
+        $this->expectExceptionMessage($message);
 
         Assert::type($value, $types);
     }
@@ -115,12 +113,10 @@ class UnionTypesTest extends TestCase
      * @test
      * @dataProvider duplicateTypesProvider
      */
-    public function duplicateTypesWithTypeInputAsAnArray($types, $value)
+    public function duplicateTypesWithTypeInputAsAnArray($types, $value, $message)
     {
         $this->expectException(\ErrorException::class);
-        $this->expectExceptionMessage(
-            'Duplicate type names in the same declaration is not allowed.'
-        );
+        $this->expectExceptionMessage($message);
 
         $types = explode('|', $types);
         Assert::type($value, $types);

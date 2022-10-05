@@ -68,14 +68,17 @@ class IntersectionTypesTest extends TestCase
         Type::intersection(new AB, ['string', true]);
     }
 
-    /** @test */
-    public function duplicateMember()
+    /**
+     * @test
+     * @dataProvider duplicateMemberProvider
+     */
+    public function duplicateMember($value, $types)
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
             'Duplicate type names in the same declaration is not allowed.'
         );
 
-        Type::intersection(new AB, [InterfaceA::class, InterfaceA::class]);
+        Type::intersection($value, $types);
     }
 }

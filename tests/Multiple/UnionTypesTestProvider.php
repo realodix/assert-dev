@@ -61,14 +61,20 @@ trait UnionTypesTestProvider
 
     public function duplicateTypesProvider()
     {
-        return [
-            ['bool|bool', true],
-            ['bool|string|bool', true],
-            ['int|string|INT', 1],
+        $duplicateType = 'Duplicate type ';
 
-            ['bool|boolean', true],
-            ['float|double', 1.23],
-            ['int|integer', 123],
+        return [
+            ['bool|bool', true, $duplicateType.'bool'],
+            ['bool|string|bool', true, $duplicateType.'bool'],
+            ['int|string|INT', 1, $duplicateType.'int'],
+
+            ['bool|string|bool|string|int|true|INT', true, $duplicateType.'bool'],
+            ['string|bool|string|int|true|INT', true, $duplicateType.'string'],
+            ['bool|string|int|true|INT', true, $duplicateType.'int'],
+
+            ['bool|boolean', true, $duplicateType.'bool'],
+            ['float|double', 1.23, $duplicateType.'float'],
+            ['int|integer', 123, $duplicateType.'int'],
         ];
     }
 
