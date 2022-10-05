@@ -138,17 +138,8 @@ class Helper
         }
     }
 
-    /**
-     * @param string|array $types
-     */
-    private static function typeHasDuplicateMembers($types): bool
+    private static function typeHasDuplicateMembers(array $types): bool
     {
-        Helper::assertStringOrArray($types, '$types');
-
-        if (\is_string($types)) {
-            $types = explode('|', $types);
-        }
-
         $actTypesCount = \count($types);
         $expTypesCount = \count(
             array_intersect_key($types, array_unique(array_map('strtolower', $types)))
@@ -160,17 +151,8 @@ class Helper
         return false;
     }
 
-    /**
-     * @param string|array $types
-     */
-    private static function typeHasRedundantMembers($types): bool
+    private static function typeHasRedundantMembers(array $types): bool
     {
-        Helper::assertStringOrArray($types, '$types');
-
-        if (\is_string($types)) {
-            $types = explode('|', $types);
-        }
-
         if (\in_array('scalar', $types) &&
             (\in_array('numeric', $types)
                 || \in_array('int', $types)
