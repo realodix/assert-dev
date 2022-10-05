@@ -125,7 +125,7 @@ class Helper
                 $dups[] = $val;
 
                 throw new \ErrorException(sprintf(
-                    'Duplicate type %s is redundant',
+                    'Duplicate type %s is redundant.',
                     $dups[0]
                 ));
             }
