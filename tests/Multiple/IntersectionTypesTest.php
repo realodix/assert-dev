@@ -87,6 +87,6 @@ class IntersectionTypesTest extends TestCase
             'Duplicate type names in the same declaration is not allowed.'
         );
 
-        Type::intersection(new \stdClass, [\stdClass::class, \stdclass::class]);
+        Type::intersection(new AB, [InterfaceA::class, Interfacea::class]);
     }
 }
