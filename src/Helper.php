@@ -111,19 +111,7 @@ class Helper
             );
         }
 
-        self::typeHasDuplicateMembers(explode('|', $types));
-
-        if (self::typeHasRedundantMembers(explode('|', $types))) {
-            throw new \ErrorException(
-                'Type declarations has redundant types.'
-            );
-        }
-    }
-
-    public static function typeHasDuplicateMembers(array $arr)
-    {
-        $dups = [];
-        foreach (array_count_values(array_map('strtolower', $arr)) as $val => $c) {
+        foreach (array_count_values(array_map('strtolower', explode('|', $types))) as $val => $c) {
             if ($c > 1) {
                 $dups[] = $val;
 
@@ -132,6 +120,12 @@ class Helper
                     $dups[0]
                 ));
             }
+        }
+
+        if (self::typeHasRedundantMembers(explode('|', $types))) {
+            throw new \ErrorException(
+                'Type declarations has redundant types.'
+            );
         }
     }
 
