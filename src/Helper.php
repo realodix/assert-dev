@@ -76,7 +76,7 @@ class Helper
             }
         }
 
-        if (self::typeHasDuplicateMembers($values)) {
+        if (self::intersectTypeHasDuplicateMembers($values)) {
             throw new \ErrorException(
                 'Duplicate type names in the same declaration is not allowed.'
             );
@@ -111,11 +111,7 @@ class Helper
             );
         }
 
-        if (self::typeHasDuplicateMembers(explode('|', $types))) {
-            throw new \ErrorException(
-                'Duplicate type names in the same declaration is not allowed.'
-            );
-        }
+        self::typeHasDuplicateMembers(explode('|', $types));
 
         if (self::typeHasRedundantMembers(explode('|', $types))) {
             throw new \ErrorException(
@@ -124,22 +120,22 @@ class Helper
         }
     }
 
-    /**
-     * @param mixed $arr
-     */
-    public static function duplicate($arr)
+    public static function typeHasDuplicateMembers(array $arr)
     {
         $dups = [];
-        foreach (array_count_values($arr) as $val => $c) {
+        foreach (array_count_values(array_map('strtolower', $arr)) as $val => $c) {
             if ($c > 1) {
                 $dups[] = $val;
+
+                throw new \ErrorException(sprintf(
+                    'Duplicate type %s is redundant',
+                    $dups[0]
+                ));
             }
         }
-
-        return 'Duplicate type '.$dups[0].' is redundant';
     }
 
-    private static function typeHasDuplicateMembers(array $types): bool
+    private static function intersectTypeHasDuplicateMembers(array $types): bool
     {
         $actTypesCount = \count($types);
         $expTypesCount = \count(

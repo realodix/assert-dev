@@ -62,13 +62,13 @@ trait UnionTypesTestProvider
     public function duplicateTypesProvider()
     {
         return [
-            ['bool|bool', true],
-            ['bool|string|bool', true],
-            ['int|string|INT', 1],
+            ['bool|bool', true, 'Duplicate type bool is redundant'],
+            ['bool|string|bool', true, 'Duplicate type bool is redundant'],
+            ['int|string|INT', 1, 'Duplicate type int is redundant'],
 
-            ['bool|boolean', true],
-            ['float|double', 1.23],
-            ['int|integer', 123],
+            ['bool|boolean', true, 'Duplicate type bool is redundant'],
+            ['float|double', 1.23, 'a'],
+            ['int|integer', 123, 'a'],
         ];
     }
 
