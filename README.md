@@ -23,7 +23,7 @@ Assert::type(new ClassA, [ClassA::class, ClassB::class]);
 Type::intersection(new ClassAB, [ClassA::class, ClassB::class]);
 ```
 
-All assertions in the [Assert](src/Assert.php) class throw an `\Realodix\Assert\Exception\InvalidArgumentException` if they fail.
+All assertions in the [Assert](src/Assert.php) class throw an `\Realodix\Assert\Exception\TypeErrorException` if they fail.
 You can pass an argument called `$message` to any assertion to control the exception message. Every exception contains a default
 message and unique message code by default.
 
