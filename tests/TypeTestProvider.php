@@ -202,7 +202,7 @@ trait TypeTestProvider
             ['non-empty-string', ['string'], false],
 
             ['truthy-string', 'string'],
-            ['truthy-string', '0'],
+            ['truthy-string', '0', false],
             ['truthy-string', '', false],
             ['truthy-string', ['string'], false],
 

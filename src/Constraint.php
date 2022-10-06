@@ -105,16 +105,10 @@ class Constraint
      */
     public static function truthyString($value): bool
     {
-        $result = true;
-
-        if (! self::nonEmptyString($value)) {
-            $result = false;
+        if (! \is_string($value) || (bool) $value === false) {
+            return false;
         }
 
-        if ($value === '0') {
-            $result = true;
-        }
-
-        return $result;
+        return true;
     }
 }
