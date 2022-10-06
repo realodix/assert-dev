@@ -14,12 +14,12 @@ use Realodix\Assert\Assert;
 
 public function setFoo($foo)
 {
-    Assert::type($foo, 'int', 'message');
+    Assert::type($foo, 'int', $exceptionMessage);
 }
 
 public function setBar($foo)
 {
-    Assert::type($foo, 'int|float', 'message');
+    Assert::type($foo, 'int|float', $exceptionMessage);
 }
 ```
 
