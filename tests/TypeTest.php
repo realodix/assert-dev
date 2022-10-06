@@ -154,4 +154,16 @@ class TypeTest extends TestCase
     {
         $this->invalidType($value, $types);
     }
+
+    /**
+     * @test
+     */
+    public function zzz()
+    {
+        $this->assertFalse((bool)'');
+        $this->assertFalse((bool)'0');
+        $this->assertFalse((bool)"0");
+
+        $this->assertTrue(empty('0'));
+    }
 }
