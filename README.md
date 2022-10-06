@@ -37,7 +37,6 @@ public function setFoo($foo)
 ```
 
 ### Types Assertions
-
 Types      | Description
 ---------- | ------------------------------------------------------------------
 `scalar`   | Check that a value is a scalar
@@ -101,7 +100,6 @@ public function setFoo($foo)
 
 
 ### Array Assertions
-
 Method                                            | Description
 ------------------------------------------------- | ------------------------------------------------------------------
 `keyExists($array, $key, $message = '')`          | Check that a key exists in an array
@@ -120,7 +118,6 @@ Where applicable, assertion functions are annotated to support Psalm [Assertion 
 
 
 ## License
-
 This package is licensed using the [MIT License](/LICENSE).
 
 
