@@ -159,6 +159,7 @@ trait TypeTestProvider
     {
         return [
             ['stdClass', new \stdClass],
+            [\stdClass::class, new \stdClass],
             // ['stdClass', [new \stdClass, new \stdClass]],
             ['ArrayAccess', new \ArrayObject],
             ['Traversable', new \ArrayObject],
