@@ -104,6 +104,10 @@ Method                                            | Description
 `validArrayKey($key, $message = '')`              | Check that a value is a valid array key (int or string)
 
 
+## Static Analysis Support
+Where applicable, assertion functions are annotated to support Psalm [Assertion syntax](https://psalm.dev/docs/annotating_code/assertion_syntax/).
+
+
 ## License
 
 This package is licensed using the [MIT License](/LICENSE).
