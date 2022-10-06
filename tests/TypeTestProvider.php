@@ -198,6 +198,16 @@ trait TypeTestProvider
             ['string', ' '],
             ['string', '0'],
 
+            ['non-empty-string', 'string'],
+            ['non-empty-string', '0'],
+            ['non-empty-string', '', false],
+            ['non-empty-string', ['string'], false],
+
+            ['non-falsy-string', 'string'],
+            ['non-falsy-string', '0'],
+            ['non-falsy-string', '', false],
+            ['non-falsy-string', ['string'], false],
+
             ['lowercase-string', 'test'],
             ['lowercase-string', 'Test', false],
             ['lowercase-string', 'test1', false],
@@ -261,16 +271,6 @@ trait TypeTestProvider
     public function nonEmptyProvider()
     {
         return [
-            ['non-empty-string', 'string'],
-            ['non-empty-string', '0'],
-            ['non-empty-string', '', false],
-            ['non-empty-string', ['string'], false],
-
-            ['non-falsy-string', 'string'],
-            ['non-falsy-string', '0'],
-            ['non-falsy-string', '', false],
-            ['non-falsy-string', ['string'], false],
-
             ['non-empty-array', ['string']],
             ['non-empty-array', '', false],
             ['non-empty-array', [''], false],
