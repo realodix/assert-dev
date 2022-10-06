@@ -5,8 +5,8 @@ namespace Realodix\Assert;
 class Assert
 {
     /**
-     * @param mixed           $value
-     * @param string|string[] $types
+     * @param mixed        $value
+     * @param string|array $types
      */
     public static function type($value, $types, string $message = ''): void
     {
