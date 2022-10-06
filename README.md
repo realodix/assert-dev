@@ -1,5 +1,3 @@
-https://github.com/wikimedia/Assert
-
 This package provides an alternative to PHP's `assert()` that allows for an simple and reliable way
 to check preconditions and postconditions in PHP code.
 
