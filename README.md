@@ -1,8 +1,6 @@
 This package provides an alternative to PHP's `assert()` that allows for an simple and reliable way
 to check preconditions and postconditions in PHP code.
 
-All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`][phpInvalidArgumentException] if they fail.
-
 Usage
 -------
 
@@ -20,6 +18,19 @@ public function setFoo($foo)
 public function setBar($foo)
 {
     Assert::type($foo, 'int|float', $exceptionMessage);
+}
+```
+
+All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`][phpInvalidArgumentException] if they fail. You can pass an argument called `$message` to any assertion to control the exception message. Every exception contains a default message and unique message code by default.
+
+```php
+use Realodix\Assert\Assert;
+
+public function setFoo($foo)
+{
+    $message = 'foo';
+
+    Assert::type($foo, 'int', $message);
 }
 ```
 
