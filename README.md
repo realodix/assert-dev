@@ -21,7 +21,9 @@ public function setBar($foo)
 }
 ```
 
-All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`][phpInvalidArgumentException] if they fail. You can pass an argument called `$message` to any assertion to control the exception message. Every exception contains a default message and unique message code by default.
+All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`][phpInvalidArgumentException] if they fail.
+You can pass an argument called `$message` to any assertion to control the exception message. Every exception contains a default
+message and unique message code by default.
 
 ```php
 use Realodix\Assert\Assert;
