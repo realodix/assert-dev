@@ -12,7 +12,7 @@ use Realodix\Assert\Assert;
 
 // Simple
 Assert::type($foo, 'int');
-Assert::type(new \stdClass, \Countable::class);
+Assert::type(new \stdClass, \stdClass::class);
 
 // Union
 Assert::type($foo, 'string|array');
