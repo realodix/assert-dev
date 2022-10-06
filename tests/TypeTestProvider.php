@@ -205,6 +205,7 @@ trait TypeTestProvider
             ['truthy-string', '0', false],
             ['truthy-string', '', false],
             ['truthy-string', ['string'], false],
+            ['non-falsy-string', '0', false],
 
             ['lowercase-string', 'test'],
             ['lowercase-string', 'Test', false],

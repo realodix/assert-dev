@@ -137,7 +137,8 @@ class Type
             || ('negative-int' === $allowedTypes) && \is_int($value) && $value <= -1
             || ('float' === $allowedTypes) && \is_float($value)
             // ...-string
-            || ('truthy-string' === $allowedTypes) && Constraint::truthyString($value)
+            || (('truthy-string' === $allowedTypes)
+                || ('non-falsy-string' === $allowedTypes)) && Constraint::truthyString($value)
             || ('lowercase-string' === $allowedTypes) && ctype_lower($value)
             || ('numeric-string' === $allowedTypes) && is_numeric($value) && \is_string($value)
             || ('callable-string' === $allowedTypes) && \is_callable($value) && \is_string($value)
