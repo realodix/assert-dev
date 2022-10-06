@@ -130,7 +130,7 @@ class UnionTypesTest extends TestCase
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
-            'Type declarations has redundant types.'
+            'Union type declarations contain redundant types.'
         );
 
         Assert::type($value, $types);
@@ -144,7 +144,7 @@ class UnionTypesTest extends TestCase
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
-            'Type declarations has redundant types.'
+            'Union type declarations contain redundant types.'
         );
 
         $types = explode('|', $types);

@@ -101,7 +101,7 @@ class Helper
 
         if (self::typeHasRedundantMembers($types)) {
             throw new \ErrorException(
-                'Type declarations has redundant types.'
+                'Union type declarations contain redundant types.'
             );
         }
     }
