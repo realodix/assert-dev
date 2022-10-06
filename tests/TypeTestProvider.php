@@ -267,6 +267,19 @@ trait TypeTestProvider
         ];
     }
 
+    public function emptyProvider()
+    {
+        return [
+            ['empty', 'string', false],
+            ['empty', ''],
+            ['empty', null],
+            ['empty', array()],
+            ['empty', false],
+            ['empty', '0'],
+            ['empty', 0],
+        ];
+    }
+
     public function nonEmptyProvider()
     {
         return [
