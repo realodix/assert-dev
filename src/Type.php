@@ -137,12 +137,12 @@ class Type
             || ('negative-int' === $allowedTypes) && \is_int($value) && $value <= -1
             || ('float' === $allowedTypes) && \is_float($value)
             // ...-string
+            || ('truthy-string' === $allowedTypes) && Constraint::truthyString($value)
             || ('lowercase-string' === $allowedTypes) && ctype_lower($value)
             || ('numeric-string' === $allowedTypes) && is_numeric($value) && \is_string($value)
             || ('callable-string' === $allowedTypes) && \is_callable($value) && \is_string($value)
             // non-empty-...
             || ('non-empty-string' === $allowedTypes) && Constraint::nonEmptyString($value)
-            || ('non-falsy-string' === $allowedTypes) && Constraint::nonFalsyString($value)
             || ('non-empty-array' === $allowedTypes) && Constraint::nonEmptyArray($value)
             || ('non-empty-list' === $allowedTypes) && Constraint::nonEmptyList($value);
     }
@@ -169,6 +169,8 @@ class Type
                         return 'bool';
                     case 'NULL':
                         return 'null';
+                    case 'non-falsy-string':
+                        return 'truthy-string';
                     default:
                         return $type;
                 }

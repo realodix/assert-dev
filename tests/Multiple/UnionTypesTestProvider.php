@@ -75,6 +75,9 @@ trait UnionTypesTestProvider
             ['bool|boolean', true, $duplicateType.'bool'],
             ['float|double', 1.23, $duplicateType.'float'],
             ['int|integer', 123, $duplicateType.'int'],
+
+            ['truthy-string|non-falsy-string', 'string', $duplicateType.'truthy-string'],
+            ['non-falsy-string|truthy-string', 'string', $duplicateType.'truthy-string'],
         ];
     }
 
@@ -101,9 +104,9 @@ trait UnionTypesTestProvider
 
             ['non-empty-string|string', 'string'],
             ['lowercase-string|string', 'string'],
-            ['non-falsy-string|string', 'string'],
+            ['truthy-string|string', 'string'],
             ['non-empty-string|lowercase-string', 'string'],
-            ['non-empty-string|non-falsy-string', 'string'],
+            ['non-empty-string|truthy-string', 'string'],
 
             ['array|bool[]', []],
             ['array|string[]', []],

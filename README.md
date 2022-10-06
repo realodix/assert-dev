@@ -44,7 +44,7 @@ Types      | Description
 `scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
 `non-empty-string` | Check that a value is any string except `''`. It does not mean “empty” in the weird sense used by [`empty()`][phpEmpty].
-`non-falsy-string` | Subtype of `non-empty-string`, but it excludes `'0'`
+`truthy-string` | (Also known as `non-falsy-string`) Is any string that is true after casting to boolean (`(bool) $value`). Is effectively a subtype of `non-empty-string`, and also precludes the string value `'0'`.
 `lowercase-string` | Check for lowercase character(s), see [`ctype_lower()`][phpCtypeLower]
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
@@ -81,8 +81,8 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`string`   | `non-empty-string`, `non-falsy-string`, and `lowercase-string`
-`non-empty-string` | `non-falsy-string`, `lowercase-string`
+`string`   | `non-empty-string`, `truthy-string`, and `lowercase-string`
+`non-empty-string` | `truthy-string`, `lowercase-string`
 `numeric`  | `int`, `positive-int`, `negative-int`, and `float`
 `int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
