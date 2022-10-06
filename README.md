@@ -44,7 +44,7 @@ Types      | Description
 `scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
 `non-empty-string` | Check that a value is any string except `''`. It does not mean “empty” in the weird sense used by [`empty()`][phpEmpty].
-`non-falsy-string` | Subtype of `non-empty-string`, but it excludes `'0'`
+`non-falsy-string` | Is effectively a subtype of `non-empty-string`, and also precludes the string value `'0'`.
 `lowercase-string` | Check for lowercase character(s), see [`ctype_lower()`][phpCtypeLower]
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
