@@ -101,9 +101,9 @@ trait UnionTypesTestProvider
 
             ['non-empty-string|string', 'string'],
             ['lowercase-string|string', 'string'],
-            ['non-falsy-string|string', 'string'],
+            ['truthy-string|string', 'string'],
             ['non-empty-string|lowercase-string', 'string'],
-            ['non-empty-string|non-falsy-string', 'string'],
+            ['non-empty-string|truthy-string', 'string'],
 
             ['array|bool[]', []],
             ['array|string[]', []],

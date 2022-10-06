@@ -103,7 +103,7 @@ class Constraint
      *
      * @param mixed $value
      */
-    public static function nonFalsyString($value): bool
+    public static function truthyString($value): bool
     {
         $result = true;
 

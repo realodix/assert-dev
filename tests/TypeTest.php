@@ -160,9 +160,9 @@ class TypeTest extends TestCase
      */
     public function zzz()
     {
-        $this->assertFalse((bool)'');
-        $this->assertFalse((bool)'0');
-        $this->assertFalse((bool)"0");
+        $this->assertFalse((bool) '');
+        $this->assertFalse((bool) '0');
+        $this->assertFalse((bool) '0');
 
         $this->assertTrue(empty('0'));
     }

@@ -169,8 +169,6 @@ trait TypeTestProvider
         ];
     }
 
-
-
     public function isScalarProvider()
     {
         return [
@@ -203,10 +201,10 @@ trait TypeTestProvider
             ['non-empty-string', '', false],
             ['non-empty-string', ['string'], false],
 
-            ['non-falsy-string', 'string'],
-            ['non-falsy-string', '0'],
-            ['non-falsy-string', '', false],
-            ['non-falsy-string', ['string'], false],
+            ['truthy-string', 'string'],
+            ['truthy-string', '0'],
+            ['truthy-string', '', false],
+            ['truthy-string', ['string'], false],
 
             ['lowercase-string', 'test'],
             ['lowercase-string', 'Test', false],
