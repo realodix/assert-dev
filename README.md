@@ -12,11 +12,11 @@ use Realodix\Assert\Assert;
 
 // Simple
 Assert::type($foo, 'int');
-Assert::type(new \stdClass, \stdClass::class);
+// Assert::type(new \stdClass, \stdClass::class);
 
-// Union
-Assert::type($foo, 'string|array');
-Assert::type(new \stdClass, [\stdClass::class, \Countable::class]);
+// // Union
+// Assert::type($foo, 'string|array');
+// Assert::type(new \stdClass, [\stdClass::class, \Countable::class]);
 ```
 
 All assertions in the [Assert](src/Assert.php) class throw an [`\InvalidArgumentException`][phpInvalidArgumentException] if they fail.
