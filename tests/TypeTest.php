@@ -44,9 +44,9 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider isBoolProvider
+     * @dataProvider instanceofProvider
      */
-    public function is_bool($types, $value, $pass = true)
+    public function instanceof($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidType($value, $types);
 
@@ -56,9 +56,9 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider instanceofProvider
+     * @dataProvider isBoolProvider
      */
-    public function instanceof($types, $value, $pass = true)
+    public function is_bool($types, $value, $pass = true)
     {
         (! $pass) && $this->invalidType($value, $types);
 
