@@ -10,8 +10,11 @@ common kind is to check the type of a parameter, typically in a constructor or a
 ```php
 use Realodix\Assert\Assert;
 
+Assert::type($foo, 'int');
+
 public function setFoo($foo)
 {
+    Assert::type($foo, 'int');
     Assert::type($foo, 'int');
 }
 
