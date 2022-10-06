@@ -138,6 +138,20 @@ trait TypeTestProvider
         ];
     }
 
+    public function instanceofProvider()
+    {
+        return [
+            ['ArrayAccess', new \ArrayObject],
+            ['Traversable', new \ArrayObject],
+            ['Traversable', new \ArrayIterator([])],
+            // Invalid instanceof
+            ['stdClass', new \Exception, false],
+            ['stdClass', 123, false],
+            ['stdClass', [], false],
+            ['stdClass', null, false],
+        ];
+    }
+
     public function isBoolProvider()
     {
         return [
@@ -155,22 +169,7 @@ trait TypeTestProvider
         ];
     }
 
-    public function instanceofProvider()
-    {
-        return [
-            ['stdClass', new \stdClass],
-            [\stdClass::class, new \stdClass],
-            // ['stdClass', [new \stdClass, new \stdClass]],
-            ['ArrayAccess', new \ArrayObject],
-            ['Traversable', new \ArrayObject],
-            ['Traversable', new \ArrayIterator([])],
-            // Invalid instanceof
-            ['stdClass', new \Exception, false],
-            ['stdClass', 123, false],
-            ['stdClass', [], false],
-            ['stdClass', null, false],
-        ];
-    }
+
 
     public function isScalarProvider()
     {
