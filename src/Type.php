@@ -70,29 +70,14 @@ class Type
             $types = explode(' ', $types);
         }
 
-        if (! self::intersectionTypesValidator($value, $types)) {
+        Helper::assertIntersectionTypeMember($types);
+
+        $validTypes = array_filter($types, fn ($types) => $value instanceof $types);
+        if (\count($types) !== \count($validTypes)) {
             throw new Exception\TypeErrorException(
                 implode(' & ', $types), $value, $message
             );
         }
-    }
-
-    /**
-     * @param mixed $value
-     *
-     * @throws \ErrorException
-     * @throws Exception\UnknownClassOrInterfaceException
-     */
-    private static function intersectionTypesValidator($value, array $types): bool
-    {
-        Helper::assertIntersectionTypeMember($types);
-
-        $validTypes = array_filter($types, fn ($types) => $value instanceof $types);
-        if (\count($types) === \count($validTypes)) {
-            return true;
-        }
-
-        return false;
     }
 
     /**
