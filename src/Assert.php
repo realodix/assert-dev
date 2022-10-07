@@ -56,7 +56,7 @@ class Assert
     {
         self::isMap($array, $message);
 
-        foreach ($array as $key => $value) {
+        foreach ($array as $value) {
             $value = trim($value);
             if (empty($value)) {
                 self::createException(sprintf(
