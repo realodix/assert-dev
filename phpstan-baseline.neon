@@ -1,0 +1,96 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:count\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:countBetween\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:isMap\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:isNonEmptyMap\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:keyExists\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:keyNotExists\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:maxCount\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:minCount\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:type\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Helper\\:\\:assertIntersectionTypeMember\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Helper.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Helper\\:\\:typeHasRedundantMembers\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Helper.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:arrayValueIs\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Type.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:arrayValueIs\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Type.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:hasType\\(\\) has parameter \\$allowedTypes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Type.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:intersection\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Type.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:intersectionTypesValidator\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Type.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:is\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Type.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:normalizeType\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Type.php
+
+		-
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:normalizeType\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Type.php
