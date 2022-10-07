@@ -11,9 +11,7 @@
     <MixedArgument occurrences="1">
       <code>$type</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
-      <code>$types</code>
-      <code>$types</code>
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>$types</code>
       <code>$types</code>
       <code>$types</code>
