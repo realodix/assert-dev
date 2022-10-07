@@ -4,6 +4,8 @@ namespace Realodix\Assert;
 
 class Type
 {
+    private const UNION_SEPARATOR = '|';
+
     /**
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
@@ -23,10 +25,10 @@ class Type
         Helper::assertStringOrArray($types, '$types', 2);
 
         $types = self::normalizeType($types);
-        Helper::assertTypeDeclaration(implode('|', $types));
+        Helper::assertTypeDeclaration(implode(self::UNION_SEPARATOR, $types));
 
         if (! self::hasType($value, $types)) {
-            throw new Exception\TypeErrorException(implode('|', $types), $value, $message);
+            throw new Exception\TypeErrorException(implode(self::UNION_SEPARATOR, $types), $value, $message);
         }
     }
 
@@ -38,11 +40,11 @@ class Type
         self::is($types, 'string|array');
 
         $types = self::normalizeType($types);
-        Helper::assertTypeDeclaration(implode('|', $types));
+        Helper::assertTypeDeclaration(implode(self::UNION_SEPARATOR, $types));
 
         foreach ($values as $value) {
             if (! self::hasType($value, $types)) {
-                throw new Exception\TypeErrorException(implode('|', $types), $value, $message);
+                throw new Exception\TypeErrorException(implode(self::UNION_SEPARATOR, $types), $value, $message);
             }
         }
     }
@@ -160,11 +162,11 @@ class Type
     private static function normalizeType($types): array
     {
         if (\is_string($types)) {
-            $types = explode('|', $types);
+            $types = explode(self::UNION_SEPARATOR, $types);
         }
 
         return array_map(
-            function ($type) {
+            function (string $type) {
                 switch ($type) {
                     case 'double':
                         return 'float';
