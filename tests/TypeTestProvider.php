@@ -277,6 +277,14 @@ trait TypeTestProvider
             ['empty', false],
             ['empty', '0'],
             ['empty', 0],
+
+            ['not-empty', 'string'],
+            ['not-empty', '', false],
+            ['not-empty', null, false],
+            ['not-empty', array(), false],
+            ['not-empty', false, false],
+            ['not-empty', '0', false],
+            ['not-empty', 0, false],
         ];
     }
 
