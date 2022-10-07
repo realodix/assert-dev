@@ -60,6 +60,8 @@ Types      | Description
 `callable` | Check that a value is a callable
 `callable-string` | `is_string($value) && is_callable($value)`
 `null`     | Check that a value is `null`
+`empty`    | Check that a value is `empty()`
+`not-empty`| Check that a value is not `empty()`
 
 Types       | Description
 ----------- | ------------------------------------------------------------------

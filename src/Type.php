@@ -144,7 +144,10 @@ class Type
             // non-empty-...
             || ('non-empty-string' === $allowedTypes) && Constraint::nonEmptyString($value)
             || ('non-empty-array' === $allowedTypes) && Constraint::nonEmptyArray($value)
-            || ('non-empty-list' === $allowedTypes) && Constraint::nonEmptyList($value);
+            || ('non-empty-list' === $allowedTypes) && Constraint::nonEmptyList($value)
+            // Others
+            || ('empty' === $allowedTypes) && empty($value)
+            || ('not-empty' === $allowedTypes) && ! empty($value);
     }
 
     /**
