@@ -192,7 +192,7 @@ class Helper
             throw new \InvalidArgumentException(sprintf(
                 "Argument #%s%s must 'string or array'.",
                 $order,
-                $variable = empty($variable) ? '' : ' ('.$variable.')'
+                empty($variable) ? '' : ' ('.$variable.')'
             ));
         }
     }
