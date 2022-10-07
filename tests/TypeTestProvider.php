@@ -212,6 +212,7 @@ trait TypeTestProvider
             ['lowercase-string', 'test1', false],
             ['lowercase-string', '1test', false],
             ['lowercase-string', 'test!', false],
+            ['lowercase-string', true, false],
         ];
     }
 
