@@ -25,10 +25,11 @@ class Type
         Helper::assertStringOrArray($types, '$types', 2);
 
         $types = self::normalizeType($types);
-        Helper::assertTypeDeclaration(implode(self::UNION_SEPARATOR, $types));
+        $typesInArray = implode(self::UNION_SEPARATOR, $types);
+        Helper::assertTypeDeclaration($typesInArray);
 
         if (! self::hasType($value, $types)) {
-            throw new Exception\TypeErrorException(implode(self::UNION_SEPARATOR, $types), $value, $message);
+            throw new Exception\TypeErrorException($typesInArray, $value, $message);
         }
     }
 
@@ -40,11 +41,12 @@ class Type
         self::is($types, 'string|array');
 
         $types = self::normalizeType($types);
-        Helper::assertTypeDeclaration(implode(self::UNION_SEPARATOR, $types));
+        $typesInArray = implode(self::UNION_SEPARATOR, $types);
+        Helper::assertTypeDeclaration($typesInArray);
 
         foreach ($values as $value) {
             if (! self::hasType($value, $types)) {
-                throw new Exception\TypeErrorException(implode(self::UNION_SEPARATOR, $types), $value, $message);
+                throw new Exception\TypeErrorException($typesInArray, $value, $message);
             }
         }
     }
