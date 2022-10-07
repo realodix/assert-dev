@@ -207,11 +207,12 @@ trait TypeTestProvider
             ['truthy-string', ['string'], false],
             ['non-falsy-string', '0', false],
 
-            ['lowercase-string', 'test'],
+            ['lowercase-string', 'string'],
             ['lowercase-string', 'Test', false],
             ['lowercase-string', 'test1', false],
             ['lowercase-string', '1test', false],
             ['lowercase-string', 'test!', false],
+            ['lowercase-string', ['string'], false],
         ];
     }
 
