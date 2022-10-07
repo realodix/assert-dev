@@ -1,0 +1,24 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ],
+        // "excludes": [
+        //     "Config",
+        //     "Folder/with/File.php",
+        //     "/\\.interface\\.php/",
+        //     "{Infrastructure/.*}"
+        // ]
+    },
+    "timeout": 10,
+    "logs": {
+        "html": ".logs/infection/infection.html",
+        "summary": ".logs/infection/summary.log",
+        "json": ".logs/infection/infection-log.json",
+        "perMutator": ".logs/infection/per-mutator.md",
+        "github": true,
+        "stryker": {
+            "badge": "/^release-.*$/"
+        }
+    }
+}
