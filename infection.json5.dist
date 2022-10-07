@@ -2,13 +2,7 @@
     "source": {
         "directories": [
             "src"
-        ],
-        // "excludes": [
-        //     "Config",
-        //     "Folder/with/File.php",
-        //     "/\\.interface\\.php/",
-        //     "{Infrastructure/.*}"
-        // ]
+        ]
     },
     "timeout": 10,
     "logs": {
