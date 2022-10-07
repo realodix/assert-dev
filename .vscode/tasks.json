@@ -56,6 +56,12 @@
             "type": "shell",
             "command": "phpstan analyse",
             "problemMatcher": []
+        },
+        {
+            "label": "[SA] PHPStan (baseline)",
+            "type": "shell",
+            "command": "phpstan analyse --generate-baseline",
+            "problemMatcher": []
         }
     ]
 }
