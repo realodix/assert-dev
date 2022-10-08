@@ -1,24 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.27.0@faf106e717c37b8c81721845dba9de3d8deed8ff">
-  <file src="src/Helper.php">
-    <MixedArgument occurrences="3">
-      <code>$value</code>
-      <code>$value</code>
-      <code>$values</code>
-    </MixedArgument>
-  </file>
-  <file src="src/Type.php">
-    <MixedArgument occurrences="1">
-      <code>$type</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
-      <code>$types</code>
-      <code>$types</code>
-      <code>$types</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="2">
-      <code>$type</code>
-      <code>$value</code>
-    </MixedAssignment>
-  </file>
+
 </files>

@@ -10,9 +10,9 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param mixed        $value The parameter's actual value.
+     * @param mixed           $value The parameter's actual value.
      * @param string|string[] $types The parameter's expected type. Can be the name of a native
-     *                            type or a class or Interface, or a list of such names.
+     *                               type or a class or Interface, or a list of such names.
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException If $value is not of type (or for objects,
@@ -34,7 +34,10 @@ class Type
     }
 
     /**
-     * @param string|list<string> $types
+     * @param list[]          $values
+     * @param string|string[] $types
+     *
+     * @psalm-assert string|string[] $types
      */
     public static function arrayValueIs(array $values, $types, string $message = ''): void
     {
@@ -54,13 +57,11 @@ class Type
     /**
      * https://gist.github.com/Pierstoval/ed387a09d4a5e76108e60e8a7585ac2d
      *
-     * @param mixed        $value The parameter's actual value.
-     * @param string|array $types The parameter's expected type.
+     * @param mixed           $value The parameter's actual value.
+     * @param string|string[] $types The parameter's expected type.
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException
-     *
-     * @psalm-assert string|array $types
      */
     public static function intersection($value, $types, string $message = ''): void
     {
@@ -193,6 +194,8 @@ class Type
     }
 
     /**
+     * @param string[] $values
+     *
      * @throws \ErrorException
      * @throws Exception\UnknownClassOrInterfaceException
      *
@@ -272,7 +275,7 @@ class Type
     }
 
     /**
-     * @param  string|list<string> $types
+     * @param  string|string[] $types
      * @return string[]
      */
     private static function normalizeType($types): array
