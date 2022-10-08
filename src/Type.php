@@ -41,12 +41,12 @@ class Type
         self::is($types, 'string|array');
 
         $types = self::normalizeType($types);
-        $typesInArray = implode(self::UNION_SEPARATOR, $types);
-        self::assertTypeDeclaration($typesInArray);
+        $typesInString = implode(self::UNION_SEPARATOR, $types);
+        self::assertTypeDeclaration($typesInString);
 
         foreach ($values as $value) {
             if (! self::hasType($value, $types)) {
-                throw new Exception\TypeErrorException($typesInArray, $value, $message);
+                throw new Exception\TypeErrorException($typesInString, $value, $message);
             }
         }
     }
