@@ -41,56 +41,26 @@ parameters:
 			path: src/Assert.php
 
 		-
-			message: "#^Method Realodix\\\\Assert\\\\Assert\\:\\:type\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Assert.php
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: src/Constraint.php
 
 		-
-			message: "#^Method Realodix\\\\Assert\\\\Helper\\:\\:assertIntersectionTypeMember\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			message: "#^Parameter \\#1 \\$array of function array_filter expects array, mixed given\\.$#"
+			count: 1
+			path: src/Constraint.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Helper.php
 
 		-
-			message: "#^Method Realodix\\\\Assert\\\\Helper\\:\\:typeHasRedundantMembers\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Helper.php
-
-		-
-			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:arrayValueIs\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:arrayValueIs\\(\\) has parameter \\$values with no value type specified in iterable type array\\<int, mixed\\>\\.$#"
 			count: 1
 			path: src/Type.php
 
 		-
-			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:arrayValueIs\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Type.php
-
-		-
-			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:hasType\\(\\) has parameter \\$allowedTypes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Type.php
-
-		-
-			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:intersection\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Type.php
-
-		-
-			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:intersectionTypesValidator\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Type.php
-
-		-
-			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:is\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Type.php
-
-		-
-			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:normalizeType\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Type.php
-
-		-
-			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:normalizeType\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method Realodix\\\\Assert\\\\Type\\:\\:typeHasRedundantMembers\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Type.php
