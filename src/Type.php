@@ -84,8 +84,6 @@ class Type
     /**
      * @param mixed    $value
      * @param string[] $allowedTypes
-     *
-     * @psalm-assert string[] $allowedTypes
      */
     private static function hasType($value, array $allowedTypes): bool
     {
