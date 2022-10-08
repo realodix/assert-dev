@@ -11,14 +11,14 @@ class Type
      * $value is not of $type.
      *
      * @param mixed        $value The parameter's actual value.
-     * @param string|array $types The parameter's expected type. Can be the name of a native
+     * @param string|string[] $types The parameter's expected type. Can be the name of a native
      *                            type or a class or Interface, or a list of such names.
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException If $value is not of type (or for objects,
      *                                      is not an instance of) $type.
      *
-     * @psalm-assert string|array $types
+     * @psalm-assert string|string[] $types
      */
     public static function is($value, $types, string $message = ''): void
     {
@@ -34,7 +34,7 @@ class Type
     }
 
     /**
-     * @param string|array $types
+     * @param string|list<string> $types
      */
     public static function arrayValueIs(array $values, $types, string $message = ''): void
     {
@@ -81,7 +81,8 @@ class Type
     }
 
     /**
-     * @param mixed $value
+     * @param mixed    $value
+     * @param string[] $allowedTypes
      *
      * @psalm-assert string[] $allowedTypes
      */
@@ -194,6 +195,8 @@ class Type
     /**
      * @throws \ErrorException
      * @throws Exception\UnknownClassOrInterfaceException
+     *
+     * @psalm-assert class-string[] $values
      */
     private static function assertIntersectionTypeMember(array $values): void
     {
@@ -269,9 +272,8 @@ class Type
     }
 
     /**
-     * @param string|array $types
-     *
-     * @psalm-assert string|array $types
+     * @param  string|list<string> $types
+     * @return string[]
      */
     private static function normalizeType($types): array
     {
