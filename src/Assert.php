@@ -5,8 +5,8 @@ namespace Realodix\Assert;
 class Assert
 {
     /**
-     * @param mixed        $value
-     * @param string|array $types
+     * @param mixed           $value
+     * @param string|string[] $types
      */
     public static function type($value, $types, string $message = ''): void
     {
@@ -43,6 +43,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert string[] $array
+     */
     public static function isMap(array $array, string $message = ''): void
     {
         if (array_keys($array) !== array_filter(array_keys($array), 'is_string')) {

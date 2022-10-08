@@ -4,45 +4,52 @@ namespace Realodix\Assert;
 
 class Type
 {
+    private const UNION_SEPARATOR = '|';
+
     /**
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param mixed        $value The parameter's actual value.
-     * @param string|array $types The parameter's expected type. Can be the name of a native
-     *                            type or a class or Interface, or a list of such names.
+     * @param mixed           $value The parameter's actual value.
+     * @param string|string[] $types The parameter's expected type. Can be the name of a native
+     *                               type or a class or Interface, or a list of such names.
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException If $value is not of type (or for objects,
      *                                      is not an instance of) $type.
      *
-     * @psalm-assert string|array $types
+     * @psalm-assert string|string[] $types
      */
     public static function is($value, $types, string $message = ''): void
     {
         Helper::assertStringOrArray($types, '$types', 2);
 
         $types = self::normalizeType($types);
-        Helper::assertTypeDeclaration(implode('|', $types));
+        $typesInArray = implode(self::UNION_SEPARATOR, $types);
+        self::assertTypeDeclaration($typesInArray);
 
         if (! self::hasType($value, $types)) {
-            throw new Exception\TypeErrorException(implode('|', $types), $value, $message);
+            throw new Exception\TypeErrorException($typesInArray, $value, $message);
         }
     }
 
     /**
-     * @param string|array $types
+     * @param list[]          $values
+     * @param string|string[] $types
+     *
+     * @psalm-assert string|string[] $types
      */
     public static function arrayValueIs(array $values, $types, string $message = ''): void
     {
         self::is($types, 'string|array');
 
         $types = self::normalizeType($types);
-        Helper::assertTypeDeclaration(implode('|', $types));
+        $typesInString = implode(self::UNION_SEPARATOR, $types);
+        self::assertTypeDeclaration($typesInString);
 
         foreach ($values as $value) {
             if (! self::hasType($value, $types)) {
-                throw new Exception\TypeErrorException(implode('|', $types), $value, $message);
+                throw new Exception\TypeErrorException($typesInString, $value, $message);
             }
         }
     }
@@ -50,13 +57,11 @@ class Type
     /**
      * https://gist.github.com/Pierstoval/ed387a09d4a5e76108e60e8a7585ac2d
      *
-     * @param mixed        $value The parameter's actual value.
-     * @param string|array $types The parameter's expected type.
+     * @param mixed           $value The parameter's actual value.
+     * @param string|string[] $types The parameter's expected type.
      *
      * @throws \InvalidArgumentException
      * @throws Exception\TypeErrorException
-     *
-     * @psalm-assert string|array $types
      */
     public static function intersection($value, $types, string $message = ''): void
     {
@@ -66,7 +71,10 @@ class Type
             $types = explode(' ', $types);
         }
 
-        if (! self::intersectionTypesValidator($value, $types)) {
+        self::assertIntersectionTypeMember($types);
+
+        $validTypes = array_filter($types, fn ($types) => $value instanceof $types);
+        if (\count($types) !== \count($validTypes)) {
             throw new Exception\TypeErrorException(
                 implode(' & ', $types), $value, $message
             );
@@ -74,25 +82,8 @@ class Type
     }
 
     /**
-     * @param mixed $value
-     *
-     * @throws \ErrorException
-     * @throws Exception\UnknownClassOrInterfaceException
-     */
-    private static function intersectionTypesValidator($value, array $types): bool
-    {
-        Helper::assertIntersectionTypeMember($types);
-
-        $validTypes = array_filter($types, fn ($types) => $value instanceof $types);
-        if (\count($types) === \count($validTypes)) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @param mixed $value
+     * @param mixed    $value
+     * @param string[] $allowedTypes
      */
     private static function hasType($value, array $allowedTypes): bool
     {
@@ -151,18 +142,148 @@ class Type
     }
 
     /**
-     * @param string|array $types
+     * Periksa deklarasi format tipe. Ini harus dapat memastikan format yang
+     * diberikan merupakan format yang valid.
      *
-     * @psalm-assert string|array $types
+     * @throws \ErrorException
+     */
+    private static function assertTypeDeclaration(string $types): void
+    {
+        if (preg_match('/^[\[\]\-|a-zA-Z\\\:]+$/', $types) === 0) {
+            throw new \ErrorException(
+                "Only '|' symbol that allowed."
+            );
+        }
+
+        // Simbol harus diletakkan diantara nama tipe
+        if (preg_match('/^([\|])|([\|])$/', $types) > 0) {
+            throw new \ErrorException(
+                'Symbols must be between type names.'
+            );
+        }
+
+        // Tidak boleh ada duplikat simbol
+        if (preg_match('/(\|\|)/', $types) > 0) {
+            throw new \ErrorException(
+                'Duplicate symbols are not allowed.'
+            );
+        }
+
+        $types = explode('|', $types);
+
+        foreach (array_count_values(array_map('strtolower', $types)) as $val => $c) {
+            $dups = [];
+
+            if ($c > 1) {
+                $dups[] = $val;
+
+                throw new \ErrorException(sprintf(
+                    'Duplicate type %s is redundant.',
+                    $dups[0]
+                ));
+            }
+        }
+
+        if (self::typeHasRedundantMembers($types)) {
+            throw new \ErrorException(
+                'Union type declarations contain redundant types.'
+            );
+        }
+    }
+
+    /**
+     * @param string[] $values
+     *
+     * @throws \ErrorException
+     * @throws Exception\UnknownClassOrInterfaceException
+     *
+     * @psalm-assert class-string[] $values
+     */
+    private static function assertIntersectionTypeMember(array $values): void
+    {
+        foreach ($values as $value) {
+            if (preg_match('/\\\/', $value) === 1
+                && ! interface_exists($value) && ! class_exists($value)) {
+                // https://github.com/flashios09/php-union-types/blob/master/src/Exception/ClassNotFoundException.php
+                throw new Exception\UnknownClassOrInterfaceException;
+            }
+
+            if (! interface_exists($value) && ! class_exists($value)) {
+                throw new \ErrorException(
+                    'Only class and interface can be part of an intersection type.'
+                );
+            }
+        }
+
+        $actTypesCount = \count($values);
+        $expTypesCount = \count(
+            array_intersect_key($values, array_unique(array_map('strtolower', $values)))
+        );
+
+        if ($expTypesCount < $actTypesCount) {
+            throw new \ErrorException(
+                'Duplicate type names in the same declaration is not allowed.'
+            );
+        }
+    }
+
+    private static function typeHasRedundantMembers(array $types): bool
+    {
+        if (\in_array('scalar', $types) &&
+            (\in_array('numeric', $types)
+                || \in_array('int', $types)
+                || \in_array('positive-int', $types)
+                || \in_array('negative-int', $types)
+                || \in_array('float', $types)
+                || \in_array('string', $types)
+                || \in_array('bool', $types))
+            || \in_array('bool', $types) &&
+                (\in_array('true', $types) || \in_array('false', $types))
+            || \in_array('numeric', $types) &&
+                (\in_array('int', $types)
+                || \in_array('positive-int', $types)
+                || \in_array('negative-int', $types)
+                || \in_array('float', $types))
+            || \in_array('int', $types) &&
+                (\in_array('positive-int', $types) || \in_array('negative-int', $types))
+            || \in_array('array', $types) &&
+                (\in_array('bool[]', $types)
+                || \in_array('string[]', $types)
+                || \in_array('int[]', $types)
+                || \in_array('float[]', $types)
+                || \in_array('object[]', $types)
+                || \in_array('list[]', $types)
+                || \in_array('non-empty-array', $types)
+                || \in_array('non-empty-list', $types))
+            || \in_array('non-empty-array', $types) &&
+                (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
+            || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
+            || \in_array('string', $types) &&
+                (\in_array('non-empty-string', $types)
+                || \in_array('truthy-string', $types)
+                || \in_array('lowercase-string', $types))
+            || \in_array('non-empty-string', $types) &&
+                (\in_array('truthy-string', $types)
+                || \in_array('lowercase-string', $types))
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param  string|string[] $types
+     * @return string[]
      */
     private static function normalizeType($types): array
     {
         if (\is_string($types)) {
-            $types = explode('|', $types);
+            $types = explode(self::UNION_SEPARATOR, $types);
         }
 
         return array_map(
-            function ($type) {
+            function (string $type) {
                 switch ($type) {
                     case 'double':
                         return 'float';
