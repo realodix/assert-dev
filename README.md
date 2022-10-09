@@ -43,8 +43,8 @@ Types      | Description
 ---------- | ------------------------------------------------------------------
 `scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
-`non-empty-string` | Check that a value is any string except `''`. It does not mean “empty” in the weird sense used by [`empty()`][phpEmpty].
-`truthy-string` | (Also known as `non-falsy-string`) Is any string that is true after casting to boolean (`(bool) $value`). Is effectively a subtype of `non-empty-string`, and also precludes the string value `'0'`.
+`non-empty-string` | Check that a value is any string except `''`. It does not mean “empty” in the weird sense used by [`empty()`][phpEmpty]
+`truthy-string` | (Also known as `non-falsy-string`) Is any string that is true after casting to boolean (`(bool) $value`). Is effectively a subtype of `non-empty-string`, and also precludes the string value `'0'`
 `lowercase-string` | Check for lowercase character(s), see [`ctype_lower()`][phpCtypeLower]
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
@@ -60,8 +60,8 @@ Types      | Description
 `callable` | Check that a value is a callable
 `callable-string` | `is_string($value) && is_callable($value)`
 `null`     | Check that a value is `null`
-`empty`    | Check that a value is `empty()`
-`not-empty`| Check that a value is not `empty()`
+`empty`    | Check that a value is [`empty()`][phpEmpty]
+`not-empty`| Check that a value is not [`empty()`][phpEmpty]
 
 Types       | Description
 ----------- | ------------------------------------------------------------------
@@ -70,7 +70,7 @@ Types       | Description
 `countable` | Check that the contents of a variable is a countable value
 `iterable`  | Check that the contents of a variable is an iterable value
 `list[]`    | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check
-`non-empty-list` | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not empty
+`non-empty-list` | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not [`empty()`][phpEmpty]
 `bool[]`    | `array<bool>`
 `string[]`  | `array<string>`
 `int[]`     | `array<int>`
