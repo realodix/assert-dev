@@ -66,7 +66,7 @@ Types      | Description
 Types       | Description
 ----------- | ------------------------------------------------------------------
 `array`     | Check that a value is an array
-`non-empty-array` | Check that a value is an array, and not empty
+`non-empty-array` | Check that a value is an array, and not [`empty()`][phpEmpty]
 `countable` | Check that the contents of a variable is a countable value
 `iterable`  | Check that the contents of a variable is an iterable value
 `list[]`    | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check
