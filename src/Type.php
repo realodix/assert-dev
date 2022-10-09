@@ -24,7 +24,9 @@ class Type
     {
         Helper::assertStringOrArray($types, '$types', 2);
 
-        $types = self::normalizeType($types);
+        $types = \is_string($types) ?
+            self::normalizeType(explode(self::UNION_SEPARATOR, $types))
+            : self::normalizeType($types);
         $typesInArray = implode(self::UNION_SEPARATOR, $types);
         self::assertTypeDeclaration($typesInArray);
 
@@ -43,7 +45,9 @@ class Type
     {
         self::is($types, 'string|array');
 
-        $types = self::normalizeType($types);
+        $types = \is_string($types) ?
+            self::normalizeType(explode(self::UNION_SEPARATOR, $types))
+            : self::normalizeType($types);
         $typesInString = implode(self::UNION_SEPARATOR, $types);
         self::assertTypeDeclaration($typesInString);
 
@@ -273,15 +277,11 @@ class Type
     }
 
     /**
-     * @param  string|string[] $types
+     * @param  string[] $types
      * @return string[]
      */
-    private static function normalizeType($types): array
+    private static function normalizeType(array $types): array
     {
-        if (\is_string($types)) {
-            $types = explode(self::UNION_SEPARATOR, $types);
-        }
-
         return array_map(
             function (string $type) {
                 switch ($type) {
