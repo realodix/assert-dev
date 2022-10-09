@@ -2,6 +2,9 @@
 
 namespace Realodix\Assert;
 
+use Nette\Utils\Arrays;
+use Nette\Utils\Strings;
+
 /**
  * Validation utilities.
  */
