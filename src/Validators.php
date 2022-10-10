@@ -277,7 +277,7 @@ class Validators
      *
      * @param mixed[] $values
      */
-    public static function everyIs(iterable $values, string $expected): bool
+    public static function everyIs($values, string $expected): bool
     {
         foreach ($values as $value) {
             if (! static::is($value, $expected)) {
