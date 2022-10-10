@@ -53,7 +53,7 @@ class Validators
                 }
             }
 
-            [$type] = $item = explode(':', $item, 2);
+            [$type] = $item = explode(' ', $item, 2);
             if (isset(static::$validators[$type])) {
                 try {
                     if (! static::$validators[$type]($value)) {
@@ -66,21 +66,21 @@ class Validators
                 continue;
             }
 
-            if (isset($item[1])) {
-                $length = $value;
-                if (isset(static::$counters[$type])) {
-                    $length = static::$counters[$type]($value);
-                }
+            // if (isset($item[1])) {
+            //     $length = $value;
+            //     if (isset(static::$counters[$type])) {
+            //         $length = static::$counters[$type]($value);
+            //     }
 
-                $range = explode('..', $item[1]);
-                if (! isset($range[1])) {
-                    $range[1] = $range[0];
-                }
+            //     $range = explode('..', $item[1]);
+            //     if (! isset($range[1])) {
+            //         $range[1] = $range[0];
+            //     }
 
-                if (($range[0] !== '' && $length < $range[0]) || ($range[1] !== '' && $length > $range[1])) {
-                    continue;
-                }
-            }
+            //     if (($range[0] !== '' && $length < $range[0]) || ($range[1] !== '' && $length > $range[1])) {
+            //         continue;
+            //     }
+            // }
 
             return true;
         }
