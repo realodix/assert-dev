@@ -61,7 +61,7 @@ class CompetitorTest extends TestCase
     {
         (! $pass) && $this->invalidElementType($value, $types);
 
-        Type::arrayValueIs($value, $types);
+        Type::everyIs($value, $types);
         $this->addToAssertionCount(1);
     }
 }
