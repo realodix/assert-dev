@@ -8,19 +8,19 @@ class Type
 
     private static $validators = [
         // PHP types
-        'array'            => 'is_array',
-        'bool'             => 'is_bool',
-        'float'            => 'is_float',
-        'int'              => 'is_int',
-        'numeric'          => 'is_numeric',
-        'null'             => 'is_null',
-        'object'           => 'is_object',
-        'resource'         => 'is_resource',
         'scalar'           => 'is_scalar',
         'string'           => 'is_string',
+        'bool'             => 'is_bool',
+        'numeric'          => 'is_numeric',
+        'float'            => 'is_float',
+        'int'              => 'is_int',
+        'array'            => 'is_array',
         'countable'        => 'is_countable',
         'iterable'         => 'is_iterable',
+        'object'           => 'is_object',
         'callable'         => 'is_callable',
+        'resource'         => 'is_resource',
+        'null'             => 'is_null',
         'empty'            => [Validators::class, 'isEmpty'],
         'not-empty'        => [Validators::class, 'isNotEmpty'],
         'non-empty-array'  => [Validators::class, 'isNonEmptyArray'],
@@ -33,8 +33,8 @@ class Type
         'positive-int'     => [Validators::class, 'isPositiveInt'],
         'negative-int'     => [Validators::class, 'isNegativeInt'],
         'numeric-string'   => [Validators::class, 'isNumericString'],
-        'callable-string'  => [Validators::class, 'isCallableString'],
         'lowercase-string' => [Validators::class, 'isLowercaseString'],
+        'callable-string'  => [Validators::class, 'isCallableString'],
     ];
 
     /**
@@ -80,7 +80,7 @@ class Type
                     continue;
                 }
             } elseif (! $value instanceof $type) {
-                continue;
+                throw new Exception\TypeErrorException($typesInArray, $value, $message);
             }
         }
     }
