@@ -172,6 +172,6 @@ class TypeTest extends TestCase
      */
     public function lala()
     {
-        $this->assertTrue(Validators::is('inth', 'string'));
+        $this->assertTrue(Validators::is('inth', 'int|string'));
     }
 }
