@@ -32,9 +32,9 @@ class Type
         'false'            => [Validators::class, 'isFalse'],
         'positive-int'     => [Validators::class, 'isPositiveInt'],
         'negative-int'     => [Validators::class, 'isNegativeInt'],
-        'numeric-string'     => [Validators::class, 'isNumericString'],
-        'callable-string'     => [Validators::class, 'isCallableString'],
-        'lowercase-string'     => [Validators::class, 'isLowercaseString'],
+        'numeric-string'   => [Validators::class, 'isNumericString'],
+        'callable-string'  => [Validators::class, 'isCallableString'],
+        'lowercase-string' => [Validators::class, 'isLowercaseString'],
     ];
 
     /**
