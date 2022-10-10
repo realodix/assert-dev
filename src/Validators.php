@@ -2,17 +2,8 @@
 
 namespace Realodix\Assert;
 
-use Nette\Utils\Arrays;
-use Nette\Utils\Strings;
-use Nette\StaticClass;
-
-/**
- * Validation utilities.
- */
 class Validators
 {
-    use StaticClass;
-
     /** @var array<string, ?callable> */
     protected static $validators = [
         // PHP types
@@ -27,61 +18,26 @@ class Validators
         'resource' => 'is_resource',
         'scalar'   => 'is_scalar',
         'string'   => 'is_string',
-
-        // pseudo-types
-        'callable'   => [self::class, 'isCallable'],
-        'iterable'   => 'is_iterable',
-        'list'       => [Arrays::class, 'isList'],
-        'mixed'      => [self::class, 'isMixed'],
-        'none'       => [self::class, 'isNone'],
-        'number'     => [self::class, 'isNumber'],
-        'numeric'    => [self::class, 'isNumeric'],
-        'numericint' => [self::class, 'isNumericInt'],
-
-        // string patterns
-        'alnum'   => 'ctype_alnum',
-        'alpha'   => 'ctype_alpha',
-        'digit'   => 'ctype_digit',
-        'lower'   => 'ctype_lower',
-        'pattern' => null,
-        'space'   => 'ctype_space',
-        'unicode' => [self::class, 'isUnicode'],
-        'upper'   => 'ctype_upper',
-        'xdigit'  => 'ctype_xdigit',
-
-        // syntax validation
-        'email'      => [self::class, 'isEmail'],
-        'identifier' => [self::class, 'isPhpIdentifier'],
-        'uri'        => [self::class, 'isUri'],
-        'url'        => [self::class, 'isUrl'],
-
-        // environment validation
-        'class'     => 'class_exists',
-        'interface' => 'interface_exists',
-        'directory' => 'is_dir',
-        'file'      => 'is_file',
-        'type'      => [self::class, 'isType'],
     ];
 
     /** @var array<string, callable> */
     protected static $counters = [
-        'string'  => 'strlen',
-        'unicode' => [Strings::class, 'length'],
-        'array'   => 'count',
-        'list'    => 'count',
-        'alnum'   => 'strlen',
-        'alpha'   => 'strlen',
-        'digit'   => 'strlen',
-        'lower'   => 'strlen',
-        'space'   => 'strlen',
-        'upper'   => 'strlen',
-        'xdigit'  => 'strlen',
+        'string' => 'strlen',
+        'array'  => 'count',
+        'list'   => 'count',
+        'alnum'  => 'strlen',
+        'alpha'  => 'strlen',
+        'digit'  => 'strlen',
+        'lower'  => 'strlen',
+        'space'  => 'strlen',
+        'upper'  => 'strlen',
+        'xdigit' => 'strlen',
     ];
 
     /**
      * Verifies that the value is of expected types separated by pipe.
      */
-    public static function is(mixed $value, string $expected): bool
+    public static function is($value, string $expected): bool
     {
         foreach (explode('|', $expected) as $item) {
             if (str_ends_with($item, '[]')) {
@@ -106,7 +62,6 @@ class Validators
                 } catch (\TypeError $e) {
                     continue;
                 }
-
             } elseif (! $value instanceof $type) {
                 continue;
             }
@@ -132,4 +87,19 @@ class Validators
 
         return false;
     }
+
+    /**
+	 * Finds whether all values are of expected types separated by pipe.
+	 * @param  mixed[]  $values
+	 */
+	public static function everyIs(iterable $values, string $expected): bool
+	{
+		foreach ($values as $value) {
+			if (!static::is($value, $expected)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 }

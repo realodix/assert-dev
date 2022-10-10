@@ -4,6 +4,7 @@ namespace Realodix\Assert\Tests;
 
 use Realodix\Assert\Assert;
 use Realodix\Assert\Type;
+use Realodix\Assert\Validators;
 
 class TypeTest extends TestCase
 {
@@ -164,5 +165,13 @@ class TypeTest extends TestCase
 
         Assert::type($value, $types);
         $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @test
+     */
+    public function lala()
+    {
+        $this->assertTrue(Validators::is(['inth' => 'h'], 'string[]'));
     }
 }
