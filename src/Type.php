@@ -41,7 +41,7 @@ class Type
      *
      * @psalm-assert string|string[] $types
      */
-    public static function arrayValueIs(array $values, $types, string $message = ''): void
+    public static function everyIs(array $values, $types, string $message = ''): void
     {
         self::is($types, 'string|array');
 
