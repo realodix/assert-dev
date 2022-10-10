@@ -4,13 +4,14 @@ namespace Realodix\Assert;
 
 use Nette\Utils\Arrays;
 use Nette\Utils\Strings;
+use Nette\StaticClass;
 
 /**
  * Validation utilities.
  */
 class Validators
 {
-    use Nette\StaticClass;
+    use StaticClass;
 
     /** @var array<string, ?callable> */
     protected static $validators = [
