@@ -18,7 +18,7 @@ class Assert
      */
     public static function keyExists(array $array, $key, string $message = ''): void
     {
-        self::type($key, 'int|string');
+        self::type($key, 'int[]|string[]');
 
         if (! (isset($array[$key]) || \array_key_exists($key, $array))) {
             self::createException(sprintf(
