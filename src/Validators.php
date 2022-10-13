@@ -279,6 +279,10 @@ class Validators
      */
     public static function everyIs($values, string $expected): bool
     {
+        if (! \is_array($values)) {
+            return false;
+        }
+
         foreach ($values as $value) {
             if (! static::is($value, $expected)) {
                 return false;
