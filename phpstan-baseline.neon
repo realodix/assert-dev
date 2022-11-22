@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Asserted type array\\<string\\> for \\$min with type int can never happen\\.$#"
+			count: 1
+			path: src/Assert.php
+
+		-
+			message: "#^Asserted type array\\<string\\>\\|string for \\$types with type array\\<string\\>\\|string does not narrow down the type\\.$#"
+			count: 2
+			path: src/Type.php
+
+		-
+			message: "#^Call to static method Realodix\\\\Assert\\\\Type\\:\\:is\\(\\) with array\\<string\\>\\|string and 'string\\|array' will always evaluate to true\\.$#"
+			count: 1
+			path: src/Type.php

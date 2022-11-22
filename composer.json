@@ -12,6 +12,7 @@
         "symfony/polyfill-php81": "^1.26"
     },
     "require-dev": {
+        "phpstan/phpstan": "^1.9",
         "phpunit/phpunit": "^9.5",
         "realodix/relax": "dev-main"
     },
