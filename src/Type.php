@@ -6,6 +6,37 @@ class Type
 {
     private const UNION_SEPARATOR = '|';
 
+    private static $validators = [
+        // PHP types
+        'scalar'           => 'is_scalar',
+        'string'           => 'is_string',
+        'bool'             => 'is_bool',
+        'numeric'          => 'is_numeric',
+        'float'            => 'is_float',
+        'int'              => 'is_int',
+        'array'            => 'is_array',
+        'countable'        => 'is_countable',
+        'iterable'         => 'is_iterable',
+        'object'           => 'is_object',
+        'callable'         => 'is_callable',
+        'resource'         => 'is_resource',
+        'null'             => 'is_null',
+        'empty'            => [Validators::class, 'isEmpty'],
+        'not-empty'        => [Validators::class, 'isNotEmpty'],
+        'non-empty-array'  => [Validators::class, 'isNonEmptyArray'],
+        'list'             => [Validators::class, 'isList'],
+        'non-empty-list'   => [Validators::class, 'isNonEmptyList'],
+        'non-empty-string' => [Validators::class, 'isNonEmptyString'],
+        'truthy-string'    => [Validators::class, 'isTruthyString'],
+        'true'             => [Validators::class, 'isTrue'],
+        'false'            => [Validators::class, 'isFalse'],
+        'positive-int'     => [Validators::class, 'isPositiveInt'],
+        'negative-int'     => [Validators::class, 'isNegativeInt'],
+        'numeric-string'   => [Validators::class, 'isNumericString'],
+        'lowercase-string' => [Validators::class, 'isLowercaseString'],
+        'callable-string'  => [Validators::class, 'isCallableString'],
+    ];
+
     /**
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
@@ -30,8 +61,27 @@ class Type
         $typesInArray = implode(self::UNION_SEPARATOR, $types);
         self::assertTypeDeclaration($typesInArray);
 
-        if (! self::hasType($value, $types)) {
-            throw new Exception\TypeErrorException($typesInArray, $value, $message);
+        foreach ($types as $item) {
+            if (str_ends_with($item, '[]')) {
+                if (! Validators::everyIs($value, substr($item, 0, -2))) {
+                    throw new Exception\TypeErrorException($typesInArray, $value, $message);
+                }
+
+                continue;
+            }
+
+            [$type] = $item = explode(' ', $item, 2);
+            if (isset(static::$validators[$type])) {
+                try {
+                    if (! static::$validators[$type]($value)) {
+                        throw new Exception\TypeErrorException($typesInArray, $value, $message);
+                    }
+                } catch (\TypeError $e) {
+                    continue;
+                }
+            } elseif (! $value instanceof $type) {
+                throw new Exception\TypeErrorException($typesInArray, $value, $message);
+            }
         }
     }
 
