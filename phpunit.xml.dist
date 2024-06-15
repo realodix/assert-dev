@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
-         colors="true"
-         verbose="true"
+<phpunit
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+  cacheResultFile=".tmp/PHPUnit/.phpunit.result.cache"
+  colors="true"
+  verbose="true"
 >
-  <coverage processUncoveredFiles="true">
+  <coverage
+    cacheDirectory=".tmp/PHPUnit"
+    processUncoveredFiles="true"
+  >
     <include>
       <directory suffix=".php">src</directory>
     </include>
   </coverage>
+
   <testsuites>
     <testsuite name="default">
       <directory>tests</directory>
