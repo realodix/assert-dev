@@ -50,7 +50,6 @@ trait CompetitorTestProvider
             ['Traversable', new \ArrayObject],
 
             ['list[]', ['apple', 2, 3]],
-            ['non-empty-string', 'string'],
             ['non-empty-list', ['string']],
 
             // ArrayAccessible

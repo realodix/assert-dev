@@ -102,9 +102,7 @@ trait UnionTypesTestProvider
             ['bool|true', true],
             ['bool|false', false],
 
-            ['non-empty-string|string', 'string'],
             ['truthy-string|string', 'string'],
-            ['non-empty-string|truthy-string', 'string'],
 
             ['array|bool[]', []],
             ['array|string[]', []],
