@@ -88,20 +88,6 @@ class Constraint
     }
 
     /**
-     * Check that a value is a string, and not empty
-     *
-     * @param mixed $value
-     */
-    public static function nonEmptyString($value): bool
-    {
-        if (! \is_string($value) || \strlen($value) === 0) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
      * Is any string that is true after casting to boolean.
      * Effectively a subtype of non-empty-string
      *

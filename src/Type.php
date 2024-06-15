@@ -136,7 +136,6 @@ class Type
             || ($allowedTypes === 'numeric-string') && is_numeric($value) && \is_string($value)
             || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
             // non-empty-...
-            || ($allowedTypes === 'non-empty-string') && Constraint::nonEmptyString($value)
             || ($allowedTypes === 'non-empty-array') && Constraint::nonEmptyArray($value)
             || ($allowedTypes === 'non-empty-list') && Constraint::nonEmptyList($value)
             // Others
@@ -262,10 +261,7 @@ class Type
                 && (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
             || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
             || \in_array('string', $types)
-                && (\in_array('non-empty-string', $types)
-                || \in_array('truthy-string', $types))
-            || \in_array('non-empty-string', $types)
-                && (\in_array('truthy-string', $types))
+                && \in_array('truthy-string', $types)
         ) {
             return true;
         }
