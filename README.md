@@ -1,6 +1,8 @@
 - https://www.php.net/manual/en/language.types.intro.php
 - https://github.com/beberlei/assert
 - https://github.com/webmozarts/assert
+- https://phpstan.org/writing-php-code/phpdoc-types
+- https://phpstan.org/blog/phpstan-1-9-0-with-phpdoc-asserts-list-type
 
 This package provides an alternative to PHP's `assert()` that allows for an simple and reliable way
 to check preconditions and postconditions in PHP code.
