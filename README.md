@@ -49,7 +49,6 @@ Types      | Description
 ---------- | ------------------------------------------------------------------
 `scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
-`truthy-string` | (Also known as `non-falsy-string`) Is any string that is true after casting to boolean (`(bool) $value`). Is effectively a subtype of `non-empty-string`, and also precludes the string value `'0'`
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
 `false`    | Check that a value is `false`
@@ -87,7 +86,6 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`string`   | `truthy-string`
 `numeric`  | `int`, `positive-int`, `negative-int`, and `float`
 `int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`

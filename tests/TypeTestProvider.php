@@ -195,12 +195,6 @@ trait TypeTestProvider
             ['string', ''],
             ['string', ' '],
             ['string', '0'],
-
-            ['truthy-string', 'string'],
-            ['truthy-string', '0', false],
-            ['truthy-string', '', false],
-            ['truthy-string', ['string'], false],
-            ['non-falsy-string', '0', false],
         ];
     }
 
