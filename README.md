@@ -49,7 +49,6 @@ Types      | Description
 ---------- | ------------------------------------------------------------------
 `scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
-`truthy-string` | (Also known as `non-falsy-string`) Is any string that is true after casting to boolean (`(bool) $value`). Is effectively a subtype of `non-empty-string`, and also precludes the string value `'0'`
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
 `false`    | Check that a value is `false`
