@@ -17,15 +17,15 @@ class Helper
      */
     public static function valueToString($value): string
     {
-        if (null === $value) {
+        if ($value === null) {
             return 'null';
         }
 
-        if (true === $value) {
+        if ($value === true) {
             return 'true';
         }
 
-        if (false === $value) {
+        if ($value === false) {
             return 'false';
         }
 

@@ -2,6 +2,4 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-interface InterfaceB
-{
-}
+interface InterfaceB {}

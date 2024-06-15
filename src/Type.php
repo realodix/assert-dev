@@ -110,39 +110,39 @@ class Type
 
         return ($type === $allowedTypes)
             || \is_object($value) && $value instanceof $allowedTypes
-            || ('callable' === $allowedTypes) && \is_callable($value)
-            || ('scalar' === $allowedTypes) && \is_scalar($value)
+            || ($allowedTypes === 'callable') && \is_callable($value)
+            || ($allowedTypes === 'scalar') && \is_scalar($value)
             // Array
-            || ('countable' === $allowedTypes) && is_countable($value)
-            || ('iterable' === $allowedTypes) && is_iterable($value)
-            || ('list[]' === $allowedTypes) && Constraint::arrayIsList($value)
-            || ('bool[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_bool')
-            || ('string[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_string')
-            || ('int[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_int')
-            || ('float[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_float')
-            || ('object[]' === $allowedTypes) && Constraint::arrayIs($value, 'is_object')
+            || ($allowedTypes === 'countable') && is_countable($value)
+            || ($allowedTypes === 'iterable') && is_iterable($value)
+            || ($allowedTypes === 'list[]') && Constraint::arrayIsList($value)
+            || ($allowedTypes === 'bool[]') && Constraint::arrayIs($value, 'is_bool')
+            || ($allowedTypes === 'string[]') && Constraint::arrayIs($value, 'is_string')
+            || ($allowedTypes === 'int[]') && Constraint::arrayIs($value, 'is_int')
+            || ($allowedTypes === 'float[]') && Constraint::arrayIs($value, 'is_float')
+            || ($allowedTypes === 'object[]') && Constraint::arrayIs($value, 'is_object')
             // Boolean
-            || ('bool' === $allowedTypes) && \is_bool($value)
-            || ('true' === $allowedTypes) && $value === true
-            || ('false' === $allowedTypes) && $value === false
+            || ($allowedTypes === 'bool') && \is_bool($value)
+            || ($allowedTypes === 'true') && $value === true
+            || ($allowedTypes === 'false') && $value === false
             // Number
-            || ('numeric' === $allowedTypes) && is_numeric($value)
-            || ('int' === $allowedTypes) && \is_int($value)
-            || ('positive-int' === $allowedTypes) && \is_int($value) && $value >= 1
-            || ('negative-int' === $allowedTypes) && \is_int($value) && $value <= -1
-            || ('float' === $allowedTypes) && \is_float($value)
+            || ($allowedTypes === 'numeric') && is_numeric($value)
+            || ($allowedTypes === 'int') && \is_int($value)
+            || ($allowedTypes === 'positive-int') && \is_int($value) && $value >= 1
+            || ($allowedTypes === 'negative-int') && \is_int($value) && $value <= -1
+            || ($allowedTypes === 'float') && \is_float($value)
             // ...-string
-            || ('truthy-string' === $allowedTypes) && Constraint::truthyString($value)
-            || ('lowercase-string' === $allowedTypes) && \is_string($value) && ctype_lower($value)
-            || ('numeric-string' === $allowedTypes) && is_numeric($value) && \is_string($value)
-            || ('callable-string' === $allowedTypes) && \is_callable($value) && \is_string($value)
+            || ($allowedTypes === 'truthy-string') && Constraint::truthyString($value)
+            || ($allowedTypes === 'lowercase-string') && \is_string($value) && ctype_lower($value)
+            || ($allowedTypes === 'numeric-string') && is_numeric($value) && \is_string($value)
+            || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
             // non-empty-...
-            || ('non-empty-string' === $allowedTypes) && Constraint::nonEmptyString($value)
-            || ('non-empty-array' === $allowedTypes) && Constraint::nonEmptyArray($value)
-            || ('non-empty-list' === $allowedTypes) && Constraint::nonEmptyList($value)
+            || ($allowedTypes === 'non-empty-string') && Constraint::nonEmptyString($value)
+            || ($allowedTypes === 'non-empty-array') && Constraint::nonEmptyArray($value)
+            || ($allowedTypes === 'non-empty-list') && Constraint::nonEmptyList($value)
             // Others
-            || ('empty' === $allowedTypes) && empty($value)
-            || ('not-empty' === $allowedTypes) && ! empty($value);
+            || ($allowedTypes === 'empty') && empty($value)
+            || ($allowedTypes === 'not-empty') && ! empty($value);
     }
 
     /**
@@ -233,25 +233,25 @@ class Type
 
     private static function typeHasRedundantMembers(array $types): bool
     {
-        if (\in_array('scalar', $types) &&
-            (\in_array('numeric', $types)
+        if (\in_array('scalar', $types)
+            && (\in_array('numeric', $types)
                 || \in_array('int', $types)
                 || \in_array('positive-int', $types)
                 || \in_array('negative-int', $types)
                 || \in_array('float', $types)
                 || \in_array('string', $types)
                 || \in_array('bool', $types))
-            || \in_array('bool', $types) &&
-                (\in_array('true', $types) || \in_array('false', $types))
-            || \in_array('numeric', $types) &&
-                (\in_array('int', $types)
+            || \in_array('bool', $types)
+                && (\in_array('true', $types) || \in_array('false', $types))
+            || \in_array('numeric', $types)
+                && (\in_array('int', $types)
                 || \in_array('positive-int', $types)
                 || \in_array('negative-int', $types)
                 || \in_array('float', $types))
-            || \in_array('int', $types) &&
-                (\in_array('positive-int', $types) || \in_array('negative-int', $types))
-            || \in_array('array', $types) &&
-                (\in_array('bool[]', $types)
+            || \in_array('int', $types)
+                && (\in_array('positive-int', $types) || \in_array('negative-int', $types))
+            || \in_array('array', $types)
+                && (\in_array('bool[]', $types)
                 || \in_array('string[]', $types)
                 || \in_array('int[]', $types)
                 || \in_array('float[]', $types)
@@ -259,15 +259,15 @@ class Type
                 || \in_array('list[]', $types)
                 || \in_array('non-empty-array', $types)
                 || \in_array('non-empty-list', $types))
-            || \in_array('non-empty-array', $types) &&
-                (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
+            || \in_array('non-empty-array', $types)
+                && (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
             || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
-            || \in_array('string', $types) &&
-                (\in_array('non-empty-string', $types)
+            || \in_array('string', $types)
+                && (\in_array('non-empty-string', $types)
                 || \in_array('truthy-string', $types)
                 || \in_array('lowercase-string', $types))
-            || \in_array('non-empty-string', $types) &&
-                (\in_array('truthy-string', $types)
+            || \in_array('non-empty-string', $types)
+                && (\in_array('truthy-string', $types)
                 || \in_array('lowercase-string', $types))
         ) {
             return true;
@@ -277,7 +277,7 @@ class Type
     }
 
     /**
-     * @param  string[] $types
+     * @param string[] $types
      * @return string[]
      */
     private static function normalizeType(array $types): array

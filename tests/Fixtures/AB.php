@@ -2,6 +2,4 @@
 
 namespace Realodix\Assert\Tests\Fixtures;
 
-class AB implements InterfaceAB
-{
-}
+class AB implements InterfaceAB {}

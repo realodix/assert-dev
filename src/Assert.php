@@ -104,7 +104,6 @@ class Assert
 
     /**
      * @param \Countable|array $array
-     *
      */
     public static function minCount($array, int $min, string $message = ''): void
     {
