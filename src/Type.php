@@ -132,7 +132,6 @@ class Type
             || ($allowedTypes === 'negative-int') && \is_int($value) && $value <= -1
             || ($allowedTypes === 'float') && \is_float($value)
             // ...-string
-            || ($allowedTypes === 'truthy-string') && Constraint::truthyString($value)
             || ($allowedTypes === 'numeric-string') && is_numeric($value) && \is_string($value)
             || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
             // non-empty-...
@@ -260,8 +259,6 @@ class Type
             || \in_array('non-empty-array', $types)
                 && (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
             || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
-            || \in_array('string', $types)
-                && \in_array('truthy-string', $types)
         ) {
             return true;
         }
@@ -286,8 +283,6 @@ class Type
                         return 'bool';
                     case 'NULL':
                         return 'null';
-                    case 'non-falsy-string':
-                        return 'truthy-string';
                     default:
                         return $type;
                 }
