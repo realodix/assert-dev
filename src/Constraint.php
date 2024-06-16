@@ -5,31 +5,6 @@ namespace Realodix\Assert;
 class Constraint
 {
     /**
-     * @param mixed $value
-     *
-     * @psalm-assert-if-false !list[] $value
-     */
-    public static function arrayIs($value, callable $callback): bool
-    {
-        $result = true;
-
-        if (! self::arrayIsList($value) || empty($value)) {
-            return false;
-        }
-
-        // if (! array_product(array_map($callback, $value))) {
-        //     $result = false;
-        // }
-        foreach ($value as $val) {
-            if (! $callback($val)) {
-                $result = false;
-            }
-        }
-
-        return $result;
-    }
-
-    /**
      * Checks whether a given array is a list
      * https://www.php.net/manual/en/function.array-is-list.php
      *

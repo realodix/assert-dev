@@ -69,11 +69,6 @@ Types       | Description
 `iterable`  | Check that the contents of a variable is an iterable value
 `list[]`    | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check
 `non-empty-list` | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not [`empty()`][phpEmpty]
-`bool[]`    | `array<bool>`
-`string[]`  | `array<string>`
-`int[]`     | `array<int>`
-`float[]`   | `array<float>`
-`object[]`  | `array<object>`
 
 #### Redundant types
 You cannot declare a super type and (one/all) of its subtypes in the same union type declaration.
@@ -81,7 +76,7 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `bool`     | `true`, and  `false`
-`array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-array` , and `non-empty-list`
+`array`    | `list[]`, `non-empty-array` , and `non-empty-list`
 `non-empty-array` | `list[]` and `non-empty-list`
 `list[]`   | `non-empty-list`
 

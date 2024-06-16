@@ -160,41 +160,6 @@ trait TypeTestProvider
         ];
     }
 
-    public function arrayIsProvider()
-    {
-        return [
-            ['string[]', ['foo']],
-            ['string[]', ['foo', 'bar']],
-            ['string[]', [0 => 'foo']],
-            ['string[]', 'foo', false],
-            ['string[]', [1 => 'foo'], false],
-            ['string[]', ['foo', 1], false],
-            ['string[]', [1], false],
-            ['string[]', ['key' => 'value'], false],
-
-            ['int[]', [0]],
-            ['int[]', [1, -2]],
-            ['int[]', 0, false],
-            ['int[]', [1 => 0], false],
-            ['int[]', ['foo', 0], false],
-            ['int[]', ['foo'], false],
-            ['int[]', ['key' => 0], false],
-
-            ['float[]', [1.0]],
-            ['float[]', 1.0, false],
-
-            ['bool[]', [true]],
-            ['bool[]', [false]],
-            // Invalid boolean
-            ['bool[]', [1], false],
-            ['bool[]', ['1'], false],
-
-            ['object[]', [new \stdClass]],
-            ['object[]', [new \RuntimeException]],
-            ['object[]', new \stdClass, false],
-        ];
-    }
-
     public function emptyProvider()
     {
         return [
@@ -272,13 +237,6 @@ trait TypeTestProvider
     public function arrayIsWithInvalidInputProvider()
     {
         return [
-            ['string[]', []],
-
-            ['string[]', ''],
-            ['int[]', 1],
-            ['float[]', 0.1],
-            ['bool[]', true],
-            ['object[]', new \stdClass],
             ['list[]', 'string'],
         ];
     }
