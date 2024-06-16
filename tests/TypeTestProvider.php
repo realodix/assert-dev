@@ -141,23 +141,6 @@ trait TypeTestProvider
         ];
     }
 
-    public function isScalarProvider()
-    {
-        return [
-            // https://www.php.net/manual/en/language.types.intro.php
-            ['scalar', true], // bool
-            ['scalar', 123],
-            ['scalar', 123.4],
-            ['scalar', 'string'],
-            // Invalid scalar, its compound types
-            ['scalar', [], false], // array
-            ['scalar', [123], false], // iterable
-            ['scalar', new \stdClass, false], // object|callable
-            // Invalid scalar, its two special types
-            ['scalar', null, false],
-        ];
-    }
-
     public function isStringProvider()
     {
         return [
