@@ -108,19 +108,31 @@ class Type
         // Apply strtolower because gettype() returns "NULL" for null values.
         $type = strtolower(\gettype($value));
 
-        return ($type === $allowedTypes)
-            || \is_object($value) && $value instanceof $allowedTypes
-            || ($allowedTypes === 'callable') && \is_callable($value)
-            // Array
-            || ($allowedTypes === 'countable') && is_countable($value)
-            || ($allowedTypes === 'iterable') && is_iterable($value)
-            // Boolean
-            || ($allowedTypes === 'bool') && \is_bool($value)
-            || ($allowedTypes === 'true') && $value === true
-            || ($allowedTypes === 'false') && $value === false
-            // Number
-            || ($allowedTypes === 'int') && \is_int($value)
-            || ($allowedTypes === 'float') && \is_float($value);
+        $typeMap = [
+            'object'    => 'is_object',
+            'callable'  => 'is_callable',
+            'countable' => 'is_countable',
+            'iterable'  => 'is_iterable',
+            'bool'      => 'is_bool',
+            'true'      => fn ($value) => $value === true,
+            'false'     => fn ($value) => $value === false,
+            'int'       => 'is_int',
+            'float'     => 'is_float',
+        ];
+
+        if (isset($typeMap[$allowedTypes])) {
+            if (\is_string($typeMap[$allowedTypes])) {
+                return $typeMap[$allowedTypes]($value);
+            }
+
+            return $typeMap[$allowedTypes]($value, $allowedTypes);
+        }
+
+        if (\is_object($value)) {
+            return $value instanceof $allowedTypes;
+        }
+
+        return $type === $allowedTypes;
     }
 
     /**
@@ -142,9 +154,7 @@ class Type
 
         // Tidak boleh ada duplikat simbol
         if (preg_match('/(\|\|)/', $types) > 0) {
-            throw new \ErrorException(
-                'Duplicate symbols are not allowed.'
-            );
+            throw new \ErrorException('Duplicate symbols are not allowed.');
         }
 
         $types = explode('|', $types);
@@ -155,17 +165,12 @@ class Type
             if ($c > 1) {
                 $dups[] = $val;
 
-                throw new \ErrorException(sprintf(
-                    'Duplicate type %s is redundant.',
-                    $dups[0]
-                ));
+                throw new \ErrorException(sprintf('Duplicate type %s is redundant.', $dups[0]));
             }
         }
 
         if (self::typeHasRedundantMembers($types)) {
-            throw new \ErrorException(
-                'Union type declarations contain redundant types.'
-            );
+            throw new \ErrorException('Union type declarations contain redundant types.');
         }
     }
 
@@ -187,9 +192,7 @@ class Type
             }
 
             if (! interface_exists($value) && ! class_exists($value)) {
-                throw new \ErrorException(
-                    'Only class and interface can be part of an intersection type.'
-                );
+                throw new \ErrorException('Only class and interface can be part of an intersection type.');
             }
         }
 
@@ -199,9 +202,7 @@ class Type
         );
 
         if ($expTypesCount < $actTypesCount) {
-            throw new \ErrorException(
-                'Duplicate type names in the same declaration is not allowed.'
-            );
+            throw new \ErrorException('Duplicate type names in the same declaration is not allowed.');
         }
     }
 
