@@ -70,34 +70,6 @@ trait TypeTestProvider
             ['float', null, false],
             ['float', '1.23', false],
             ['float', '10', false],
-
-            ['numeric', '42'],
-            ['numeric', 1337],
-            ['numeric', 0x539],
-            ['numeric', 02471],
-            ['numeric', 0b10100111001],
-            ['numeric', 1337e0],
-            ['numeric', '02471'],
-            ['numeric', '1337e0'],
-            ['numeric', 9.1],
-            // https://php.watch/versions/7.4/underscore_numeric_separator
-            ['numeric', 1_000_000], // Decimal
-            ['numeric', 0.300_000_000_000_000_04], // Float
-            ['numeric', 6.62_607_004e-34], // Scientific
-            ['numeric', 0b1111_0000_1001_1111_1001_0010_1010_1001], // Binary
-            ['numeric', 0xBEEF_BABE], // Hex
-            ['numeric', 0123_7264], // Octal
-            // Invalid numeric
-            ['numeric', '0x539', false],
-            ['numeric', '0b10100111001', false],
-            ['numeric', 'not numeric', false],
-            ['numeric', [], false],
-            ['numeric', null, false],
-            ['numeric', '', false],
-
-            ['numeric-string', '42'],
-            ['numeric-string', date('Y')],
-            ['numeric-string', 42, false],
         ];
     }
 

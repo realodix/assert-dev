@@ -56,8 +56,6 @@ Types      | Description
 `positive-int` | Check that a value is a positive integer (`$value >= 1`)
 `negative-int` | Check that a value is a negative integer (`$value <= -1`)
 `float`    | Check that a value is a float
-`numeric`  | Check that a value is numeric
-`numeric-string` | `is_string($value) && is_numeric($value)`
 `resource` | Check that a value is a resource
 `object`   | Check that a value is an object
 `callable` | Check that a value is a callable
@@ -85,8 +83,7 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
-`scalar`   | `string`, `bool`, `numeric`, `int`, and  `float`
-`numeric`  | `int`, `positive-int`, `negative-int`, and `float`
+`scalar`   | `string`, `bool`, `int`, and  `float`
 `int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-array` , and `non-empty-list`
