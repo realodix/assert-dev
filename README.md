@@ -52,8 +52,6 @@ Types      | Description
 `true`     | Check that a value is `true`
 `false`    | Check that a value is `false`
 `int`      | Check that a value is an integer
-`positive-int` | Check that a value is a positive integer (`$value >= 1`)
-`negative-int` | Check that a value is a negative integer (`$value <= -1`)
 `float`    | Check that a value is a float
 `resource` | Check that a value is a resource
 `object`   | Check that a value is an object
@@ -82,7 +80,6 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
-`int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-array` , and `non-empty-list`
 `non-empty-array` | `list[]` and `non-empty-list`
