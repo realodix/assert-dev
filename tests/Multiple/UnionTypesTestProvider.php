@@ -83,8 +83,6 @@ trait UnionTypesTestProvider
         return [
             ['bool|true', true],
             ['bool|false', false],
-
-            ['array|non-empty-array', ['string']],
         ];
     }
 

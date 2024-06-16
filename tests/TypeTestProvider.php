@@ -182,21 +182,6 @@ trait TypeTestProvider
         ];
     }
 
-    public function nonEmptyProvider()
-    {
-        return [
-            ['non-empty-array', ['string']],
-            ['non-empty-array', '', false],
-            ['non-empty-array', [''], false],
-            ['non-empty-array', [null], false],
-            ['non-empty-array', [0], false],
-            ['non-empty-array', [0.0], false],
-            ['non-empty-array', [false], false],
-            ['non-empty-array', [], false],
-            ['non-empty-array', [[]], false],
-        ];
-    }
-
     public function elementProvider()
     {
         return [

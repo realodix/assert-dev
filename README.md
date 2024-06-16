@@ -64,7 +64,6 @@ Types      | Description
 Types       | Description
 ----------- | ------------------------------------------------------------------
 `array`     | Check that a value is an array
-`non-empty-array` | Check that a value is an array, and not [`empty()`][phpEmpty]
 `countable` | Check that the contents of a variable is a countable value
 `iterable`  | Check that the contents of a variable is an iterable value
 
@@ -74,7 +73,6 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `bool`     | `true`, and  `false`
-`array`    | `non-empty-array`
 
 ```php
 use Realodix\Assert\Assert;

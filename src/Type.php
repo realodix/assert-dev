@@ -123,8 +123,6 @@ class Type
             || ($allowedTypes === 'float') && \is_float($value)
             // ...-string
             || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
-            // non-empty-...
-            || ($allowedTypes === 'non-empty-array') && Constraint::nonEmptyArray($value)
             // Others
             || ($allowedTypes === 'empty') && empty($value)
             || ($allowedTypes === 'not-empty') && ! empty($value);
@@ -216,8 +214,6 @@ class Type
     {
         if (\in_array('bool', $types)
                 && (\in_array('true', $types) || \in_array('false', $types))
-            || \in_array('array', $types)
-                && \in_array('non-empty-array', $types)
         ) {
             return true;
         }
