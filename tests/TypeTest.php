@@ -76,18 +76,6 @@ class TypeTest extends TestCase
 
     /**
      * @test
-     * @dataProvider isScalarProvider
-     */
-    public function is_scalar($types, $value, $pass = true)
-    {
-        (! $pass) && $this->invalidType($value, $types);
-
-        Assert::type($value, $types);
-        $this->addToAssertionCount(1);
-    }
-
-    /**
-     * @test
      * @dataProvider isStringProvider
      */
     public function is_string($types, $value, $pass = true)

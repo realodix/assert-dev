@@ -4,22 +4,6 @@ namespace Realodix\Assert\Tests\Competitor;
 
 trait CompetitorTestProvider
 {
-    public function scalarTypesProvider()
-    {
-        return [
-            ['scalar', true],
-            ['string', 'string'],
-
-            ['int', 1],
-            ['float', 1.0],
-
-            ['bool', true],
-            ['bool', false],
-            ['true', true],
-            ['false', false],
-        ];
-    }
-
     public function compoundTypesProvider()
     {
         return [

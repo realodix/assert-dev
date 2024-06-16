@@ -111,7 +111,6 @@ class Type
         return ($type === $allowedTypes)
             || \is_object($value) && $value instanceof $allowedTypes
             || ($allowedTypes === 'callable') && \is_callable($value)
-            || ($allowedTypes === 'scalar') && \is_scalar($value)
             // Array
             || ($allowedTypes === 'countable') && is_countable($value)
             || ($allowedTypes === 'iterable') && is_iterable($value)
@@ -224,14 +223,7 @@ class Type
 
     private static function typeHasRedundantMembers(array $types): bool
     {
-        if (\in_array('scalar', $types)
-            && (\in_array('int', $types)
-                || \in_array('positive-int', $types)
-                || \in_array('negative-int', $types)
-                || \in_array('float', $types)
-                || \in_array('string', $types)
-                || \in_array('bool', $types))
-            || \in_array('bool', $types)
+        if (\in_array('bool', $types)
                 && (\in_array('true', $types) || \in_array('false', $types))
             || \in_array('int', $types)
                 && (\in_array('positive-int', $types) || \in_array('negative-int', $types))

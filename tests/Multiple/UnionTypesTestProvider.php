@@ -54,8 +54,8 @@ trait UnionTypesTestProvider
     public function duplicateSymbolsProvider()
     {
         return [
-            ['scalar||float', 1],
-            ['scalar|||float', 1],
+            ['int||float', 1],
+            ['int|||float', 1],
         ];
     }
 
@@ -81,13 +81,6 @@ trait UnionTypesTestProvider
     public function redundantTypesProvider()
     {
         return [
-            ['scalar|int', 123],
-            ['scalar|float', 123],
-            ['scalar|string', 123],
-            ['scalar|bool', 123],
-
-            ['positive-int|scalar', 123],
-            ['negative-int|scalar', -123],
             ['positive-int|int', 123],
             ['negative-int|int', -123],
 
