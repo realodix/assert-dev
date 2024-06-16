@@ -151,16 +151,12 @@ class Type
     private static function assertTypeDeclaration(string $types): void
     {
         if (preg_match('/^[\[\]\-|a-zA-Z\\\:]+$/', $types) === 0) {
-            throw new \ErrorException(
-                "Only '|' symbol that allowed."
-            );
+            throw new \ErrorException("Only '|' symbol that allowed.");
         }
 
         // Simbol harus diletakkan diantara nama tipe
         if (preg_match('/^([\|])|([\|])$/', $types) > 0) {
-            throw new \ErrorException(
-                'Symbols must be between type names.'
-            );
+            throw new \ErrorException('Symbols must be between type names.');
         }
 
         // Tidak boleh ada duplikat simbol
