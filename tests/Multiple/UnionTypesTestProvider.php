@@ -81,9 +81,6 @@ trait UnionTypesTestProvider
     public function redundantTypesProvider()
     {
         return [
-            ['positive-int|int', 123],
-            ['negative-int|int', -123],
-
             ['bool|true', true],
             ['bool|false', false],
 

@@ -126,8 +126,6 @@ class Type
             || ($allowedTypes === 'false') && $value === false
             // Number
             || ($allowedTypes === 'int') && \is_int($value)
-            || ($allowedTypes === 'positive-int') && \is_int($value) && $value >= 1
-            || ($allowedTypes === 'negative-int') && \is_int($value) && $value <= -1
             || ($allowedTypes === 'float') && \is_float($value)
             // ...-string
             || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
@@ -225,8 +223,6 @@ class Type
     {
         if (\in_array('bool', $types)
                 && (\in_array('true', $types) || \in_array('false', $types))
-            || \in_array('int', $types)
-                && (\in_array('positive-int', $types) || \in_array('negative-int', $types))
             || \in_array('array', $types)
                 && (\in_array('bool[]', $types)
                 || \in_array('string[]', $types)
