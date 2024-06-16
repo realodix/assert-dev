@@ -114,12 +114,6 @@ class Type
             // Array
             || ($allowedTypes === 'countable') && is_countable($value)
             || ($allowedTypes === 'iterable') && is_iterable($value)
-            || ($allowedTypes === 'list[]') && Constraint::arrayIsList($value)
-            || ($allowedTypes === 'bool[]') && Constraint::arrayIs($value, 'is_bool')
-            || ($allowedTypes === 'string[]') && Constraint::arrayIs($value, 'is_string')
-            || ($allowedTypes === 'int[]') && Constraint::arrayIs($value, 'is_int')
-            || ($allowedTypes === 'float[]') && Constraint::arrayIs($value, 'is_float')
-            || ($allowedTypes === 'object[]') && Constraint::arrayIs($value, 'is_object')
             // Boolean
             || ($allowedTypes === 'bool') && \is_bool($value)
             || ($allowedTypes === 'true') && $value === true
@@ -128,10 +122,7 @@ class Type
             || ($allowedTypes === 'int') && \is_int($value)
             || ($allowedTypes === 'float') && \is_float($value)
             // ...-string
-            || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
-            // non-empty-...
-            || ($allowedTypes === 'non-empty-array') && Constraint::nonEmptyArray($value)
-            || ($allowedTypes === 'non-empty-list') && Constraint::nonEmptyList($value);
+            || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value);
     }
 
     /**
@@ -220,18 +211,6 @@ class Type
     {
         if (\in_array('bool', $types)
                 && (\in_array('true', $types) || \in_array('false', $types))
-            || \in_array('array', $types)
-                && (\in_array('bool[]', $types)
-                || \in_array('string[]', $types)
-                || \in_array('int[]', $types)
-                || \in_array('float[]', $types)
-                || \in_array('object[]', $types)
-                || \in_array('list[]', $types)
-                || \in_array('non-empty-array', $types)
-                || \in_array('non-empty-list', $types))
-            || \in_array('non-empty-array', $types)
-                && (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
-            || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
         ) {
             return true;
         }

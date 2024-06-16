@@ -83,18 +83,6 @@ trait UnionTypesTestProvider
         return [
             ['bool|true', true],
             ['bool|false', false],
-
-            ['array|bool[]', []],
-            ['array|string[]', []],
-            ['array|int[]', []],
-            ['array|float[]', []],
-            ['array|object[]', []],
-            ['array|list[]', []],
-            ['array|non-empty-array', ['string']],
-            ['array|non-empty-list', ['string']],
-            ['non-empty-array|list[]', ['string']],
-            ['non-empty-array|non-empty-list', ['string']],
-            ['non-empty-list|list[]', ['string']],
         ];
     }
 
