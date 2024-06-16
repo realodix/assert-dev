@@ -143,23 +143,6 @@ trait TypeTestProvider
         ];
     }
 
-    public function arrayIsListProvider()
-    {
-        return [
-            ['list[]', []],
-            ['list[]', ['apple', 2, 3]],
-            ['list[]', [0 => 'apple', 'orange']],
-            // The array does not start at 0
-            ['list[]', [1 => 'apple', 'orange'], false],
-            // The keys are not in the correct order
-            ['list[]', [1 => 'apple', 0 => 'orange'], false],
-            // Non-integer keys
-            ['list[]', [0 => 'apple', 'foo' => 'bar'], false],
-            // Non-consecutive keys
-            ['list[]', [0 => 'apple', 2 => 'bar'], false],
-        ];
-    }
-
     public function emptyProvider()
     {
         return [
@@ -211,15 +194,6 @@ trait TypeTestProvider
             ['non-empty-array', [false], false],
             ['non-empty-array', [], false],
             ['non-empty-array', [[]], false],
-
-            ['non-empty-list', ['string']],
-            ['non-empty-list', ['apple', 2, 3]],
-            ['non-empty-list', [0 => 'apple', 'orange']],
-            ['non-empty-list', [], false],
-            ['non-empty-list', ['', 2, 3], false],
-            ['non-empty-list', [0 => '', 'orange'], false],
-            ['non-empty-list', [0 => 'apple', ''], false],
-            ['non-empty-list', ['string' => 'string'], false],
         ];
     }
 
@@ -231,13 +205,6 @@ trait TypeTestProvider
             ['stdClass', [new \stdClass, new \stdClass]],
             [\stdClass::class, [new \stdClass, new \stdClass]],
             ['PDO', [new \stdClass, new \stdClass], false],
-        ];
-    }
-
-    public function arrayIsWithInvalidInputProvider()
-    {
-        return [
-            ['list[]', 'string'],
         ];
     }
 }

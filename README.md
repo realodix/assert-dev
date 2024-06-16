@@ -67,8 +67,6 @@ Types       | Description
 `non-empty-array` | Check that a value is an array, and not [`empty()`][phpEmpty]
 `countable` | Check that the contents of a variable is a countable value
 `iterable`  | Check that the contents of a variable is an iterable value
-`list[]`    | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check
-`non-empty-list` | Is an array that would pass an [`array_is_list()`][phpArrayIsList] check, and not [`empty()`][phpEmpty]
 
 #### Redundant types
 You cannot declare a super type and (one/all) of its subtypes in the same union type declaration.
@@ -76,9 +74,7 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
 `bool`     | `true`, and  `false`
-`array`    | `list[]`, `non-empty-array` , and `non-empty-list`
-`non-empty-array` | `list[]` and `non-empty-list`
-`list[]`   | `non-empty-list`
+`array`    | `non-empty-array`
 
 ```php
 use Realodix\Assert\Assert;
@@ -113,6 +109,5 @@ Where applicable, assertion functions are annotated to support Psalm [Assertion 
 This package is licensed using the [MIT License](/LICENSE).
 
 
-[phpArrayIsList]: https://www.php.net/manual/en/function.array-is-list.php
 [phpCtypeLower]: https://www.php.net/manual/en/function.ctype-lower.php
 [phpEmpty]: https://www.php.net/manual/en/function.empty.php

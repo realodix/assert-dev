@@ -32,9 +32,6 @@ trait CompetitorTestProvider
             [\Exception::class, new \RuntimeException],
             ['Traversable', new \ArrayObject],
 
-            ['list[]', ['apple', 2, 3]],
-            ['non-empty-list', ['string']],
-
             // ArrayAccessible
             ['ArrayAccess', new \ArrayObject],
         ];

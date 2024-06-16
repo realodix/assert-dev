@@ -114,7 +114,6 @@ class Type
             // Array
             || ($allowedTypes === 'countable') && is_countable($value)
             || ($allowedTypes === 'iterable') && is_iterable($value)
-            || ($allowedTypes === 'list[]') && Constraint::arrayIsList($value)
             // Boolean
             || ($allowedTypes === 'bool') && \is_bool($value)
             || ($allowedTypes === 'true') && $value === true
@@ -126,7 +125,6 @@ class Type
             || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
             // non-empty-...
             || ($allowedTypes === 'non-empty-array') && Constraint::nonEmptyArray($value)
-            || ($allowedTypes === 'non-empty-list') && Constraint::nonEmptyList($value)
             // Others
             || ($allowedTypes === 'empty') && empty($value)
             || ($allowedTypes === 'not-empty') && ! empty($value);
@@ -219,12 +217,7 @@ class Type
         if (\in_array('bool', $types)
                 && (\in_array('true', $types) || \in_array('false', $types))
             || \in_array('array', $types)
-                && (\in_array('list[]', $types)
-                || \in_array('non-empty-array', $types)
-                || \in_array('non-empty-list', $types))
-            || \in_array('non-empty-array', $types)
-                && (\in_array('list[]', $types) || (\in_array('non-empty-list', $types)))
-            || \in_array('list[]', $types) && \in_array('non-empty-list', $types)
+                && \in_array('non-empty-array', $types)
         ) {
             return true;
         }
