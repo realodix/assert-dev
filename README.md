@@ -47,7 +47,6 @@ public function setFoo($foo)
 ### Types Assertions
 Types      | Description
 ---------- | ------------------------------------------------------------------
-`scalar`   | Check that a value is a scalar
 `string`   | Check that a value is a string
 `bool`     | Check that a value is a boolean
 `true`     | Check that a value is `true`
@@ -83,7 +82,6 @@ You cannot declare a super type and (one/all) of its subtypes in the same union 
 
 Super-type | Sub-type
 ---------- | -------------------------------------------------------------------
-`scalar`   | `string`, `bool`, `int`, and  `float`
 `int`      | `positive-int`, and `negative-int`
 `bool`     | `true`, and  `false`
 `array`    | `list[]`, `bool[]`, `string[]`, `int[]`, `float[]`, `object[]`, `float[]`, `non-empty-array` , and `non-empty-list`
