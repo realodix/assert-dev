@@ -91,11 +91,6 @@ trait TypeTestProvider
             ['callable', 'foobar', false],
             ['callable', new \stdClass, false],
 
-            ['callable-string', 'strlen'],
-            ['callable-string', 'Realodix\Assert\Assert::type'],
-            ['callable-string', ['Realodix\Assert\Type', 'is'], false],
-            ['callable-string', function () {}, false],
-
             ['resource', fopen(__FILE__, 'r')],
         ];
     }

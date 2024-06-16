@@ -120,9 +120,7 @@ class Type
             || ($allowedTypes === 'false') && $value === false
             // Number
             || ($allowedTypes === 'int') && \is_int($value)
-            || ($allowedTypes === 'float') && \is_float($value)
-            // ...-string
-            || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value);
+            || ($allowedTypes === 'float') && \is_float($value);
     }
 
     /**

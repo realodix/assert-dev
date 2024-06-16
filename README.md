@@ -56,7 +56,6 @@ Types      | Description
 `resource` | Check that a value is a resource
 `object`   | Check that a value is an object
 `callable` | Check that a value is a callable
-`callable-string` | `is_string($value) && is_callable($value)`
 `null`     | Check that a value is `null`
 
 Types       | Description
