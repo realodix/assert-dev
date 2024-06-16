@@ -105,5 +105,4 @@ Where applicable, assertion functions are annotated to support Psalm [Assertion 
 This package is licensed using the [MIT License](/LICENSE).
 
 
-[phpCtypeLower]: https://www.php.net/manual/en/function.ctype-lower.php
 [phpEmpty]: https://www.php.net/manual/en/function.empty.php
