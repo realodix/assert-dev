@@ -97,15 +97,4 @@ class TypeTest extends TestCase
         Type::everyIs($value, $types);
         $this->addToAssertionCount(1);
     }
-
-    /**
-     * @dataProvider emptyProvider
-     */
-    public function testEmpty($types, $value, $pass = true)
-    {
-        (! $pass) && $this->invalidType($value, $types);
-
-        Assert::type($value, $types);
-        $this->addToAssertionCount(1);
-    }
 }

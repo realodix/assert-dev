@@ -122,10 +122,7 @@ class Type
             || ($allowedTypes === 'int') && \is_int($value)
             || ($allowedTypes === 'float') && \is_float($value)
             // ...-string
-            || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
-            // Others
-            || ($allowedTypes === 'empty') && empty($value)
-            || ($allowedTypes === 'not-empty') && ! empty($value);
+            || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value);
     }
 
     /**
