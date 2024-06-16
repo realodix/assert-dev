@@ -209,10 +209,14 @@ class Type
 
     private static function typeHasRedundantMembers(array $types): bool
     {
-        if (\in_array('bool', $types)
-                && (\in_array('true', $types) || \in_array('false', $types))
-        ) {
-            return true;
+        $redundantPairs = [
+            'bool' => ['true', 'false'],
+        ];
+
+        foreach ($types as $type) {
+            if (isset($redundantPairs[$type]) && array_intersect($redundantPairs[$type], $types)) {
+                return true;
+            }
         }
 
         return false;
