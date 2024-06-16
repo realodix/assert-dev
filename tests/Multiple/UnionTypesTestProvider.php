@@ -81,18 +81,13 @@ trait UnionTypesTestProvider
     public function redundantTypesProvider()
     {
         return [
-            ['scalar|numeric', 123],
             ['scalar|int', 123],
             ['scalar|float', 123],
             ['scalar|string', 123],
             ['scalar|bool', 123],
-            ['numeric|int', 123],
-            ['numeric|float', 123],
 
             ['positive-int|scalar', 123],
             ['negative-int|scalar', -123],
-            ['positive-int|numeric', 123],
-            ['negative-int|numeric', -123],
             ['positive-int|int', 123],
             ['negative-int|int', -123],
 

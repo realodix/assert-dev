@@ -126,13 +126,11 @@ class Type
             || ($allowedTypes === 'true') && $value === true
             || ($allowedTypes === 'false') && $value === false
             // Number
-            || ($allowedTypes === 'numeric') && is_numeric($value)
             || ($allowedTypes === 'int') && \is_int($value)
             || ($allowedTypes === 'positive-int') && \is_int($value) && $value >= 1
             || ($allowedTypes === 'negative-int') && \is_int($value) && $value <= -1
             || ($allowedTypes === 'float') && \is_float($value)
             // ...-string
-            || ($allowedTypes === 'numeric-string') && is_numeric($value) && \is_string($value)
             || ($allowedTypes === 'callable-string') && \is_callable($value) && \is_string($value)
             // non-empty-...
             || ($allowedTypes === 'non-empty-array') && Constraint::nonEmptyArray($value)
@@ -227,8 +225,7 @@ class Type
     private static function typeHasRedundantMembers(array $types): bool
     {
         if (\in_array('scalar', $types)
-            && (\in_array('numeric', $types)
-                || \in_array('int', $types)
+            && (\in_array('int', $types)
                 || \in_array('positive-int', $types)
                 || \in_array('negative-int', $types)
                 || \in_array('float', $types)
@@ -236,11 +233,6 @@ class Type
                 || \in_array('bool', $types))
             || \in_array('bool', $types)
                 && (\in_array('true', $types) || \in_array('false', $types))
-            || \in_array('numeric', $types)
-                && (\in_array('int', $types)
-                || \in_array('positive-int', $types)
-                || \in_array('negative-int', $types)
-                || \in_array('float', $types))
             || \in_array('int', $types)
                 && (\in_array('positive-int', $types) || \in_array('negative-int', $types))
             || \in_array('array', $types)
