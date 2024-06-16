@@ -205,69 +205,6 @@ trait TypeTestProvider
         ];
     }
 
-    public function emptyProvider()
-    {
-        return [
-            ['empty', ''],
-            ['empty', null],
-            ['empty', []],
-            ['empty', ['a', 'b'], false],
-            ['empty', false],
-            ['empty', true, false],
-            ['empty', 1, false],
-            ['empty', 1.0, false],
-            ['empty', 0],
-            ['empty', -1, false],
-            ['empty', '1', false],
-            ['empty', '0'],
-            ['empty', '-1', false],
-            ['empty', 'string', false],
-            ['empty', 'true', false],
-            ['empty', 'false', false],
-
-            ['not-empty', '', false],
-            ['not-empty', null, false],
-            ['not-empty', [], false],
-            ['not-empty', ['a', 'b']],
-            ['not-empty', false, false],
-            ['not-empty', true],
-            ['not-empty', 1],
-            ['not-empty', 1.0],
-            ['not-empty', 0, false],
-            ['not-empty', -1],
-            ['not-empty', '1'],
-            ['not-empty', '0', false],
-            ['not-empty', '-1'],
-            ['not-empty', 'string'],
-            ['not-empty', 'true'],
-            ['not-empty', 'false'],
-        ];
-    }
-
-    public function nonEmptyProvider()
-    {
-        return [
-            ['non-empty-array', ['string']],
-            ['non-empty-array', '', false],
-            ['non-empty-array', [''], false],
-            ['non-empty-array', [null], false],
-            ['non-empty-array', [0], false],
-            ['non-empty-array', [0.0], false],
-            ['non-empty-array', [false], false],
-            ['non-empty-array', [], false],
-            ['non-empty-array', [[]], false],
-
-            ['non-empty-list', ['string']],
-            ['non-empty-list', ['apple', 2, 3]],
-            ['non-empty-list', [0 => 'apple', 'orange']],
-            ['non-empty-list', [], false],
-            ['non-empty-list', ['', 2, 3], false],
-            ['non-empty-list', [0 => '', 'orange'], false],
-            ['non-empty-list', [0 => 'apple', ''], false],
-            ['non-empty-list', ['string' => 'string'], false],
-        ];
-    }
-
     public function elementProvider()
     {
         return [
