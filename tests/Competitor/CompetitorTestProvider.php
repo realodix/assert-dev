@@ -27,7 +27,6 @@ trait CompetitorTestProvider
     public function othersTypesProvider()
     {
         return [
-
             ['countable', [1, 2]],
             [\Exception::class, new \RuntimeException],
             ['Traversable', new \ArrayObject],

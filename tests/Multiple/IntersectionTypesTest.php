@@ -44,7 +44,7 @@ class IntersectionTypesTest extends TestCase
     public function exceptionMessage2()
     {
         $this->expectExceptionMessage(
-            'Expected a Realodix\Assert\Tests\Fixtures\InterfaceA & Countable. Got: stdClass.'
+            'Expected a Realodix\Assert\Tests\Fixtures\InterfaceA & Countable. Got: stdClass.',
         );
         Type::intersection(new \stdClass, [InterfaceA::class, \Countable::class]);
     }
@@ -62,7 +62,7 @@ class IntersectionTypesTest extends TestCase
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
-            'Only class and interface can be part of an intersection type.'
+            'Only class and interface can be part of an intersection type.',
         );
 
         Type::intersection(new AB, ['string', true]);
@@ -76,7 +76,7 @@ class IntersectionTypesTest extends TestCase
     {
         $this->expectException(\ErrorException::class);
         $this->expectExceptionMessage(
-            'Duplicate type names in the same declaration is not allowed.'
+            'Duplicate type names in the same declaration is not allowed.',
         );
 
         Type::intersection($value, $types);

@@ -5,7 +5,7 @@ namespace Realodix\Assert;
 class Assert
 {
     /**
-     * @param mixed           $value
+     * @param mixed $value
      * @param string|string[] $types
      */
     public static function type($value, $types, string $message = ''): void
@@ -23,7 +23,7 @@ class Assert
         if (! (isset($array[$key]) || \array_key_exists($key, $array))) {
             self::createException(sprintf(
                 $message ?: 'Expected the key %s to exist.',
-                Helper::valueToString($key)
+                Helper::valueToString($key),
             ));
         }
     }
@@ -38,7 +38,7 @@ class Assert
         if (isset($array[$key]) || \array_key_exists($key, $array)) {
             self::createException(sprintf(
                 $message ?: 'Expected the key %s to not exist.',
-                Helper::valueToString($key)
+                Helper::valueToString($key),
             ));
         }
     }
@@ -50,7 +50,7 @@ class Assert
     {
         if (array_keys($array) !== array_filter(array_keys($array), 'is_string')) {
             self::createException(
-                $message ?: 'Expected map - associative array with string keys.'
+                $message ?: 'Expected map - associative array with string keys.',
             );
         }
     }
@@ -64,7 +64,7 @@ class Assert
             if (empty($value)) {
                 self::createException(sprintf(
                     $message ?: 'Expected a non-empty value. Got: %s',
-                    Helper::valueToString($value)
+                    Helper::valueToString($value),
                 ));
             }
         }
@@ -81,7 +81,7 @@ class Assert
             self::createException(sprintf(
                 $message ?: 'Expected an array to contain %d elements. Got: %d.',
                 $number,
-                \count($array)
+                \count($array),
             ));
         }
     }
@@ -97,7 +97,7 @@ class Assert
             self::createException(sprintf(
                 $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
                 \count($array),
-                $max
+                $max,
             ));
         }
     }
@@ -113,7 +113,7 @@ class Assert
             self::createException(sprintf(
                 $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
                 \count($array),
-                $min
+                $min,
             ));
         }
     }
@@ -132,7 +132,7 @@ class Assert
                 $message ?: 'Expected an array to contain between %2$d and %3$d elements. Got: %d',
                 $count,
                 $min,
-                $max
+                $max,
             ));
         }
     }
@@ -145,7 +145,7 @@ class Assert
         if (! (\is_int($value) || \is_string($value))) {
             self::createException(sprintf(
                 $message ?: 'Expected string or integer. Got: %s',
-                Helper::typeToString($value)
+                Helper::typeToString($value),
             ));
         }
     }

@@ -14,7 +14,7 @@
     "require-dev": {
         "phpstan/phpstan": "^1.11",
         "phpunit/phpunit": "^9.6",
-        "realodix/relax": "^1.9"
+        "realodix/relax": "^1.18"
     },
     "autoload": {
         "psr-4": {

@@ -11,15 +11,15 @@ use Realodix\Assert\Tests\Fixtures\InterfaceAB;
 use Realodix\Assert\Tests\Fixtures\InterfaceArrayAccessCountable;
 use Realodix\Assert\Tests\Fixtures\InterfaceB;
 use Realodix\Relax\RuleSet\RuleSetInterface;
-use Realodix\Relax\RuleSet\Sets\Realodix;
+use Realodix\Relax\RuleSet\Sets\Relax;
 
 trait IntersectionTypesTestProvider
 {
     public function intersectionTypesProvider()
     {
         return [
-            [new Realodix, RuleSetInterface::class],
-            [new Realodix, [RuleSetInterface::class]],
+            [new Relax, RuleSetInterface::class],
+            [new Relax, [RuleSetInterface::class]],
             [new B, A::class],
             [new AB, [InterfaceAB::class]],
             [new AB, [InterfaceA::class, InterfaceB::class]],
