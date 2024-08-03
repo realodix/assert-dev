@@ -35,11 +35,11 @@ class Helper
 
         if (\is_object($value)) {
             if (method_exists($value, '__toString')) {
-                return \get_class($value).': '.self::valueToString($value->__toString());
+                return \get_class($value) . ': ' . self::valueToString($value->__toString());
             }
 
             if ($value instanceof \DateTime || $value instanceof \DateTimeImmutable) {
-                return \get_class($value).': '.self::valueToString($value->format('c'));
+                return \get_class($value) . ': ' . self::valueToString($value->format('c'));
             }
 
             return \get_class($value);
@@ -50,7 +50,7 @@ class Helper
         }
 
         if (\is_string($value)) {
-            return '"'.$value.'"';
+            return '"' . $value . '"';
         }
 
         return (string) $value;
@@ -65,7 +65,7 @@ class Helper
             throw new \InvalidArgumentException(sprintf(
                 "Argument #%s%s must 'string or array'.",
                 $order,
-                empty($variable) ? '' : ' ('.$variable.')'
+                empty($variable) ? '' : ' (' . $variable . ')',
             ));
         }
     }

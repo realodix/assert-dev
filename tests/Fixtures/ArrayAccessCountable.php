@@ -38,7 +38,7 @@ class ArrayAccessCountable implements InterfaceArrayAccessCountable
 
     public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     public function count(): int

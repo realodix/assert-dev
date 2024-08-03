@@ -64,17 +64,17 @@ trait UnionTypesTestProvider
         $duplicateType = 'Duplicate type ';
 
         return [
-            ['bool|bool', true, $duplicateType.'bool'],
-            ['bool|string|bool', true, $duplicateType.'bool'],
-            ['int|string|INT', 1, $duplicateType.'int'],
+            ['bool|bool', true, $duplicateType . 'bool'],
+            ['bool|string|bool', true, $duplicateType . 'bool'],
+            ['int|string|INT', 1, $duplicateType . 'int'],
 
-            ['bool|string|bool|string|int|true|INT', true, $duplicateType.'bool'],
-            ['string|bool|string|int|true|INT', true, $duplicateType.'string'],
-            ['bool|string|int|true|INT', true, $duplicateType.'int'],
+            ['bool|string|bool|string|int|true|INT', true, $duplicateType . 'bool'],
+            ['string|bool|string|int|true|INT', true, $duplicateType . 'string'],
+            ['bool|string|int|true|INT', true, $duplicateType . 'int'],
 
-            ['bool|boolean', true, $duplicateType.'bool'],
-            ['float|double', 1.23, $duplicateType.'float'],
-            ['int|integer', 123, $duplicateType.'int'],
+            ['bool|boolean', true, $duplicateType . 'bool'],
+            ['float|double', 1.23, $duplicateType . 'float'],
+            ['int|integer', 123, $duplicateType . 'int'],
         ];
     }
 

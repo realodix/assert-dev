@@ -10,7 +10,7 @@ class Type
      * Checks an parameter's type, that is, throws a InvalidArgumentException if
      * $value is not of $type.
      *
-     * @param mixed           $value The parameter's actual value.
+     * @param mixed $value The parameter's actual value.
      * @param string|string[] $types The parameter's expected type. Can be the name of a native
      *                               type or a class or Interface, or a list of such names.
      *
@@ -36,7 +36,7 @@ class Type
     }
 
     /**
-     * @param list[]          $values
+     * @param list[] $values
      * @param string|string[] $types
      *
      * @psalm-assert string|string[] $types
@@ -61,7 +61,7 @@ class Type
     /**
      * https://gist.github.com/Pierstoval/ed387a09d4a5e76108e60e8a7585ac2d
      *
-     * @param mixed           $value The parameter's actual value.
+     * @param mixed $value The parameter's actual value.
      * @param string|string[] $types The parameter's expected type.
      *
      * @throws \InvalidArgumentException
@@ -77,16 +77,16 @@ class Type
 
         self::assertIntersectionTypeMember($types);
 
-        $validTypes = array_filter($types, fn ($types) => $value instanceof $types);
+        $validTypes = array_filter($types, fn($types) => $value instanceof $types);
         if (\count($types) !== \count($validTypes)) {
             throw new Exception\TypeErrorException(
-                implode(' & ', $types), $value, $message
+                implode(' & ', $types), $value, $message,
             );
         }
     }
 
     /**
-     * @param mixed    $value
+     * @param mixed $value
      * @param string[] $allowedTypes
      */
     private static function hasType($value, array $allowedTypes): bool
@@ -114,8 +114,8 @@ class Type
             'countable' => 'is_countable',
             'iterable'  => 'is_iterable',
             'bool'      => 'is_bool',
-            'true'      => fn ($value) => $value === true,
-            'false'     => fn ($value) => $value === false,
+            'true'      => fn($value) => $value === true,
+            'false'     => fn($value) => $value === false,
             'int'       => 'is_int',
             'float'     => 'is_float',
         ];
@@ -198,7 +198,7 @@ class Type
 
         $actTypesCount = \count($values);
         $expTypesCount = \count(
-            array_intersect_key($values, array_unique(array_map('strtolower', $values)))
+            array_intersect_key($values, array_unique(array_map('strtolower', $values))),
         );
 
         if ($expTypesCount < $actTypesCount) {
@@ -242,7 +242,7 @@ class Type
                         return $type;
                 }
             },
-            $types
+            $types,
         );
     }
 }

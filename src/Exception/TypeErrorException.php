@@ -15,7 +15,7 @@ class TypeErrorException extends \Exception
                 \in_array(lcfirst($types)[0], ['a', 'e', 'i', 'o', 'u'], true) ? 'an' : 'a',
                 $types,
                 // symfony/polyfill-php80
-                get_debug_type($value)
+                get_debug_type($value),
             );
         }
 
